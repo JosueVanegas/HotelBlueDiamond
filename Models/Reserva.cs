@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Hotel_Dorado_DesktopApp.Models;
+
+public partial class Reserva
+{
+    public int ReservaId { get; set; }
+
+    public int? ClienteId { get; set; }
+
+    public int? HabitacionId { get; set; }
+
+    public int? EmpleadoId { get; set; }
+
+    public DateTime? FechaInicio { get; set; }
+
+    public DateTime? FechaFin { get; set; }
+
+    public decimal? Adelanto { get; set; }
+
+    public int HorasReservadas { get; set; }
+
+    public decimal? TotalGastos { get; set; }
+
+    public virtual Cliente? Cliente { get; set; }
+
+    public virtual Empleado? Empleado { get; set; }
+
+    public virtual Habitacion? Habitacion { get; set; }
+}
