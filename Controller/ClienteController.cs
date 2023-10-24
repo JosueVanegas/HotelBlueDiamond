@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Hotel_Dorado_DesktopApp.Controller
 {
@@ -16,38 +17,38 @@ namespace Hotel_Dorado_DesktopApp.Controller
             _context = context;
         }
         // Create
-        public void AddGuest(Cliente guest)
+        public void AddObject(Cliente objects)
         {
-            _context.Clientes.Add(guest);
+            _context.Clientes.Add(objects);
             _context.SaveChanges();
         }
 
         // Read (single guest by ID)
-        public Cliente GetGuestById(int id)
+        public Cliente GetObjectById(int id)
         {
             return _context.Clientes.Find(id);
         }
 
         // Read (all guests)
-        public List<Cliente> GetAllGuests()
+        public List<Cliente> GetAllObjects()
         {
             return _context.Clientes.ToList();
         }
 
         // Update
-        public void UpdateGuest(Cliente guest)
+        public void UpdateObject(Cliente objects)
         {
-            _context.Clientes.Update(guest);
+            _context.Clientes.Update(objects);
             _context.SaveChanges();
         }
 
         // Delete
-        public void DeleteGuest(int id)
+        public void DeleteObject(int id)
         {
-            var guest = _context.Clientes.Find(id);
-            if (guest != null)
+            var objects = _context.Clientes.Find(id);
+            if (objects != null)
             {
-                _context.Clientes.Remove(guest);
+                _context.Clientes.Remove(objects);
                 _context.SaveChanges();
             }
         }

@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             tbClientes = new ReaLTaiizor.Controls.PoisonDataGridView();
             ID = new DataGridViewTextBoxColumn();
+            Cedula = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Apellido = new DataGridViewTextBoxColumn();
             Email = new DataGridViewTextBoxColumn();
@@ -40,55 +41,59 @@
             Editar = new DataGridViewButtonColumn();
             Borrar = new DataGridViewButtonColumn();
             panel1 = new Panel();
-            this.btnNuevoRegistro = new ReaLTaiizor.Controls.MaterialButton();
+            btnsalir = new ReaLTaiizor.Controls.HopeRoundButton();
+            lblTitulo = new Label();
+            btnNuevoRegistro = new ReaLTaiizor.Controls.MaterialButton();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ((System.ComponentModel.ISupportInitialize)tbClientes).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // tbClientes
             // 
+            tbClientes.AllowUserToAddRows = false;
             tbClientes.AllowUserToOrderColumns = true;
             tbClientes.AllowUserToResizeRows = false;
             tbClientes.BackgroundColor = Color.FromArgb(255, 255, 255);
             tbClientes.BorderStyle = BorderStyle.None;
             tbClientes.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tbClientes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(63, 81, 181);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(70, 140, 180);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            tbClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(63, 81, 181);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(70, 140, 180);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            tbClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             tbClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tbClientes.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Apellido, Email, Telefono, Editar, Borrar });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            tbClientes.DefaultCellStyle = dataGridViewCellStyle5;
+            tbClientes.Columns.AddRange(new DataGridViewColumn[] { ID, Cedula, Nombre, Apellido, Email, Telefono, Editar, Borrar });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            tbClientes.DefaultCellStyle = dataGridViewCellStyle2;
             tbClientes.EnableHeadersVisualStyles = false;
             tbClientes.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbClientes.GridColor = Color.FromArgb(255, 255, 255);
-            tbClientes.Location = new Point(54, 117);
+            tbClientes.Location = new Point(54, 165);
             tbClientes.Name = "tbClientes";
             tbClientes.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            tbClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            tbClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             tbClientes.RowHeadersWidth = 51;
             tbClientes.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbClientes.Size = new Size(755, 298);
+            tbClientes.Size = new Size(755, 319);
             tbClientes.TabIndex = 0;
             tbClientes.CellContentClick += cellContentClick;
             tbClientes.CellPainting += cellPainting;
@@ -99,7 +104,16 @@
             ID.MinimumWidth = 6;
             ID.Name = "ID";
             ID.ReadOnly = true;
+            ID.Visible = false;
             ID.Width = 125;
+            // 
+            // Cedula
+            // 
+            Cedula.HeaderText = "Cedula";
+            Cedula.MinimumWidth = 6;
+            Cedula.Name = "Cedula";
+            Cedula.ReadOnly = true;
+            Cedula.Width = 125;
             // 
             // Nombre
             // 
@@ -149,44 +163,85 @@
             // 
             // panel1
             // 
+            panel1.AutoScroll = true;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(this.btnNuevoRegistro);
+            panel1.Controls.Add(btnsalir);
+            panel1.Controls.Add(lblTitulo);
+            panel1.Controls.Add(btnNuevoRegistro);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(855, 111);
+            panel1.Size = new Size(855, 159);
             panel1.TabIndex = 1;
+            // 
+            // btnsalir
+            // 
+            btnsalir.BorderColor = Color.FromArgb(220, 223, 230);
+            btnsalir.ButtonType = ReaLTaiizor.Util.HopeButtonType.Danger;
+            btnsalir.DangerColor = Color.FromArgb(245, 108, 108);
+            btnsalir.DefaultColor = Color.FromArgb(255, 255, 255);
+            btnsalir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnsalir.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btnsalir.InfoColor = Color.FromArgb(144, 147, 153);
+            btnsalir.Location = new Point(54, 95);
+            btnsalir.Name = "btnsalir";
+            btnsalir.PrimaryColor = Color.FromArgb(64, 158, 255);
+            btnsalir.Size = new Size(98, 50);
+            btnsalir.SuccessColor = Color.FromArgb(103, 194, 58);
+            btnsalir.TabIndex = 2;
+            btnsalir.Text = "Salir";
+            btnsalir.TextColor = Color.White;
+            btnsalir.WarningColor = Color.FromArgb(230, 162, 60);
+            btnsalir.Click += btnsalir_Click;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.Dock = DockStyle.Top;
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.Location = new Point(0, 0);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(855, 66);
+            lblTitulo.TabIndex = 1;
+            lblTitulo.Text = "Clientes";
+            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnNuevoRegistro
             // 
-            this.btnNuevoRegistro.AutoSize = false;
-            this.btnNuevoRegistro.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.btnNuevoRegistro.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnNuevoRegistro.Depth = 0;
-            this.btnNuevoRegistro.HighEmphasis = true;
-            this.btnNuevoRegistro.Icon = null;
-            this.btnNuevoRegistro.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            this.btnNuevoRegistro.Location = new Point(54, 53);
-            this.btnNuevoRegistro.Margin = new Padding(4, 6, 4, 6);
-            this.btnNuevoRegistro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.btnNuevoRegistro.Name = "btnNuevoRegistro";
-            this.btnNuevoRegistro.NoAccentTextColor = Color.Empty;
-            this.btnNuevoRegistro.Size = new Size(198, 52);
-            this.btnNuevoRegistro.TabIndex = 0;
-            this.btnNuevoRegistro.Text = "Crear nuevo registro";
-            this.btnNuevoRegistro.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnNuevoRegistro.UseAccentColor = false;
-            this.btnNuevoRegistro.UseVisualStyleBackColor = true;
-            this.btnNuevoRegistro.Click += this.btnNuevoRegistro;
+            btnNuevoRegistro.AutoSize = false;
+            btnNuevoRegistro.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnNuevoRegistro.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnNuevoRegistro.Depth = 0;
+            btnNuevoRegistro.HighEmphasis = true;
+            btnNuevoRegistro.Icon = null;
+            btnNuevoRegistro.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnNuevoRegistro.Location = new Point(326, 95);
+            btnNuevoRegistro.Margin = new Padding(4, 6, 4, 6);
+            btnNuevoRegistro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnNuevoRegistro.Name = "btnNuevoRegistro";
+            btnNuevoRegistro.NoAccentTextColor = Color.Empty;
+            btnNuevoRegistro.Size = new Size(198, 52);
+            btnNuevoRegistro.TabIndex = 0;
+            btnNuevoRegistro.Text = "Crear nuevo registro";
+            btnNuevoRegistro.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnNuevoRegistro.UseAccentColor = false;
+            btnNuevoRegistro.UseVisualStyleBackColor = true;
+            btnNuevoRegistro.Click += btnNuevoRegistro_Click;
+            // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
             // FormClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(855, 450);
+            ClientSize = new Size(855, 496);
             Controls.Add(panel1);
             Controls.Add(tbClientes);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormClientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormClientes";
             ((System.ComponentModel.ISupportInitialize)tbClientes).EndInit();
             panel1.ResumeLayout(false);
@@ -196,15 +251,18 @@
         #endregion
 
         private ReaLTaiizor.Controls.PoisonDataGridView tbClientes;
+        private Panel panel1;
+        private ReaLTaiizor.Controls.MaterialButton btnNuevoRegistro;
+        private Label lblTitulo;
+        private ReaLTaiizor.Controls.HopeRoundButton btnsalir;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Cedula;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Apellido;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Telefono;
         private DataGridViewButtonColumn Editar;
         private DataGridViewButtonColumn Borrar;
-        private Panel panel1;
-        private ReaLTaiizor.Controls.MaterialButton btnNuevoRegistro;
-        private ReaLTaiizor.Controls.MaterialButton btnNuevoRegistro;
     }
 }

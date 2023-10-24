@@ -19,11 +19,9 @@ public partial class Habitacion
 
     public virtual ICollection<HistorialEstadoHabitacion> HistorialEstadoHabitacions { get; set; } = new List<HistorialEstadoHabitacion>();
 
-    public virtual ICollection<Limpieza> Limpiezas { get; set; } = new List<Limpieza>();
-
-    public virtual ICollection<Mantenimiento> Mantenimientos { get; set; } = new List<Mantenimiento>();
-
     public virtual Piso? Piso { get; set; }
 
     public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
+
+    public virtual ICollection<TipoAsignacion> TipoAsignacions { get; set; } = new List<TipoAsignacion>();
 }

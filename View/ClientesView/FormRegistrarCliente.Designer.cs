@@ -28,12 +28,283 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormRegistrarCliente";
+            txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            lblTitulo = new Label();
+            panel1 = new Panel();
+            txtCedula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            btnCancelar = new ReaLTaiizor.Controls.MaterialButton();
+            btnGuardar = new ReaLTaiizor.Controls.MaterialButton();
+            txtCorreo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtTelefono = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtApellido = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtId = new TextBox();
+            panel1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // txtNombre
+            // 
+            txtNombre.AnimateReadOnly = false;
+            txtNombre.AutoCompleteMode = AutoCompleteMode.None;
+            txtNombre.AutoCompleteSource = AutoCompleteSource.None;
+            txtNombre.BackgroundImageLayout = ImageLayout.None;
+            txtNombre.CharacterCasing = CharacterCasing.Normal;
+            txtNombre.Depth = 0;
+            txtNombre.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtNombre.HideSelection = true;
+            txtNombre.Hint = "Nombres";
+            txtNombre.LeadingIcon = null;
+            txtNombre.Location = new Point(18, 83);
+            txtNombre.MaxLength = 32767;
+            txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtNombre.Name = "txtNombre";
+            txtNombre.PasswordChar = '\0';
+            txtNombre.PrefixSuffixText = null;
+            txtNombre.ReadOnly = false;
+            txtNombre.RightToLeft = RightToLeft.No;
+            txtNombre.SelectedText = "";
+            txtNombre.SelectionLength = 0;
+            txtNombre.SelectionStart = 0;
+            txtNombre.ShortcutsEnabled = true;
+            txtNombre.Size = new Size(246, 48);
+            txtNombre.TabIndex = 0;
+            txtNombre.TabStop = false;
+            txtNombre.TextAlign = HorizontalAlignment.Left;
+            txtNombre.TrailingIcon = null;
+            txtNombre.UseSystemPasswordChar = false;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.BackColor = Color.FromArgb(63, 81, 181);
+            lblTitulo.Dock = DockStyle.Top;
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.Location = new Point(0, 0);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(557, 92);
+            lblTitulo.TabIndex = 2;
+            lblTitulo.Text = "Registrar cliente";
+            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(txtId);
+            panel1.Controls.Add(txtCedula);
+            panel1.Controls.Add(btnCancelar);
+            panel1.Controls.Add(btnGuardar);
+            panel1.Controls.Add(txtCorreo);
+            panel1.Controls.Add(txtTelefono);
+            panel1.Controls.Add(txtApellido);
+            panel1.Controls.Add(txtNombre);
+            panel1.Location = new Point(12, 113);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(534, 349);
+            panel1.TabIndex = 3;
+            // 
+            // txtCedula
+            // 
+            txtCedula.AnimateReadOnly = false;
+            txtCedula.AutoCompleteMode = AutoCompleteMode.None;
+            txtCedula.AutoCompleteSource = AutoCompleteSource.None;
+            txtCedula.BackgroundImageLayout = ImageLayout.None;
+            txtCedula.CharacterCasing = CharacterCasing.Normal;
+            txtCedula.Depth = 0;
+            txtCedula.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtCedula.HideSelection = true;
+            txtCedula.Hint = "Cedula";
+            txtCedula.LeadingIcon = null;
+            txtCedula.Location = new Point(18, 29);
+            txtCedula.MaxLength = 32767;
+            txtCedula.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtCedula.Name = "txtCedula";
+            txtCedula.PasswordChar = '\0';
+            txtCedula.PrefixSuffixText = null;
+            txtCedula.ReadOnly = false;
+            txtCedula.RightToLeft = RightToLeft.No;
+            txtCedula.SelectedText = "";
+            txtCedula.SelectionLength = 0;
+            txtCedula.SelectionStart = 0;
+            txtCedula.ShortcutsEnabled = true;
+            txtCedula.Size = new Size(246, 48);
+            txtCedula.TabIndex = 6;
+            txtCedula.TabStop = false;
+            txtCedula.TextAlign = HorizontalAlignment.Left;
+            txtCedula.TrailingIcon = null;
+            txtCedula.UseSystemPasswordChar = false;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.AutoSize = false;
+            btnCancelar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnCancelar.BackColor = Color.Black;
+            btnCancelar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnCancelar.Depth = 0;
+            btnCancelar.HighEmphasis = true;
+            btnCancelar.Icon = null;
+            btnCancelar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnCancelar.Location = new Point(173, 251);
+            btnCancelar.Margin = new Padding(4, 6, 4, 6);
+            btnCancelar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.NoAccentTextColor = Color.Empty;
+            btnCancelar.Size = new Size(198, 45);
+            btnCancelar.TabIndex = 5;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnCancelar.UseAccentColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.AutoSize = false;
+            btnGuardar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnGuardar.BackColor = Color.Black;
+            btnGuardar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnGuardar.Depth = 0;
+            btnGuardar.HighEmphasis = true;
+            btnGuardar.Icon = null;
+            btnGuardar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnGuardar.Location = new Point(173, 194);
+            btnGuardar.Margin = new Padding(4, 6, 4, 6);
+            btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.NoAccentTextColor = Color.Empty;
+            btnGuardar.Size = new Size(198, 45);
+            btnGuardar.TabIndex = 4;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnGuardar.UseAccentColor = false;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // txtCorreo
+            // 
+            txtCorreo.AnimateReadOnly = false;
+            txtCorreo.AutoCompleteMode = AutoCompleteMode.None;
+            txtCorreo.AutoCompleteSource = AutoCompleteSource.None;
+            txtCorreo.BackgroundImageLayout = ImageLayout.None;
+            txtCorreo.CharacterCasing = CharacterCasing.Normal;
+            txtCorreo.Depth = 0;
+            txtCorreo.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtCorreo.HideSelection = true;
+            txtCorreo.Hint = "Correo electrónico";
+            txtCorreo.LeadingIcon = null;
+            txtCorreo.Location = new Point(18, 137);
+            txtCorreo.MaxLength = 32767;
+            txtCorreo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.PasswordChar = '\0';
+            txtCorreo.PrefixSuffixText = null;
+            txtCorreo.ReadOnly = false;
+            txtCorreo.RightToLeft = RightToLeft.No;
+            txtCorreo.SelectedText = "";
+            txtCorreo.SelectionLength = 0;
+            txtCorreo.SelectionStart = 0;
+            txtCorreo.ShortcutsEnabled = true;
+            txtCorreo.Size = new Size(498, 48);
+            txtCorreo.TabIndex = 3;
+            txtCorreo.TabStop = false;
+            txtCorreo.TextAlign = HorizontalAlignment.Left;
+            txtCorreo.TrailingIcon = null;
+            txtCorreo.UseSystemPasswordChar = false;
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.AnimateReadOnly = false;
+            txtTelefono.AutoCompleteMode = AutoCompleteMode.None;
+            txtTelefono.AutoCompleteSource = AutoCompleteSource.None;
+            txtTelefono.BackgroundImageLayout = ImageLayout.None;
+            txtTelefono.CharacterCasing = CharacterCasing.Normal;
+            txtTelefono.Depth = 0;
+            txtTelefono.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtTelefono.HideSelection = true;
+            txtTelefono.Hint = "Telefono";
+            txtTelefono.LeadingIcon = null;
+            txtTelefono.Location = new Point(270, 29);
+            txtTelefono.MaxLength = 32767;
+            txtTelefono.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.PasswordChar = '\0';
+            txtTelefono.PrefixSuffixText = null;
+            txtTelefono.ReadOnly = false;
+            txtTelefono.RightToLeft = RightToLeft.No;
+            txtTelefono.SelectedText = "";
+            txtTelefono.SelectionLength = 0;
+            txtTelefono.SelectionStart = 0;
+            txtTelefono.ShortcutsEnabled = true;
+            txtTelefono.Size = new Size(246, 48);
+            txtTelefono.TabIndex = 2;
+            txtTelefono.TabStop = false;
+            txtTelefono.TextAlign = HorizontalAlignment.Left;
+            txtTelefono.TrailingIcon = null;
+            txtTelefono.UseSystemPasswordChar = false;
+            // 
+            // txtApellido
+            // 
+            txtApellido.AnimateReadOnly = false;
+            txtApellido.AutoCompleteMode = AutoCompleteMode.None;
+            txtApellido.AutoCompleteSource = AutoCompleteSource.None;
+            txtApellido.BackgroundImageLayout = ImageLayout.None;
+            txtApellido.CharacterCasing = CharacterCasing.Normal;
+            txtApellido.Depth = 0;
+            txtApellido.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtApellido.HideSelection = true;
+            txtApellido.Hint = "Apellidos";
+            txtApellido.LeadingIcon = null;
+            txtApellido.Location = new Point(270, 83);
+            txtApellido.MaxLength = 32767;
+            txtApellido.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtApellido.Name = "txtApellido";
+            txtApellido.PasswordChar = '\0';
+            txtApellido.PrefixSuffixText = null;
+            txtApellido.ReadOnly = false;
+            txtApellido.RightToLeft = RightToLeft.No;
+            txtApellido.SelectedText = "";
+            txtApellido.SelectionLength = 0;
+            txtApellido.SelectionStart = 0;
+            txtApellido.ShortcutsEnabled = true;
+            txtApellido.Size = new Size(246, 48);
+            txtApellido.TabIndex = 1;
+            txtApellido.TabStop = false;
+            txtApellido.TextAlign = HorizontalAlignment.Left;
+            txtApellido.TrailingIcon = null;
+            txtApellido.UseSystemPasswordChar = false;
+            // 
+            // txtId
+            // 
+            txtId.Location = new Point(23, 299);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(49, 27);
+            txtId.TabIndex = 7;
+            txtId.Text = "0";
+            // 
+            // FormRegistrarCliente
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(557, 474);
+            Controls.Add(panel1);
+            Controls.Add(lblTitulo);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "FormRegistrarCliente";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FormRegistrarCliente";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombre;
+        private Label lblTitulo;
+        private Panel panel1;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCorreo;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTelefono;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtApellido;
+        private ReaLTaiizor.Controls.MaterialButton btnCancelar;
+        private ReaLTaiizor.Controls.MaterialButton btnGuardar;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCedula;
+        private TextBox txtId;
     }
 }

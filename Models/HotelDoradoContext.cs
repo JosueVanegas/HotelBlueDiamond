@@ -35,10 +35,6 @@ public partial class HotelDoradoContext : DbContext
 
     public virtual DbSet<HistorialEstadoHabitacion> HistorialEstadoHabitacions { get; set; }
 
-    public virtual DbSet<Limpieza> Limpiezas { get; set; }
-
-    public virtual DbSet<Mantenimiento> Mantenimientos { get; set; }
-
     public virtual DbSet<Pedido> Pedidos { get; set; }
 
     public virtual DbSet<Piso> Pisos { get; set; }
@@ -48,6 +44,8 @@ public partial class HotelDoradoContext : DbContext
     public virtual DbSet<Reserva> Reservas { get; set; }
 
     public virtual DbSet<RolesAcceso> RolesAccesos { get; set; }
+
+    public virtual DbSet<TipoAsignacion> TipoAsignacions { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -97,14 +95,15 @@ public partial class HotelDoradoContext : DbContext
 
         modelBuilder.Entity<Cliente>(entity =>
         {
-            entity.HasKey(e => e.ClienteId).HasName("PK__Cliente__71ABD0A7BE9B69C8");
+            entity.HasKey(e => e.ClienteId).HasName("PK__Cliente__71ABD0A7CE346737");
 
             entity.ToTable("Cliente", "Reservas");
 
-            entity.HasIndex(e => e.Email, "UQ__Cliente__A9D105342AA4418A").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Cliente__A9D105341EEC6BA9").IsUnique();
 
             entity.Property(e => e.ClienteId).HasColumnName("ClienteID");
             entity.Property(e => e.Apellido).HasMaxLength(255);
+            entity.Property(e => e.Cedula).HasMaxLength(30);
             entity.Property(e => e.Email).HasMaxLength(255);
             entity.Property(e => e.Nombre).HasMaxLength(255);
             entity.Property(e => e.Telefono).HasMaxLength(50);
@@ -231,59 +230,6 @@ public partial class HotelDoradoContext : DbContext
                 .HasConstraintName("FK__Historial__Habit__571DF1D5");
         });
 
-        modelBuilder.Entity<Limpieza>(entity =>
-        {
-            entity.HasKey(e => e.LimpiezaId).HasName("PK__Limpieza__9BAA6B4B468CCB0B");
-
-            entity.ToTable("Limpieza", "Habitaciones");
-
-            entity.Property(e => e.LimpiezaId).HasColumnName("LimpiezaID");
-            entity.Property(e => e.ComisionGenerada)
-                .HasDefaultValueSql("((0))")
-                .HasColumnType("decimal(10, 2)");
-            entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
-            entity.Property(e => e.Estado)
-                .HasMaxLength(50)
-                .HasDefaultValueSql("('Pendiente')");
-            entity.Property(e => e.Fecha).HasColumnType("datetime");
-            entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
-
-            entity.HasOne(d => d.Empleado).WithMany(p => p.Limpiezas)
-                .HasForeignKey(d => d.EmpleadoId)
-                .HasConstraintName("FK__Limpieza__Emplea__04E4BC85");
-
-            entity.HasOne(d => d.Habitacion).WithMany(p => p.Limpiezas)
-                .HasForeignKey(d => d.HabitacionId)
-                .HasConstraintName("FK__Limpieza__Habita__03F0984C");
-        });
-
-        modelBuilder.Entity<Mantenimiento>(entity =>
-        {
-            entity.HasKey(e => e.MantenimientoId).HasName("PK__Mantenim__A62E6142F4110D23");
-
-            entity.ToTable("Mantenimiento", "Habitaciones");
-
-            entity.Property(e => e.MantenimientoId).HasColumnName("MantenimientoID");
-            entity.Property(e => e.ComisionGenerada)
-                .HasDefaultValueSql("((0))")
-                .HasColumnType("decimal(10, 2)");
-            entity.Property(e => e.Descripcion).HasMaxLength(500);
-            entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
-            entity.Property(e => e.Estado)
-                .HasMaxLength(50)
-                .HasDefaultValueSql("('Pendiente')");
-            entity.Property(e => e.Fecha).HasColumnType("datetime");
-            entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
-
-            entity.HasOne(d => d.Empleado).WithMany(p => p.Mantenimientos)
-                .HasForeignKey(d => d.EmpleadoId)
-                .HasConstraintName("FK__Mantenimi__Emple__09A971A2");
-
-            entity.HasOne(d => d.Habitacion).WithMany(p => p.Mantenimientos)
-                .HasForeignKey(d => d.HabitacionId)
-                .HasConstraintName("FK__Mantenimi__Habit__08B54D69");
-        });
-
         modelBuilder.Entity<Pedido>(entity =>
         {
             entity.HasKey(e => e.PedidoId).HasName("PK__Pedido__09BA141041BFE69E");
@@ -297,7 +243,7 @@ public partial class HotelDoradoContext : DbContext
 
             entity.HasOne(d => d.Cliente).WithMany(p => p.Pedidos)
                 .HasForeignKey(d => d.ClienteId)
-                .HasConstraintName("FK__Pedido__ClienteI__6477ECF3");
+                .HasConstraintName("FK_Pedido_Cliente");
         });
 
         modelBuilder.Entity<Piso>(entity =>
@@ -347,7 +293,7 @@ public partial class HotelDoradoContext : DbContext
 
             entity.HasOne(d => d.Cliente).WithMany(p => p.Reservas)
                 .HasForeignKey(d => d.ClienteId)
-                .HasConstraintName("FK__Reserva__Cliente__5BE2A6F2");
+                .HasConstraintName("FK_Reserva_Cliente");
 
             entity.HasOne(d => d.Empleado).WithMany(p => p.Reservas)
                 .HasForeignKey(d => d.EmpleadoId)
@@ -366,6 +312,29 @@ public partial class HotelDoradoContext : DbContext
 
             entity.Property(e => e.RolId).HasColumnName("RolID");
             entity.Property(e => e.Descripcion).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<TipoAsignacion>(entity =>
+        {
+            entity.HasKey(e => e.AsignacionId).HasName("PK__TipoAsig__D82B5BB78B7C4058");
+
+            entity.ToTable("TipoAsignacion");
+
+            entity.Property(e => e.AsignacionId).HasColumnName("AsignacionID");
+            entity.Property(e => e.ComisionGenerada).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Descripcion).HasMaxLength(150);
+            entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
+            entity.Property(e => e.FechaAsignacion).HasColumnType("datetime");
+            entity.Property(e => e.FechaConclusion).HasColumnType("datetime");
+            entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
+
+            entity.HasOne(d => d.Empleado).WithMany(p => p.TipoAsignacions)
+                .HasForeignKey(d => d.EmpleadoId)
+                .HasConstraintName("FK_TipoAsignacion_Empleado");
+
+            entity.HasOne(d => d.Habitacion).WithMany(p => p.TipoAsignacions)
+                .HasForeignKey(d => d.HabitacionId)
+                .HasConstraintName("FK_TipoAsignacion_Habitacion");
         });
 
         OnModelCreatingPartial(modelBuilder);

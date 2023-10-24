@@ -23,11 +23,9 @@ public partial class Empleado
 
     public virtual ICollection<HistorialEmpleo> HistorialEmpleos { get; set; } = new List<HistorialEmpleo>();
 
-    public virtual ICollection<Limpieza> Limpiezas { get; set; } = new List<Limpieza>();
-
-    public virtual ICollection<Mantenimiento> Mantenimientos { get; set; } = new List<Mantenimiento>();
-
     public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
 
     public virtual RolesAcceso? Rol { get; set; }
+
+    public virtual ICollection<TipoAsignacion> TipoAsignacions { get; set; } = new List<TipoAsignacion>();
 }

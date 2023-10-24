@@ -21,18 +21,17 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
             InitializeComponent();
             context = new HotelDoradoContext();
             controller = new ClienteController(context);
-
-
-
             mostrarClientes();
         }
         private void mostrarClientes()
         {
-            var listaClientes = controller.GetAllGuests();
+            context = new HotelDoradoContext();
+            controller = new ClienteController(context);
+            var listaClientes = controller.GetAllObjects();
             tbClientes.Rows.Clear();
             foreach (var i in listaClientes)
             {
-                tbClientes.Rows.Add(i.ClienteId, i.Nombre, i.Apellido, i.Email, i.Telefono, "", "");
+                tbClientes.Rows.Add(i.ClienteId, i.Cedula, i.Nombre, i.Apellido, i.Email, i.Telefono, "", "");
             }
 
         }
@@ -41,41 +40,43 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
             int indice = e.RowIndex;
             if (tbClientes.Columns[e.ColumnIndex].Name == "Borrar")
             {
-                //int id = (int)tbClientes.Rows[indice].Cells["Id"].Value;
-                MessageBox.Show("Presionastes borrar");
-                //  eliminarEmpleado(id);
+                try
+                {
+                    int id = (int)tbClientes.Rows[indice].Cells["Id"].Value;
+                    
+                    if(MessageBox.Show("¿Esta seguro de eliminar al cliente seleccionado?", "Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+                    {
+                        controller.DeleteObject(id);
+                        mostrarClientes();
+                        MessageBox.Show("Cliente eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             if (tbClientes.Columns[e.ColumnIndex].Name == "Editar")
             {
-                MessageBox.Show("Presionastes editar");
-                /*
-                txtId.Text = tbClientes.Rows[indice].Cells["Id"].Value.ToString();
-                txtNumeroCedula.Text = tbClientes.Rows[indice].Cells["Cedula"].Value.ToString();
-                txtNombre.Text = tbClientes.Rows[indice].Cells["Nombre"].Value.ToString();
-                txtApellido.Text = tbClientes.Rows[indice].Cells["Apellido"].Value.ToString();
-                char sexo = Convert.ToChar(tbClientes.Rows[indice].Cells["Sexo"].Value);
-                if (sexo == 'M')
+                Cliente cliente = new Cliente
                 {
-                    cbxSexo.SelectedIndex = 0;
-                }
-                else if (sexo == 'F')
-                {
-                    cbxSexo.SelectedIndex = 1;
-                }
-                txtTelefono.Text = tbClientes.Rows[indice].Cells["Telefono"].Value.ToString();
-                txtDireccion.Text = tbClientes.Rows[indice].Cells["Direccion"].Value.ToString();
-                txtCorreo.Text = tbClientes.Rows[indice].Cells["Correo"].Value.ToString();
-                txtCargo.Text = tbClientes.Rows[indice].Cells["Cargo"].Value.ToString();
-                txtSalario.Text = tbClientes.Rows[indice].Cells["Salario"].Value.ToString();
-                dtNacimiento.Value = Convert.ToDateTime(tbClientes.Rows[indice].Cells["Nacimiento"].Value);
-                */
+                    ClienteId = Convert.ToInt32(tbClientes.Rows[indice].Cells["Id"].Value),
+                    Cedula = tbClientes.Rows[indice].Cells["Cedula"].Value.ToString(),
+                    Nombre = tbClientes.Rows[indice].Cells["Nombre"].Value.ToString(),
+                    Apellido = tbClientes.Rows[indice].Cells["Apellido"].Value.ToString(),
+                    Telefono = tbClientes.Rows[indice].Cells["Telefono"].Value.ToString(),
+                    Email = tbClientes.Rows[indice].Cells["Email"].Value.ToString(),
+                };
+                FormRegistrarCliente form = new FormRegistrarCliente(cliente);
+                form.ShowDialog();
+                mostrarClientes();
             }
         }
         private void cellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 6)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var h = Properties.Resources.editarImg.Height;
@@ -86,7 +87,7 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
                 e.Graphics.DrawImage(Properties.Resources.editarImg, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == 7)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var w = Properties.Resources.eliminarImg.Width;
@@ -98,17 +99,77 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
                 e.Handled = true;
             }
         }
-
-        private void materialButton1_Click(object sender, EventArgs e)
+        private void btnNuevoRegistro_Click(object sender, EventArgs e)
         {
-            FormRegistrarCliente form = new FormRegistrarCliente();
+            FormRegistrarCliente form = new FormRegistrarCliente(null);
             form.ShowDialog();
             mostrarClientes();
         }
 
-        private void btnNuevoRegistro(object sender, EventArgs e)
+        private void btnsalir_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
+/*
+ *  private void InitializeCarrusel()
+        {
+            int itemWidth = 200;
+            int itemHeight = 250;
+
+            Producto[] products = new Producto[]
+            {
+        new Producto { Descripcion = "Agua"},
+        new Producto { Descripcion = "Coca-cola"},
+         new Producto { Descripcion = "rer"},
+        new Producto { Descripcion = "Csdgg"},
+         new Producto { Descripcion = "pepino"},
+        new Producto { Descripcion = "Cebolla"},
+         new Producto { Descripcion = "ajo"},
+        new Producto { Descripcion = "botella"},
+         new Producto { Descripcion = "leche"},
+        new Producto { Descripcion = "Manis"},
+         new Producto { Descripcion = "jugo de naranja"},
+        new Producto { Descripcion = "Cerveza"},
+         new Producto { Descripcion = "frost"},
+        new Producto { Descripcion = "tpña"}
+                // Agrega más productos aquí
+            };
+
+            int index = 0;
+            foreach (var product in products)
+            {
+                Panel productPanel = new Panel
+                {
+                    Width = itemWidth,
+                    Height = itemHeight,
+                    BorderStyle = BorderStyle.Fixed3D,
+                    Left = index * itemWidth,
+                };
+
+                Label label = new Label
+                {
+                    Text = product.Descripcion,
+                    Dock = DockStyle.Top,
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                productPanel.Controls.Add(label);
+
+                Button buyButton = new Button
+                {
+                    Text = "Comprar",
+                    Dock = DockStyle.Bottom,
+                    Size = new Size(itemWidth,50),
+                    BackColor = Color.DarkGreen,
+                    ForeColor = Color.White
+                };
+                buyButton.Click += (s, e) => MessageBox.Show($"Comprado {product.Descripcion}");
+                productPanel.Controls.Add(buyButton);
+
+                this.panel1.Controls.Add(productPanel);
+
+                index++;
+            }
+        }
+ */
