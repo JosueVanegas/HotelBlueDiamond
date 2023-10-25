@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Hotel_Dorado_DesktopApp.View.ClientesView
 {
-    public partial class FormRegistrarCliente : Form
+    public partial class AdmClientView : Form
     {
         HotelDoradoContext context;
         ClienteController controller;
         Cliente cliente;
         bool ClienteNuevo = true;
-        public FormRegistrarCliente(Cliente cliente)
+        public AdmClientView(Cliente cliente)
         {
             InitializeComponent();
             context = new HotelDoradoContext();
@@ -56,7 +56,7 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
         }
         private bool validarCampos()
         {
-            if(txtCedula.Text != "" && txtNombre.Text != "" && txtApellido.Text != ""
+            if (txtCedula.Text != "" && txtNombre.Text != "" && txtApellido.Text != ""
                         && txtTelefono.Text != "" && txtCorreo.Text != "")
             {
                 return true;

@@ -7,6 +7,8 @@ public partial class Habitacion
 {
     public int HabitacionId { get; set; }
 
+    public string? Codigo { get; set; }
+
     public int? CategoriaHabitacionId { get; set; }
 
     public int? EstadoId { get; set; }
@@ -16,8 +18,6 @@ public partial class Habitacion
     public virtual CategoriaHabitacion? CategoriaHabitacion { get; set; }
 
     public virtual EstadoHabitacion? Estado { get; set; }
-
-    public virtual ICollection<HistorialEstadoHabitacion> HistorialEstadoHabitacions { get; set; } = new List<HistorialEstadoHabitacion>();
 
     public virtual Piso? Piso { get; set; }
 

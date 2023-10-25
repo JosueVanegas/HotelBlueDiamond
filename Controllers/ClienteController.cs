@@ -1,4 +1,5 @@
 ﻿using Hotel_Dorado_DesktopApp.Models;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,33 +17,20 @@ namespace Hotel_Dorado_DesktopApp.Controller
         {
             _context = context;
         }
-        // Create
         public void AddObject(Cliente objects)
         {
             _context.Clientes.Add(objects);
             _context.SaveChanges();
         }
-
-        // Read (single guest by ID)
-        public Cliente GetObjectById(int id)
-        {
-            return _context.Clientes.Find(id);
-        }
-
-        // Read (all guests)
         public List<Cliente> GetAllObjects()
         {
             return _context.Clientes.ToList();
         }
-
-        // Update
         public void UpdateObject(Cliente objects)
         {
             _context.Clientes.Update(objects);
             _context.SaveChanges();
         }
-
-        // Delete
         public void DeleteObject(int id)
         {
             var objects = _context.Clientes.Find(id);
@@ -52,5 +40,17 @@ namespace Hotel_Dorado_DesktopApp.Controller
                 _context.SaveChanges();
             }
         }
+        public Cliente GetObjectById(int id)
+        {
+            return _context.Clientes.Find(id);
+        }
+        /*
+         * public void ExecuteStoredProcedure(string storedProcedure, params SqlParameter[] parameters)
+        {
+            using var context = new YourDbContext();
+            context.Database.ExecuteSqlRaw($"EXECUTE {storedProcedure}", parameters);
+        }
+         */
+
     }
 }

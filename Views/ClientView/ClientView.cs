@@ -12,16 +12,18 @@ using System.Windows.Forms;
 
 namespace Hotel_Dorado_DesktopApp.View.ClientesView
 {
-    public partial class FormClientes : Form
+    public partial class ClientView : Form
     {
         HotelDoradoContext context;
         ClienteController controller;
-        public FormClientes()
+        public ClientView()
         {
+            Cursor = Cursors.WaitCursor;
             InitializeComponent();
             context = new HotelDoradoContext();
             controller = new ClienteController(context);
             mostrarClientes();
+            Cursor = Cursors.Default;
         }
         private void mostrarClientes()
         {
@@ -33,7 +35,6 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
             {
                 tbClientes.Rows.Add(i.ClienteId, i.Cedula, i.Nombre, i.Apellido, i.Email, i.Telefono, "", "");
             }
-
         }
         private void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -43,17 +44,17 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
                 try
                 {
                     int id = (int)tbClientes.Rows[indice].Cells["Id"].Value;
-                    
-                    if(MessageBox.Show("¿Esta seguro de eliminar al cliente seleccionado?", "Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+
+                    if (MessageBox.Show("¿Esta seguro de eliminar al cliente seleccionado?", "Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         controller.DeleteObject(id);
                         mostrarClientes();
                         MessageBox.Show("Cliente eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             if (tbClientes.Columns[e.ColumnIndex].Name == "Editar")
@@ -67,7 +68,7 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
                     Telefono = tbClientes.Rows[indice].Cells["Telefono"].Value.ToString(),
                     Email = tbClientes.Rows[indice].Cells["Email"].Value.ToString(),
                 };
-                FormRegistrarCliente form = new FormRegistrarCliente(cliente);
+                AdmClientView form = new AdmClientView(cliente);
                 form.ShowDialog();
                 mostrarClientes();
             }
@@ -99,77 +100,11 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
                 e.Handled = true;
             }
         }
-        private void btnNuevoRegistro_Click(object sender, EventArgs e)
+        private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            FormRegistrarCliente form = new FormRegistrarCliente(null);
+            AdmClientView form = new AdmClientView(null);
             form.ShowDialog();
             mostrarClientes();
         }
-
-        private void btnsalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }
-/*
- *  private void InitializeCarrusel()
-        {
-            int itemWidth = 200;
-            int itemHeight = 250;
-
-            Producto[] products = new Producto[]
-            {
-        new Producto { Descripcion = "Agua"},
-        new Producto { Descripcion = "Coca-cola"},
-         new Producto { Descripcion = "rer"},
-        new Producto { Descripcion = "Csdgg"},
-         new Producto { Descripcion = "pepino"},
-        new Producto { Descripcion = "Cebolla"},
-         new Producto { Descripcion = "ajo"},
-        new Producto { Descripcion = "botella"},
-         new Producto { Descripcion = "leche"},
-        new Producto { Descripcion = "Manis"},
-         new Producto { Descripcion = "jugo de naranja"},
-        new Producto { Descripcion = "Cerveza"},
-         new Producto { Descripcion = "frost"},
-        new Producto { Descripcion = "tpña"}
-                // Agrega más productos aquí
-            };
-
-            int index = 0;
-            foreach (var product in products)
-            {
-                Panel productPanel = new Panel
-                {
-                    Width = itemWidth,
-                    Height = itemHeight,
-                    BorderStyle = BorderStyle.Fixed3D,
-                    Left = index * itemWidth,
-                };
-
-                Label label = new Label
-                {
-                    Text = product.Descripcion,
-                    Dock = DockStyle.Top,
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                productPanel.Controls.Add(label);
-
-                Button buyButton = new Button
-                {
-                    Text = "Comprar",
-                    Dock = DockStyle.Bottom,
-                    Size = new Size(itemWidth,50),
-                    BackColor = Color.DarkGreen,
-                    ForeColor = Color.White
-                };
-                buyButton.Click += (s, e) => MessageBox.Show($"Comprado {product.Descripcion}");
-                productPanel.Controls.Add(buyButton);
-
-                this.panel1.Controls.Add(productPanel);
-
-                index++;
-            }
-        }
- */

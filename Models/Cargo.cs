@@ -16,6 +16,4 @@ public partial class Cargo
     public decimal? Bonificacion { get; set; }
 
     public virtual ICollection<Empleado> Empleados { get; set; } = new List<Empleado>();
-
-    public virtual ICollection<HistorialEmpleo> HistorialEmpleos { get; set; } = new List<HistorialEmpleo>();
 }

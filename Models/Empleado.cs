@@ -21,8 +21,6 @@ public partial class Empleado
 
     public virtual Cargo? Cargo { get; set; }
 
-    public virtual ICollection<HistorialEmpleo> HistorialEmpleos { get; set; } = new List<HistorialEmpleo>();
-
     public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
 
     public virtual RolesAcceso? Rol { get; set; }

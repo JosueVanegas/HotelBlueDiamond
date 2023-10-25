@@ -10,6 +10,4 @@ public partial class EstadoHabitacion
     public string? Descripcion { get; set; }
 
     public virtual ICollection<Habitacion> Habitacions { get; set; } = new List<Habitacion>();
-
-    public virtual ICollection<HistorialEstadoHabitacion> HistorialEstadoHabitacions { get; set; } = new List<HistorialEstadoHabitacion>();
 }

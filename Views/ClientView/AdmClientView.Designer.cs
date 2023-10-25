@@ -1,6 +1,6 @@
 ﻿namespace Hotel_Dorado_DesktopApp.View.ClientesView
 {
-    partial class FormRegistrarCliente
+    partial class AdmClientView
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblTitulo = new Label();
             panel1 = new Panel();
+            txtId = new TextBox();
             txtCedula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             btnCancelar = new ReaLTaiizor.Controls.MaterialButton();
             btnGuardar = new ReaLTaiizor.Controls.MaterialButton();
             txtCorreo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtTelefono = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtApellido = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtId = new TextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             txtNombre.HideSelection = true;
             txtNombre.Hint = "Nombres";
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(18, 83);
+            txtNombre.Location = new Point(17, 179);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNombre.Name = "txtNombre";
@@ -74,12 +74,11 @@
             // 
             // lblTitulo
             // 
-            lblTitulo.BackColor = Color.FromArgb(63, 81, 181);
-            lblTitulo.Dock = DockStyle.Top;
+            lblTitulo.BackColor = Color.White;
             lblTitulo.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTitulo.Location = new Point(0, 0);
+            lblTitulo.Location = new Point(17, 10);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(557, 92);
+            lblTitulo.Size = new Size(498, 98);
             lblTitulo.TabIndex = 2;
             lblTitulo.Text = "Registrar cliente";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -88,6 +87,7 @@
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(txtId);
+            panel1.Controls.Add(lblTitulo);
             panel1.Controls.Add(txtCedula);
             panel1.Controls.Add(btnCancelar);
             panel1.Controls.Add(btnGuardar);
@@ -95,10 +95,18 @@
             panel1.Controls.Add(txtTelefono);
             panel1.Controls.Add(txtApellido);
             panel1.Controls.Add(txtNombre);
-            panel1.Location = new Point(12, 113);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(534, 349);
+            panel1.Size = new Size(534, 450);
             panel1.TabIndex = 3;
+            // 
+            // txtId
+            // 
+            txtId.Location = new Point(22, 395);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(49, 27);
+            txtId.TabIndex = 7;
+            txtId.Text = "0";
             // 
             // txtCedula
             // 
@@ -112,7 +120,7 @@
             txtCedula.HideSelection = true;
             txtCedula.Hint = "Cedula";
             txtCedula.LeadingIcon = null;
-            txtCedula.Location = new Point(18, 29);
+            txtCedula.Location = new Point(17, 125);
             txtCedula.MaxLength = 32767;
             txtCedula.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCedula.Name = "txtCedula";
@@ -141,7 +149,7 @@
             btnCancelar.HighEmphasis = true;
             btnCancelar.Icon = null;
             btnCancelar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancelar.Location = new Point(173, 251);
+            btnCancelar.Location = new Point(172, 347);
             btnCancelar.Margin = new Padding(4, 6, 4, 6);
             btnCancelar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancelar.Name = "btnCancelar";
@@ -164,7 +172,7 @@
             btnGuardar.HighEmphasis = true;
             btnGuardar.Icon = null;
             btnGuardar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnGuardar.Location = new Point(173, 194);
+            btnGuardar.Location = new Point(172, 290);
             btnGuardar.Margin = new Padding(4, 6, 4, 6);
             btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
@@ -189,7 +197,7 @@
             txtCorreo.HideSelection = true;
             txtCorreo.Hint = "Correo electrónico";
             txtCorreo.LeadingIcon = null;
-            txtCorreo.Location = new Point(18, 137);
+            txtCorreo.Location = new Point(17, 233);
             txtCorreo.MaxLength = 32767;
             txtCorreo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCorreo.Name = "txtCorreo";
@@ -220,7 +228,7 @@
             txtTelefono.HideSelection = true;
             txtTelefono.Hint = "Telefono";
             txtTelefono.LeadingIcon = null;
-            txtTelefono.Location = new Point(270, 29);
+            txtTelefono.Location = new Point(269, 125);
             txtTelefono.MaxLength = 32767;
             txtTelefono.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtTelefono.Name = "txtTelefono";
@@ -251,7 +259,7 @@
             txtApellido.HideSelection = true;
             txtApellido.Hint = "Apellidos";
             txtApellido.LeadingIcon = null;
-            txtApellido.Location = new Point(270, 83);
+            txtApellido.Location = new Point(269, 179);
             txtApellido.MaxLength = 32767;
             txtApellido.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtApellido.Name = "txtApellido";
@@ -270,23 +278,15 @@
             txtApellido.TrailingIcon = null;
             txtApellido.UseSystemPasswordChar = false;
             // 
-            // txtId
-            // 
-            txtId.Location = new Point(23, 299);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(49, 27);
-            txtId.TabIndex = 7;
-            txtId.Text = "0";
-            // 
-            // FormRegistrarCliente
+            // AdmClientView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(557, 474);
             Controls.Add(panel1);
-            Controls.Add(lblTitulo);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormRegistrarCliente";
+            Name = "AdmClientView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRegistrarCliente";
             panel1.ResumeLayout(false);

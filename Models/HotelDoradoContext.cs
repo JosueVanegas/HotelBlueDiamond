@@ -31,10 +31,6 @@ public partial class HotelDoradoContext : DbContext
 
     public virtual DbSet<Habitacion> Habitacions { get; set; }
 
-    public virtual DbSet<HistorialEmpleo> HistorialEmpleos { get; set; }
-
-    public virtual DbSet<HistorialEstadoHabitacion> HistorialEstadoHabitacions { get; set; }
-
     public virtual DbSet<Pedido> Pedidos { get; set; }
 
     public virtual DbSet<Piso> Pisos { get; set; }
@@ -172,62 +168,21 @@ public partial class HotelDoradoContext : DbContext
 
             entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
             entity.Property(e => e.CategoriaHabitacionId).HasColumnName("CategoriaHabitacionID");
+            entity.Property(e => e.Codigo).HasMaxLength(10);
             entity.Property(e => e.EstadoId).HasColumnName("EstadoID");
             entity.Property(e => e.PisoId).HasColumnName("PisoID");
 
             entity.HasOne(d => d.CategoriaHabitacion).WithMany(p => p.Habitacions)
                 .HasForeignKey(d => d.CategoriaHabitacionId)
-                .HasConstraintName("FK__Habitacio__Categ__5441852A");
+                .HasConstraintName("FK_Habitacion_CategoriaHabitacion");
 
             entity.HasOne(d => d.Estado).WithMany(p => p.Habitacions)
                 .HasForeignKey(d => d.EstadoId)
-                .HasConstraintName("FK__Habitacio__Estad__534D60F1");
+                .HasConstraintName("FK_Habitacion_EstadoHabitacion");
 
             entity.HasOne(d => d.Piso).WithMany(p => p.Habitacions)
                 .HasForeignKey(d => d.PisoId)
-                .HasConstraintName("FK__Habitacio__PisoI__52593CB8");
-        });
-
-        modelBuilder.Entity<HistorialEmpleo>(entity =>
-        {
-            entity.HasKey(e => e.HistorialId).HasName("PK__Historia__975206EF8962051C");
-
-            entity.ToTable("HistorialEmpleo", "RecursosHumanos");
-
-            entity.Property(e => e.HistorialId).HasColumnName("HistorialID");
-            entity.Property(e => e.CargoId).HasColumnName("CargoID");
-            entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
-            entity.Property(e => e.FechaFin).HasColumnType("date");
-            entity.Property(e => e.FechaInicio).HasColumnType("date");
-
-            entity.HasOne(d => d.Cargo).WithMany(p => p.HistorialEmpleos)
-                .HasForeignKey(d => d.CargoId)
-                .HasConstraintName("FK__Historial__Cargo__14270015");
-
-            entity.HasOne(d => d.Empleado).WithMany(p => p.HistorialEmpleos)
-                .HasForeignKey(d => d.EmpleadoId)
-                .HasConstraintName("FK__Historial__Emple__1332DBDC");
-        });
-
-        modelBuilder.Entity<HistorialEstadoHabitacion>(entity =>
-        {
-            entity.HasKey(e => e.HistorialId).HasName("PK__Historia__975206EFEFE4E8EF");
-
-            entity.ToTable("HistorialEstadoHabitacion", "Habitaciones");
-
-            entity.Property(e => e.HistorialId).HasColumnName("HistorialID");
-            entity.Property(e => e.EstadoId).HasColumnName("EstadoID");
-            entity.Property(e => e.FechaFin).HasColumnType("datetime");
-            entity.Property(e => e.FechaInicio).HasColumnType("datetime");
-            entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
-
-            entity.HasOne(d => d.Estado).WithMany(p => p.HistorialEstadoHabitacions)
-                .HasForeignKey(d => d.EstadoId)
-                .HasConstraintName("FK__Historial__Estad__5812160E");
-
-            entity.HasOne(d => d.Habitacion).WithMany(p => p.HistorialEstadoHabitacions)
-                .HasForeignKey(d => d.HabitacionId)
-                .HasConstraintName("FK__Historial__Habit__571DF1D5");
+                .HasConstraintName("FK_Habitacion_Piso");
         });
 
         modelBuilder.Entity<Pedido>(entity =>
@@ -301,7 +256,7 @@ public partial class HotelDoradoContext : DbContext
 
             entity.HasOne(d => d.Habitacion).WithMany(p => p.Reservas)
                 .HasForeignKey(d => d.HabitacionId)
-                .HasConstraintName("FK__Reserva__Habitac__5CD6CB2B");
+                .HasConstraintName("FK_Reserva_Habitacion");
         });
 
         modelBuilder.Entity<RolesAcceso>(entity =>

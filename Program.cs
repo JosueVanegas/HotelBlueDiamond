@@ -11,7 +11,7 @@ namespace Hotel_Dorado_DesktopApp
         {
             
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormClientes());
+            Application.Run(new HomeView());
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Hotel_Dorado_DesktopApp.View
+﻿namespace Hotel_Dorado_DesktopApp.Views.GestionView
 {
-    partial class HomeView
+    partial class ReceptionView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panelCarrusel = new Panel();
             SuspendLayout();
             // 
-            // HomeView
+            // panelCarrusel
+            // 
+            panelCarrusel.AutoScroll = true;
+            panelCarrusel.BackColor = SystemColors.AppWorkspace;
+            panelCarrusel.Location = new Point(107, 146);
+            panelCarrusel.Name = "panelCarrusel";
+            panelCarrusel.Size = new Size(894, 379);
+            panelCarrusel.TabIndex = 0;
+            // 
+            // ReceptionView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(960, 655);
-            Name = "HomeView";
-            Text = "HomeView";
+            ClientSize = new Size(1143, 670);
+            Controls.Add(panelCarrusel);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "ReceptionView";
+            Text = "ReceptionView";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panelCarrusel;
     }
 }
