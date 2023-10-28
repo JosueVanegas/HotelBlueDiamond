@@ -1,4 +1,5 @@
 ﻿using Hotel_Dorado_DesktopApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Hotel_Dorado_DesktopApp.Controllers
         }
         public List<Habitacion> GetAllObjects()
         {
-            return _context.Habitacions.ToList();
+            return _context.Habitacions.Include(h=>h.CategoriaHabitacion).Include(h=>h.Piso).Include(h=>h.Estado).ToList();
         }
         public void UpdateObject(Habitacion objects)
         {
@@ -38,6 +39,18 @@ namespace Hotel_Dorado_DesktopApp.Controllers
                 _context.Habitacions.Remove(objects);
                 _context.SaveChanges();
             }
+        }
+        public List<EstadoHabitacion> GetEstadoHabitacions()
+        {
+            return _context.EstadoHabitacions.ToList();
+        }
+        public List<CategoriaHabitacion> GetCategoriaHabitacions()
+        {
+            return _context.CategoriaHabitacions.ToList();
+        }
+        public List<Piso> GetPisoHabitacions()
+        {
+            return _context.Pisos.ToList();
         }
         public Habitacion GetObjectById(int id)
         {

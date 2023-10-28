@@ -17,13 +17,15 @@ public partial class Empleado
 
     public int? CargoId { get; set; }
 
-    public int? RolId { get; set; }
+    public int? UsuarioId { get; set; }
+
+    public DateTime? FechaRegistro { get; set; }
+
+    public virtual ICollection<Asignacion> Asignacions { get; set; } = new List<Asignacion>();
 
     public virtual Cargo? Cargo { get; set; }
 
     public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
 
-    public virtual RolesAcceso? Rol { get; set; }
-
-    public virtual ICollection<TipoAsignacion> TipoAsignacions { get; set; } = new List<TipoAsignacion>();
+    public virtual Usuario? Usuario { get; set; }
 }

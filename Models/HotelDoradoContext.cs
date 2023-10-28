@@ -15,6 +15,8 @@ public partial class HotelDoradoContext : DbContext
     {
     }
 
+    public virtual DbSet<Asignacion> Asignacions { get; set; }
+
     public virtual DbSet<Cargo> Cargos { get; set; }
 
     public virtual DbSet<CategoriaHabitacion> CategoriaHabitacions { get; set; }
@@ -39,9 +41,9 @@ public partial class HotelDoradoContext : DbContext
 
     public virtual DbSet<Reserva> Reservas { get; set; }
 
-    public virtual DbSet<RolesAcceso> RolesAccesos { get; set; }
+    public virtual DbSet<Rol> Rols { get; set; }
 
-    public virtual DbSet<TipoAsignacion> TipoAsignacions { get; set; }
+    public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -49,6 +51,29 @@ public partial class HotelDoradoContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Asignacion>(entity =>
+        {
+            entity.HasKey(e => e.AsignacionId).HasName("PK__Asignaci__D82B5BB75F2E664B");
+
+            entity.ToTable("Asignacion", "RecursosHumanos");
+
+            entity.Property(e => e.AsignacionId).HasColumnName("AsignacionID");
+            entity.Property(e => e.ComisionGenerada).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Descripcion).HasMaxLength(150);
+            entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
+            entity.Property(e => e.FechaAsignacion).HasColumnType("datetime");
+            entity.Property(e => e.FechaConclusion).HasColumnType("datetime");
+            entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
+
+            entity.HasOne(d => d.Empleado).WithMany(p => p.Asignacions)
+                .HasForeignKey(d => d.EmpleadoId)
+                .HasConstraintName("FK_TipoAsignacion_Empleado");
+
+            entity.HasOne(d => d.Habitacion).WithMany(p => p.Asignacions)
+                .HasForeignKey(d => d.HabitacionId)
+                .HasConstraintName("FK_TipoAsignacion_Habitacion");
+        });
+
         modelBuilder.Entity<Cargo>(entity =>
         {
             entity.HasKey(e => e.CargoId).HasName("PK__Cargo__B4E665ED939BA4F3");
@@ -76,7 +101,6 @@ public partial class HotelDoradoContext : DbContext
 
             entity.Property(e => e.CategoriaHabitacionId).HasColumnName("CategoriaHabitacionID");
             entity.Property(e => e.Descripcion).HasMaxLength(255);
-            entity.Property(e => e.TarifaPorHora).HasColumnType("decimal(10, 2)");
         });
 
         modelBuilder.Entity<CategoriaProducto>(entity =>
@@ -137,17 +161,20 @@ public partial class HotelDoradoContext : DbContext
             entity.Property(e => e.Apellido).HasMaxLength(255);
             entity.Property(e => e.CargoId).HasColumnName("CargoID");
             entity.Property(e => e.Cedula).HasMaxLength(30);
+            entity.Property(e => e.FechaRegistro)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("date");
             entity.Property(e => e.Nacimiento).HasColumnType("date");
             entity.Property(e => e.Nombre).HasMaxLength(255);
-            entity.Property(e => e.RolId).HasColumnName("RolID");
+            entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
             entity.HasOne(d => d.Cargo).WithMany(p => p.Empleados)
                 .HasForeignKey(d => d.CargoId)
                 .HasConstraintName("FK__Empleado__CargoI__6E01572D");
 
-            entity.HasOne(d => d.Rol).WithMany(p => p.Empleados)
-                .HasForeignKey(d => d.RolId)
-                .HasConstraintName("FK__Empleado__RolID__10566F31");
+            entity.HasOne(d => d.Usuario).WithMany(p => p.Empleados)
+                .HasForeignKey(d => d.UsuarioId)
+                .HasConstraintName("FK_Empleado_Usuario");
         });
 
         modelBuilder.Entity<EstadoHabitacion>(entity =>
@@ -169,8 +196,13 @@ public partial class HotelDoradoContext : DbContext
             entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
             entity.Property(e => e.CategoriaHabitacionId).HasColumnName("CategoriaHabitacionID");
             entity.Property(e => e.Codigo).HasMaxLength(10);
+            entity.Property(e => e.Detalles).HasMaxLength(300);
             entity.Property(e => e.EstadoId).HasColumnName("EstadoID");
+            entity.Property(e => e.Extras).HasMaxLength(150);
             entity.Property(e => e.PisoId).HasColumnName("PisoID");
+            entity.Property(e => e.PrecioPh)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("PrecioPH");
 
             entity.HasOne(d => d.CategoriaHabitacion).WithMany(p => p.Habitacions)
                 .HasForeignKey(d => d.CategoriaHabitacionId)
@@ -241,6 +273,9 @@ public partial class HotelDoradoContext : DbContext
             entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
             entity.Property(e => e.FechaFin).HasColumnType("date");
             entity.Property(e => e.FechaInicio).HasColumnType("date");
+            entity.Property(e => e.FechaRegistro)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("date");
             entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
             entity.Property(e => e.TotalGastos)
                 .HasDefaultValueSql("((0))")
@@ -259,37 +294,38 @@ public partial class HotelDoradoContext : DbContext
                 .HasConstraintName("FK_Reserva_Habitacion");
         });
 
-        modelBuilder.Entity<RolesAcceso>(entity =>
+        modelBuilder.Entity<Rol>(entity =>
         {
-            entity.HasKey(e => e.RolId).HasName("PK__RolesAcc__F92302D15E116AAE");
+            entity.HasKey(e => e.RolId).HasName("PK__Rol__F92302D168D4808E");
 
-            entity.ToTable("RolesAcceso", "RecursosHumanos");
+            entity.ToTable("Rol", "RecursosHumanos");
 
             entity.Property(e => e.RolId).HasColumnName("RolID");
-            entity.Property(e => e.Descripcion).HasMaxLength(255);
+            entity.Property(e => e.Descripcion).HasMaxLength(150);
+            entity.Property(e => e.FechaRegistro)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("date");
         });
 
-        modelBuilder.Entity<TipoAsignacion>(entity =>
+        modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.AsignacionId).HasName("PK__TipoAsig__D82B5BB78B7C4058");
+            entity.HasKey(e => e.UsuarioId).HasName("PK__Usuario__2B3DE798E806E1CF");
 
-            entity.ToTable("TipoAsignacion");
+            entity.ToTable("Usuario", "RecursosHumanos");
 
-            entity.Property(e => e.AsignacionId).HasColumnName("AsignacionID");
-            entity.Property(e => e.ComisionGenerada).HasColumnType("decimal(10, 2)");
-            entity.Property(e => e.Descripcion).HasMaxLength(150);
-            entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
-            entity.Property(e => e.FechaAsignacion).HasColumnType("datetime");
-            entity.Property(e => e.FechaConclusion).HasColumnType("datetime");
-            entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
+            entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
+            entity.Property(e => e.Clave).HasMaxLength(300);
+            entity.Property(e => e.FechaRegistro)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("date");
+            entity.Property(e => e.RolId).HasColumnName("RolID");
+            entity.Property(e => e.Usuario1)
+                .HasMaxLength(100)
+                .HasColumnName("Usuario");
 
-            entity.HasOne(d => d.Empleado).WithMany(p => p.TipoAsignacions)
-                .HasForeignKey(d => d.EmpleadoId)
-                .HasConstraintName("FK_TipoAsignacion_Empleado");
-
-            entity.HasOne(d => d.Habitacion).WithMany(p => p.TipoAsignacions)
-                .HasForeignKey(d => d.HabitacionId)
-                .HasConstraintName("FK_TipoAsignacion_Habitacion");
+            entity.HasOne(d => d.Rol).WithMany(p => p.Usuarios)
+                .HasForeignKey(d => d.RolId)
+                .HasConstraintName("FK_Usuario_Rol");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -23,6 +23,10 @@ public partial class Reserva
 
     public decimal? TotalGastos { get; set; }
 
+    public DateTime? FechaRegistro { get; set; }
+
+    public int? CantidadPersonas { get; set; }
+
     public virtual Cliente? Cliente { get; set; }
 
     public virtual Empleado? Empleado { get; set; }

@@ -1,5 +1,6 @@
 ﻿using Hotel_Dorado_DesktopApp.Controller;
 using Hotel_Dorado_DesktopApp.Models;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,15 +19,18 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
         ClienteController controller;
         public ClientView()
         {
-            Cursor = Cursors.WaitCursor;
+
             InitializeComponent();
             context = new HotelDoradoContext();
             controller = new ClienteController(context);
             mostrarClientes();
-            Cursor = Cursors.Default;
+            tbClientes.Left = (panelContenedor.Width - tbClientes.Width) / 2;
+            tbClientes.Top = (panelContenedor.Height - tbClientes.Height) / 2;
+            btnRegistrar.Left = (panel1.Width - btnRegistrar.Width) / 2;
         }
         private void mostrarClientes()
         {
+            Cursor = Cursors.WaitCursor;
             context = new HotelDoradoContext();
             controller = new ClienteController(context);
             var listaClientes = controller.GetAllObjects();
@@ -35,6 +39,7 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
             {
                 tbClientes.Rows.Add(i.ClienteId, i.Cedula, i.Nombre, i.Apellido, i.Email, i.Telefono, "", "");
             }
+            Cursor = Cursors.Default;
         }
         private void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {

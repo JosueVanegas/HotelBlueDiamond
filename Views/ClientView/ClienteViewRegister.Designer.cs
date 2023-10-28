@@ -107,6 +107,7 @@
             txtId.Size = new Size(49, 27);
             txtId.TabIndex = 7;
             txtId.Text = "0";
+            txtId.Visible = false;
             // 
             // txtCedula
             // 

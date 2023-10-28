@@ -15,6 +15,14 @@ public partial class Habitacion
 
     public int? PisoId { get; set; }
 
+    public string? Detalles { get; set; }
+
+    public decimal? PrecioPh { get; set; }
+
+    public string? Extras { get; set; }
+
+    public virtual ICollection<Asignacion> Asignacions { get; set; } = new List<Asignacion>();
+
     public virtual CategoriaHabitacion? CategoriaHabitacion { get; set; }
 
     public virtual EstadoHabitacion? Estado { get; set; }
@@ -22,6 +30,4 @@ public partial class Habitacion
     public virtual Piso? Piso { get; set; }
 
     public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
-
-    public virtual ICollection<TipoAsignacion> TipoAsignacions { get; set; } = new List<TipoAsignacion>();
 }

@@ -9,7 +9,7 @@ public partial class CategoriaHabitacion
 
     public string? Descripcion { get; set; }
 
-    public decimal? TarifaPorHora { get; set; }
+    public int? Capacidad { get; set; }
 
     public virtual ICollection<Habitacion> Habitacions { get; set; } = new List<Habitacion>();
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Hotel_Dorado_DesktopApp.Models;
 
-public partial class TipoAsignacion
+public partial class Asignacion
 {
     public int AsignacionId { get; set; }
 
