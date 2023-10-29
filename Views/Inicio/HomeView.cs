@@ -1,8 +1,11 @@
 ﻿using Hotel_Dorado_DesktopApp.View.ClientesView;
+using Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Asignaciones;
+using Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal;
 using Hotel_Dorado_DesktopApp.Views.GestionView;
 using Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion;
 using Hotel_Dorado_DesktopApp.Views.Habitaciones;
 using Hotel_Dorado_DesktopApp.Views.HomeView;
+using Hotel_Dorado_DesktopApp.Views.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,11 +45,6 @@ namespace Hotel_Dorado_DesktopApp.View
             this.panelContenedor.Tag = fh;
             fh.Show();
         }
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClientes_Click(object sender, EventArgs e)
         {
             abrirFormulario(new ClientView());
@@ -113,6 +111,36 @@ namespace Hotel_Dorado_DesktopApp.View
         private void btnRecepcionSalida_Click(object sender, EventArgs e)
         {
             abrirFormulario(new SalidaView());
+        }
+
+        private void btnIngreso_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new ReceptionView());
+        }
+
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new EmpleadosView());
+        }
+
+        private void btnCargo_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new CargosView());
+        }
+
+        private void btnAsignacion_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new AsignacionView());
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new UsuariosView());
+        }
+
+        private void btnAyudaMenu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

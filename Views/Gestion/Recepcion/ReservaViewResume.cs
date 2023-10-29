@@ -1,39 +1,28 @@
-﻿using Hotel_Dorado_DesktopApp.Controller;
-using Hotel_Dorado_DesktopApp.Controllers;
+﻿using Hotel_Dorado_DesktopApp.Controllers;
 using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.View.ClientesView;
-using Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.GestionView
+namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
 {
-    public partial class ReceptionView : Form
+    public partial class ReservaViewResume : Form
     {
         HotelDoradoContext context;
-        public ReceptionView()
+        public ReservaViewResume()
         {
             InitializeComponent();
             context = new HotelDoradoContext();
-            this.horaEntrada.Start();
-            mostrarCarrucel();
-            mostrarClientes();
+            mostrarHabitaciones();
         }
-        private void mostrarClientes()
-        {
-            cbxCliente.DataSource = new ClienteController(context).GetAllObjects();
-            cbxCliente.DisplayMember = "Nombre";
-        }
-        private void mostrarCarrucel()
+        private void mostrarHabitaciones()
         {
             try
             {
@@ -112,21 +101,10 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                         }
                         verDetalles.Click += (s, e) =>
                         {
-                            txtNumero.Text = i.Codigo;
-                            txtCategoria.Text = i.CategoriaHabitacion.Descripcion;
-                            txtCapacidad.Text = i.CategoriaHabitacion.Capacidad.ToString();
-                            txtPrecioPH.Text = i.PrecioPh.ToString();
-                            txtDetalles.Text = i.Detalles;
-                            txtExtras.Text = i.Extras;
-                            txtEstado.Text = i.Estado.Descripcion;
-                            txtPiso.Text = i.Piso.Descripcion;
-                            if (i.Estado.EstadoId == 1)
-                            {
-                                btnReservar.Enabled = true;
-                            }
+                            MessageBox.Show("Esta habitación esta " + i.Estado.Descripcion);
                         };
                         panel.Controls.Add(verDetalles);
-                        this.panelCarrusel.Controls.Add(panel);
+                        this.panelContenedor.Controls.Add(panel);
                         index++;
                     }
                 }
@@ -143,21 +121,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            if (txtNumero.Text != null)
-            {
-                ReservaViewResume form = new ReservaViewResume();
-                form.ShowDialog();
-            }
-        }
-
-        private void horaEntrada_Tick(object sender, EventArgs e)
-        {
-            dtpEntrada.Text = DateTime.Now.ToString("G");
-        }
-
-        private void btnNuevoCliente_Click(object sender, EventArgs e)
-        {
-            ClienteViewRegister form = new ClienteViewRegister(null);
+            ReceptionView form = new ReceptionView();
             form.ShowDialog();
         }
     }

@@ -68,7 +68,7 @@
             // panel1
             // 
             panel1.AutoScroll = true;
-            panel1.BackColor = Color.White;
+            panel1.BackColor = Color.Beige;
             panel1.Controls.Add(dtpSalida);
             panel1.Controls.Add(dtpEntrada);
             panel1.Controls.Add(panelCarrusel);
@@ -550,6 +550,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ReceptionView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ReceptionView";
             TransparencyKey = Color.Transparent;
             panel1.ResumeLayout(false);

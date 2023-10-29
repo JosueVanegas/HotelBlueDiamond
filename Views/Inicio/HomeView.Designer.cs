@@ -37,6 +37,7 @@
             cambiarRolDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
             btnHospedajeMenu = new ToolStripMenuItem();
             btnRecepcion = new ToolStripMenuItem();
+            btnIngreso = new ToolStripMenuItem();
             btnRecepcionSalida = new ToolStripMenuItem();
             btnTiendaMenu = new ToolStripMenuItem();
             productosToolStripMenuItem = new ToolStripMenuItem();
@@ -48,15 +49,15 @@
             btnCategorias = new ToolStripMenuItem();
             btnTareasPersonalMenu = new ToolStripMenuItem();
             personalToolStripMenuItem = new ToolStripMenuItem();
-            empleadosToolStripMenuItem = new ToolStripMenuItem();
-            cargosToolStripMenuItem = new ToolStripMenuItem();
-            asignacionToolStripMenuItem = new ToolStripMenuItem();
+            btnEmpleado = new ToolStripMenuItem();
+            btnCargo = new ToolStripMenuItem();
+            btnAsignacion = new ToolStripMenuItem();
             btnReportesMenu = new ToolStripMenuItem();
             informeDeInventarioToolStripMenuItem = new ToolStripMenuItem();
             informeDeToolStripMenuItem = new ToolStripMenuItem();
             generadorDeNominaToolStripMenuItem = new ToolStripMenuItem();
             btnUsuariosMenu = new ToolStripMenuItem();
-            administrarUsuariosToolStripMenuItem = new ToolStripMenuItem();
+            btnUsuario = new ToolStripMenuItem();
             rolesDeUsuariosToolStripMenuItem = new ToolStripMenuItem();
             btnClientesMenu = new ToolStripMenuItem();
             btnAyudaMenu = new ToolStripMenuItem();
@@ -133,7 +134,7 @@
             // 
             // btnHospedajeMenu
             // 
-            btnHospedajeMenu.DropDownItems.AddRange(new ToolStripItem[] { btnRecepcion, btnRecepcionSalida });
+            btnHospedajeMenu.DropDownItems.AddRange(new ToolStripItem[] { btnRecepcion, btnIngreso, btnRecepcionSalida });
             btnHospedajeMenu.ForeColor = Color.Beige;
             btnHospedajeMenu.Image = (Image)resources.GetObject("btnHospedajeMenu.Image");
             btnHospedajeMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -151,6 +152,13 @@
             btnRecepcion.Size = new Size(224, 36);
             btnRecepcion.Text = "Recepción";
             btnRecepcion.Click += btnRecepcion_Click;
+            // 
+            // btnIngreso
+            // 
+            btnIngreso.Name = "btnIngreso";
+            btnIngreso.Size = new Size(224, 36);
+            btnIngreso.Text = "Ingreso";
+            btnIngreso.Click += btnIngreso_Click;
             // 
             // btnRecepcionSalida
             // 
@@ -175,14 +183,14 @@
             // productosToolStripMenuItem
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(209, 36);
+            productosToolStripMenuItem.Size = new Size(224, 36);
             productosToolStripMenuItem.Text = "Vender";
             // 
             // categoriasToolStripMenuItem1
             // 
             categoriasToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem1, categoriasToolStripMenuItem2 });
             categoriasToolStripMenuItem1.Name = "categoriasToolStripMenuItem1";
-            categoriasToolStripMenuItem1.Size = new Size(209, 36);
+            categoriasToolStripMenuItem1.Size = new Size(224, 36);
             categoriasToolStripMenuItem1.Text = "Inventario";
             // 
             // productosToolStripMenuItem1
@@ -225,7 +233,7 @@
             // 
             // btnTareasPersonalMenu
             // 
-            btnTareasPersonalMenu.DropDownItems.AddRange(new ToolStripItem[] { personalToolStripMenuItem, asignacionToolStripMenuItem });
+            btnTareasPersonalMenu.DropDownItems.AddRange(new ToolStripItem[] { personalToolStripMenuItem, btnAsignacion });
             btnTareasPersonalMenu.ForeColor = Color.Beige;
             btnTareasPersonalMenu.Image = (Image)resources.GetObject("btnTareasPersonalMenu.Image");
             btnTareasPersonalMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -238,28 +246,31 @@
             // 
             // personalToolStripMenuItem
             // 
-            personalToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empleadosToolStripMenuItem, cargosToolStripMenuItem });
+            personalToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { btnEmpleado, btnCargo });
             personalToolStripMenuItem.Name = "personalToolStripMenuItem";
-            personalToolStripMenuItem.Size = new Size(218, 36);
+            personalToolStripMenuItem.Size = new Size(224, 36);
             personalToolStripMenuItem.Text = "Personal";
             // 
-            // empleadosToolStripMenuItem
+            // btnEmpleado
             // 
-            empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            empleadosToolStripMenuItem.Size = new Size(218, 36);
-            empleadosToolStripMenuItem.Text = "Empleados";
+            btnEmpleado.Name = "btnEmpleado";
+            btnEmpleado.Size = new Size(218, 36);
+            btnEmpleado.Text = "Empleados";
+            btnEmpleado.Click += btnEmpleado_Click;
             // 
-            // cargosToolStripMenuItem
+            // btnCargo
             // 
-            cargosToolStripMenuItem.Name = "cargosToolStripMenuItem";
-            cargosToolStripMenuItem.Size = new Size(218, 36);
-            cargosToolStripMenuItem.Text = "Cargos";
+            btnCargo.Name = "btnCargo";
+            btnCargo.Size = new Size(218, 36);
+            btnCargo.Text = "Cargos";
+            btnCargo.Click += btnCargo_Click;
             // 
-            // asignacionToolStripMenuItem
+            // btnAsignacion
             // 
-            asignacionToolStripMenuItem.Name = "asignacionToolStripMenuItem";
-            asignacionToolStripMenuItem.Size = new Size(218, 36);
-            asignacionToolStripMenuItem.Text = "Asignacion";
+            btnAsignacion.Name = "btnAsignacion";
+            btnAsignacion.Size = new Size(224, 36);
+            btnAsignacion.Text = "Asignacion";
+            btnAsignacion.Click += btnAsignacion_Click;
             // 
             // btnReportesMenu
             // 
@@ -294,7 +305,7 @@
             // 
             // btnUsuariosMenu
             // 
-            btnUsuariosMenu.DropDownItems.AddRange(new ToolStripItem[] { administrarUsuariosToolStripMenuItem, rolesDeUsuariosToolStripMenuItem });
+            btnUsuariosMenu.DropDownItems.AddRange(new ToolStripItem[] { btnUsuario, rolesDeUsuariosToolStripMenuItem });
             btnUsuariosMenu.ForeColor = Color.Beige;
             btnUsuariosMenu.Image = (Image)resources.GetObject("btnUsuariosMenu.Image");
             btnUsuariosMenu.ImageAlign = ContentAlignment.MiddleLeft;
@@ -304,13 +315,13 @@
             btnUsuariosMenu.Size = new Size(190, 36);
             btnUsuariosMenu.Text = "Usuarios";
             btnUsuariosMenu.TextAlign = ContentAlignment.MiddleLeft;
-            btnUsuariosMenu.Click += btnUsuarios_Click;
             // 
-            // administrarUsuariosToolStripMenuItem
+            // btnUsuario
             // 
-            administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
-            administrarUsuariosToolStripMenuItem.Size = new Size(319, 36);
-            administrarUsuariosToolStripMenuItem.Text = "Administrar usuarios";
+            btnUsuario.Name = "btnUsuario";
+            btnUsuario.Size = new Size(319, 36);
+            btnUsuario.Text = "Administrar usuarios";
+            btnUsuario.Click += btnUsuario_Click;
             // 
             // rolesDeUsuariosToolStripMenuItem
             // 
@@ -342,6 +353,7 @@
             btnAyudaMenu.Size = new Size(190, 36);
             btnAyudaMenu.Text = "Ayuda";
             btnAyudaMenu.TextAlign = ContentAlignment.MiddleLeft;
+            btnAyudaMenu.Click += btnAyudaMenu_Click;
             // 
             // panel1
             // 
@@ -463,7 +475,7 @@
         private ToolStripMenuItem categoriasToolStripMenuItem2;
         private Panel panel1;
         private ToolStripMenuItem btnInicioInicio;
-        private ToolStripMenuItem administrarUsuariosToolStripMenuItem;
+        private ToolStripMenuItem btnUsuario;
         private ToolStripMenuItem rolesDeUsuariosToolStripMenuItem;
         private ToolStripMenuItem informeDeInventarioToolStripMenuItem;
         private System.Windows.Forms.Timer Reloj;
@@ -472,12 +484,13 @@
         private PictureBox btnCambiarUsuario;
         private ToolStripMenuItem btnTareasPersonalMenu;
         private ToolStripMenuItem personalToolStripMenuItem;
-        private ToolStripMenuItem empleadosToolStripMenuItem;
-        private ToolStripMenuItem cargosToolStripMenuItem;
-        private ToolStripMenuItem asignacionToolStripMenuItem;
+        private ToolStripMenuItem btnEmpleado;
+        private ToolStripMenuItem btnCargo;
+        private ToolStripMenuItem btnAsignacion;
         private ToolStripMenuItem informeDeToolStripMenuItem;
         private ToolStripMenuItem generadorDeNominaToolStripMenuItem;
         private Panel panel2;
         private Label label2;
+        private ToolStripMenuItem btnIngreso;
     }
 }
