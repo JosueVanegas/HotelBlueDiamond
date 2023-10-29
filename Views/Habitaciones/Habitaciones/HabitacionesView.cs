@@ -1,5 +1,6 @@
 ﻿using Hotel_Dorado_DesktopApp.Controllers;
 using Hotel_Dorado_DesktopApp.Models;
+using Hotel_Dorado_DesktopApp.View.ClientesView;
 using Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones;
 using System;
 using System.Collections.Generic;
@@ -26,11 +27,72 @@ namespace Hotel_Dorado_DesktopApp.Views.Habitaciones
         }
         private void mostrarHabitaciones()
         {
+            context = new HotelDoradoContext();
+            controller = new HabitacionesController(context);
             var lista = controller.GetAllObjects();
             tbHabitaciones.Rows.Clear();
             foreach (var i in lista)
             {
-                tbHabitaciones.Rows.Add(i.HabitacionId, i.Codigo, i.Piso.Descripcion, i.CategoriaHabitacion.Descripcion, i.PrecioPh);
+                tbHabitaciones.Rows.Add(i.HabitacionId, i.Codigo, i.CategoriaHabitacion.Descripcion, i.Piso.Descripcion, i.PrecioPh);
+            }
+        }
+        private void cellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indice = e.RowIndex;
+            if (tbHabitaciones.Columns[e.ColumnIndex].Name == "Borrar")
+            {
+                try
+                {
+                    int id = (int)tbHabitaciones.Rows[indice].Cells["Id"].Value;
+
+                    if (MessageBox.Show("¿Esta seguro de eliminar al cliente seleccionado?", "Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        controller.DeleteObject(id);
+                        mostrarHabitaciones();
+                        MessageBox.Show("Cliente eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            if (tbHabitaciones.Columns[e.ColumnIndex].Name == "Editar")
+            {
+
+                int id = Convert.ToInt32(tbHabitaciones.Rows[indice].Cells["Id"].Value);
+
+                Habitacion habitacion = controller.GetObjectById(id);
+               
+                HabitacionesViewRegister form = new HabitacionesViewRegister(habitacion);
+                mostrarHabitaciones();
+            }
+        }
+        private void cellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var h = Properties.Resources.editarImg.Height;
+                var w = Properties.Resources.editarImg.Width;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.editarImg, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.eliminarImg.Width;
+                var h = Properties.Resources.eliminarImg.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.eliminarImg, new Rectangle(x, y, w, h));
+                e.Handled = true;
             }
         }
 

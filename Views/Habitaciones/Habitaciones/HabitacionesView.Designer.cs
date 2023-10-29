@@ -38,7 +38,7 @@
             tbHabitaciones = new ReaLTaiizor.Controls.PoisonDataGridView();
             ID = new DataGridViewTextBoxColumn();
             Numero = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
+            Categoria = new DataGridViewTextBoxColumn();
             Email = new DataGridViewTextBoxColumn();
             Tarifa = new DataGridViewTextBoxColumn();
             Editar = new DataGridViewButtonColumn();
@@ -61,7 +61,7 @@
             // panel1
             // 
             panel1.AutoScroll = true;
-            panel1.BackColor = Color.Gray;
+            panel1.BackColor = Color.Beige;
             panel1.Controls.Add(btnRegistrar);
             panel1.Controls.Add(lblTitulo);
             panel1.Dock = DockStyle.Top;
@@ -74,14 +74,14 @@
             // 
             btnRegistrar.BackColor = Color.White;
             btnRegistrar.BackgroundImageLayout = ImageLayout.None;
-            btnRegistrar.BorderColor = Color.ForestGreen;
+            btnRegistrar.BorderColor = Color.Gold;
             btnRegistrar.BorderThickness = 2;
             btnRegistrar.DrawBorder = true;
             btnRegistrar.ForeColor = Color.Black;
             btnRegistrar.HotTrackColor = Color.FromArgb(221, 221, 221);
             btnRegistrar.Image = null;
             btnRegistrar.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
-            btnRegistrar.Location = new Point(196, 93);
+            btnRegistrar.Location = new Point(3, 103);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.PressedColor = Color.FromArgb(244, 204, 137);
             btnRegistrar.PressedForeColor = Color.White;
@@ -100,52 +100,56 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 204, 137);
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             tbHabitaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            tbHabitaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbHabitaciones.BackgroundColor = Color.FromArgb(255, 255, 255);
             tbHabitaciones.BorderStyle = BorderStyle.None;
             tbHabitaciones.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tbHabitaciones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 177, 89);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 196, 37);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 208, 104);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 201, 57);
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             tbHabitaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             tbHabitaciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tbHabitaciones.Columns.AddRange(new DataGridViewColumn[] { ID, Numero, Descripcion, Email, Tarifa, Editar, Borrar });
+            tbHabitaciones.Columns.AddRange(new DataGridViewColumn[] { ID, Numero, Categoria, Email, Tarifa, Editar, Borrar });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 208, 104);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(255, 201, 57);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             tbHabitaciones.DefaultCellStyle = dataGridViewCellStyle3;
+            tbHabitaciones.Dock = DockStyle.Fill;
             tbHabitaciones.EnableHeadersVisualStyles = false;
             tbHabitaciones.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbHabitaciones.GridColor = Color.FromArgb(255, 255, 255);
-            tbHabitaciones.Location = new Point(196, 187);
+            tbHabitaciones.Location = new Point(0, 159);
             tbHabitaciones.MultiSelect = false;
             tbHabitaciones.Name = "tbHabitaciones";
             tbHabitaciones.ReadOnly = true;
             tbHabitaciones.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 177, 89);
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 196, 37);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 208, 104);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 201, 57);
             dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             tbHabitaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             tbHabitaciones.RowHeadersWidth = 51;
             tbHabitaciones.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbHabitaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbHabitaciones.Size = new Size(783, 425);
+            tbHabitaciones.Size = new Size(1205, 543);
             tbHabitaciones.StandardTab = true;
-            tbHabitaciones.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Green;
+            tbHabitaciones.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
             tbHabitaciones.TabIndex = 4;
             tbHabitaciones.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            tbHabitaciones.CellContentClick += cellContentClick;
+            tbHabitaciones.CellPainting += cellPainting;
             // 
             // ID
             // 
@@ -154,7 +158,6 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             ID.Visible = false;
-            ID.Width = 125;
             // 
             // Numero
             // 
@@ -162,15 +165,13 @@
             Numero.MinimumWidth = 6;
             Numero.Name = "Numero";
             Numero.ReadOnly = true;
-            Numero.Width = 125;
             // 
-            // Descripcion
+            // Categoria
             // 
-            Descripcion.HeaderText = "Descripción";
-            Descripcion.MinimumWidth = 6;
-            Descripcion.Name = "Descripcion";
-            Descripcion.ReadOnly = true;
-            Descripcion.Width = 250;
+            Categoria.HeaderText = "Categoria";
+            Categoria.MinimumWidth = 6;
+            Categoria.Name = "Categoria";
+            Categoria.ReadOnly = true;
             // 
             // Email
             // 
@@ -178,7 +179,6 @@
             Email.MinimumWidth = 6;
             Email.Name = "Email";
             Email.ReadOnly = true;
-            Email.Width = 150;
             // 
             // Tarifa
             // 
@@ -186,7 +186,6 @@
             Tarifa.MinimumWidth = 6;
             Tarifa.Name = "Tarifa";
             Tarifa.ReadOnly = true;
-            Tarifa.Width = 125;
             // 
             // Editar
             // 
@@ -194,7 +193,6 @@
             Editar.MinimumWidth = 6;
             Editar.Name = "Editar";
             Editar.ReadOnly = true;
-            Editar.Width = 40;
             // 
             // Borrar
             // 
@@ -202,15 +200,14 @@
             Borrar.MinimumWidth = 6;
             Borrar.Name = "Borrar";
             Borrar.ReadOnly = true;
-            Borrar.Width = 40;
             // 
             // HabitacionesView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1205, 702);
-            Controls.Add(panel1);
             Controls.Add(tbHabitaciones);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "HabitacionesView";
             Text = "HabitacionesView";
@@ -227,7 +224,7 @@
         private ReaLTaiizor.Controls.PoisonDataGridView tbHabitaciones;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Numero;
-        private DataGridViewTextBoxColumn Descripcion;
+        private DataGridViewTextBoxColumn Categoria;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Tarifa;
         private DataGridViewButtonColumn Editar;

@@ -27,6 +27,8 @@ public partial class Reserva
 
     public int? CantidadPersonas { get; set; }
 
+    public bool? Finalizada { get; set; }
+
     public virtual Cliente? Cliente { get; set; }
 
     public virtual Empleado? Empleado { get; set; }

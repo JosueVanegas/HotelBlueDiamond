@@ -228,8 +228,7 @@
             // 
             // parrotGradientPanel1
             // 
-            parrotGradientPanel1.BottomLeft = Color.LimeGreen;
-            parrotGradientPanel1.BottomRight = Color.DarkCyan;
+            
             parrotGradientPanel1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             parrotGradientPanel1.Controls.Add(label6);
             parrotGradientPanel1.Dock = DockStyle.Fill;
@@ -243,18 +242,19 @@
             parrotGradientPanel1.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
             parrotGradientPanel1.TabIndex = 6;
             parrotGradientPanel1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            parrotGradientPanel1.TopLeft = Color.DarkSlateGray;
-            parrotGradientPanel1.TopRight = Color.DarkCyan;
+            parrotGradientPanel1.TopLeft = Color.Gold;
+            parrotGradientPanel1.TopRight = Color.Yellow;
+            parrotGradientPanel1.BottomLeft = Color.Gold;
+            parrotGradientPanel1.BottomRight = Color.Beige;
             // 
             // label6
             // 
             label6.BackColor = Color.Transparent;
-            label6.Dock = DockStyle.Fill;
             label6.Font = new Font("Microsoft Sans Serif", 100F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.White;
             label6.Location = new Point(0, 0);
             label6.Name = "label6";
-            label6.Size = new Size(1148, 550);
+            label6.Size = new Size(793, 484);
             label6.TabIndex = 0;
             label6.Text = "Hotel \r\nDorado";
             // 

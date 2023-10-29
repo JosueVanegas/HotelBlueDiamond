@@ -1,5 +1,6 @@
 ﻿using Hotel_Dorado_DesktopApp.View.ClientesView;
 using Hotel_Dorado_DesktopApp.Views.GestionView;
+using Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion;
 using Hotel_Dorado_DesktopApp.Views.Habitaciones;
 using Hotel_Dorado_DesktopApp.Views.HomeView;
 using System;
@@ -21,6 +22,14 @@ namespace Hotel_Dorado_DesktopApp.View
             InitializeComponent();
             Reloj.Start();
             abrirFormulario(new DashBoardView());
+        }
+        private void HomeView_Load(object sender, EventArgs e)
+        {
+            foreach (ToolStripMenuItem item in Menu.Items)
+            {
+                item.DropDownOpened += Item_DropDownOpened;
+                item.DropDownClosed += Item_DropDownClosed; // Agregar este manejador de evento
+            }
         }
         private void abrirFormulario(Form formHijo)
         {
@@ -51,7 +60,7 @@ namespace Hotel_Dorado_DesktopApp.View
 
         private void btnRecepcion_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new ReceptionView());
+            abrirFormulario(new ReservaViewResume());
         }
 
         private void btnHabitaciones_Click(object sender, EventArgs e)
@@ -73,20 +82,37 @@ namespace Hotel_Dorado_DesktopApp.View
         {
             lblReloj.Text = DateTime.Now.ToString();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Item_DropDownOpened(object sender, EventArgs e)
         {
+            // Primero, restablecer el color de fondo de todos los ítems a su color por defecto
+            foreach (ToolStripItem item in Menu.Items)
+            {
+                item.BackColor = Color.Transparent;
+            }
 
+            // Cambiar el color de fondo del ítem seleccionado
+            ToolStripMenuItem selectedItem = sender as ToolStripMenuItem;
+            if (selectedItem != null)
+            {
+                selectedItem.BackColor = Color.LightBlue;
+                selectedItem.ForeColor = Color.Black;
+            }
         }
 
-        private void btnSalir_MouseHover(object sender, EventArgs e)
+        // Método para manejar el evento DropDownClosed
+        private void Item_DropDownClosed(object sender, EventArgs e)
         {
-            btnSalir.BackColor = Color.Red;
+            ToolStripMenuItem closedItem = sender as ToolStripMenuItem;
+            if (closedItem != null)
+            {
+                closedItem.BackColor = Color.Transparent;
+                closedItem.ForeColor = Color.Beige; // Asumiendo que este es tu color por defecto
+            }
         }
 
-        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        private void btnRecepcionSalida_Click(object sender, EventArgs e)
         {
-            btnSalir.BackColor = Color.White;
+            abrirFormulario(new SalidaView());
         }
     }
 }

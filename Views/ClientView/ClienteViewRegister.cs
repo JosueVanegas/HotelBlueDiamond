@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Hotel_Dorado_DesktopApp.View.ClientesView
 {
-    public partial class AdmClientView : Form
+    public partial class ClienteViewRegister : Form
     {
         HotelDoradoContext context;
         ClienteController controller;
         Cliente cliente;
         bool ClienteNuevo = true;
-        public AdmClientView(Cliente cliente)
+        public ClienteViewRegister(Cliente cliente)
         {
             InitializeComponent();
             context = new HotelDoradoContext();
@@ -32,7 +32,6 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
             {
                 ClienteNuevo = false;
                 lblTitulo.Text = "Actualizar Datos";
-                txtId.Text = cliente.ClienteId.ToString();
                 txtCedula.Text = cliente.Cedula;
                 txtNombre.Text = cliente.Nombre;
                 txtApellido.Text = cliente.Apellido;

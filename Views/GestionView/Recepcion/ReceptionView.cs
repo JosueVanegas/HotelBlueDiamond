@@ -1,5 +1,8 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
+﻿using Hotel_Dorado_DesktopApp.Controller;
+using Hotel_Dorado_DesktopApp.Controllers;
 using Hotel_Dorado_DesktopApp.Models;
+using Hotel_Dorado_DesktopApp.View.ClientesView;
+using Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
@@ -17,29 +20,25 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
     public partial class ReceptionView : Form
     {
         HotelDoradoContext context;
-        RecepcionController recepcionController;
         public ReceptionView()
         {
             InitializeComponent();
             context = new HotelDoradoContext();
-            recepcionController = new RecepcionController(context);
-            mostrarRecepciones();
-            for (int i = 0; i < 16; i++)
-            {
-                mostrarCarrucel();
-            }
-
+            this.horaEntrada.Start();
+            mostrarCarrucel();
+            mostrarClientes();
         }
-        private void mostrarRecepciones()
+        private void mostrarClientes()
         {
-
+            cbxCliente.DataSource = new ClienteController(context).GetAllObjects();
+            cbxCliente.DisplayMember = "Nombre";
         }
         private void mostrarCarrucel()
         {
             try
             {
-                int itemWidth = 200;
-                int itemHeight = 250;
+                int itemWidth = 180;
+                int itemHeight = 170;
                 var habitaciones = new HabitacionesController(context).GetAllObjects();
 
                 if (habitaciones.Count != 0)
@@ -50,10 +49,10 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                         ParrotGradientPanel panel = new ParrotGradientPanel
                         {
                             PrimerColor = Color.White,
-                            BottomLeft = Color.LightBlue,
-                            TopLeft = Color.Blue,
-                            TopRight = Color.Green,
-                            BottomRight = Color.LightGreen,
+                            BottomLeft = Color.LightGray,
+                            TopLeft = Color.LightGray,
+                            TopRight = Color.White,
+                            BottomRight = Color.Beige,
                             Width = itemWidth,
                             Height = itemHeight,
                             BorderStyle = BorderStyle.FixedSingle,
@@ -61,8 +60,8 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                         };
                         Label label2 = new Label
                         {
-                            ForeColor = Color.Black,
-                            Text = "Estado: " + i.Estado.Descripcion,
+                            ForeColor = Color.FromArgb(0, 51, 102),
+                            Text = "Estado: \n" + i.Estado.Descripcion,
                             Dock = DockStyle.Top,
                             TextAlign = ContentAlignment.MiddleCenter,
                             Height = 60,
@@ -72,12 +71,12 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
 
                         Label label1 = new Label
                         {
-                            ForeColor = Color.Black,
-                            Text = "Habitación numero: " + i.Codigo,
+                            ForeColor = Color.FromArgb(0, 51, 102),
+                            Text = "Habitación numero: \n" + i.Codigo,
                             Dock = DockStyle.Top,
                             TextAlign = ContentAlignment.MiddleCenter,
                             Height = 60,
-                            BackColor = Color.Transparent
+                            BackColor = Color.White
                         };
                         panel.Controls.Add(label1);
 
@@ -87,22 +86,26 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                             Text = "Ver detalles",
                             Dock = DockStyle.Bottom,
                             Size = new Size(itemWidth, 40),
-                            BackColor = Color.Green,
-                            ForeColor = Color.Black
+                            BackColor = Color.FromArgb(0, 51, 102),
+                            ForeColor = Color.White
                         };
                         switch (i.Estado.EstadoId)
                         {
                             case 1:
-                                verDetalles.BackColor = Color.Green;
+                                label2.BackColor = Color.Green;
+                                label2.ForeColor = Color.White;
                                 break;
                             case 2:
-                                verDetalles.BackColor = Color.Red;
+                                label2.BackColor = Color.Red;
+                                label2.ForeColor = Color.White;
                                 break;
                             case 3:
-                                verDetalles.BackColor = Color.Yellow;
+                                label2.BackColor = Color.Yellow;
+                                label2.ForeColor = Color.Black;
                                 break;
                             case 4:
-                                verDetalles.BackColor = Color.Orange;
+                                label2.BackColor = Color.Orange;
+                                label2.ForeColor = Color.Black;
                                 break;
                             default:
                                 break;
@@ -117,12 +120,15 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                             txtExtras.Text = i.Extras;
                             txtEstado.Text = i.Estado.Descripcion;
                             txtPiso.Text = i.Piso.Descripcion;
+                            if (i.Estado.EstadoId == 1)
+                            {
+                                btnReservar.Enabled = true;
+                            }
                         };
                         panel.Controls.Add(verDetalles);
                         this.panelCarrusel.Controls.Add(panel);
                         index++;
                     }
-
                 }
                 else
                 {
@@ -135,9 +141,24 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
             }
         }
 
-        private void txtReservar_Click(object sender, EventArgs e)
+        private void btnReservar_Click(object sender, EventArgs e)
         {
+            if (txtNumero.Text != null)
+            {
+                ReservaViewResume form = new ReservaViewResume();
+                form.ShowDialog();
+            }
+        }
 
+        private void horaEntrada_Tick(object sender, EventArgs e)
+        {
+            dtpEntrada.Text = DateTime.Now.ToString("G");
+        }
+
+        private void btnNuevoCliente_Click(object sender, EventArgs e)
+        {
+            ClienteViewRegister form = new ClienteViewRegister(null);
+            form.ShowDialog();
         }
     }
 }

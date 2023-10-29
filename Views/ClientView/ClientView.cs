@@ -24,9 +24,6 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
             context = new HotelDoradoContext();
             controller = new ClienteController(context);
             mostrarClientes();
-            tbClientes.Left = (panelContenedor.Width - tbClientes.Width) / 2;
-            tbClientes.Top = (panelContenedor.Height - tbClientes.Height) / 2;
-            btnRegistrar.Left = (panel1.Width - btnRegistrar.Width) / 2;
         }
         private void mostrarClientes()
         {
@@ -64,16 +61,9 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
             }
             if (tbClientes.Columns[e.ColumnIndex].Name == "Editar")
             {
-                Cliente cliente = new Cliente
-                {
-                    ClienteId = Convert.ToInt32(tbClientes.Rows[indice].Cells["Id"].Value),
-                    Cedula = tbClientes.Rows[indice].Cells["Cedula"].Value.ToString(),
-                    Nombre = tbClientes.Rows[indice].Cells["Nombre"].Value.ToString(),
-                    Apellido = tbClientes.Rows[indice].Cells["Apellido"].Value.ToString(),
-                    Telefono = tbClientes.Rows[indice].Cells["Telefono"].Value.ToString(),
-                    Email = tbClientes.Rows[indice].Cells["Email"].Value.ToString(),
-                };
-                AdmClientView form = new AdmClientView(cliente);
+                int ClienteId = Convert.ToInt32(tbClientes.Rows[indice].Cells["Id"].Value);
+                var cliente = controller.GetObjectById(ClienteId);
+                ClienteViewRegister form = new ClienteViewRegister(cliente);
                 form.ShowDialog();
                 mostrarClientes();
             }
@@ -107,7 +97,7 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            AdmClientView form = new AdmClientView(null);
+            ClienteViewRegister form = new ClienteViewRegister(null);
             form.ShowDialog();
             mostrarClientes();
         }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label2 = new Label();
+            label1 = new Label();
             txtExtras = new ReaLTaiizor.Controls.MaterialRichTextBox();
             txtDetalles = new ReaLTaiizor.Controls.MaterialRichTextBox();
             cbxCategorias = new ReaLTaiizor.Controls.MaterialComboBox();
@@ -39,8 +41,6 @@
             btnCancelar = new ReaLTaiizor.Controls.MaterialButton();
             btnGuardar = new ReaLTaiizor.Controls.MaterialButton();
             txtTarifa = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            label1 = new Label();
-            label2 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,6 +63,26 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(440, 658);
             panel1.TabIndex = 4;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = SystemColors.ControlDarkDark;
+            label2.Location = new Point(17, 174);
+            label2.Name = "label2";
+            label2.Size = new Size(246, 20);
+            label2.TabIndex = 13;
+            label2.Text = "Escriba los detalles de la habitación";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ControlDarkDark;
+            label1.Location = new Point(17, 405);
+            label1.Name = "label1";
+            label1.Size = new Size(399, 20);
+            label1.TabIndex = 12;
+            label1.Text = "Extras que posee la habitación(ejemplo: TV + NETFLIX ,etc)";
             // 
             // txtExtras
             // 
@@ -268,30 +288,11 @@
             txtTarifa.TrailingIcon = null;
             txtTarifa.UseSystemPasswordChar = false;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(17, 405);
-            label1.Name = "label1";
-            label1.Size = new Size(399, 20);
-            label1.TabIndex = 12;
-            label1.Text = "Extras que posee la habitación(ejemplo: TV + NETFLIX ,etc)";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(17, 174);
-            label2.Name = "label2";
-            label2.Size = new Size(246, 20);
-            label2.TabIndex = 13;
-            label2.Text = "Escriba los detalles de la habitación";
-            // 
             // HabitacionesViewRegister
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Gold;
             ClientSize = new Size(464, 682);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

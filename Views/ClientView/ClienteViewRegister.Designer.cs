@@ -1,6 +1,6 @@
 ﻿namespace Hotel_Dorado_DesktopApp.View.ClientesView
 {
-    partial class AdmClientView
+    partial class ClienteViewRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,6 @@
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblTitulo = new Label();
             panel1 = new Panel();
-            txtId = new TextBox();
             txtCedula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             btnCancelar = new ReaLTaiizor.Controls.MaterialButton();
             btnGuardar = new ReaLTaiizor.Controls.MaterialButton();
@@ -74,7 +73,7 @@
             // 
             // lblTitulo
             // 
-            lblTitulo.BackColor = Color.White;
+            lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.Location = new Point(17, 10);
             lblTitulo.Name = "lblTitulo";
@@ -85,8 +84,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(txtId);
+            panel1.BackColor = Color.Beige;
             panel1.Controls.Add(lblTitulo);
             panel1.Controls.Add(txtCedula);
             panel1.Controls.Add(btnCancelar);
@@ -99,15 +97,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(534, 450);
             panel1.TabIndex = 3;
-            // 
-            // txtId
-            // 
-            txtId.Location = new Point(22, 395);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(49, 27);
-            txtId.TabIndex = 7;
-            txtId.Text = "0";
-            txtId.Visible = false;
             // 
             // txtCedula
             // 
@@ -150,7 +139,7 @@
             btnCancelar.HighEmphasis = true;
             btnCancelar.Icon = null;
             btnCancelar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancelar.Location = new Point(172, 347);
+            btnCancelar.Location = new Point(172, 377);
             btnCancelar.Margin = new Padding(4, 6, 4, 6);
             btnCancelar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancelar.Name = "btnCancelar";
@@ -173,7 +162,7 @@
             btnGuardar.HighEmphasis = true;
             btnGuardar.Icon = null;
             btnGuardar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnGuardar.Location = new Point(172, 290);
+            btnGuardar.Location = new Point(172, 320);
             btnGuardar.Margin = new Padding(4, 6, 4, 6);
             btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
@@ -283,7 +272,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonShadow;
+            BackColor = Color.Gold;
             ClientSize = new Size(557, 474);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -291,7 +280,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRegistrarCliente";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -306,6 +294,5 @@
         private ReaLTaiizor.Controls.MaterialButton btnCancelar;
         private ReaLTaiizor.Controls.MaterialButton btnGuardar;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCedula;
-        private TextBox txtId;
     }
 }

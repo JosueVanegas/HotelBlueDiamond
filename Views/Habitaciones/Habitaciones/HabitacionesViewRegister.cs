@@ -24,25 +24,51 @@ namespace Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones
             context = new HotelDoradoContext();
             controller = new HabitacionesController(context);
             this.habitacion = habitacion;
-            validarHabitacion();
             cargarComboBox();
+            
         }
         private void validarHabitacion()
         {
-            if(this.habitacion != null)
+            mostrarCategorias();
+            mostrarPisos();
+            if (this.habitacion != null)
             {
                 txtId.Text = habitacion.HabitacionId.ToString();
                 txtDetalles.Text = habitacion.Detalles.ToString();
                 txtNumero.Text = habitacion.Codigo.ToString();
                 txtTarifa.Text = habitacion.PrecioPh.ToString();
                 txtExtras.Text = habitacion.Extras.ToString();
+                lblTitulo.Text = "Actualizar Habitación";
+                int categoriaIdBuscar = habitacion.CategoriaHabitacion.CategoriaHabitacionId;
+                int pisoIdBuscar = habitacion.Piso.PisoId;
+                
+                
+                foreach (var item in cbxCategorias.Items)
+                {
+                    CategoriaHabitacion ch = item as CategoriaHabitacion;
+                    if (ch != null && ch.CategoriaHabitacionId == categoriaIdBuscar)
+                    {
+                        cbxCategorias.SelectedItem = ch;
+                        break;
+                    }
+                }
+                foreach (var item in cbxPiso.Items)
+                {
+                    Piso ch = item as Piso;
+                    if (ch != null && ch.PisoId == pisoIdBuscar)
+                    {
+                        cbxPiso.SelectedItem = ch;
+                        break;
+                    }
+                }
             }
         }
         private void cargarComboBox()
         {
-            if (mostrarCategorias() == true)
+            var existeCategoria = controller.GetCategoriaHabitacions();
+            if (existeCategoria != null)
             {
-                mostrarEstados();
+                validarHabitacion();
                 this.ShowDialog();
             }
             else
@@ -55,24 +81,16 @@ namespace Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones
                 this.Dispose();
             }
         }
-        private void mostrarEstados()
+        private void mostrarPisos()
         {
             cbxPiso.DataSource = controller.GetPisoHabitacions();
             cbxPiso.DisplayMember = "Descripcion";
 
         }
-        private bool mostrarCategorias()
+        private void mostrarCategorias()
         {
             cbxCategorias.DataSource = controller.GetCategoriaHabitacions();
             cbxCategorias.DisplayMember = "Descripcion";
-            if (cbxCategorias.SelectedIndex != -1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
         private bool validarCampos()
         {
@@ -108,11 +126,25 @@ namespace Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones
                             CategoriaHabitacionId = categoria.CategoriaHabitacionId
                         };
                         controller.AddObject(h);
-                        MessageBox.Show("Nueva habitación registrada correctamente","Registro exitoso",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Nueva habitación registrada correctamente", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-
+                        var piso = (Piso)cbxPiso.SelectedItem;
+                        var categoria = (CategoriaHabitacion)cbxCategorias.SelectedItem;
+                        Habitacion h = new Habitacion
+                        {
+                            HabitacionId = habitacion.HabitacionId,
+                            Detalles = txtDetalles.Text,
+                            Extras = txtExtras.Text,
+                            EstadoId = habitacion.EstadoId,
+                            PrecioPh = Convert.ToDecimal(txtTarifa.Text),
+                            Codigo = txtNumero.Text,
+                            PisoId = piso.PisoId,
+                            CategoriaHabitacionId = categoria.CategoriaHabitacionId
+                        };
+                        controller.UpdateObject(h);
+                        MessageBox.Show("Los datos de la  habitación han sido actualizados correctamente", "Actualización exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     this.Close();
                 }
@@ -123,7 +155,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones
             }
             else
             {
-                MessageBox.Show("Ingrese todos los datos solicitados para poder registrar la habitación","Validación",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ingrese todos los datos solicitados para poder registrar la habitación", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
