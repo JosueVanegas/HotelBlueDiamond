@@ -1,4 +1,5 @@
 ﻿using Hotel_Dorado_DesktopApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace Hotel_Dorado_DesktopApp.Controllers
         }
         public List<Reserva> GetAllObjects()
         {
-            return _context.Reservas.ToList();
+            return _context.Reservas.Include(r=>r.Empleado).Include(r=>r.Cliente).Include(r=>r.Habitacion).ToList();
         }
         public void UpdateObject(Reserva objects)
         {

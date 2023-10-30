@@ -25,7 +25,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones
             controller = new HabitacionesController(context);
             this.habitacion = habitacion;
             cargarComboBox();
-            
+
         }
         private void validarHabitacion()
         {
@@ -41,8 +41,8 @@ namespace Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones
                 lblTitulo.Text = "Actualizar Habitación";
                 int categoriaIdBuscar = habitacion.CategoriaHabitacion.CategoriaHabitacionId;
                 int pisoIdBuscar = habitacion.Piso.PisoId;
-                
-                
+
+
                 foreach (var item in cbxCategorias.Items)
                 {
                     CategoriaHabitacion ch = item as CategoriaHabitacion;

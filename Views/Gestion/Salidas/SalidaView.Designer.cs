@@ -33,7 +33,7 @@
             // 
             // panelHabitaciones
             // 
-            panelHabitaciones.Location = new Point(47, 224);
+            panelHabitaciones.Location = new Point(35, 204);
             panelHabitaciones.Name = "panelHabitaciones";
             panelHabitaciones.Size = new Size(930, 397);
             panelHabitaciones.TabIndex = 0;

@@ -63,7 +63,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Habitaciones
                 int id = Convert.ToInt32(tbHabitaciones.Rows[indice].Cells["Id"].Value);
 
                 Habitacion habitacion = controller.GetObjectById(id);
-               
+
                 HabitacionesViewRegister form = new HabitacionesViewRegister(habitacion);
                 mostrarHabitaciones();
             }

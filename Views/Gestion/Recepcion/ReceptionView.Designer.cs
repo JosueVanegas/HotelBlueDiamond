@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             panelCarrusel = new FlowLayoutPanel();
             panel1 = new Panel();
+            txtIdHabitacion = new Label();
             dtpSalida = new Label();
             dtpEntrada = new Label();
             txtCantidadHuespedes = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -69,6 +70,7 @@
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Beige;
+            panel1.Controls.Add(txtIdHabitacion);
             panel1.Controls.Add(dtpSalida);
             panel1.Controls.Add(dtpEntrada);
             panel1.Controls.Add(panelCarrusel);
@@ -96,6 +98,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1143, 824);
             panel1.TabIndex = 2;
+            // 
+            // txtIdHabitacion
+            // 
+            txtIdHabitacion.AutoSize = true;
+            txtIdHabitacion.Location = new Point(673, 364);
+            txtIdHabitacion.Name = "txtIdHabitacion";
+            txtIdHabitacion.Size = new Size(17, 20);
+            txtIdHabitacion.TabIndex = 27;
+            txtIdHabitacion.Text = "0";
             // 
             // dtpSalida
             // 
@@ -176,6 +187,7 @@
             txtAdelanto.Size = new Size(206, 48);
             txtAdelanto.TabIndex = 21;
             txtAdelanto.TabStop = false;
+            txtAdelanto.Text = "0.00";
             txtAdelanto.TextAlign = HorizontalAlignment.Left;
             txtAdelanto.TrailingIcon = null;
             txtAdelanto.UseSystemPasswordChar = false;
@@ -344,7 +356,7 @@
             btnReservar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnReservar.Name = "btnReservar";
             btnReservar.NoAccentTextColor = Color.Empty;
-            btnReservar.Size = new Size(311, 77);
+            btnReservar.Size = new Size(311, 116);
             btnReservar.TabIndex = 8;
             btnReservar.Text = "Realizar reserva";
             btnReservar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -393,7 +405,7 @@
             txtPrecioPH.Depth = 0;
             txtPrecioPH.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtPrecioPH.HideSelection = true;
-            txtPrecioPH.Hint = "Precio por hora:";
+            txtPrecioPH.Hint = "Precio por noche:";
             txtPrecioPH.LeadingIcon = null;
             txtPrecioPH.Location = new Point(330, 308);
             txtPrecioPH.MaxLength = 32767;
@@ -554,6 +566,7 @@
             Text = "ReceptionView";
             TransparencyKey = Color.Transparent;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -583,5 +596,6 @@
         private Label dtpSalida;
         private Label dtpEntrada;
         private System.Windows.Forms.Timer horaEntrada;
+        private Label txtIdHabitacion;
     }
 }

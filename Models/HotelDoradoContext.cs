@@ -81,12 +81,6 @@ public partial class HotelDoradoContext : DbContext
             entity.ToTable("Cargo", "RecursosHumanos");
 
             entity.Property(e => e.CargoId).HasColumnName("CargoID");
-            entity.Property(e => e.Bonificacion)
-                .HasDefaultValueSql("((0))")
-                .HasColumnType("decimal(10, 2)");
-            entity.Property(e => e.Comision)
-                .HasDefaultValueSql("((0))")
-                .HasColumnType("decimal(10, 2)");
             entity.Property(e => e.Descripcion).HasMaxLength(100);
             entity.Property(e => e.SalarioBasePh)
                 .HasColumnType("decimal(10, 2)")
@@ -261,25 +255,22 @@ public partial class HotelDoradoContext : DbContext
 
         modelBuilder.Entity<Reserva>(entity =>
         {
-            entity.HasKey(e => e.ReservaId).HasName("PK__Reserva__C39937033DF287AC");
+            entity.HasKey(e => e.ReservaId).HasName("PK__Reserva__C39937038AD0E9C0");
 
-            entity.ToTable("Reserva", "Reservas");
+            entity.ToTable("Reserva", "Reservas", tb => tb.HasTrigger("TRG_RESERVA_HABITACION"));
 
             entity.Property(e => e.ReservaId).HasColumnName("ReservaID");
-            entity.Property(e => e.Adelanto)
-                .HasDefaultValueSql("((0))")
-                .HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Adelanto).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.ClienteId).HasColumnName("ClienteID");
             entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
-            entity.Property(e => e.FechaFin).HasColumnType("date");
-            entity.Property(e => e.FechaInicio).HasColumnType("date");
+            entity.Property(e => e.FechaEntrada).HasColumnType("datetime");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("(getdate())")
-                .HasColumnType("date");
+                .HasColumnType("datetime");
+            entity.Property(e => e.FechaSalida).HasColumnType("datetime");
             entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
-            entity.Property(e => e.TotalGastos)
-                .HasDefaultValueSql("((0))")
-                .HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Total).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.TotalDaños).HasColumnType("decimal(10, 2)");
 
             entity.HasOne(d => d.Cliente).WithMany(p => p.Reservas)
                 .HasForeignKey(d => d.ClienteId)

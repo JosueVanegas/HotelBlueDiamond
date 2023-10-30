@@ -35,7 +35,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                     int index = 0;
                     foreach (var i in habitaciones)
                     {
-                        if(i.Estado.EstadoId == 2)
+                        if (i.Estado.EstadoId == 2)
                         {
                             ParrotGradientPanel panel = new ParrotGradientPanel
                             {

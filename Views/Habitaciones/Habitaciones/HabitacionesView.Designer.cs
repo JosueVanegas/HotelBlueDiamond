@@ -182,7 +182,7 @@
             // 
             // Tarifa
             // 
-            Tarifa.HeaderText = "Tarifa por hora";
+            Tarifa.HeaderText = "Tarifa por noche";
             Tarifa.MinimumWidth = 6;
             Tarifa.Name = "Tarifa";
             Tarifa.ReadOnly = true;

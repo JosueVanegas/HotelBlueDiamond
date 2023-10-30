@@ -267,7 +267,7 @@
             txtTarifa.Depth = 0;
             txtTarifa.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtTarifa.HideSelection = true;
-            txtTarifa.Hint = "Tarifa por hora";
+            txtTarifa.Hint = "Tarifa por noche";
             txtTarifa.LeadingIcon = null;
             txtTarifa.Location = new Point(270, 111);
             txtTarifa.MaxLength = 32767;

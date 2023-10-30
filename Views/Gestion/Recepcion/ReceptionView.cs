@@ -46,7 +46,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                     int index = 0;
                     foreach (var i in habitaciones)
                     {
-                       if(i.Estado.EstadoId == 1)
+                        if (i.Estado.EstadoId == 1)
                         {
                             ParrotGradientPanel panel = new ParrotGradientPanel
                             {
@@ -93,6 +93,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                             };
                             verDetalles.Click += (s, e) =>
                             {
+                                txtIdHabitacion.Text = i.HabitacionId.ToString();
                                 txtNumero.Text = i.Codigo;
                                 txtCategoria.Text = i.CategoriaHabitacion.Descripcion;
                                 txtCapacidad.Text = i.CategoriaHabitacion.Capacidad.ToString();
@@ -125,7 +126,34 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            
+            if (txtCantidadHuespedes.Text != "" && txtNumero.Text != "")
+            {
+                try
+                {
+                    var recepcionController = new RecepcionController(context);
+                    var habitacionController = new HabitacionesController(context);
+                    var cliente = (Cliente)cbxCliente.SelectedItem;
+                    Reserva recepcion = new Reserva
+                    {
+                        ClienteId = cliente.ClienteId,
+                        HabitacionId = Convert.ToInt32(txtIdHabitacion.Text),
+                        EmpleadoId = 1,
+                        FechaEntrada = DateTime.Now,
+                        Adelanto = Convert.ToDecimal(txtAdelanto.Text),
+                        FechaRegistro = DateTime.Now,
+                        CantidadPersonas = Convert.ToInt32(txtCantidadHuespedes.Text),
+                        Finalizada = false,
+                    };
+                    recepcionController.AddObject(recepcion);
+
+                    MessageBox.Show("Proceso de recervación de habitación finalizado exitosamente", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Proceso de recervación fallido "+ex.Message, "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
 
         private void horaEntrada_Tick(object sender, EventArgs e)

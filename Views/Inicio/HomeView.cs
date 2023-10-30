@@ -1,4 +1,5 @@
 ﻿using Hotel_Dorado_DesktopApp.View.ClientesView;
+using Hotel_Dorado_DesktopApp.Views.Ayudas;
 using Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Asignaciones;
 using Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal;
 using Hotel_Dorado_DesktopApp.Views.GestionView;
@@ -140,7 +141,7 @@ namespace Hotel_Dorado_DesktopApp.View
 
         private void btnAyudaMenu_Click(object sender, EventArgs e)
         {
-
+            abrirFormulario(new AyudaView());
         }
     }
 }

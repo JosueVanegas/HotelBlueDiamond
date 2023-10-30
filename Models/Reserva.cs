@@ -13,21 +13,23 @@ public partial class Reserva
 
     public int? EmpleadoId { get; set; }
 
-    public DateTime? FechaInicio { get; set; }
+    public DateTime? FechaEntrada { get; set; }
 
-    public DateTime? FechaFin { get; set; }
+    public DateTime? FechaSalida { get; set; }
 
     public decimal? Adelanto { get; set; }
 
-    public int HorasReservadas { get; set; }
-
-    public decimal? TotalGastos { get; set; }
-
-    public DateTime? FechaRegistro { get; set; }
+    public int? HorasReservadas { get; set; }
 
     public int? CantidadPersonas { get; set; }
 
+    public decimal? TotalDaños { get; set; }
+
+    public decimal? Total { get; set; }
+
     public bool? Finalizada { get; set; }
+
+    public DateTime? FechaRegistro { get; set; }
 
     public virtual Cliente? Cliente { get; set; }
 
