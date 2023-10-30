@@ -1,5 +1,6 @@
 ﻿using Hotel_Dorado_DesktopApp.Controllers;
 using Hotel_Dorado_DesktopApp.Models;
+using Hotel_Dorado_DesktopApp.Views.Gestion.Salidas;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
@@ -103,16 +104,8 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                             }
                             verDetalles.Click += (s, e) =>
                             {
-                                /*
-                                 * txtNumero.Text = i.Codigo;
-                                txtCategoria.Text = i.CategoriaHabitacion.Descripcion;
-                                txtCapacidad.Text = i.CategoriaHabitacion.Capacidad.ToString();
-                                txtPrecioPH.Text = i.PrecioPh.ToString();
-                                txtDetalles.Text = i.Detalles;
-                                txtExtras.Text = i.Extras;
-                                txtEstado.Text = i.Estado.Descripcion;
-                                txtPiso.Text = i.Piso.Descripcion;
-                                 */
+                                SalidaViewRegister form = new SalidaViewRegister(i.HabitacionId);
+                                form.ShowDialog();
                             };
                             panel.Controls.Add(verDetalles);
                             this.panelHabitaciones.Controls.Add(panel);

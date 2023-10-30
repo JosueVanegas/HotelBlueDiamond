@@ -257,7 +257,11 @@ public partial class HotelDoradoContext : DbContext
         {
             entity.HasKey(e => e.ReservaId).HasName("PK__Reserva__C39937038AD0E9C0");
 
-            entity.ToTable("Reserva", "Reservas", tb => tb.HasTrigger("TRG_RESERVA_HABITACION"));
+            entity.ToTable("Reserva", "Reservas", tb =>
+                {
+                    tb.HasTrigger("TRG_RESERVA_HABITACION_insert");
+                    tb.HasTrigger("TRG_RESERVA_HABITACION_update");
+                });
 
             entity.Property(e => e.ReservaId).HasColumnName("ReservaID");
             entity.Property(e => e.Adelanto).HasColumnType("decimal(10, 2)");
