@@ -1,6 +1,6 @@
 ﻿using Hotel_Dorado_DesktopApp.Controllers;
 using Hotel_Dorado_DesktopApp.Models;
-using ReaLTaiizor.Controls;
+using Hotel_Dorado_DesktopApp.Views.Gestion.Salidas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,19 +29,14 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
                 int itemWidth = 180;
                 int itemHeight = 170;
                 var habitaciones = new HabitacionesController(context).GetAllObjects();
-
+                panelContenedor.Controls.Clear();
                 if (habitaciones.Count != 0)
                 {
                     int index = 0;
                     foreach (var i in habitaciones)
                     {
-                        ParrotGradientPanel panel = new ParrotGradientPanel
+                        Panel panel = new Panel
                         {
-                            PrimerColor = Color.White,
-                            BottomLeft = Color.LightGray,
-                            TopLeft = Color.LightGray,
-                            TopRight = Color.White,
-                            BottomRight = Color.Beige,
                             Width = itemWidth,
                             Height = itemHeight,
                             BorderStyle = BorderStyle.FixedSingle,
@@ -69,10 +64,9 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
                         };
                         panel.Controls.Add(label1);
 
-                        System.Windows.Forms.Button verDetalles;
-                        verDetalles = new System.Windows.Forms.Button
+                        System.Windows.Forms.Button boton;
+                        boton = new System.Windows.Forms.Button
                         {
-                            Text = "Ver detalles",
                             Dock = DockStyle.Bottom,
                             Size = new Size(itemWidth, 40),
                             BackColor = Color.FromArgb(0, 51, 102),
@@ -83,27 +77,44 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
                             case 1:
                                 label2.BackColor = Color.Green;
                                 label2.ForeColor = Color.White;
+                                boton.Text = "Reservar";
+                                boton.Click += (s, e) =>
+                                {
+                                    ReceptionView form = new ReceptionView(i);
+                                    form.ShowDialog();
+                                    mostrarHabitaciones();
+                                };
                                 break;
                             case 2:
                                 label2.BackColor = Color.Red;
                                 label2.ForeColor = Color.White;
+                                boton.Text = "Concluir reservación";
+                                boton.Click += (s, e) =>
+                                {
+                                    SalidaViewRegister form = new SalidaViewRegister(i.HabitacionId);
+                                    form.ShowDialog();
+                                    mostrarHabitaciones();
+                                };
                                 break;
                             case 3:
                                 label2.BackColor = Color.Yellow;
                                 label2.ForeColor = Color.Black;
+                                boton.Click += (s, e) =>
+                                {
+                                };
                                 break;
                             case 4:
                                 label2.BackColor = Color.Orange;
                                 label2.ForeColor = Color.Black;
+                                boton.Click += (s, e) =>
+                                {
+                                };
                                 break;
                             default:
                                 break;
                         }
-                        verDetalles.Click += (s, e) =>
-                        {
-                            MessageBox.Show("Esta habitación esta " + i.Estado.Descripcion);
-                        };
-                        panel.Controls.Add(verDetalles);
+
+                        panel.Controls.Add(boton);
                         this.panelContenedor.Controls.Add(panel);
                         index++;
                     }
@@ -117,12 +128,6 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btnReservar_Click(object sender, EventArgs e)
-        {
-            ReceptionView form = new ReceptionView();
-            form.ShowDialog();
         }
     }
 }

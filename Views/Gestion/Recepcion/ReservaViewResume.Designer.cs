@@ -40,8 +40,9 @@
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1128, 206);
+            panel1.Size = new Size(987, 154);
             panel1.TabIndex = 1;
             // 
             // label2
@@ -51,28 +52,30 @@
             label2.Font = new Font("Segoe UI", 22F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(1128, 206);
+            label2.Size = new Size(987, 154);
             label2.TabIndex = 2;
-            label2.Text = "Habitaciones";
+            label2.Text = "Recepción";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panelContenedor
             // 
             panelContenedor.BackColor = Color.White;
             panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(0, 206);
+            panelContenedor.Location = new Point(0, 154);
+            panelContenedor.Margin = new Padding(3, 2, 3, 2);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1128, 482);
+            panelContenedor.Size = new Size(987, 362);
             panelContenedor.TabIndex = 2;
             // 
             // ReservaViewResume
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1128, 688);
+            ClientSize = new Size(987, 516);
             Controls.Add(panelContenedor);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ReservaViewResume";
             Text = "ReservaViewResume";
             panel1.ResumeLayout(false);

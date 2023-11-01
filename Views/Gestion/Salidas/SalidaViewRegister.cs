@@ -22,16 +22,32 @@ namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
             context = new HotelDoradoContext();
             mostrarDatos(HabitacionID);
             timer.Start();
+            this.TransparencyKey = Color.Empty;
         }
         private void mostrarDatos(int id)
         {
             try
             {
                 var controller = new RecepcionController(context);
-                var reserva = controller.GetObjectByIdQuery(id);
+                var reserva = controller.GetReservaByHabitacion(id);
                 if (reserva != null)
                 {
+                    //informacion del cliente
                     txtNombre.Text = reserva.Cliente.Nombre;
+                    txtApellido.Text = reserva.Cliente.Apellido;
+                    txtCedula.Text = reserva.Cliente.Cedula;
+                    txtCantidadHuespedes.Text = reserva.CantidadPersonas.ToString();
+                    //infromacion de la reserva
+                    dtpEntrada.Text = reserva.FechaEntrada.ToString();
+                    dtpSalida.Text = reserva.FechaSalida.ToString();
+                    txtAdelanto.Text = reserva.Adelanto.ToString();
+                    //informacion de la habitacion
+                    txtNumero.Text = reserva.Habitacion.Codigo;
+                    txtCategoria.Text = reserva.Habitacion.CategoriaHabitacion.Descripcion;
+
+
+
+
                 }
             }
             catch (Exception ex)

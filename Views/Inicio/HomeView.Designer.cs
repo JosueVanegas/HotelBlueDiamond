@@ -36,9 +36,6 @@
             btnInicioInicio = new ToolStripMenuItem();
             cambiarRolDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
             btnHospedajeMenu = new ToolStripMenuItem();
-            btnRecepcion = new ToolStripMenuItem();
-            btnIngreso = new ToolStripMenuItem();
-            btnRecepcionSalida = new ToolStripMenuItem();
             btnTiendaMenu = new ToolStripMenuItem();
             productosToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem1 = new ToolStripMenuItem();
@@ -76,52 +73,35 @@
             // 
             // panelContenedor
             // 
-            panelContenedor.AutoScroll = true;
+            resources.ApplyResources(panelContenedor, "panelContenedor");
             panelContenedor.BackColor = Color.Beige;
-            panelContenedor.Dock = DockStyle.Fill;
-            panelContenedor.Location = new Point(203, 44);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1181, 618);
-            panelContenedor.TabIndex = 0;
             // 
             // Menu
             // 
             Menu.BackColor = Color.FromArgb(0, 51, 102);
-            Menu.Dock = DockStyle.Left;
-            Menu.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(Menu, "Menu");
             Menu.GripMargin = new Padding(2, 2, 0, 10);
             Menu.ImageScalingSize = new Size(20, 20);
             Menu.Items.AddRange(new ToolStripItem[] { btnInicioMenu, btnHospedajeMenu, btnTiendaMenu, btnHabitacionesMenu, btnTareasPersonalMenu, btnReportesMenu, btnUsuariosMenu, btnClientesMenu, btnAyudaMenu });
-            Menu.Location = new Point(0, 44);
-            Menu.Margin = new Padding(0, 0, 0, 40);
             Menu.Name = "Menu";
             Menu.RenderMode = ToolStripRenderMode.Professional;
             Menu.ShowItemToolTips = true;
-            Menu.Size = new Size(203, 653);
-            Menu.TabIndex = 3;
-            Menu.Text = "menuStrip1";
             // 
             // btnInicioMenu
             // 
             btnInicioMenu.DropDownItems.AddRange(new ToolStripItem[] { btnInicioInicio, cambiarRolDeUsuarioToolStripMenuItem });
             btnInicioMenu.ForeColor = Color.Beige;
-            btnInicioMenu.Image = (Image)resources.GetObject("btnInicioMenu.Image");
-            btnInicioMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnInicioMenu.ImageScaling = ToolStripItemImageScaling.None;
+            resources.ApplyResources(btnInicioMenu, "btnInicioMenu");
             btnInicioMenu.Margin = new Padding(0, 10, 0, 10);
             btnInicioMenu.Name = "btnInicioMenu";
-            btnInicioMenu.Size = new Size(190, 36);
-            btnInicioMenu.Text = "Inicio";
-            btnInicioMenu.TextAlign = ContentAlignment.MiddleLeft;
-            btnInicioMenu.ToolTipText = "Inicio";
             // 
             // btnInicioInicio
             // 
             btnInicioInicio.BackColor = Color.FromArgb(0, 51, 102);
             btnInicioInicio.ForeColor = Color.Beige;
             btnInicioInicio.Name = "btnInicioInicio";
-            btnInicioInicio.Size = new Size(344, 36);
-            btnInicioInicio.Text = "Inicio";
+            resources.ApplyResources(btnInicioInicio, "btnInicioInicio");
             btnInicioInicio.Click += btnInicioInicio_Click;
             // 
             // cambiarRolDeUsuarioToolStripMenuItem
@@ -129,230 +109,154 @@
             cambiarRolDeUsuarioToolStripMenuItem.BackColor = Color.FromArgb(0, 51, 102);
             cambiarRolDeUsuarioToolStripMenuItem.ForeColor = Color.Beige;
             cambiarRolDeUsuarioToolStripMenuItem.Name = "cambiarRolDeUsuarioToolStripMenuItem";
-            cambiarRolDeUsuarioToolStripMenuItem.Size = new Size(344, 36);
-            cambiarRolDeUsuarioToolStripMenuItem.Text = "Cambiar rol de usuario";
+            resources.ApplyResources(cambiarRolDeUsuarioToolStripMenuItem, "cambiarRolDeUsuarioToolStripMenuItem");
             // 
             // btnHospedajeMenu
             // 
-            btnHospedajeMenu.DropDownItems.AddRange(new ToolStripItem[] { btnRecepcion, btnIngreso, btnRecepcionSalida });
             btnHospedajeMenu.ForeColor = Color.Beige;
-            btnHospedajeMenu.Image = (Image)resources.GetObject("btnHospedajeMenu.Image");
-            btnHospedajeMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHospedajeMenu.ImageScaling = ToolStripItemImageScaling.None;
+            resources.ApplyResources(btnHospedajeMenu, "btnHospedajeMenu");
             btnHospedajeMenu.Margin = new Padding(0, 10, 0, 10);
             btnHospedajeMenu.Name = "btnHospedajeMenu";
-            btnHospedajeMenu.Size = new Size(190, 36);
-            btnHospedajeMenu.Text = "Hospedaje";
-            btnHospedajeMenu.TextAlign = ContentAlignment.MiddleLeft;
-            btnHospedajeMenu.ToolTipText = "Hospedaje";
-            // 
-            // btnRecepcion
-            // 
-            btnRecepcion.Name = "btnRecepcion";
-            btnRecepcion.Size = new Size(224, 36);
-            btnRecepcion.Text = "Recepción";
-            btnRecepcion.Click += btnRecepcion_Click;
-            // 
-            // btnIngreso
-            // 
-            btnIngreso.Name = "btnIngreso";
-            btnIngreso.Size = new Size(224, 36);
-            btnIngreso.Text = "Ingreso";
-            btnIngreso.Click += btnIngreso_Click;
-            // 
-            // btnRecepcionSalida
-            // 
-            btnRecepcionSalida.Name = "btnRecepcionSalida";
-            btnRecepcionSalida.Size = new Size(224, 36);
-            btnRecepcionSalida.Text = "Salidadas";
-            btnRecepcionSalida.Click += btnRecepcionSalida_Click;
+            btnHospedajeMenu.Click += btnHospedajeMenu_Click;
             // 
             // btnTiendaMenu
             // 
             btnTiendaMenu.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem, categoriasToolStripMenuItem1 });
             btnTiendaMenu.ForeColor = Color.Beige;
-            btnTiendaMenu.Image = (Image)resources.GetObject("btnTiendaMenu.Image");
-            btnTiendaMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTiendaMenu.ImageScaling = ToolStripItemImageScaling.None;
+            resources.ApplyResources(btnTiendaMenu, "btnTiendaMenu");
             btnTiendaMenu.Margin = new Padding(0, 10, 0, 10);
             btnTiendaMenu.Name = "btnTiendaMenu";
-            btnTiendaMenu.Size = new Size(190, 36);
-            btnTiendaMenu.Text = "Tienda";
-            btnTiendaMenu.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // productosToolStripMenuItem
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(224, 36);
-            productosToolStripMenuItem.Text = "Vender";
+            resources.ApplyResources(productosToolStripMenuItem, "productosToolStripMenuItem");
             // 
             // categoriasToolStripMenuItem1
             // 
             categoriasToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem1, categoriasToolStripMenuItem2 });
             categoriasToolStripMenuItem1.Name = "categoriasToolStripMenuItem1";
-            categoriasToolStripMenuItem1.Size = new Size(224, 36);
-            categoriasToolStripMenuItem1.Text = "Inventario";
+            resources.ApplyResources(categoriasToolStripMenuItem1, "categoriasToolStripMenuItem1");
             // 
             // productosToolStripMenuItem1
             // 
             productosToolStripMenuItem1.Name = "productosToolStripMenuItem1";
-            productosToolStripMenuItem1.Size = new Size(214, 36);
-            productosToolStripMenuItem1.Text = "Productos";
+            resources.ApplyResources(productosToolStripMenuItem1, "productosToolStripMenuItem1");
+            productosToolStripMenuItem1.Click += productosToolStripMenuItem1_Click;
             // 
             // categoriasToolStripMenuItem2
             // 
             categoriasToolStripMenuItem2.Name = "categoriasToolStripMenuItem2";
-            categoriasToolStripMenuItem2.Size = new Size(214, 36);
-            categoriasToolStripMenuItem2.Text = "Categorias";
+            resources.ApplyResources(categoriasToolStripMenuItem2, "categoriasToolStripMenuItem2");
             // 
             // btnHabitacionesMenu
             // 
             btnHabitacionesMenu.DropDownItems.AddRange(new ToolStripItem[] { btnHabitaciones, btnCategorias });
             btnHabitacionesMenu.ForeColor = Color.Beige;
-            btnHabitacionesMenu.Image = (Image)resources.GetObject("btnHabitacionesMenu.Image");
-            btnHabitacionesMenu.ImageScaling = ToolStripItemImageScaling.None;
+            resources.ApplyResources(btnHabitacionesMenu, "btnHabitacionesMenu");
             btnHabitacionesMenu.Margin = new Padding(0, 10, 0, 10);
             btnHabitacionesMenu.Name = "btnHabitacionesMenu";
-            btnHabitacionesMenu.Size = new Size(190, 36);
-            btnHabitacionesMenu.Text = "Habitaciones";
-            btnHabitacionesMenu.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnHabitaciones
             // 
             btnHabitaciones.Name = "btnHabitaciones";
-            btnHabitaciones.Size = new Size(239, 36);
-            btnHabitaciones.Text = "Habitaciones";
+            resources.ApplyResources(btnHabitaciones, "btnHabitaciones");
             btnHabitaciones.Click += btnHabitaciones_Click;
             // 
             // btnCategorias
             // 
             btnCategorias.Name = "btnCategorias";
-            btnCategorias.Size = new Size(239, 36);
-            btnCategorias.Text = "Categorias";
+            resources.ApplyResources(btnCategorias, "btnCategorias");
             btnCategorias.Click += btnCategorias_Click;
             // 
             // btnTareasPersonalMenu
             // 
             btnTareasPersonalMenu.DropDownItems.AddRange(new ToolStripItem[] { personalToolStripMenuItem, btnAsignacion });
             btnTareasPersonalMenu.ForeColor = Color.Beige;
-            btnTareasPersonalMenu.Image = (Image)resources.GetObject("btnTareasPersonalMenu.Image");
-            btnTareasPersonalMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTareasPersonalMenu.ImageScaling = ToolStripItemImageScaling.None;
+            resources.ApplyResources(btnTareasPersonalMenu, "btnTareasPersonalMenu");
             btnTareasPersonalMenu.Margin = new Padding(0, 10, 0, 10);
             btnTareasPersonalMenu.Name = "btnTareasPersonalMenu";
-            btnTareasPersonalMenu.Size = new Size(190, 36);
-            btnTareasPersonalMenu.Text = "Empleados";
-            btnTareasPersonalMenu.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // personalToolStripMenuItem
             // 
             personalToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { btnEmpleado, btnCargo });
             personalToolStripMenuItem.Name = "personalToolStripMenuItem";
-            personalToolStripMenuItem.Size = new Size(224, 36);
-            personalToolStripMenuItem.Text = "Personal";
+            resources.ApplyResources(personalToolStripMenuItem, "personalToolStripMenuItem");
             // 
             // btnEmpleado
             // 
             btnEmpleado.Name = "btnEmpleado";
-            btnEmpleado.Size = new Size(218, 36);
-            btnEmpleado.Text = "Empleados";
+            resources.ApplyResources(btnEmpleado, "btnEmpleado");
             btnEmpleado.Click += btnEmpleado_Click;
             // 
             // btnCargo
             // 
             btnCargo.Name = "btnCargo";
-            btnCargo.Size = new Size(218, 36);
-            btnCargo.Text = "Cargos";
+            resources.ApplyResources(btnCargo, "btnCargo");
             btnCargo.Click += btnCargo_Click;
             // 
             // btnAsignacion
             // 
             btnAsignacion.Name = "btnAsignacion";
-            btnAsignacion.Size = new Size(224, 36);
-            btnAsignacion.Text = "Asignacion";
+            resources.ApplyResources(btnAsignacion, "btnAsignacion");
             btnAsignacion.Click += btnAsignacion_Click;
             // 
             // btnReportesMenu
             // 
             btnReportesMenu.DropDownItems.AddRange(new ToolStripItem[] { informeDeInventarioToolStripMenuItem, informeDeToolStripMenuItem, generadorDeNominaToolStripMenuItem });
             btnReportesMenu.ForeColor = Color.Beige;
-            btnReportesMenu.Image = (Image)resources.GetObject("btnReportesMenu.Image");
-            btnReportesMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReportesMenu.ImageScaling = ToolStripItemImageScaling.None;
+            resources.ApplyResources(btnReportesMenu, "btnReportesMenu");
             btnReportesMenu.Margin = new Padding(0, 10, 0, 10);
             btnReportesMenu.Name = "btnReportesMenu";
-            btnReportesMenu.Size = new Size(190, 36);
-            btnReportesMenu.Text = "Reportes";
-            btnReportesMenu.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // informeDeInventarioToolStripMenuItem
             // 
             informeDeInventarioToolStripMenuItem.Name = "informeDeInventarioToolStripMenuItem";
-            informeDeInventarioToolStripMenuItem.Size = new Size(347, 36);
-            informeDeInventarioToolStripMenuItem.Text = "Informe de inventario";
+            resources.ApplyResources(informeDeInventarioToolStripMenuItem, "informeDeInventarioToolStripMenuItem");
             // 
             // informeDeToolStripMenuItem
             // 
             informeDeToolStripMenuItem.Name = "informeDeToolStripMenuItem";
-            informeDeToolStripMenuItem.Size = new Size(347, 36);
-            informeDeToolStripMenuItem.Text = "Informe de hospedajes";
+            resources.ApplyResources(informeDeToolStripMenuItem, "informeDeToolStripMenuItem");
             // 
             // generadorDeNominaToolStripMenuItem
             // 
             generadorDeNominaToolStripMenuItem.Name = "generadorDeNominaToolStripMenuItem";
-            generadorDeNominaToolStripMenuItem.Size = new Size(347, 36);
-            generadorDeNominaToolStripMenuItem.Text = "Generador de nomina";
+            resources.ApplyResources(generadorDeNominaToolStripMenuItem, "generadorDeNominaToolStripMenuItem");
             // 
             // btnUsuariosMenu
             // 
             btnUsuariosMenu.DropDownItems.AddRange(new ToolStripItem[] { btnUsuario, rolesDeUsuariosToolStripMenuItem });
             btnUsuariosMenu.ForeColor = Color.Beige;
-            btnUsuariosMenu.Image = (Image)resources.GetObject("btnUsuariosMenu.Image");
-            btnUsuariosMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUsuariosMenu.ImageScaling = ToolStripItemImageScaling.None;
+            resources.ApplyResources(btnUsuariosMenu, "btnUsuariosMenu");
             btnUsuariosMenu.Margin = new Padding(0, 10, 0, 10);
             btnUsuariosMenu.Name = "btnUsuariosMenu";
-            btnUsuariosMenu.Size = new Size(190, 36);
-            btnUsuariosMenu.Text = "Usuarios";
-            btnUsuariosMenu.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnUsuario
             // 
             btnUsuario.Name = "btnUsuario";
-            btnUsuario.Size = new Size(319, 36);
-            btnUsuario.Text = "Administrar usuarios";
+            resources.ApplyResources(btnUsuario, "btnUsuario");
             btnUsuario.Click += btnUsuario_Click;
             // 
             // rolesDeUsuariosToolStripMenuItem
             // 
             rolesDeUsuariosToolStripMenuItem.Name = "rolesDeUsuariosToolStripMenuItem";
-            rolesDeUsuariosToolStripMenuItem.Size = new Size(319, 36);
-            rolesDeUsuariosToolStripMenuItem.Text = "Roles de Usuarios";
+            resources.ApplyResources(rolesDeUsuariosToolStripMenuItem, "rolesDeUsuariosToolStripMenuItem");
             // 
             // btnClientesMenu
             // 
             btnClientesMenu.ForeColor = Color.Beige;
-            btnClientesMenu.Image = (Image)resources.GetObject("btnClientesMenu.Image");
-            btnClientesMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnClientesMenu.ImageScaling = ToolStripItemImageScaling.None;
+            resources.ApplyResources(btnClientesMenu, "btnClientesMenu");
             btnClientesMenu.Margin = new Padding(0, 10, 0, 10);
             btnClientesMenu.Name = "btnClientesMenu";
-            btnClientesMenu.Size = new Size(190, 36);
-            btnClientesMenu.Text = "Clientes";
-            btnClientesMenu.TextAlign = ContentAlignment.MiddleLeft;
             btnClientesMenu.Click += btnClientes_Click;
             // 
             // btnAyudaMenu
             // 
             btnAyudaMenu.ForeColor = Color.Beige;
-            btnAyudaMenu.Image = (Image)resources.GetObject("btnAyudaMenu.Image");
-            btnAyudaMenu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAyudaMenu.ImageScaling = ToolStripItemImageScaling.None;
+            resources.ApplyResources(btnAyudaMenu, "btnAyudaMenu");
             btnAyudaMenu.Margin = new Padding(0, 10, 0, 10);
             btnAyudaMenu.Name = "btnAyudaMenu";
-            btnAyudaMenu.Size = new Size(190, 36);
-            btnAyudaMenu.Text = "Ayuda";
-            btnAyudaMenu.TextAlign = ContentAlignment.MiddleLeft;
             btnAyudaMenu.Click += btnAyudaMenu_Click;
             // 
             // panel1
@@ -360,46 +264,26 @@
             panel1.BackColor = Color.FromArgb(0, 51, 102);
             panel1.Controls.Add(lblUsuario);
             panel1.Controls.Add(btnCambiarUsuario);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
+            resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
-            panel1.Size = new Size(1384, 44);
-            panel1.TabIndex = 4;
             // 
             // lblUsuario
             // 
-            lblUsuario.Dock = DockStyle.Right;
-            lblUsuario.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(lblUsuario, "lblUsuario");
             lblUsuario.ForeColor = Color.Beige;
-            lblUsuario.Location = new Point(1137, 0);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(215, 44);
-            lblUsuario.TabIndex = 3;
-            lblUsuario.Text = "admin";
-            lblUsuario.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnCambiarUsuario
             // 
-            btnCambiarUsuario.Dock = DockStyle.Right;
-            btnCambiarUsuario.Image = (Image)resources.GetObject("btnCambiarUsuario.Image");
-            btnCambiarUsuario.Location = new Point(1352, 0);
+            resources.ApplyResources(btnCambiarUsuario, "btnCambiarUsuario");
             btnCambiarUsuario.Name = "btnCambiarUsuario";
-            btnCambiarUsuario.Size = new Size(32, 44);
-            btnCambiarUsuario.SizeMode = PictureBoxSizeMode.Zoom;
-            btnCambiarUsuario.TabIndex = 2;
             btnCambiarUsuario.TabStop = false;
             // 
             // lblReloj
             // 
-            lblReloj.Dock = DockStyle.Fill;
-            lblReloj.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(lblReloj, "lblReloj");
             lblReloj.ForeColor = Color.Beige;
-            lblReloj.Location = new Point(430, 0);
             lblReloj.Name = "lblReloj";
-            lblReloj.Size = new Size(751, 35);
-            lblReloj.TabIndex = 0;
-            lblReloj.Text = "00:00:00";
-            lblReloj.TextAlign = ContentAlignment.MiddleRight;
             // 
             // Reloj
             // 
@@ -410,38 +294,25 @@
             panel2.BackColor = Color.FromArgb(0, 51, 102);
             panel2.Controls.Add(lblReloj);
             panel2.Controls.Add(label2);
-            panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(203, 662);
+            resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
-            panel2.Size = new Size(1181, 35);
-            panel2.TabIndex = 5;
             // 
             // label2
             // 
-            label2.Dock = DockStyle.Left;
-            label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(label2, "label2");
             label2.ForeColor = Color.Beige;
-            label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(430, 35);
-            label2.TabIndex = 3;
-            label2.Text = "Conectado  a la base de datos";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // HomeView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
-            ClientSize = new Size(1384, 697);
             Controls.Add(panelContenedor);
             Controls.Add(panel2);
             Controls.Add(Menu);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "HomeView";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Hotel dorado app";
             Load += HomeView_Load;
             Menu.ResumeLayout(false);
             Menu.PerformLayout();
@@ -459,8 +330,6 @@
         private ToolStripMenuItem btnInicioMenu;
         private ToolStripMenuItem cambiarRolDeUsuarioToolStripMenuItem;
         private ToolStripMenuItem btnHospedajeMenu;
-        private ToolStripMenuItem btnRecepcion;
-        private ToolStripMenuItem btnRecepcionSalida;
         private ToolStripMenuItem btnTiendaMenu;
         private ToolStripMenuItem productosToolStripMenuItem;
         private ToolStripMenuItem categoriasToolStripMenuItem1;
@@ -491,6 +360,5 @@
         private ToolStripMenuItem generadorDeNominaToolStripMenuItem;
         private Panel panel2;
         private Label label2;
-        private ToolStripMenuItem btnIngreso;
     }
 }

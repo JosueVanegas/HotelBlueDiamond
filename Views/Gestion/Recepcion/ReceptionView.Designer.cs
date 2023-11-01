@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            panelCarrusel = new FlowLayoutPanel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceptionView));
             panel1 = new Panel();
+            dtSalida = new ReaLTaiizor.Controls.PoisonDateTime();
+            txtCantidad = new NumericUpDown();
+            label6 = new Label();
             txtIdHabitacion = new Label();
-            dtpSalida = new Label();
             dtpEntrada = new Label();
-            txtCantidadHuespedes = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtAdelanto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             label5 = new Label();
             label4 = new Label();
@@ -53,28 +53,19 @@
             txtCategoria = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtEstado = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNumero = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            horaEntrada = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtCantidad).BeginInit();
             SuspendLayout();
-            // 
-            // panelCarrusel
-            // 
-            panelCarrusel.AutoScroll = true;
-            panelCarrusel.BackColor = SystemColors.Control;
-            panelCarrusel.Location = new Point(12, 520);
-            panelCarrusel.Name = "panelCarrusel";
-            panelCarrusel.Size = new Size(1057, 292);
-            panelCarrusel.TabIndex = 1;
             // 
             // panel1
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Beige;
+            panel1.Controls.Add(dtSalida);
+            panel1.Controls.Add(txtCantidad);
+            panel1.Controls.Add(label6);
             panel1.Controls.Add(txtIdHabitacion);
-            panel1.Controls.Add(dtpSalida);
             panel1.Controls.Add(dtpEntrada);
-            panel1.Controls.Add(panelCarrusel);
-            panel1.Controls.Add(txtCantidadHuespedes);
             panel1.Controls.Add(txtAdelanto);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
@@ -93,72 +84,67 @@
             panel1.Controls.Add(txtCategoria);
             panel1.Controls.Add(txtEstado);
             panel1.Controls.Add(txtNumero);
-            panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1143, 824);
+            panel1.Size = new Size(950, 696);
             panel1.TabIndex = 2;
+            // 
+            // dtSalida
+            // 
+            dtSalida.Location = new Point(422, 126);
+            dtSalida.MinDate = new DateTime(2023, 10, 31, 0, 0, 0, 0);
+            dtSalida.MinimumSize = new Size(0, 29);
+            dtSalida.Name = "dtSalida";
+            dtSalida.Size = new Size(332, 29);
+            dtSalida.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
+            dtSalida.TabIndex = 30;
+            dtSalida.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            dtSalida.Value = new DateTime(2023, 10, 31, 18, 15, 46, 0);
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.BackColor = Color.Beige;
+            txtCantidad.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCantidad.Location = new Point(140, 167);
+            txtCantidad.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(61, 43);
+            txtCantidad.TabIndex = 31;
+            txtCantidad.TextAlign = HorizontalAlignment.Center;
+            txtCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = Color.DimGray;
+            label6.Location = new Point(7, 162);
+            label6.Name = "label6";
+            label6.Size = new Size(127, 48);
+            label6.TabIndex = 29;
+            label6.Text = "Cantidad de huespedes:";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtIdHabitacion
             // 
             txtIdHabitacion.AutoSize = true;
-            txtIdHabitacion.Location = new Point(673, 364);
+            txtIdHabitacion.Location = new Point(850, 445);
             txtIdHabitacion.Name = "txtIdHabitacion";
-            txtIdHabitacion.Size = new Size(17, 20);
+            txtIdHabitacion.Size = new Size(13, 15);
             txtIdHabitacion.TabIndex = 27;
             txtIdHabitacion.Text = "0";
-            // 
-            // dtpSalida
-            // 
-            dtpSalida.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpSalida.ForeColor = Color.DimGray;
-            dtpSalida.Location = new Point(729, 113);
-            dtpSalida.Name = "dtpSalida";
-            dtpSalida.Size = new Size(324, 38);
-            dtpSalida.TabIndex = 26;
-            dtpSalida.Text = "Indefinida por el momento";
-            dtpSalida.TextAlign = ContentAlignment.MiddleLeft;
+            txtIdHabitacion.Visible = false;
             // 
             // dtpEntrada
             // 
             dtpEntrada.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             dtpEntrada.ForeColor = Color.DimGray;
-            dtpEntrada.Location = new Point(197, 113);
+            dtpEntrada.Location = new Point(173, 126);
             dtpEntrada.Name = "dtpEntrada";
-            dtpEntrada.Size = new Size(341, 38);
+            dtpEntrada.Size = new Size(80, 28);
             dtpEntrada.TabIndex = 25;
+            dtpEntrada.Text = "Hoy";
             dtpEntrada.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtCantidadHuespedes
-            // 
-            txtCantidadHuespedes.AnimateReadOnly = false;
-            txtCantidadHuespedes.AutoCompleteMode = AutoCompleteMode.None;
-            txtCantidadHuespedes.AutoCompleteSource = AutoCompleteSource.None;
-            txtCantidadHuespedes.BackgroundImageLayout = ImageLayout.None;
-            txtCantidadHuespedes.CharacterCasing = CharacterCasing.Normal;
-            txtCantidadHuespedes.Depth = 0;
-            txtCantidadHuespedes.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtCantidadHuespedes.HideSelection = true;
-            txtCantidadHuespedes.Hint = "Cantidad de huespedes:";
-            txtCantidadHuespedes.LeadingIcon = null;
-            txtCantidadHuespedes.Location = new Point(12, 157);
-            txtCantidadHuespedes.MaxLength = 32767;
-            txtCantidadHuespedes.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtCantidadHuespedes.Name = "txtCantidadHuespedes";
-            txtCantidadHuespedes.PasswordChar = '\0';
-            txtCantidadHuespedes.PrefixSuffixText = null;
-            txtCantidadHuespedes.ReadOnly = false;
-            txtCantidadHuespedes.RightToLeft = RightToLeft.No;
-            txtCantidadHuespedes.SelectedText = "";
-            txtCantidadHuespedes.SelectionLength = 0;
-            txtCantidadHuespedes.SelectionStart = 0;
-            txtCantidadHuespedes.ShortcutsEnabled = true;
-            txtCantidadHuespedes.Size = new Size(211, 48);
-            txtCantidadHuespedes.TabIndex = 22;
-            txtCantidadHuespedes.TabStop = false;
-            txtCantidadHuespedes.TextAlign = HorizontalAlignment.Left;
-            txtCantidadHuespedes.TrailingIcon = null;
-            txtCantidadHuespedes.UseSystemPasswordChar = false;
             // 
             // txtAdelanto
             // 
@@ -172,7 +158,8 @@
             txtAdelanto.HideSelection = true;
             txtAdelanto.Hint = "Adelanto:";
             txtAdelanto.LeadingIcon = null;
-            txtAdelanto.Location = new Point(229, 157);
+            txtAdelanto.Location = new Point(234, 162);
+            txtAdelanto.Margin = new Padding(3, 2, 3, 2);
             txtAdelanto.MaxLength = 32767;
             txtAdelanto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtAdelanto.Name = "txtAdelanto";
@@ -184,7 +171,7 @@
             txtAdelanto.SelectionLength = 0;
             txtAdelanto.SelectionStart = 0;
             txtAdelanto.ShortcutsEnabled = true;
-            txtAdelanto.Size = new Size(206, 48);
+            txtAdelanto.Size = new Size(180, 48);
             txtAdelanto.TabIndex = 21;
             txtAdelanto.TabStop = false;
             txtAdelanto.Text = "0.00";
@@ -196,9 +183,9 @@
             // 
             label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
-            label5.Location = new Point(544, 113);
+            label5.Location = new Point(259, 126);
             label5.Name = "label5";
-            label5.Size = new Size(179, 38);
+            label5.Size = new Size(157, 28);
             label5.TabIndex = 20;
             label5.Text = "Fecha de salida:";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -207,9 +194,9 @@
             // 
             label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.DimGray;
-            label4.Location = new Point(12, 113);
+            label4.Location = new Point(11, 126);
             label4.Name = "label4";
-            label4.Size = new Size(179, 38);
+            label4.Size = new Size(157, 28);
             label4.TabIndex = 19;
             label4.Text = "Fecha de entrada:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -218,17 +205,17 @@
             // 
             btnNuevoCliente.AutoSize = false;
             btnNuevoCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnNuevoCliente.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnNuevoCliente.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
             btnNuevoCliente.Depth = 0;
             btnNuevoCliente.HighEmphasis = true;
             btnNuevoCliente.Icon = null;
             btnNuevoCliente.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnNuevoCliente.Location = new Point(869, 55);
-            btnNuevoCliente.Margin = new Padding(4, 6, 4, 6);
+            btnNuevoCliente.Location = new Point(760, 66);
+            btnNuevoCliente.Margin = new Padding(4);
             btnNuevoCliente.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnNuevoCliente.Name = "btnNuevoCliente";
             btnNuevoCliente.NoAccentTextColor = Color.Empty;
-            btnNuevoCliente.Size = new Size(200, 49);
+            btnNuevoCliente.Size = new Size(175, 49);
             btnNuevoCliente.TabIndex = 16;
             btnNuevoCliente.Text = "Nuevo cliente";
             btnNuevoCliente.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -251,11 +238,12 @@
             cbxCliente.Hint = "Seleccione un cliente";
             cbxCliente.IntegralHeight = false;
             cbxCliente.ItemHeight = 43;
-            cbxCliente.Location = new Point(12, 55);
+            cbxCliente.Location = new Point(10, 66);
+            cbxCliente.Margin = new Padding(3, 2, 3, 2);
             cbxCliente.MaxDropDownItems = 4;
             cbxCliente.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbxCliente.Name = "cbxCliente";
-            cbxCliente.Size = new Size(850, 49);
+            cbxCliente.Size = new Size(744, 49);
             cbxCliente.StartIndex = 0;
             cbxCliente.TabIndex = 15;
             // 
@@ -263,9 +251,9 @@
             // 
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Gray;
-            label3.Location = new Point(12, 0);
+            label3.Location = new Point(10, 0);
             label3.Name = "label3";
-            label3.Size = new Size(1057, 49);
+            label3.Size = new Size(925, 37);
             label3.TabIndex = 14;
             label3.Text = "Información de la reservación";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -274,9 +262,9 @@
             // 
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Gray;
-            label2.Location = new Point(12, 208);
+            label2.Location = new Point(10, 212);
             label2.Name = "label2";
-            label2.Size = new Size(948, 43);
+            label2.Size = new Size(830, 32);
             label2.TabIndex = 13;
             label2.Text = "Información de la habitación";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -284,9 +272,9 @@
             // label1
             // 
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(330, 364);
+            label1.Location = new Point(289, 346);
             label1.Name = "label1";
-            label1.Size = new Size(307, 28);
+            label1.Size = new Size(269, 21);
             label1.TabIndex = 12;
             label1.Text = "la Habitación incluye:";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -294,9 +282,9 @@
             // lblDetalles
             // 
             lblDetalles.ForeColor = Color.DimGray;
-            lblDetalles.Location = new Point(17, 364);
+            lblDetalles.Location = new Point(16, 348);
             lblDetalles.Name = "lblDetalles";
-            lblDetalles.Size = new Size(307, 25);
+            lblDetalles.Size = new Size(269, 19);
             lblDetalles.TabIndex = 11;
             lblDetalles.Text = "Detalles de la habitación:";
             lblDetalles.TextAlign = ContentAlignment.MiddleCenter;
@@ -304,16 +292,17 @@
             // txtExtras
             // 
             txtExtras.AutoWordSelection = false;
-            txtExtras.BackColor = Color.Transparent;
+            txtExtras.BackColor = Color.White;
             txtExtras.BaseColor = Color.Transparent;
             txtExtras.BorderColor = Color.FromArgb(180, 180, 180);
             txtExtras.EdgeColor = Color.White;
             txtExtras.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtExtras.ForeColor = Color.DimGray;
-            txtExtras.Location = new Point(330, 395);
+            txtExtras.Location = new Point(291, 373);
+            txtExtras.Margin = new Padding(3, 2, 3, 2);
             txtExtras.Name = "txtExtras";
             txtExtras.ReadOnly = true;
-            txtExtras.Size = new Size(312, 119);
+            txtExtras.Size = new Size(273, 89);
             txtExtras.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             txtExtras.TabIndex = 10;
             txtExtras.TextBackColor = Color.White;
@@ -324,16 +313,17 @@
             // txtDetalles
             // 
             txtDetalles.AutoWordSelection = false;
-            txtDetalles.BackColor = Color.Transparent;
+            txtDetalles.BackColor = Color.White;
             txtDetalles.BaseColor = Color.Transparent;
             txtDetalles.BorderColor = Color.FromArgb(180, 180, 180);
             txtDetalles.EdgeColor = Color.White;
             txtDetalles.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtDetalles.ForeColor = Color.DimGray;
-            txtDetalles.Location = new Point(12, 395);
+            txtDetalles.Location = new Point(12, 373);
+            txtDetalles.Margin = new Padding(3, 2, 3, 2);
             txtDetalles.Name = "txtDetalles";
             txtDetalles.ReadOnly = true;
-            txtDetalles.Size = new Size(312, 119);
+            txtDetalles.Size = new Size(273, 89);
             txtDetalles.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             txtDetalles.TabIndex = 9;
             txtDetalles.TextBackColor = Color.White;
@@ -345,18 +335,17 @@
             // 
             btnReservar.AutoSize = false;
             btnReservar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnReservar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnReservar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
             btnReservar.Depth = 0;
-            btnReservar.Enabled = false;
             btnReservar.HighEmphasis = true;
             btnReservar.Icon = null;
             btnReservar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnReservar.Location = new Point(649, 395);
-            btnReservar.Margin = new Padding(4, 6, 4, 6);
+            btnReservar.Location = new Point(571, 373);
+            btnReservar.Margin = new Padding(4);
             btnReservar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnReservar.Name = "btnReservar";
             btnReservar.NoAccentTextColor = Color.Empty;
-            btnReservar.Size = new Size(311, 116);
+            btnReservar.Size = new Size(272, 87);
             btnReservar.TabIndex = 8;
             btnReservar.Text = "Realizar reserva";
             btnReservar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -376,7 +365,8 @@
             txtCapacidad.HideSelection = true;
             txtCapacidad.Hint = "Capacidad de huespedes:";
             txtCapacidad.LeadingIcon = null;
-            txtCapacidad.Location = new Point(648, 308);
+            txtCapacidad.Location = new Point(568, 298);
+            txtCapacidad.Margin = new Padding(3, 2, 3, 2);
             txtCapacidad.MaxLength = 32767;
             txtCapacidad.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCapacidad.Name = "txtCapacidad";
@@ -388,7 +378,7 @@
             txtCapacidad.SelectionLength = 0;
             txtCapacidad.SelectionStart = 0;
             txtCapacidad.ShortcutsEnabled = true;
-            txtCapacidad.Size = new Size(312, 48);
+            txtCapacidad.Size = new Size(273, 48);
             txtCapacidad.TabIndex = 7;
             txtCapacidad.TabStop = false;
             txtCapacidad.TextAlign = HorizontalAlignment.Left;
@@ -407,7 +397,8 @@
             txtPrecioPH.HideSelection = true;
             txtPrecioPH.Hint = "Precio por noche:";
             txtPrecioPH.LeadingIcon = null;
-            txtPrecioPH.Location = new Point(330, 308);
+            txtPrecioPH.Location = new Point(289, 298);
+            txtPrecioPH.Margin = new Padding(3, 2, 3, 2);
             txtPrecioPH.MaxLength = 32767;
             txtPrecioPH.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtPrecioPH.Name = "txtPrecioPH";
@@ -419,7 +410,7 @@
             txtPrecioPH.SelectionLength = 0;
             txtPrecioPH.SelectionStart = 0;
             txtPrecioPH.ShortcutsEnabled = true;
-            txtPrecioPH.Size = new Size(312, 48);
+            txtPrecioPH.Size = new Size(273, 48);
             txtPrecioPH.TabIndex = 6;
             txtPrecioPH.TabStop = false;
             txtPrecioPH.TextAlign = HorizontalAlignment.Left;
@@ -438,7 +429,8 @@
             txtPiso.HideSelection = true;
             txtPiso.Hint = "Piso:";
             txtPiso.LeadingIcon = null;
-            txtPiso.Location = new Point(648, 254);
+            txtPiso.Location = new Point(567, 246);
+            txtPiso.Margin = new Padding(3, 2, 3, 2);
             txtPiso.MaxLength = 32767;
             txtPiso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtPiso.Name = "txtPiso";
@@ -450,7 +442,7 @@
             txtPiso.SelectionLength = 0;
             txtPiso.SelectionStart = 0;
             txtPiso.ShortcutsEnabled = true;
-            txtPiso.Size = new Size(312, 48);
+            txtPiso.Size = new Size(273, 48);
             txtPiso.TabIndex = 3;
             txtPiso.TabStop = false;
             txtPiso.TextAlign = HorizontalAlignment.Left;
@@ -469,7 +461,8 @@
             txtCategoria.HideSelection = true;
             txtCategoria.Hint = "Categoria:";
             txtCategoria.LeadingIcon = null;
-            txtCategoria.Location = new Point(330, 254);
+            txtCategoria.Location = new Point(289, 246);
+            txtCategoria.Margin = new Padding(3, 2, 3, 2);
             txtCategoria.MaxLength = 32767;
             txtCategoria.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtCategoria.Name = "txtCategoria";
@@ -481,7 +474,7 @@
             txtCategoria.SelectionLength = 0;
             txtCategoria.SelectionStart = 0;
             txtCategoria.ShortcutsEnabled = true;
-            txtCategoria.Size = new Size(312, 48);
+            txtCategoria.Size = new Size(273, 48);
             txtCategoria.TabIndex = 2;
             txtCategoria.TabStop = false;
             txtCategoria.TextAlign = HorizontalAlignment.Left;
@@ -500,7 +493,8 @@
             txtEstado.HideSelection = true;
             txtEstado.Hint = "Estado:";
             txtEstado.LeadingIcon = null;
-            txtEstado.Location = new Point(12, 308);
+            txtEstado.Location = new Point(10, 298);
+            txtEstado.Margin = new Padding(3, 2, 3, 2);
             txtEstado.MaxLength = 32767;
             txtEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtEstado.Name = "txtEstado";
@@ -512,7 +506,7 @@
             txtEstado.SelectionLength = 0;
             txtEstado.SelectionStart = 0;
             txtEstado.ShortcutsEnabled = true;
-            txtEstado.Size = new Size(312, 48);
+            txtEstado.Size = new Size(273, 48);
             txtEstado.TabIndex = 1;
             txtEstado.TabStop = false;
             txtEstado.TextAlign = HorizontalAlignment.Left;
@@ -531,7 +525,8 @@
             txtNumero.HideSelection = true;
             txtNumero.Hint = "Numero de habitación:";
             txtNumero.LeadingIcon = null;
-            txtNumero.Location = new Point(12, 254);
+            txtNumero.Location = new Point(10, 246);
+            txtNumero.Margin = new Padding(3, 2, 3, 2);
             txtNumero.MaxLength = 32767;
             txtNumero.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtNumero.Name = "txtNumero";
@@ -543,36 +538,35 @@
             txtNumero.SelectionLength = 0;
             txtNumero.SelectionStart = 0;
             txtNumero.ShortcutsEnabled = true;
-            txtNumero.Size = new Size(312, 48);
+            txtNumero.Size = new Size(273, 48);
             txtNumero.TabIndex = 0;
             txtNumero.TabStop = false;
             txtNumero.TextAlign = HorizontalAlignment.Left;
             txtNumero.TrailingIcon = null;
             txtNumero.UseSystemPasswordChar = false;
             // 
-            // horaEntrada
-            // 
-            horaEntrada.Tick += horaEntrada_Tick;
-            // 
             // ReceptionView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 824);
+            AccessibleRole = AccessibleRole.Window;
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.Beige;
+            BackgroundImageLayout = ImageLayout.None;
+            ClientSize = new Size(950, 696);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ReceptionView";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ReceptionView";
+            Text = "Reservar habitación";
             TransparencyKey = Color.Transparent;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtCantidad).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private FlowLayoutPanel panelCarrusel;
         private Panel panel1;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPiso;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCategoria;
@@ -589,13 +583,13 @@
         private Label label2;
         private ReaLTaiizor.Controls.MaterialButton btnNuevoCliente;
         private ReaLTaiizor.Controls.MaterialComboBox cbxCliente;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCantidadHuespedes;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtAdelanto;
         private Label label5;
         private Label label4;
-        private Label dtpSalida;
         private Label dtpEntrada;
-        private System.Windows.Forms.Timer horaEntrada;
         private Label txtIdHabitacion;
+        private Label label6;
+        private ReaLTaiizor.Controls.PoisonDateTime dtSalida;
+        private NumericUpDown txtCantidad;
     }
 }

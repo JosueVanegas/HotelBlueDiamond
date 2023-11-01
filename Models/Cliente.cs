@@ -17,7 +17,5 @@ public partial class Cliente
 
     public string? Telefono { get; set; }
 
-    public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
-
     public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
 }

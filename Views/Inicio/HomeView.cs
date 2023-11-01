@@ -25,6 +25,8 @@ namespace Hotel_Dorado_DesktopApp.View
         {
             InitializeComponent();
             Reloj.Start();
+            this.MinimumSize = new Size(600, 600);
+            this.TransparencyKey = Color.Empty;
             abrirFormulario(new DashBoardView());
         }
         private void HomeView_Load(object sender, EventArgs e)
@@ -83,13 +85,10 @@ namespace Hotel_Dorado_DesktopApp.View
         }
         private void Item_DropDownOpened(object sender, EventArgs e)
         {
-            // Primero, restablecer el color de fondo de todos los ítems a su color por defecto
             foreach (ToolStripItem item in Menu.Items)
             {
                 item.BackColor = Color.Transparent;
             }
-
-            // Cambiar el color de fondo del ítem seleccionado
             ToolStripMenuItem selectedItem = sender as ToolStripMenuItem;
             if (selectedItem != null)
             {
@@ -98,25 +97,14 @@ namespace Hotel_Dorado_DesktopApp.View
             }
         }
 
-        // Método para manejar el evento DropDownClosed
         private void Item_DropDownClosed(object sender, EventArgs e)
         {
             ToolStripMenuItem closedItem = sender as ToolStripMenuItem;
             if (closedItem != null)
             {
                 closedItem.BackColor = Color.Transparent;
-                closedItem.ForeColor = Color.Beige; // Asumiendo que este es tu color por defecto
+                closedItem.ForeColor = Color.Beige;
             }
-        }
-
-        private void btnRecepcionSalida_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new SalidaView());
-        }
-
-        private void btnIngreso_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new ReceptionView());
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
@@ -142,6 +130,16 @@ namespace Hotel_Dorado_DesktopApp.View
         private void btnAyudaMenu_Click(object sender, EventArgs e)
         {
             abrirFormulario(new AyudaView());
+        }
+
+        private void btnHospedajeMenu_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new ReservaViewResume());
+        }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

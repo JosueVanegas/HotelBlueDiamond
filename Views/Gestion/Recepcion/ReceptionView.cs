@@ -20,113 +20,39 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
     public partial class ReceptionView : Form
     {
         HotelDoradoContext context;
-        public ReceptionView()
+        Habitacion habitacion;
+        public ReceptionView(Habitacion habitacion)
         {
             InitializeComponent();
+            this.habitacion = habitacion;
             context = new HotelDoradoContext();
-            this.horaEntrada.Start();
-            mostrarCarrucel();
             mostrarClientes();
+            dtSalida.Value = DateTime.Now.AddDays(1);
+            dtSalida.MinDate = DateTime.Now.AddDays(1);
+            mostrarDetallesHabitacion();
+            this.TransparencyKey = Color.Empty;
         }
         private void mostrarClientes()
         {
             cbxCliente.DataSource = new ClienteController(context).GetAllObjects();
-            cbxCliente.DisplayMember = "Nombre";
+            cbxCliente.DisplayMember = "Cedula";
         }
-        private void mostrarCarrucel()
+        private void mostrarDetallesHabitacion()
         {
-            try
-            {
-                int itemWidth = 180;
-                int itemHeight = 170;
-                var habitaciones = new HabitacionesController(context).GetAllObjects();
-
-                if (habitaciones.Count != 0)
-                {
-                    int index = 0;
-                    foreach (var i in habitaciones)
-                    {
-                        if (i.Estado.EstadoId == 1)
-                        {
-                            ParrotGradientPanel panel = new ParrotGradientPanel
-                            {
-                                PrimerColor = Color.White,
-                                BottomLeft = Color.LightGray,
-                                TopLeft = Color.LightGray,
-                                TopRight = Color.White,
-                                BottomRight = Color.Beige,
-                                Width = itemWidth,
-                                Height = itemHeight,
-                                BorderStyle = BorderStyle.FixedSingle,
-                                Left = index * itemWidth,
-                            };
-                            Label label2 = new Label
-                            {
-                                ForeColor = Color.White,
-                                Text = "Estado: \n" + i.Estado.Descripcion,
-                                Dock = DockStyle.Top,
-                                TextAlign = ContentAlignment.MiddleCenter,
-                                Height = 60,
-                                BackColor = Color.Green
-                            };
-                            panel.Controls.Add(label2);
-
-                            Label label1 = new Label
-                            {
-                                ForeColor = Color.FromArgb(0, 51, 102),
-                                Text = "Habitación numero: \n" + i.Codigo,
-                                Dock = DockStyle.Top,
-                                TextAlign = ContentAlignment.MiddleCenter,
-                                Height = 60,
-                                BackColor = Color.White
-                            };
-                            panel.Controls.Add(label1);
-
-                            System.Windows.Forms.Button verDetalles;
-                            verDetalles = new System.Windows.Forms.Button
-                            {
-                                Text = "Ver detalles",
-                                Dock = DockStyle.Bottom,
-                                Size = new Size(itemWidth, 40),
-                                BackColor = Color.FromArgb(0, 51, 102),
-                                ForeColor = Color.White
-                            };
-                            verDetalles.Click += (s, e) =>
-                            {
-                                txtIdHabitacion.Text = i.HabitacionId.ToString();
-                                txtNumero.Text = i.Codigo;
-                                txtCategoria.Text = i.CategoriaHabitacion.Descripcion;
-                                txtCapacidad.Text = i.CategoriaHabitacion.Capacidad.ToString();
-                                txtPrecioPH.Text = i.PrecioPh.ToString();
-                                txtDetalles.Text = i.Detalles;
-                                txtExtras.Text = i.Extras;
-                                txtEstado.Text = i.Estado.Descripcion;
-                                txtPiso.Text = i.Piso.Descripcion;
-                                if (i.Estado.EstadoId == 1)
-                                {
-                                    btnReservar.Enabled = true;
-                                }
-                            };
-                            panel.Controls.Add(verDetalles);
-                            this.panelCarrusel.Controls.Add(panel);
-                            index++;
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No hay habitaciones registradas", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            txtCapacidad.Text = habitacion.CategoriaHabitacion.Capacidad.ToString();
+            txtCantidad.Maximum = Convert.ToInt32(txtCapacidad.Text);
+            txtDetalles.Text = habitacion.Detalles;
+            txtExtras.Text = habitacion.Extras;
+            txtCategoria.Text = habitacion.CategoriaHabitacion.Descripcion;
+            txtEstado.Text = habitacion.Estado.Descripcion;
+            txtNumero.Text = habitacion.Codigo;
+            txtPrecioPH.Text = habitacion.PrecioPh.ToString();
+            txtPiso.Text = habitacion.Piso.Descripcion;
         }
 
         private void btnReservar_Click(object sender, EventArgs e)
         {
-            if (txtCantidadHuespedes.Text != "" && txtNumero.Text != "")
+            if (txtCantidad.Text != "" && txtNumero.Text != "")
             {
                 try
                 {
@@ -136,12 +62,13 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                     Reserva recepcion = new Reserva
                     {
                         ClienteId = cliente.ClienteId,
-                        HabitacionId = Convert.ToInt32(txtIdHabitacion.Text),
+                        HabitacionId = habitacion.HabitacionId,
                         EmpleadoId = 1,
+                        FechaSalida = dtSalida.Value,
                         FechaEntrada = DateTime.Now,
                         Adelanto = Convert.ToDecimal(txtAdelanto.Text),
                         FechaRegistro = DateTime.Now,
-                        CantidadPersonas = Convert.ToInt32(txtCantidadHuespedes.Text),
+                        CantidadPersonas = Convert.ToInt32(txtCantidad.Text),
                         Finalizada = false,
                     };
                     recepcionController.AddObject(recepcion);
@@ -150,17 +77,11 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Proceso de recervación fallido "+ex.Message, "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Proceso de recervación fallido " + ex.Message, "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
         }
-
-        private void horaEntrada_Tick(object sender, EventArgs e)
-        {
-            dtpEntrada.Text = DateTime.Now.ToString("G");
-        }
-
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
             ClienteViewRegister form = new ClienteViewRegister(null);

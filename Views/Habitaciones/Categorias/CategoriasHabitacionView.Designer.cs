@@ -51,7 +51,7 @@
             lblTitulo.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.Location = new Point(0, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(1206, 66);
+            lblTitulo.Size = new Size(1055, 50);
             lblTitulo.TabIndex = 1;
             lblTitulo.Text = "Categorias de habitaciones";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -59,13 +59,14 @@
             // panel1
             // 
             panel1.AutoScroll = true;
-            panel1.BackColor = Color.Gray;
+            panel1.BackColor = Color.Beige;
             panel1.Controls.Add(btnRegistrar);
             panel1.Controls.Add(lblTitulo);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1206, 159);
+            panel1.Size = new Size(1055, 119);
             panel1.TabIndex = 5;
             // 
             // btnRegistrar
@@ -79,11 +80,12 @@
             btnRegistrar.HotTrackColor = Color.FromArgb(221, 221, 221);
             btnRegistrar.Image = null;
             btnRegistrar.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
-            btnRegistrar.Location = new Point(283, 83);
+            btnRegistrar.Location = new Point(3, 64);
+            btnRegistrar.Margin = new Padding(3, 2, 3, 2);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.PressedColor = Color.FromArgb(244, 204, 137);
             btnRegistrar.PressedForeColor = Color.White;
-            btnRegistrar.Size = new Size(229, 50);
+            btnRegistrar.Size = new Size(207, 51);
             btnRegistrar.TabIndex = 2;
             btnRegistrar.Text = "Añadir nueva categoria";
             btnRegistrar.Click += btnRegistrar_Click;
@@ -98,15 +100,16 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 204, 137);
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             tbCategorias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            tbCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbCategorias.BackgroundColor = Color.FromArgb(255, 255, 255);
             tbCategorias.BorderStyle = BorderStyle.None;
             tbCategorias.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tbCategorias.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 177, 89);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 196, 37);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 208, 104);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 201, 57);
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             tbCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -116,32 +119,34 @@
             dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 208, 104);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(255, 201, 57);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             tbCategorias.DefaultCellStyle = dataGridViewCellStyle3;
+            tbCategorias.Dock = DockStyle.Fill;
             tbCategorias.EnableHeadersVisualStyles = false;
             tbCategorias.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbCategorias.GridColor = Color.FromArgb(255, 255, 255);
-            tbCategorias.Location = new Point(283, 181);
+            tbCategorias.Location = new Point(0, 119);
+            tbCategorias.Margin = new Padding(3, 2, 3, 2);
             tbCategorias.MultiSelect = false;
             tbCategorias.Name = "tbCategorias";
             tbCategorias.ReadOnly = true;
             tbCategorias.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 177, 89);
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 196, 37);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 208, 104);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 201, 57);
             dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             tbCategorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             tbCategorias.RowHeadersWidth = 51;
             tbCategorias.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbCategorias.Size = new Size(632, 425);
+            tbCategorias.Size = new Size(1055, 417);
             tbCategorias.StandardTab = true;
-            tbCategorias.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Green;
+            tbCategorias.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
             tbCategorias.TabIndex = 4;
             tbCategorias.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             tbCategorias.CellContentClick += cellContentClick;
@@ -154,7 +159,6 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             ID.Visible = false;
-            ID.Width = 125;
             // 
             // Nombre
             // 
@@ -162,7 +166,6 @@
             Nombre.MinimumWidth = 6;
             Nombre.Name = "Nombre";
             Nombre.ReadOnly = true;
-            Nombre.Width = 200;
             // 
             // Cantidad
             // 
@@ -170,7 +173,6 @@
             Cantidad.MinimumWidth = 6;
             Cantidad.Name = "Cantidad";
             Cantidad.ReadOnly = true;
-            Cantidad.Width = 300;
             // 
             // Editar
             // 
@@ -178,7 +180,6 @@
             Editar.MinimumWidth = 6;
             Editar.Name = "Editar";
             Editar.ReadOnly = true;
-            Editar.Width = 40;
             // 
             // Borrar
             // 
@@ -186,16 +187,16 @@
             Borrar.MinimumWidth = 6;
             Borrar.Name = "Borrar";
             Borrar.ReadOnly = true;
-            Borrar.Width = 40;
             // 
             // CategoriasHabitacionView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1206, 714);
-            Controls.Add(panel1);
+            ClientSize = new Size(1055, 536);
             Controls.Add(tbCategorias);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CategoriasHabitacionView";
             Text = "CategoriasHabitacionView";
             panel1.ResumeLayout(false);

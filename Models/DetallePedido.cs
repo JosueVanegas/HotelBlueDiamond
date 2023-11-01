@@ -11,10 +11,6 @@ public partial class DetallePedido
 
     public int? Cantidad { get; set; }
 
-    public decimal? Subtotal { get; set; }
-
-    public bool? Estado { get; set; }
-
     public virtual Pedido Pedido { get; set; } = null!;
 
     public virtual Producto Producto { get; set; } = null!;

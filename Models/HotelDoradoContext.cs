@@ -131,13 +131,11 @@ public partial class HotelDoradoContext : DbContext
 
             entity.Property(e => e.PedidoId).HasColumnName("PedidoID");
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
-            entity.Property(e => e.Estado).HasDefaultValueSql("((0))");
-            entity.Property(e => e.Subtotal).HasColumnType("decimal(10, 2)");
 
             entity.HasOne(d => d.Pedido).WithMany(p => p.DetallePedidos)
                 .HasForeignKey(d => d.PedidoId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__DetallePe__Pedid__68487DD7");
+                .HasConstraintName("FK_DetallePedido_Pedido");
 
             entity.HasOne(d => d.Producto).WithMany(p => p.DetallePedidos)
                 .HasForeignKey(d => d.ProductoId)
@@ -213,18 +211,17 @@ public partial class HotelDoradoContext : DbContext
 
         modelBuilder.Entity<Pedido>(entity =>
         {
-            entity.HasKey(e => e.PedidoId).HasName("PK__Pedido__09BA141041BFE69E");
+            entity.HasKey(e => e.PedidoId).HasName("PK__Pedido__09BA1410506C0C1D");
 
             entity.ToTable("Pedido", "Servicios");
 
             entity.Property(e => e.PedidoId).HasColumnName("PedidoID");
-            entity.Property(e => e.ClienteId).HasColumnName("ClienteID");
-            entity.Property(e => e.FechaHora).HasColumnType("datetime");
-            entity.Property(e => e.Total).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Fecha).HasColumnType("datetime");
+            entity.Property(e => e.ReservaId).HasColumnName("ReservaID");
 
-            entity.HasOne(d => d.Cliente).WithMany(p => p.Pedidos)
-                .HasForeignKey(d => d.ClienteId)
-                .HasConstraintName("FK_Pedido_Cliente");
+            entity.HasOne(d => d.Reserva).WithMany(p => p.Pedidos)
+                .HasForeignKey(d => d.ReservaId)
+                .HasConstraintName("FK_Pedido_Reserva");
         });
 
         modelBuilder.Entity<Piso>(entity =>
