@@ -15,7 +15,9 @@ public partial class Usuario
 
     public DateTime? FechaRegistro { get; set; }
 
-    public virtual ICollection<Empleado> Empleados { get; set; } = new List<Empleado>();
+    public int? EmpleadoId { get; set; }
+
+    public virtual Empleado? Empleado { get; set; }
 
     public virtual Rol? Rol { get; set; }
 }

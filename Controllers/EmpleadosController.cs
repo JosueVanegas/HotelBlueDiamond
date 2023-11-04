@@ -17,7 +17,7 @@ namespace Hotel_Dorado_DesktopApp.Controllers
         }
         public List<Empleado> GetAllObjects()
         {
-            return _context.Empleados.Include(e=>e.Cargo).ToList();
+            return _context.Empleados.Include(e=>e.Cargo).Where(e=>e.Activo == true).ToList();
         }
         public void AddObject(Empleado obj)
         {
@@ -27,9 +27,9 @@ namespace Hotel_Dorado_DesktopApp.Controllers
         public void DeleteObject(int id)
         {
             var obj = _context.Empleados.Find(id);
-            if(obj != null)
+            if (obj != null)
             {
-                _context.Empleados.Remove(obj);
+                obj.Activo = false;
                 _context.SaveChanges();
             }
         }
@@ -40,7 +40,7 @@ namespace Hotel_Dorado_DesktopApp.Controllers
         }
         public Empleado GetObjectById(int id)
         {
-            return _context.Empleados.Find(id);
+            return _context.Empleados.Include(e => e.Cargo).FirstOrDefault(e=>e.EmpleadoId == id);
         }
     }
 }

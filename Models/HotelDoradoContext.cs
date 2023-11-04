@@ -46,8 +46,7 @@ public partial class HotelDoradoContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=LAPTOP-L5B7AIOU\\SQLEXPRESS;Initial Catalog=HotelDorado;Integrated Security=true;Trust Server Certificate=true;");
+        => optionsBuilder.UseSqlServer(Hotel_Dorado_DesktopApp.Properties.Resources.ConnectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -164,15 +163,10 @@ public partial class HotelDoradoContext : DbContext
             entity.Property(e => e.Telefono)
                 .HasMaxLength(15)
                 .IsUnicode(false);
-            entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
             entity.HasOne(d => d.Cargo).WithMany(p => p.Empleados)
                 .HasForeignKey(d => d.CargoId)
                 .HasConstraintName("FK__Empleado__CargoI__6E01572D");
-
-            entity.HasOne(d => d.Usuario).WithMany(p => p.Empleados)
-                .HasForeignKey(d => d.UsuarioId)
-                .HasConstraintName("FK_Empleado_Usuario");
         });
 
         modelBuilder.Entity<EstadoHabitacion>(entity =>
@@ -313,6 +307,7 @@ public partial class HotelDoradoContext : DbContext
 
             entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
             entity.Property(e => e.Clave).HasMaxLength(300);
+            entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("date");
@@ -320,6 +315,10 @@ public partial class HotelDoradoContext : DbContext
             entity.Property(e => e.Usuario1)
                 .HasMaxLength(100)
                 .HasColumnName("Usuario");
+
+            entity.HasOne(d => d.Empleado).WithMany(p => p.Usuarios)
+                .HasForeignKey(d => d.EmpleadoId)
+                .HasConstraintName("FK_Usuario_Empleado");
 
             entity.HasOne(d => d.Rol).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.RolId)

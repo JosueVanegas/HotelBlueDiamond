@@ -25,9 +25,9 @@ namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
             var controller = new EmpleadosController(context);
             var lista = controller.GetAllObjects();
             tbEmpleados.Rows.Clear();
-            foreach ( var i in lista )
+            foreach (var i in lista)
             {
-                tbEmpleados.Rows.Add(i.EmpleadoId,i.Cedula,i.Nombre,i.Apellido,i.Nacimiento,i.Cargo.Descripcion,"","");
+                tbEmpleados.Rows.Add(i.EmpleadoId, i.Cedula, i.Nombre, i.Apellido, i.Nacimiento, i.Cargo.Descripcion, "", "");
             }
         }
         private void cellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -88,6 +88,13 @@ namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
                 e.Graphics.DrawImage(Properties.Resources.eliminarImg, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            EmpleadosViewRegister form = new EmpleadosViewRegister(null);
+            form.ShowDialog();
+            mostrarEmpleados();
         }
     }
 }

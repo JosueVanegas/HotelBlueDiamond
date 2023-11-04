@@ -52,7 +52,7 @@ namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No puedes eliminar el cargo seleccionado ya que existen empleados con el asignado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             if (tbCargos.Columns[e.ColumnIndex].Name == "Editar")

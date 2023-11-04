@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            cbxCargo = new ReaLTaiizor.Controls.MaterialComboBox();
             lblTitulo = new Label();
             txtCedula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             btnCancelar = new ReaLTaiizor.Controls.MaterialButton();
@@ -37,12 +38,17 @@
             txtTelefono = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtApellido = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            dtNacimiento = new ReaLTaiizor.Controls.PoisonDateTime();
+            label1 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Beige;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(dtNacimiento);
+            panel1.Controls.Add(cbxCargo);
             panel1.Controls.Add(lblTitulo);
             panel1.Controls.Add(txtCedula);
             panel1.Controls.Add(btnCancelar);
@@ -54,8 +60,31 @@
             panel1.Location = new Point(12, 11);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(574, 485);
+            panel1.Size = new Size(602, 535);
             panel1.TabIndex = 4;
+            // 
+            // cbxCargo
+            // 
+            cbxCargo.AutoResize = false;
+            cbxCargo.BackColor = Color.FromArgb(255, 255, 255);
+            cbxCargo.Depth = 0;
+            cbxCargo.DrawMode = DrawMode.OwnerDrawVariable;
+            cbxCargo.DropDownHeight = 174;
+            cbxCargo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxCargo.DropDownWidth = 121;
+            cbxCargo.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxCargo.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbxCargo.FormattingEnabled = true;
+            cbxCargo.Hint = "Cargo";
+            cbxCargo.IntegralHeight = false;
+            cbxCargo.ItemHeight = 43;
+            cbxCargo.Location = new Point(301, 92);
+            cbxCargo.MaxDropDownItems = 4;
+            cbxCargo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbxCargo.Name = "cbxCargo";
+            cbxCargo.Size = new Size(258, 49);
+            cbxCargo.StartIndex = 0;
+            cbxCargo.TabIndex = 7;
             // 
             // lblTitulo
             // 
@@ -121,6 +150,7 @@
             btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnCancelar.UseAccentColor = true;
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGuardar
             // 
@@ -143,6 +173,7 @@
             btnGuardar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnGuardar.UseAccentColor = false;
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // txtCorreo
             // 
@@ -272,6 +303,25 @@
             txtNombre.TrailingIcon = null;
             txtNombre.UseSystemPasswordChar = false;
             // 
+            // dtNacimiento
+            // 
+            dtNacimiento.Location = new Point(15, 277);
+            dtNacimiento.MinimumSize = new Size(0, 29);
+            dtNacimiento.Name = "dtNacimiento";
+            dtNacimiento.Size = new Size(544, 29);
+            dtNacimiento.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ControlDarkDark;
+            label1.Location = new Point(15, 254);
+            label1.Name = "label1";
+            label1.Size = new Size(169, 20);
+            label1.TabIndex = 9;
+            label1.Text = "Fecha de nacimiento:";
+            // 
             // EmpleadosViewRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -284,6 +334,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EmpleadosViewRegister";
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -298,5 +349,8 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTelefono;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtApellido;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombre;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxCargo;
+        private Label label1;
+        private ReaLTaiizor.Controls.PoisonDateTime dtNacimiento;
     }
 }

@@ -58,5 +58,10 @@ namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnReservar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

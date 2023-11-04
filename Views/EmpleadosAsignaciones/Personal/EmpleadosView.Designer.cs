@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblTitulo = new Label();
             panel1 = new Panel();
             btnRegistrar = new ReaLTaiizor.Controls.RoyalButton();
@@ -93,6 +93,7 @@
             btnRegistrar.Size = new Size(200, 38);
             btnRegistrar.TabIndex = 2;
             btnRegistrar.Text = "Añadir nuevo empleado";
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // tbEmpleados
             // 
@@ -100,33 +101,33 @@
             tbEmpleados.AllowUserToDeleteRows = false;
             tbEmpleados.AllowUserToResizeColumns = false;
             tbEmpleados.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(244, 204, 137);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            tbEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 204, 137);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            tbEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             tbEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbEmpleados.BackgroundColor = Color.FromArgb(255, 255, 255);
             tbEmpleados.BorderStyle = BorderStyle.None;
             tbEmpleados.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tbEmpleados.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(255, 196, 37);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(255, 201, 57);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            tbEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 196, 37);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 201, 57);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            tbEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             tbEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tbEmpleados.Columns.AddRange(new DataGridViewColumn[] { ID, Cedula, Nombre, Apellido, Nacimiento, Cargo, Editar, Borrar });
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(255, 201, 57);
-            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            tbEmpleados.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(255, 201, 57);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            tbEmpleados.DefaultCellStyle = dataGridViewCellStyle3;
             tbEmpleados.Dock = DockStyle.Fill;
             tbEmpleados.EnableHeadersVisualStyles = false;
             tbEmpleados.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -137,14 +138,14 @@
             tbEmpleados.Name = "tbEmpleados";
             tbEmpleados.ReadOnly = true;
             tbEmpleados.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(255, 196, 37);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(255, 201, 57);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            tbEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 196, 37);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 201, 57);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            tbEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             tbEmpleados.RowHeadersWidth = 51;
             tbEmpleados.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

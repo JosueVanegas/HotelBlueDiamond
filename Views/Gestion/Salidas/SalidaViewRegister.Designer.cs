@@ -280,7 +280,6 @@
             btnReservar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnReservar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnReservar.Depth = 0;
-            btnReservar.Enabled = false;
             btnReservar.HighEmphasis = true;
             btnReservar.Icon = null;
             btnReservar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
@@ -295,6 +294,7 @@
             btnReservar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnReservar.UseAccentColor = false;
             btnReservar.UseVisualStyleBackColor = true;
+            btnReservar.Click += btnReservar_Click;
             // 
             // txtPrecioPH
             // 

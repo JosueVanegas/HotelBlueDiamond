@@ -1,4 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.View.ClientesView;
+﻿using Hotel_Dorado_DesktopApp.Models;
+using Hotel_Dorado_DesktopApp.View.ClientesView;
 using Hotel_Dorado_DesktopApp.Views.Ayudas;
 using Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Asignaciones;
 using Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal;

@@ -64,7 +64,7 @@
             lblReloj = new Label();
             Reloj = new System.Windows.Forms.Timer(components);
             panel2 = new Panel();
-            label2 = new Label();
+            lblConexion = new Label();
             Menu.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnCambiarUsuario).BeginInit();
@@ -293,15 +293,15 @@
             // 
             panel2.BackColor = Color.FromArgb(0, 51, 102);
             panel2.Controls.Add(lblReloj);
-            panel2.Controls.Add(label2);
+            panel2.Controls.Add(lblConexion);
             resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
             // 
-            // label2
+            // lblConexion
             // 
-            resources.ApplyResources(label2, "label2");
-            label2.ForeColor = Color.Beige;
-            label2.Name = "label2";
+            resources.ApplyResources(lblConexion, "lblConexion");
+            lblConexion.ForeColor = Color.Beige;
+            lblConexion.Name = "lblConexion";
             // 
             // HomeView
             // 
@@ -359,6 +359,6 @@
         private ToolStripMenuItem informeDeToolStripMenuItem;
         private ToolStripMenuItem generadorDeNominaToolStripMenuItem;
         private Panel panel2;
-        private Label label2;
+        private Label lblConexion;
     }
 }
