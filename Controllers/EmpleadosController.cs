@@ -1,4 +1,5 @@
 ﻿using Hotel_Dorado_DesktopApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Hotel_Dorado_DesktopApp.Controllers
         }
         public List<Empleado> GetAllObjects()
         {
-            return _context.Empleados.ToList();
+            return _context.Empleados.Include(e=>e.Cargo).ToList();
         }
         public void AddObject(Empleado obj)
         {

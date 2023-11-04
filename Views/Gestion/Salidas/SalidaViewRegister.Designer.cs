@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -56,9 +55,7 @@
             txtApellido = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             label6 = new Label();
-            timer = new System.Windows.Forms.Timer(components);
             tbClientes = new ReaLTaiizor.Controls.PoisonDataGridView();
-            label7 = new Label();
             ID = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             Precio = new DataGridViewTextBoxColumn();
@@ -67,16 +64,19 @@
             Estado = new DataGridViewTextBoxColumn();
             Editar = new DataGridViewButtonColumn();
             Borrar = new DataGridViewButtonColumn();
+            label7 = new Label();
             txtTotalServicio = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCargoRoturas = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtPago = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtCambio = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             ((System.ComponentModel.ISupportInitialize)tbClientes).BeginInit();
             SuspendLayout();
             // 
             // txtIdHabitacion
             // 
             txtIdHabitacion.AutoSize = true;
-            txtIdHabitacion.Location = new Point(659, 767);
+            txtIdHabitacion.Location = new Point(426, 720);
             txtIdHabitacion.Name = "txtIdHabitacion";
             txtIdHabitacion.Size = new Size(13, 15);
             txtIdHabitacion.TabIndex = 49;
@@ -215,7 +215,7 @@
             // label1
             // 
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(299, 336);
+            label1.Location = new Point(299, 347);
             label1.Name = "label1";
             label1.Size = new Size(494, 21);
             label1.TabIndex = 38;
@@ -241,11 +241,11 @@
             txtExtras.EdgeColor = Color.White;
             txtExtras.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtExtras.ForeColor = Color.DimGray;
-            txtExtras.Location = new Point(299, 357);
+            txtExtras.Location = new Point(299, 370);
             txtExtras.Margin = new Padding(3, 2, 3, 2);
             txtExtras.Name = "txtExtras";
             txtExtras.ReadOnly = true;
-            txtExtras.Size = new Size(494, 89);
+            txtExtras.Size = new Size(494, 76);
             txtExtras.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             txtExtras.TabIndex = 36;
             txtExtras.TextBackColor = Color.White;
@@ -266,7 +266,7 @@
             txtDetalles.Margin = new Padding(3, 2, 3, 2);
             txtDetalles.Name = "txtDetalles";
             txtDetalles.ReadOnly = true;
-            txtDetalles.Size = new Size(494, 77);
+            txtDetalles.Size = new Size(494, 90);
             txtDetalles.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             txtDetalles.TabIndex = 35;
             txtDetalles.TextBackColor = Color.White;
@@ -289,7 +289,7 @@
             btnReservar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnReservar.Name = "btnReservar";
             btnReservar.NoAccentTextColor = Color.Empty;
-            btnReservar.Size = new Size(208, 41);
+            btnReservar.Size = new Size(208, 100);
             btnReservar.TabIndex = 34;
             btnReservar.Text = "Facturar todo";
             btnReservar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -531,10 +531,6 @@
             label6.Text = "Información del Cliente";
             label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // timer
-            // 
-            timer.Tick += timer_Tick;
-            // 
             // tbClientes
             // 
             tbClientes.AllowUserToAddRows = false;
@@ -594,17 +590,6 @@
             tbClientes.TabIndex = 56;
             tbClientes.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             // 
-            // label7
-            // 
-            label7.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.ForeColor = Color.Gray;
-            label7.Location = new Point(7, 448);
-            label7.Name = "label7";
-            label7.Size = new Size(786, 32);
-            label7.TabIndex = 57;
-            label7.Text = "Detalles del servicio a la habitación";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // ID
             // 
             ID.HeaderText = "ID";
@@ -661,6 +646,17 @@
             Borrar.Name = "Borrar";
             Borrar.ReadOnly = true;
             // 
+            // label7
+            // 
+            label7.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Gray;
+            label7.Location = new Point(7, 448);
+            label7.Name = "label7";
+            label7.Size = new Size(786, 32);
+            label7.TabIndex = 57;
+            label7.Text = "Detalles del servicio a la habitación";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // txtTotalServicio
             // 
             txtTotalServicio.AnimateReadOnly = false;
@@ -706,7 +702,7 @@
             txtTotal.HideSelection = true;
             txtTotal.Hint = "Total a pagar:";
             txtTotal.LeadingIcon = null;
-            txtTotal.Location = new Point(537, 666);
+            txtTotal.Location = new Point(7, 772);
             txtTotal.Margin = new Padding(3, 2, 3, 2);
             txtTotal.MaxLength = 32767;
             txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -719,7 +715,7 @@
             txtTotal.SelectionLength = 0;
             txtTotal.SelectionStart = 0;
             txtTotal.ShortcutsEnabled = true;
-            txtTotal.Size = new Size(208, 48);
+            txtTotal.Size = new Size(261, 48);
             txtTotal.TabIndex = 59;
             txtTotal.TabStop = false;
             txtTotal.Text = "0.00";
@@ -760,12 +756,80 @@
             txtCargoRoturas.TrailingIcon = null;
             txtCargoRoturas.UseSystemPasswordChar = false;
             // 
+            // txtPago
+            // 
+            txtPago.AnimateReadOnly = false;
+            txtPago.AutoCompleteMode = AutoCompleteMode.None;
+            txtPago.AutoCompleteSource = AutoCompleteSource.None;
+            txtPago.BackgroundImageLayout = ImageLayout.None;
+            txtPago.CharacterCasing = CharacterCasing.Normal;
+            txtPago.Depth = 0;
+            txtPago.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtPago.HideSelection = true;
+            txtPago.Hint = "Pago del cliente:";
+            txtPago.LeadingIcon = null;
+            txtPago.Location = new Point(537, 616);
+            txtPago.Margin = new Padding(3, 2, 3, 2);
+            txtPago.MaxLength = 32767;
+            txtPago.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtPago.Name = "txtPago";
+            txtPago.PasswordChar = '\0';
+            txtPago.PrefixSuffixText = null;
+            txtPago.ReadOnly = false;
+            txtPago.RightToLeft = RightToLeft.No;
+            txtPago.SelectedText = "";
+            txtPago.SelectionLength = 0;
+            txtPago.SelectionStart = 0;
+            txtPago.ShortcutsEnabled = true;
+            txtPago.Size = new Size(208, 48);
+            txtPago.TabIndex = 61;
+            txtPago.TabStop = false;
+            txtPago.Text = "0.00";
+            txtPago.TextAlign = HorizontalAlignment.Left;
+            txtPago.TrailingIcon = null;
+            txtPago.UseSystemPasswordChar = false;
+            // 
+            // txtCambio
+            // 
+            txtCambio.AnimateReadOnly = false;
+            txtCambio.AutoCompleteMode = AutoCompleteMode.None;
+            txtCambio.AutoCompleteSource = AutoCompleteSource.None;
+            txtCambio.BackgroundImageLayout = ImageLayout.None;
+            txtCambio.CharacterCasing = CharacterCasing.Normal;
+            txtCambio.Depth = 0;
+            txtCambio.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtCambio.HideSelection = true;
+            txtCambio.Hint = "Cambio:";
+            txtCambio.LeadingIcon = null;
+            txtCambio.Location = new Point(537, 668);
+            txtCambio.Margin = new Padding(3, 2, 3, 2);
+            txtCambio.MaxLength = 32767;
+            txtCambio.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtCambio.Name = "txtCambio";
+            txtCambio.PasswordChar = '\0';
+            txtCambio.PrefixSuffixText = null;
+            txtCambio.ReadOnly = true;
+            txtCambio.RightToLeft = RightToLeft.No;
+            txtCambio.SelectedText = "";
+            txtCambio.SelectionLength = 0;
+            txtCambio.SelectionStart = 0;
+            txtCambio.ShortcutsEnabled = true;
+            txtCambio.Size = new Size(208, 48);
+            txtCambio.TabIndex = 62;
+            txtCambio.TabStop = false;
+            txtCambio.Text = "0.00";
+            txtCambio.TextAlign = HorizontalAlignment.Left;
+            txtCambio.TrailingIcon = null;
+            txtCambio.UseSystemPasswordChar = false;
+            // 
             // SalidaViewRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
-            ClientSize = new Size(805, 808);
+            ClientSize = new Size(805, 871);
+            Controls.Add(txtCambio);
+            Controls.Add(txtPago);
             Controls.Add(txtCargoRoturas);
             Controls.Add(txtTotal);
             Controls.Add(txtTotalServicio);
@@ -828,7 +892,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtApellido;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombre;
         private Label label6;
-        private System.Windows.Forms.Timer timer;
         private ReaLTaiizor.Controls.PoisonDataGridView tbClientes;
         private Label label7;
         private DataGridViewTextBoxColumn ID;
@@ -842,5 +905,7 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalServicio;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCargoRoturas;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPago;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCambio;
     }
 }

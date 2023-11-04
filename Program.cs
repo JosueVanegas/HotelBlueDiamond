@@ -1,5 +1,7 @@
 using Hotel_Dorado_DesktopApp.View;
 using Hotel_Dorado_DesktopApp.View.ClientesView;
+using Hotel_Dorado_DesktopApp.Views.GestionView;
+using Hotel_Dorado_DesktopApp.Views.Login;
 
 namespace Hotel_Dorado_DesktopApp
 {

@@ -28,20 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            maskedTextBox1 = new MaskedTextBox();
             SuspendLayout();
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(392, 60);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(257, 23);
+            maskedTextBox1.TabIndex = 5;
             // 
             // LoginView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(890, 421);
-            FormBorderStyle = FormBorderStyle.None;
+            ClientSize = new Size(735, 429);
+            Controls.Add(maskedTextBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginView";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+        private MaskedTextBox maskedTextBox1;
     }
 }

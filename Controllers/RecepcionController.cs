@@ -48,7 +48,8 @@ namespace Hotel_Dorado_DesktopApp.Controllers
             string query = @"select * from Reservas.Reserva
                      where Finalizada = 0 and HabitacionID = {0}";
             return _context.Reservas.FromSqlRaw(query, id).Include(r => r.Empleado).
-                Include(r => r.Cliente).Include(r => r.Habitacion).FirstOrDefault();
+                Include(r => r.Cliente).Include(r => r.Habitacion).Include(r=>r.Habitacion.CategoriaHabitacion)
+                .Include(r=>r.Habitacion.Piso).FirstOrDefault();
         }
         public List<Pedido> GetPedidoByHabitacion(int habitacionID)
         {

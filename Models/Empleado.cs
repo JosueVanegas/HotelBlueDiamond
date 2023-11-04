@@ -21,6 +21,10 @@ public partial class Empleado
 
     public DateTime? FechaRegistro { get; set; }
 
+    public string? Correo { get; set; }
+
+    public string? Telefono { get; set; }
+
     public virtual ICollection<Asignacion> Asignacions { get; set; } = new List<Asignacion>();
 
     public virtual Cargo? Cargo { get; set; }

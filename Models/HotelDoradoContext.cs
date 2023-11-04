@@ -153,11 +153,17 @@ public partial class HotelDoradoContext : DbContext
             entity.Property(e => e.Apellido).HasMaxLength(255);
             entity.Property(e => e.CargoId).HasColumnName("CargoID");
             entity.Property(e => e.Cedula).HasMaxLength(30);
+            entity.Property(e => e.Correo)
+                .HasMaxLength(100)
+                .IsUnicode(false);
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("date");
             entity.Property(e => e.Nacimiento).HasColumnType("date");
             entity.Property(e => e.Nombre).HasMaxLength(255);
+            entity.Property(e => e.Telefono)
+                .HasMaxLength(15)
+                .IsUnicode(false);
             entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
             entity.HasOne(d => d.Cargo).WithMany(p => p.Empleados)

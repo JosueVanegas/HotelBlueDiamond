@@ -21,7 +21,6 @@ namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
             InitializeComponent();
             context = new HotelDoradoContext();
             mostrarDatos(HabitacionID);
-            timer.Start();
             this.TransparencyKey = Color.Empty;
         }
         private void mostrarDatos(int id)
@@ -44,9 +43,13 @@ namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
                     //informacion de la habitacion
                     txtNumero.Text = reserva.Habitacion.Codigo;
                     txtCategoria.Text = reserva.Habitacion.CategoriaHabitacion.Descripcion;
+                    txtPrecioPH.Text = reserva.Habitacion.PrecioPh.ToString();
+                    txtPiso.Text = reserva.Habitacion.Piso.Descripcion;
+                    txtDetalles.Text = reserva.Habitacion.Detalles;
+                    txtExtras.Text = reserva.Habitacion.Extras;
+                    //informacion del servicio a la habitación
 
-
-
+                    //Calculos de totales iniciales 
 
                 }
             }
@@ -54,10 +57,6 @@ namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            dtpSalida.Text = DateTime.Now.ToString("G");
         }
     }
 }
