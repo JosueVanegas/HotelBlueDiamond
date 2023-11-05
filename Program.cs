@@ -12,9 +12,8 @@ namespace Hotel_Dorado_DesktopApp
         [STAThread]
         static void Main()
         {
-            
             ApplicationConfiguration.Initialize();
-            Application.Run(new AyudaView());
+            Application.Run(new HomeView());
         }
     }
 }

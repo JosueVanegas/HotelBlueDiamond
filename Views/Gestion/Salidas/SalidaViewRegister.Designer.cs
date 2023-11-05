@@ -33,7 +33,6 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalidaViewRegister));
-            txtIdHabitacion = new Label();
             dtpSalida = new Label();
             dtpEntrada = new Label();
             txtCantidadHuespedes = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -70,18 +69,9 @@
             txtCargoRoturas = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtPago = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCambio = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtCargoEstancia = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             ((System.ComponentModel.ISupportInitialize)tbClientes).BeginInit();
             SuspendLayout();
-            // 
-            // txtIdHabitacion
-            // 
-            txtIdHabitacion.AutoSize = true;
-            txtIdHabitacion.Location = new Point(426, 720);
-            txtIdHabitacion.Name = "txtIdHabitacion";
-            txtIdHabitacion.Size = new Size(13, 15);
-            txtIdHabitacion.TabIndex = 49;
-            txtIdHabitacion.Text = "0";
-            txtIdHabitacion.Visible = false;
             // 
             // dtpSalida
             // 
@@ -160,10 +150,10 @@
             txtAdelanto.SelectionLength = 0;
             txtAdelanto.SelectionStart = 0;
             txtAdelanto.ShortcutsEnabled = true;
-            txtAdelanto.Size = new Size(261, 48);
+            txtAdelanto.Size = new Size(343, 48);
             txtAdelanto.TabIndex = 45;
             txtAdelanto.TabStop = false;
-            txtAdelanto.Text = "0.00";
+            txtAdelanto.Text = "0";
             txtAdelanto.TextAlign = HorizontalAlignment.Left;
             txtAdelanto.TrailingIcon = null;
             txtAdelanto.UseSystemPasswordChar = false;
@@ -283,12 +273,12 @@
             btnReservar.HighEmphasis = true;
             btnReservar.Icon = null;
             btnReservar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnReservar.Location = new Point(537, 720);
+            btnReservar.Location = new Point(520, 772);
             btnReservar.Margin = new Padding(4);
             btnReservar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnReservar.Name = "btnReservar";
             btnReservar.NoAccentTextColor = Color.Empty;
-            btnReservar.Size = new Size(208, 100);
+            btnReservar.Size = new Size(272, 48);
             btnReservar.TabIndex = 34;
             btnReservar.Text = "Facturar todo";
             btnReservar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -682,10 +672,10 @@
             txtTotalServicio.SelectionLength = 0;
             txtTotalServicio.SelectionStart = 0;
             txtTotalServicio.ShortcutsEnabled = true;
-            txtTotalServicio.Size = new Size(261, 48);
+            txtTotalServicio.Size = new Size(343, 48);
             txtTotalServicio.TabIndex = 58;
             txtTotalServicio.TabStop = false;
-            txtTotalServicio.Text = "0.00";
+            txtTotalServicio.Text = "0";
             txtTotalServicio.TextAlign = HorizontalAlignment.Left;
             txtTotalServicio.TrailingIcon = null;
             txtTotalServicio.UseSystemPasswordChar = false;
@@ -702,7 +692,7 @@
             txtTotal.HideSelection = true;
             txtTotal.Hint = "Total a pagar:";
             txtTotal.LeadingIcon = null;
-            txtTotal.Location = new Point(7, 772);
+            txtTotal.Location = new Point(7, 720);
             txtTotal.Margin = new Padding(3, 2, 3, 2);
             txtTotal.MaxLength = 32767;
             txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -715,10 +705,10 @@
             txtTotal.SelectionLength = 0;
             txtTotal.SelectionStart = 0;
             txtTotal.ShortcutsEnabled = true;
-            txtTotal.Size = new Size(261, 48);
+            txtTotal.Size = new Size(343, 48);
             txtTotal.TabIndex = 59;
             txtTotal.TabStop = false;
-            txtTotal.Text = "0.00";
+            txtTotal.Text = "0";
             txtTotal.TextAlign = HorizontalAlignment.Left;
             txtTotal.TrailingIcon = null;
             txtTotal.UseSystemPasswordChar = false;
@@ -733,9 +723,9 @@
             txtCargoRoturas.Depth = 0;
             txtCargoRoturas.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtCargoRoturas.HideSelection = true;
-            txtCargoRoturas.Hint = "Cargo por daños a la propiedad del hotel:";
+            txtCargoRoturas.Hint = "Cargo por daños a la propiedad:";
             txtCargoRoturas.LeadingIcon = null;
-            txtCargoRoturas.Location = new Point(7, 720);
+            txtCargoRoturas.Location = new Point(521, 616);
             txtCargoRoturas.Margin = new Padding(3, 2, 3, 2);
             txtCargoRoturas.MaxLength = 32767;
             txtCargoRoturas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -748,13 +738,15 @@
             txtCargoRoturas.SelectionLength = 0;
             txtCargoRoturas.SelectionStart = 0;
             txtCargoRoturas.ShortcutsEnabled = true;
-            txtCargoRoturas.Size = new Size(261, 48);
+            txtCargoRoturas.Size = new Size(272, 48);
             txtCargoRoturas.TabIndex = 60;
             txtCargoRoturas.TabStop = false;
-            txtCargoRoturas.Text = "0.00";
+            txtCargoRoturas.Text = "0";
             txtCargoRoturas.TextAlign = HorizontalAlignment.Left;
             txtCargoRoturas.TrailingIcon = null;
             txtCargoRoturas.UseSystemPasswordChar = false;
+            txtCargoRoturas.KeyPress += ValidarDecimal_KeyPress;
+            txtCargoRoturas.TextChanged += txtCargoRoturas_TextChanged;
             // 
             // txtPago
             // 
@@ -768,7 +760,7 @@
             txtPago.HideSelection = true;
             txtPago.Hint = "Pago del cliente:";
             txtPago.LeadingIcon = null;
-            txtPago.Location = new Point(537, 616);
+            txtPago.Location = new Point(7, 772);
             txtPago.Margin = new Padding(3, 2, 3, 2);
             txtPago.MaxLength = 32767;
             txtPago.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -781,13 +773,15 @@
             txtPago.SelectionLength = 0;
             txtPago.SelectionStart = 0;
             txtPago.ShortcutsEnabled = true;
-            txtPago.Size = new Size(208, 48);
+            txtPago.Size = new Size(343, 48);
             txtPago.TabIndex = 61;
             txtPago.TabStop = false;
-            txtPago.Text = "0.00";
+            txtPago.Text = "0";
             txtPago.TextAlign = HorizontalAlignment.Left;
             txtPago.TrailingIcon = null;
             txtPago.UseSystemPasswordChar = false;
+            txtPago.KeyPress += ValidarDecimal_KeyPress;
+            txtPago.TextChanged += txtPago_TextChanged;
             // 
             // txtCambio
             // 
@@ -801,7 +795,7 @@
             txtCambio.HideSelection = true;
             txtCambio.Hint = "Cambio:";
             txtCambio.LeadingIcon = null;
-            txtCambio.Location = new Point(537, 668);
+            txtCambio.Location = new Point(521, 720);
             txtCambio.Margin = new Padding(3, 2, 3, 2);
             txtCambio.MaxLength = 32767;
             txtCambio.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -814,13 +808,48 @@
             txtCambio.SelectionLength = 0;
             txtCambio.SelectionStart = 0;
             txtCambio.ShortcutsEnabled = true;
-            txtCambio.Size = new Size(208, 48);
+            txtCambio.Size = new Size(272, 48);
             txtCambio.TabIndex = 62;
             txtCambio.TabStop = false;
-            txtCambio.Text = "0.00";
+            txtCambio.Text = "0";
             txtCambio.TextAlign = HorizontalAlignment.Left;
             txtCambio.TrailingIcon = null;
             txtCambio.UseSystemPasswordChar = false;
+            // 
+            // txtCargoEstancia
+            // 
+            txtCargoEstancia.AnimateReadOnly = false;
+            txtCargoEstancia.AutoCompleteMode = AutoCompleteMode.None;
+            txtCargoEstancia.AutoCompleteSource = AutoCompleteSource.None;
+            txtCargoEstancia.BackgroundImageLayout = ImageLayout.None;
+            txtCargoEstancia.CharacterCasing = CharacterCasing.Normal;
+            txtCargoEstancia.Depth = 0;
+            txtCargoEstancia.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtCargoEstancia.HideSelection = true;
+            txtCargoEstancia.Hint = "Recargos por tiempo de estancia:";
+            txtCargoEstancia.LeadingIcon = null;
+            txtCargoEstancia.Location = new Point(521, 668);
+            txtCargoEstancia.Margin = new Padding(3, 2, 3, 2);
+            txtCargoEstancia.MaxLength = 32767;
+            txtCargoEstancia.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtCargoEstancia.Name = "txtCargoEstancia";
+            txtCargoEstancia.PasswordChar = '\0';
+            txtCargoEstancia.PrefixSuffixText = null;
+            txtCargoEstancia.ReadOnly = false;
+            txtCargoEstancia.RightToLeft = RightToLeft.No;
+            txtCargoEstancia.SelectedText = "";
+            txtCargoEstancia.SelectionLength = 0;
+            txtCargoEstancia.SelectionStart = 0;
+            txtCargoEstancia.ShortcutsEnabled = true;
+            txtCargoEstancia.Size = new Size(272, 48);
+            txtCargoEstancia.TabIndex = 63;
+            txtCargoEstancia.TabStop = false;
+            txtCargoEstancia.Text = "0";
+            txtCargoEstancia.TextAlign = HorizontalAlignment.Left;
+            txtCargoEstancia.TrailingIcon = null;
+            txtCargoEstancia.UseSystemPasswordChar = false;
+            txtCargoEstancia.KeyPress += ValidarDecimal_KeyPress;
+            txtCargoEstancia.TextChanged += txtCargoEstancia_TextChanged;
             // 
             // SalidaViewRegister
             // 
@@ -828,6 +857,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
             ClientSize = new Size(805, 871);
+            Controls.Add(txtCargoEstancia);
             Controls.Add(txtCambio);
             Controls.Add(txtPago);
             Controls.Add(txtCargoRoturas);
@@ -839,7 +869,6 @@
             Controls.Add(txtCedula);
             Controls.Add(txtApellido);
             Controls.Add(txtNombre);
-            Controls.Add(txtIdHabitacion);
             Controls.Add(dtpSalida);
             Controls.Add(dtpEntrada);
             Controls.Add(txtCantidadHuespedes);
@@ -865,12 +894,9 @@
             Text = "SalidaViewRegister";
             ((System.ComponentModel.ISupportInitialize)tbClientes).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label txtIdHabitacion;
         private Label dtpSalida;
         private Label dtpEntrada;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCantidadHuespedes;
@@ -907,5 +933,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCargoRoturas;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPago;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCambio;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCargoEstancia;
     }
 }

@@ -72,6 +72,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                         Finalizada = false,
                     };
                     recepcionController.AddObject(recepcion);
+                    recepcionController.SetState(habitacion.HabitacionId, 2);
 
                     MessageBox.Show("Proceso de recervación de habitación finalizado exitosamente", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

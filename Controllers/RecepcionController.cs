@@ -51,14 +51,34 @@ namespace Hotel_Dorado_DesktopApp.Controllers
                 Include(r => r.Cliente).Include(r => r.Habitacion).Include(r=>r.Habitacion.CategoriaHabitacion)
                 .Include(r=>r.Habitacion.Piso).FirstOrDefault();
         }
+        public void SetState(int id,int state)
+        {
+            var obj = _context.Habitacions.Find(id);
+            if(obj != null )
+            {
+                obj.EstadoId = state;
+            }
+        }
+        public void UpdateServices(int reservaID)
+        {
+            var list = _context.Pedidos.Where(p=>p.ReservaId == reservaID).ToList();
+            foreach (var i in list)
+            {
+               foreach (var j in i.DetallePedidos)
+                {
+                    
+                }
+            }
+        }
         public List<Pedido> GetPedidoByHabitacion(int habitacionID)
         {
-            string query = @"select sd.PedidoID,pp.Descripcion,pp.Precio,sd.Cantidad from Servicios.Pedido sp
-                            join Servicios.DetallePedido sd on sd.PedidoID = sp.PedidoID
-                            join Reservas.Reserva rr on sp.ReservaID = rr.ReservaID
-                            join Servicios.Producto pp on pp.ProductoID = sd.ProductoID
-                            where rr.HabitacionID = {0} and rr.Finalizada = 0";
-                 return _context.Pedidos.FromSqlRaw(query, habitacionID).Include(r => r.DetallePedidos).ToList();
+            var pedidos = _context.Pedidos
+            .Where(p => p.Reserva.HabitacionId == habitacionID && p.Reserva.Finalizada == false)
+            .Include(r=>r.Reserva)
+            .Include(p => p.DetallePedidos)
+            .ThenInclude(dp => dp.Producto)
+            .ToList();
+            return pedidos;
         }
         
     }
