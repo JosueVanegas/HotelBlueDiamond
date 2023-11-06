@@ -16,9 +16,11 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
     public partial class ReservaViewResume : Form
     {
         HotelDoradoContext context;
-        public ReservaViewResume()
+        Usuario usuario;
+        public ReservaViewResume(Usuario usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
             context = new HotelDoradoContext();
             mostrarHabitaciones();
         }
@@ -28,6 +30,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
             {
                 int itemWidth = 180;
                 int itemHeight = 170;
+                context = new HotelDoradoContext();
                 var habitaciones = new HabitacionesController(context).GetAllObjects();
                 panelContenedor.Controls.Clear();
                 if (habitaciones.Count != 0)
@@ -80,7 +83,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
                                 boton.Text = "Reservar";
                                 boton.Click += (s, e) =>
                                 {
-                                    ReceptionView form = new ReceptionView(i);
+                                    ReceptionView form = new ReceptionView(i,usuario);
                                     form.ShowDialog();
                                     mostrarHabitaciones();
                                 };

@@ -39,13 +39,15 @@ namespace Hotel_Dorado_DesktopApp.Views.Login
                 try
                 {
                     this.Cursor = Cursors.WaitCursor;
+                    context = new HotelDoradoContext();
                     var controller = new UsuarioController(context);
                     bool permitir = controller.GetValue(txtUsuario.Text, txtClave.Text);
                     this.Cursor = Cursors.Default;
 
                     if (permitir)
                     {
-                        HomeView form = new HomeView();
+                        var user = controller.GetObject(txtUsuario.Text);
+                        HomeView form = new HomeView(user);
                         form.Show();
                         this.Hide();
                         form.FormClosing += frm_closing;

@@ -654,16 +654,16 @@
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="lblUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>995, 0</value>
+    <value>382, 0</value>
   </data>
   <data name="lblUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 33</value>
+    <value>801, 33</value>
   </data>
   <data name="lblUsuario.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="lblUsuario.Text" xml:space="preserve">
-    <value>admin</value>
+    <value>Usuario: Rol:</value>
   </data>
   <data name="lblUsuario.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>

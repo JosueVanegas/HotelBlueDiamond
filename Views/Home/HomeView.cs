@@ -22,20 +22,33 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
 {
     public partial class HomeView : Form
     {
-        public HomeView()
+        Usuario usuario;
+        public HomeView(Usuario usuario)
         {
             InitializeComponent();
+            this.Cursor = Cursors.WaitCursor;
+            this.usuario = usuario;
+            llenarDatosUsuario();
             Reloj.Start();
             this.MinimumSize = new Size(600, 600);
             this.TransparencyKey = Color.Empty;
             abrirFormulario(new DashBoardView());
+            this.Cursor = Cursors.Default;
+        }
+        private void llenarDatosUsuario()
+        {
+            if (usuario != null)
+            {
+                string datos = $"Nombre del usuario: {usuario.Empleado.Nombre + " " + usuario.Empleado.Apellido} Rol: {usuario.Rol.Descripcion}";
+                lblUsuario.Text = datos;
+            }
         }
         private void HomeView_Load(object sender, EventArgs e)
         {
             foreach (ToolStripMenuItem item in Menu.Items)
             {
                 item.DropDownOpened += Item_DropDownOpened;
-                item.DropDownClosed += Item_DropDownClosed; // Agregar este manejador de evento
+                item.DropDownClosed += Item_DropDownClosed;
             }
         }
         private void abrirFormulario(Form formHijo)
@@ -58,11 +71,6 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
         {
             Reloj.Stop();
             this.Close();
-        }
-
-        private void btnRecepcion_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new ReservaViewResume());
         }
 
         private void btnHabitaciones_Click(object sender, EventArgs e)
@@ -135,7 +143,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
 
         private void btnHospedajeMenu_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new ReservaViewResume());
+            abrirFormulario(new ReservaViewResume(this.usuario));
         }
 
         private void productosToolStripMenuItem1_Click(object sender, EventArgs e)

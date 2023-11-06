@@ -108,7 +108,6 @@ namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
                     var controller = new RecepcionController(context);
                     Reserva r = new Reserva
                     {
-                        ReservaId = reserva.ReservaId,
                         ClienteId = reserva.ClienteId,
                         HabitacionId = reserva.HabitacionId,
                         EmpleadoId = reserva.EmpleadoId,

@@ -36,7 +36,7 @@
             panel1 = new Panel();
             label2 = new Label();
             lostSeparator1 = new ReaLTaiizor.Controls.LostSeparator();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
+            btnSalir = new ReaLTaiizor.Controls.MaterialButton();
             btnIngresar = new ReaLTaiizor.Controls.MaterialButton();
             parrotGradientPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -157,7 +157,7 @@
             panel1.BackColor = Color.Beige;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(lostSeparator1);
-            panel1.Controls.Add(materialButton1);
+            panel1.Controls.Add(btnSalir);
             panel1.Controls.Add(btnIngresar);
             panel1.Controls.Add(txtClave);
             panel1.Controls.Add(ckbVerClave);
@@ -190,27 +190,27 @@
             lostSeparator1.TabIndex = 6;
             lostSeparator1.Text = "lostSeparator1";
             // 
-            // materialButton1
+            // btnSalir
             // 
-            materialButton1.AutoSize = false;
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(24, 285);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(250, 37);
-            materialButton1.TabIndex = 5;
-            materialButton1.Text = "Salir";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = true;
-            materialButton1.UseVisualStyleBackColor = true;
-            materialButton1.Click += materialButton1_Click;
+            btnSalir.AutoSize = false;
+            btnSalir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnSalir.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnSalir.Depth = 0;
+            btnSalir.HighEmphasis = true;
+            btnSalir.Icon = null;
+            btnSalir.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnSalir.Location = new Point(24, 285);
+            btnSalir.Margin = new Padding(4, 6, 4, 6);
+            btnSalir.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnSalir.Name = "btnSalir";
+            btnSalir.NoAccentTextColor = Color.Empty;
+            btnSalir.Size = new Size(250, 37);
+            btnSalir.TabIndex = 5;
+            btnSalir.Text = "Salir";
+            btnSalir.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnSalir.UseAccentColor = true;
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += materialButton1_Click;
             // 
             // btnIngresar
             // 
@@ -236,8 +236,10 @@
             // 
             // LoginView
             // 
+            AcceptButton = btnIngresar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnSalir;
             ClientSize = new Size(785, 421);
             Controls.Add(parrotGradientPanel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -261,6 +263,6 @@
         private ReaLTaiizor.Controls.MaterialButton btnIngresar;
         private Label label2;
         private ReaLTaiizor.Controls.LostSeparator lostSeparator1;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
+        private ReaLTaiizor.Controls.MaterialButton btnSalir;
     }
 }

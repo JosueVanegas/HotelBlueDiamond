@@ -43,6 +43,11 @@ namespace Hotel_Dorado_DesktopApp.Controllers
                 _context.SaveChanges();
             }
         }
+        public Usuario GetObject(string usuario)
+        {
+            var user = _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u=>u.Usuario1 == usuario).FirstOrDefault();
+            return user;
+        }
 
         public bool GetValue(string usuario, string clave)
         {

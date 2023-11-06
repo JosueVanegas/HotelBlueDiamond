@@ -21,9 +21,11 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
     {
         HotelDoradoContext context;
         Habitacion habitacion;
-        public ReceptionView(Habitacion habitacion)
+        Usuario usuario;
+        public ReceptionView(Habitacion habitacion,Usuario usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
             this.habitacion = habitacion;
             context = new HotelDoradoContext();
             mostrarClientes();
@@ -63,7 +65,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
                     {
                         ClienteId = cliente.ClienteId,
                         HabitacionId = habitacion.HabitacionId,
-                        EmpleadoId = 1,
+                        EmpleadoId = usuario.EmpleadoId,
                         FechaSalida = dtSalida.Value,
                         FechaEntrada = DateTime.Now,
                         Adelanto = Convert.ToDecimal(txtAdelanto.Text),
