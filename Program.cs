@@ -1,5 +1,6 @@
 using Hotel_Dorado_DesktopApp.View;
 using Hotel_Dorado_DesktopApp.View.ClientesView;
+using Hotel_Dorado_DesktopApp.Views.Home;
 using Hotel_Dorado_DesktopApp.Views.Ayudas;
 using Hotel_Dorado_DesktopApp.Views.GestionView;
 using Hotel_Dorado_DesktopApp.Views.Login;
@@ -13,7 +14,7 @@ namespace Hotel_Dorado_DesktopApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new HomeView());
+            Application.Run(new LoginView());
         }
     }
 }

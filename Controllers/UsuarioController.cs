@@ -1,7 +1,12 @@
 ﻿using Hotel_Dorado_DesktopApp.Models;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,9 +43,21 @@ namespace Hotel_Dorado_DesktopApp.Controllers
                 _context.SaveChanges();
             }
         }
-        public Usuario GetObjectById(int id)
+
+        public bool GetValue(string usuario, string clave)
         {
-            return _context.Usuarios.Find(id);
+            var usuarioParam = new SqlParameter("@Usuario", usuario);
+            var claveParam = new SqlParameter("@Clave", clave);
+            var permitirParam = new SqlParameter
+            {
+                ParameterName = "@Permitir",
+                SqlDbType = SqlDbType.Bit,
+                Direction = ParameterDirection.Output
+            };
+
+            _context.Database.ExecuteSqlRaw($"EXEC dbo.PROC_READ_ENCRYP_PASSWORD @Usuario, @Clave, @Permitir OUTPUT",usuarioParam,claveParam,permitirParam);
+
+            return (bool)permitirParam.Value;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.View
+﻿namespace Hotel_Dorado_DesktopApp.Views.Home
 {
     partial class HomeView
     {

@@ -6,7 +6,7 @@ using Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal;
 using Hotel_Dorado_DesktopApp.Views.GestionView;
 using Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion;
 using Hotel_Dorado_DesktopApp.Views.Habitaciones;
-using Hotel_Dorado_DesktopApp.Views.HomeView;
+using Hotel_Dorado_DesktopApp.Views.Home;
 using Hotel_Dorado_DesktopApp.Views.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.View
+namespace Hotel_Dorado_DesktopApp.Views.Home
 {
     public partial class HomeView : Form
     {

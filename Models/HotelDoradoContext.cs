@@ -46,7 +46,8 @@ public partial class HotelDoradoContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(Hotel_Dorado_DesktopApp.Properties.Resources.ConnectionString);
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer(Properties.Resources.ConnectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -254,11 +255,7 @@ public partial class HotelDoradoContext : DbContext
         {
             entity.HasKey(e => e.ReservaId).HasName("PK__Reserva__C39937038AD0E9C0");
 
-            entity.ToTable("Reserva", "Reservas", tb =>
-                {
-                    tb.HasTrigger("TRG_RESERVA_HABITACION_insert");
-                    tb.HasTrigger("TRG_RESERVA_HABITACION_update");
-                });
+            entity.ToTable("Reserva", "Reservas", tb => tb.HasTrigger("TRG_RESERVA_HABITACION_insert"));
 
             entity.Property(e => e.ReservaId).HasColumnName("ReservaID");
             entity.Property(e => e.Adelanto).HasColumnType("decimal(10, 2)");
@@ -303,7 +300,7 @@ public partial class HotelDoradoContext : DbContext
         {
             entity.HasKey(e => e.UsuarioId).HasName("PK__Usuario__2B3DE798E806E1CF");
 
-            entity.ToTable("Usuario", "RecursosHumanos");
+            entity.ToTable("Usuario", "RecursosHumanos", tb => tb.HasTrigger("TG_ENCRIPTAR_CLAVE_USUARIO"));
 
             entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
             entity.Property(e => e.Clave).HasMaxLength(300);

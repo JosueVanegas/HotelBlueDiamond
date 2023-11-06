@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.HomeView
+﻿namespace Hotel_Dorado_DesktopApp.Views.Home
 {
     partial class DashBoardView
     {
