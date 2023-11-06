@@ -46,7 +46,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Login
 
                     if (permitir)
                     {
-                        var user = controller.GetObject(txtUsuario.Text);
+                        var user = controller.GetObjectByUser(txtUsuario.Text);
                         HomeView form = new HomeView(user);
                         form.Show();
                         this.Hide();

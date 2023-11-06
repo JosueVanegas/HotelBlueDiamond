@@ -27,7 +27,7 @@ namespace Hotel_Dorado_DesktopApp.Controllers
         }
         public List<Usuario> GetAllObject()
         {
-            return _context.Usuarios.ToList();
+            return _context.Usuarios.Include(u=>u.Empleado).Include(u=>u.Rol).ToList();
         }
         public void UpdateObject(Usuario obj)
         {
@@ -43,9 +43,14 @@ namespace Hotel_Dorado_DesktopApp.Controllers
                 _context.SaveChanges();
             }
         }
-        public Usuario GetObject(string usuario)
+        public Usuario GetObjectByUser(string usuario)
         {
-            var user = _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u=>u.Usuario1 == usuario).FirstOrDefault();
+            var user = _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u => u.Usuario1 == usuario).FirstOrDefault();
+            return user;
+        }
+        public Usuario GetObjectById(int id)
+        {
+            var user = _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u=>u.UsuarioId == id).FirstOrDefault();
             return user;
         }
 
