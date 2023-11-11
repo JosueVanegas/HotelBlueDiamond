@@ -52,7 +52,7 @@
             txtNombre.HideSelection = true;
             txtNombre.Hint = "Nombres";
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(15, 134);
+            txtNombre.Location = new Point(14, 146);
             txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -97,7 +97,7 @@
             panel1.Location = new Point(10, 9);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(467, 338);
+            panel1.Size = new Size(467, 349);
             panel1.TabIndex = 3;
             // 
             // txtCedula
@@ -142,8 +142,8 @@
             btnCancelar.HighEmphasis = true;
             btnCancelar.Icon = null;
             btnCancelar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancelar.Location = new Point(150, 283);
-            btnCancelar.Margin = new Padding(4, 4, 4, 4);
+            btnCancelar.Location = new Point(150, 300);
+            btnCancelar.Margin = new Padding(4);
             btnCancelar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancelar.Name = "btnCancelar";
             btnCancelar.NoAccentTextColor = Color.Empty;
@@ -165,8 +165,8 @@
             btnGuardar.HighEmphasis = true;
             btnGuardar.Icon = null;
             btnGuardar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnGuardar.Location = new Point(150, 240);
-            btnGuardar.Margin = new Padding(4, 4, 4, 4);
+            btnGuardar.Location = new Point(150, 258);
+            btnGuardar.Margin = new Padding(4);
             btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
             btnGuardar.NoAccentTextColor = Color.Empty;
@@ -190,7 +190,7 @@
             txtCorreo.HideSelection = true;
             txtCorreo.Hint = "Correo electrónico";
             txtCorreo.LeadingIcon = null;
-            txtCorreo.Location = new Point(15, 175);
+            txtCorreo.Location = new Point(14, 204);
             txtCorreo.Margin = new Padding(3, 2, 3, 2);
             txtCorreo.MaxLength = 32767;
             txtCorreo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -254,7 +254,7 @@
             txtApellido.HideSelection = true;
             txtApellido.Hint = "Apellidos";
             txtApellido.LeadingIcon = null;
-            txtApellido.Location = new Point(235, 134);
+            txtApellido.Location = new Point(235, 146);
             txtApellido.Margin = new Padding(3, 2, 3, 2);
             txtApellido.MaxLength = 32767;
             txtApellido.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -279,7 +279,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
-            ClientSize = new Size(487, 356);
+            ClientSize = new Size(487, 369);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);

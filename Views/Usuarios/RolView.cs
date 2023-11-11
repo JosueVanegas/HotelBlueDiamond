@@ -1,6 +1,5 @@
 ﻿using Hotel_Dorado_DesktopApp.Controllers;
 using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.View.ClientesView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,44 +10,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Productos
+namespace Hotel_Dorado_DesktopApp.Views.Usuarios
 {
-    public partial class ProductoView : Form
+    public partial class RolView : Form
     {
         HotelDoradoContext context;
-        ProductoController controller;
-        public ProductoView()
+        public RolView()
         {
             InitializeComponent();
-            context = new HotelDoradoContext();
-            controller = new ProductoController(context);
-            mostrarProductos();
         }
-        private void mostrarProductos()
+        private void mostrarRoles()
         {
             context = new HotelDoradoContext();
-            controller = new ProductoController(context);
-            var lista = controller.GetAllObject();
-            tbProductos.Rows.Clear();
-            foreach (var i in lista)
-            {
-                tbProductos.Rows.Add(i.ProductoId, i.Descripcion, i.Precio, i.CategoriaProducto.Descripcion, "", "");
-            }
+            var controller = new RolController(context);
+
         }
         private void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
-            if (tbProductos.Columns[e.ColumnIndex].Name == "Borrar")
+            context = new HotelDoradoContext();
+            var controller = new UsuarioController(context);
+            if (tbRoles.Columns[e.ColumnIndex].Name == "Borrar")
             {
                 try
                 {
-                    int id = (int)tbProductos.Rows[indice].Cells["Id"].Value;
+                    int id = (int)tbRoles.Rows[indice].Cells["Id"].Value;
 
-                    if (MessageBox.Show("¿Esta seguro de eliminar el producto seleccionado?", "Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Esta seguro de eliminar al usuario seleccionado?", "Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         controller.DeleteObject(id);
-                        mostrarProductos();
-                        MessageBox.Show("Producto eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        mostrarRoles();
+                        MessageBox.Show("Usuario eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
@@ -56,19 +48,20 @@ namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Productos
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            if (tbProductos.Columns[e.ColumnIndex].Name == "Editar")
+            if (tbRoles.Columns[e.ColumnIndex].Name == "Editar")
             {
-                int ClienteId = Convert.ToInt32(tbProductos.Rows[indice].Cells["Id"].Value);
-                var cliente = controller.GetObject(ClienteId);
-                ProductoViewRegister form = new ProductoViewRegister(cliente);
-                mostrarProductos();
+                int ClienteId = Convert.ToInt32(tbRoles.Rows[indice].Cells["Id"].Value);
+                var cliente = controller.GetObjectById(ClienteId);
+                UsuariosViewRegister form = new UsuariosViewRegister(cliente);
+                form.ShowDialog();
+                mostrarRoles();
             }
         }
         private void cellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 5)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var h = Properties.Resources.editarImg.Height;
@@ -79,7 +72,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Productos
                 e.Graphics.DrawImage(Properties.Resources.editarImg, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 6)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var w = Properties.Resources.eliminarImg.Width;
@@ -90,11 +83,6 @@ namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Productos
                 e.Graphics.DrawImage(Properties.Resources.eliminarImg, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-        }
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            ProductoViewRegister form = new ProductoViewRegister(null);
-            mostrarProductos();
         }
     }
 }

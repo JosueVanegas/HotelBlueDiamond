@@ -160,18 +160,6 @@
   <data name="Menu.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 14pt</value>
   </data>
-  <data name="btnInicioInicio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
-  </data>
-  <data name="btnInicioInicio.Text" xml:space="preserve">
-    <value>Inicio</value>
-  </data>
-  <data name="cambiarRolDeUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
-  </data>
-  <data name="cambiarRolDeUsuarioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Cambiar rol de usuario</value>
-  </data>
   <data name="btnInicioMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
@@ -482,18 +470,6 @@
   <data name="btnReportesMenu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="btnUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 30</value>
-  </data>
-  <data name="btnUsuario.Text" xml:space="preserve">
-    <value>Administrar usuarios</value>
-  </data>
-  <data name="rolesDeUsuariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 30</value>
-  </data>
-  <data name="rolesDeUsuariosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Roles de Usuarios</value>
-  </data>
   <data name="btnUsuariosMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
@@ -654,7 +630,7 @@
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="lblUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>382, 0</value>
+    <value>381, 0</value>
   </data>
   <data name="lblUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>801, 33</value>
@@ -713,13 +689,13 @@
 </value>
   </data>
   <data name="btnCambiarUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1183, 0</value>
+    <value>1182, 0</value>
   </data>
   <data name="btnCambiarUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="btnCambiarUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 33</value>
+    <value>29, 33</value>
   </data>
   <data name="btnCambiarUsuario.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -2021,18 +1997,6 @@
   <data name="&gt;&gt;btnInicioMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnInicioInicio.Name" xml:space="preserve">
-    <value>btnInicioInicio</value>
-  </data>
-  <data name="&gt;&gt;btnInicioInicio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cambiarRolDeUsuarioToolStripMenuItem.Name" xml:space="preserve">
-    <value>cambiarRolDeUsuarioToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;cambiarRolDeUsuarioToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;btnHospedajeMenu.Name" xml:space="preserve">
     <value>btnHospedajeMenu</value>
   </data>
@@ -2145,18 +2109,6 @@
     <value>btnUsuariosMenu</value>
   </data>
   <data name="&gt;&gt;btnUsuariosMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUsuario.Name" xml:space="preserve">
-    <value>btnUsuario</value>
-  </data>
-  <data name="&gt;&gt;btnUsuario.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rolesDeUsuariosToolStripMenuItem.Name" xml:space="preserve">
-    <value>rolesDeUsuariosToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;rolesDeUsuariosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnClientesMenu.Name" xml:space="preserve">

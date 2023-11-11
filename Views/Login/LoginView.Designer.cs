@@ -170,8 +170,9 @@
             // 
             // label2
             // 
-            label2.BackColor = Color.Gold;
+            label2.BackColor = Color.FromArgb(0, 51, 102);
             label2.Font = new Font("Microsoft Sans Serif", 48F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Beige;
             label2.Location = new Point(377, 20);
             label2.Name = "label2";
             label2.Size = new Size(294, 309);

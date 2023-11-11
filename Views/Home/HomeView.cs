@@ -7,6 +7,7 @@ using Hotel_Dorado_DesktopApp.Views.GestionView;
 using Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion;
 using Hotel_Dorado_DesktopApp.Views.Habitaciones;
 using Hotel_Dorado_DesktopApp.Views.Home;
+using Hotel_Dorado_DesktopApp.Views.Pedidos.Productos;
 using Hotel_Dorado_DesktopApp.Views.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
             this.usuario = usuario;
             llenarDatosUsuario();
             Reloj.Start();
-            this.MinimumSize = new Size(600, 600);
+            this.MinimumSize = new Size(600, 800);
             this.TransparencyKey = Color.Empty;
             abrirFormulario(new DashBoardView());
             this.Cursor = Cursors.Default;
@@ -39,7 +40,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
         {
             if (usuario != null)
             {
-                string datos = $"Nombre del usuario: {usuario.Empleado.Nombre + " " + usuario.Empleado.Apellido} Rol: {usuario.Rol.Descripcion}";
+                string datos = $"Nombre del usuario: {usuario.Empleado.Nombre + " " + usuario.Empleado.Apellido}   |  Rol: {usuario.Rol.Descripcion}";
                 lblUsuario.Text = datos;
             }
         }
@@ -66,13 +67,6 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
         {
             abrirFormulario(new ClientView());
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Reloj.Stop();
-            this.Close();
-        }
-
         private void btnHabitaciones_Click(object sender, EventArgs e)
         {
             abrirFormulario(new HabitacionesView());
@@ -81,11 +75,6 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
         private void btnCategorias_Click(object sender, EventArgs e)
         {
             abrirFormulario(new CategoriasHabitacionView());
-        }
-
-        private void btnInicioInicio_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new DashBoardView());
         }
 
         private void Reloj_Tick(object sender, EventArgs e)
@@ -131,11 +120,6 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
             abrirFormulario(new AsignacionView());
         }
 
-        private void btnUsuario_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new UsuariosView());
-        }
-
         private void btnAyudaMenu_Click(object sender, EventArgs e)
         {
             abrirFormulario(new AyudaView());
@@ -148,7 +132,30 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
 
         private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            abrirFormulario(new ProductoView());
+        }
 
+        private void btnUsuariosMenu_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new UsuariosView());
+        }
+
+        private void btnInicioMenu_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new DashBoardView());
+        }
+
+        private void categoriasToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new CategoriasView());
+        }
+
+        private void btnCambiarUsuario_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("¿Desea cambiar de usuario?","Cambiar de usuario",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

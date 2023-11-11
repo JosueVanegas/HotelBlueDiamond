@@ -123,7 +123,6 @@ namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
                     controller.UpdateObject(r);
                     controller.UpdateServices(reserva.ReservaId);
                     controller.SetState(HabitacionID, 1);
-                    //con estes codigo deberia digo yo de actualizar la reservacion y ponerla nula poner la habitacion en disponible y colocar como cancelado cualquier servicio a la habitacion
                 }
             }
             catch (Exception ex)
@@ -152,25 +151,19 @@ namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
 
             if (e.KeyChar == '.' && textBox.Text.Length == 0)
             {
-                e.Handled = true; // No permite un punto al comienzo.
+                e.Handled = true;
                 return;
             }
-
-            // Verifica si el carácter presionado es un dígito, un punto o la tecla de retroceso (borrar).
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
             {
-                e.Handled = true; // No permite el carácter ingresado.
+                e.Handled = true;
                 return;
             }
-
-            // Si ya hay un punto en el TextBox, no permite otro.
             if (e.KeyChar == '.' && textBox.Text.Contains("."))
             {
                 e.Handled = true;
                 return;
             }
-
-            // Verifica si el TextBox ya tiene 10 caracteres o si se ingresan más de 2 decimales.
             if (textBox.Text.Length >= 10 || (textBox.Text.Contains(".") && textBox.Text.Split('.')[1].Length >= 2) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;

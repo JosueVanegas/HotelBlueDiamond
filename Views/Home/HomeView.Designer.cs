@@ -33,8 +33,6 @@
             panelContenedor = new Panel();
             Menu = new MenuStrip();
             btnInicioMenu = new ToolStripMenuItem();
-            btnInicioInicio = new ToolStripMenuItem();
-            cambiarRolDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
             btnHospedajeMenu = new ToolStripMenuItem();
             btnTiendaMenu = new ToolStripMenuItem();
             productosToolStripMenuItem = new ToolStripMenuItem();
@@ -54,8 +52,6 @@
             informeDeToolStripMenuItem = new ToolStripMenuItem();
             generadorDeNominaToolStripMenuItem = new ToolStripMenuItem();
             btnUsuariosMenu = new ToolStripMenuItem();
-            btnUsuario = new ToolStripMenuItem();
-            rolesDeUsuariosToolStripMenuItem = new ToolStripMenuItem();
             btnClientesMenu = new ToolStripMenuItem();
             btnAyudaMenu = new ToolStripMenuItem();
             panel1 = new Panel();
@@ -90,26 +86,11 @@
             // 
             // btnInicioMenu
             // 
-            btnInicioMenu.DropDownItems.AddRange(new ToolStripItem[] { btnInicioInicio, cambiarRolDeUsuarioToolStripMenuItem });
             btnInicioMenu.ForeColor = Color.Beige;
             resources.ApplyResources(btnInicioMenu, "btnInicioMenu");
             btnInicioMenu.Margin = new Padding(0, 10, 0, 10);
             btnInicioMenu.Name = "btnInicioMenu";
-            // 
-            // btnInicioInicio
-            // 
-            btnInicioInicio.BackColor = Color.FromArgb(0, 51, 102);
-            btnInicioInicio.ForeColor = Color.Beige;
-            btnInicioInicio.Name = "btnInicioInicio";
-            resources.ApplyResources(btnInicioInicio, "btnInicioInicio");
-            btnInicioInicio.Click += btnInicioInicio_Click;
-            // 
-            // cambiarRolDeUsuarioToolStripMenuItem
-            // 
-            cambiarRolDeUsuarioToolStripMenuItem.BackColor = Color.FromArgb(0, 51, 102);
-            cambiarRolDeUsuarioToolStripMenuItem.ForeColor = Color.Beige;
-            cambiarRolDeUsuarioToolStripMenuItem.Name = "cambiarRolDeUsuarioToolStripMenuItem";
-            resources.ApplyResources(cambiarRolDeUsuarioToolStripMenuItem, "cambiarRolDeUsuarioToolStripMenuItem");
+            btnInicioMenu.Click += btnInicioMenu_Click;
             // 
             // btnHospedajeMenu
             // 
@@ -148,6 +129,7 @@
             // 
             categoriasToolStripMenuItem2.Name = "categoriasToolStripMenuItem2";
             resources.ApplyResources(categoriasToolStripMenuItem2, "categoriasToolStripMenuItem2");
+            categoriasToolStripMenuItem2.Click += categoriasToolStripMenuItem2_Click;
             // 
             // btnHabitacionesMenu
             // 
@@ -226,22 +208,11 @@
             // 
             // btnUsuariosMenu
             // 
-            btnUsuariosMenu.DropDownItems.AddRange(new ToolStripItem[] { btnUsuario, rolesDeUsuariosToolStripMenuItem });
             btnUsuariosMenu.ForeColor = Color.Beige;
             resources.ApplyResources(btnUsuariosMenu, "btnUsuariosMenu");
             btnUsuariosMenu.Margin = new Padding(0, 10, 0, 10);
             btnUsuariosMenu.Name = "btnUsuariosMenu";
-            // 
-            // btnUsuario
-            // 
-            btnUsuario.Name = "btnUsuario";
-            resources.ApplyResources(btnUsuario, "btnUsuario");
-            btnUsuario.Click += btnUsuario_Click;
-            // 
-            // rolesDeUsuariosToolStripMenuItem
-            // 
-            rolesDeUsuariosToolStripMenuItem.Name = "rolesDeUsuariosToolStripMenuItem";
-            resources.ApplyResources(rolesDeUsuariosToolStripMenuItem, "rolesDeUsuariosToolStripMenuItem");
+            btnUsuariosMenu.Click += btnUsuariosMenu_Click;
             // 
             // btnClientesMenu
             // 
@@ -278,6 +249,7 @@
             resources.ApplyResources(btnCambiarUsuario, "btnCambiarUsuario");
             btnCambiarUsuario.Name = "btnCambiarUsuario";
             btnCambiarUsuario.TabStop = false;
+            btnCambiarUsuario.Click += btnCambiarUsuario_Click;
             // 
             // lblReloj
             // 
@@ -328,7 +300,6 @@
         private Panel panelContenedor;
         private MenuStrip Menu;
         private ToolStripMenuItem btnInicioMenu;
-        private ToolStripMenuItem cambiarRolDeUsuarioToolStripMenuItem;
         private ToolStripMenuItem btnHospedajeMenu;
         private ToolStripMenuItem btnTiendaMenu;
         private ToolStripMenuItem productosToolStripMenuItem;
@@ -343,9 +314,6 @@
         private ToolStripMenuItem productosToolStripMenuItem1;
         private ToolStripMenuItem categoriasToolStripMenuItem2;
         private Panel panel1;
-        private ToolStripMenuItem btnInicioInicio;
-        private ToolStripMenuItem btnUsuario;
-        private ToolStripMenuItem rolesDeUsuariosToolStripMenuItem;
         private ToolStripMenuItem informeDeInventarioToolStripMenuItem;
         private System.Windows.Forms.Timer Reloj;
         private Label lblReloj;

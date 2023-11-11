@@ -20,6 +20,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Login
         {
             InitializeComponent();
             context = new HotelDoradoContext();
+            var controller = new UsuarioController(context);
         }
         private bool validarEntradas()
         {
@@ -38,12 +39,11 @@ namespace Hotel_Dorado_DesktopApp.Views.Login
             {
                 try
                 {
-                    this.Cursor = Cursors.WaitCursor;
+                    
                     context = new HotelDoradoContext();
                     var controller = new UsuarioController(context);
-                    bool permitir = controller.GetValue(txtUsuario.Text, txtClave.Text);
-                    this.Cursor = Cursors.Default;
-
+                    this.Cursor = Cursors.WaitCursor;
+                    bool permitir = controller.GetValue(txtUsuario.Text, txtClave.Text); 
                     if (permitir)
                     {
                         var user = controller.GetObjectByUser(txtUsuario.Text);
@@ -59,6 +59,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Login
                     {
                         MessageBox.Show("Usuario y/o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    this.Cursor = Cursors.Default;
                 }
                 catch (Exception ex)
                 {

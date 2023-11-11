@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Hotel_Dorado_DesktopApp.Views.Home
 {
@@ -22,10 +23,33 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
             context = new HotelDoradoContext();
             controller = new DashBoardController(context);
             llenarDashboard();
+            cargarGrafica();
         }
         private void llenarDashboard()
         {
-            lblCantidadHabitaciones.Text = controller.Habitaciones().ToString();
+            lblTotal.Text = controller.HabitacionesTotales().ToString();
+            lblDisponibles.Text = controller.HabitacionesDisponibles(1).ToString();
+            lblOcupadas.Text = controller.HabitacionesDisponibles(2).ToString();
+            lblLimpieza.Text = controller.HabitacionesDisponibles(3).ToString();
+            lblMantenimiento.Text = controller.HabitacionesDisponibles(4).ToString();
+            lblCantidadHuespedes.Text = controller.CantidadHuespedes().ToString();
+        }
+        private void cargarGrafica()
+        {
+            var datos = controller.GraphicData();
+
+           if(datos.Count == 0 )
+            {
+                foreach (var item in datos)
+                {
+                    grapTopProductos.Series["Series1"].Points.AddXY(item.Key, item.Value);
+                }
+                grapTopProductos.Visible = true;
+            }
+            else
+            {
+                grapTopProductos.Visible = false;   
+            }
         }
     }
 }

@@ -21,8 +21,6 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
         {
 
             InitializeComponent();
-            context = new HotelDoradoContext();
-            controller = new ClienteController(context);
             mostrarClientes();
         }
         private void mostrarClientes()
