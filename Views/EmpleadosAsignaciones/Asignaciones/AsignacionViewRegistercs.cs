@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Asignaciones
+namespace Hotel.Views.EmpleadosAsignaciones.Asignaciones
 {
     public partial class AsignacionViewRegistercs : Form
     {

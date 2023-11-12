@@ -1,14 +1,14 @@
-﻿using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.View.ClientesView;
-using Hotel_Dorado_DesktopApp.Views.Ayudas;
-using Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Asignaciones;
-using Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal;
-using Hotel_Dorado_DesktopApp.Views.GestionView;
-using Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion;
-using Hotel_Dorado_DesktopApp.Views.Habitaciones;
-using Hotel_Dorado_DesktopApp.Views.Home;
-using Hotel_Dorado_DesktopApp.Views.Pedidos.Productos;
-using Hotel_Dorado_DesktopApp.Views.Usuarios;
+﻿using Hotel.Models;
+using Hotel.View.ClientesView;
+using Hotel.Views.Ayudas;
+using Hotel.Views.EmpleadosAsignaciones.Asignaciones;
+using Hotel.Views.EmpleadosAsignaciones.Personal;
+using Hotel.Views.GestionView;
+using Hotel.Views.GestionView.Recepcion;
+using Hotel.Views.Habitaciones;
+using Hotel.Views.Home;
+using Hotel.Views.Pedidos.Productos;
+using Hotel.Views.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Home
+namespace Hotel.Views.Home
 {
     public partial class HomeView : Form
     {
@@ -40,7 +40,8 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
         {
             if (usuario != null)
             {
-                string datos = $"Nombre del usuario: {usuario.Empleado.Nombre + " " + usuario.Empleado.Apellido}   |  Rol: {usuario.Rol.Descripcion}";
+                string datos = $"|  Nombre de usuario: {usuario.Usuario1}   |   " +
+                    $"|  Persona asignada: {usuario.Empleado.Nombre + " " + usuario.Empleado.Apellido}   |   Rol de usuario: {usuario.Rol.Descripcion}    |   ";
                 lblUsuario.Text = datos;
             }
         }
@@ -152,7 +153,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
 
         private void btnCambiarUsuario_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("¿Desea cambiar de usuario?","Cambiar de usuario",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea cambiar de usuario?", "Cambiar de usuario", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
             }

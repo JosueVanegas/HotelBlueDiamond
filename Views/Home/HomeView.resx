@@ -134,7 +134,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="panelContenedor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1041, 464</value>
+    <value>1111, 523</value>
   </data>
   <data name="panelContenedor.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -248,22 +248,34 @@
     <value>Vender</value>
   </data>
   <data name="productosToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 30</value>
+    <value>189, 30</value>
   </data>
   <data name="productosToolStripMenuItem1.Text" xml:space="preserve">
     <value>Productos</value>
   </data>
   <data name="categoriasToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 30</value>
+    <value>189, 30</value>
   </data>
   <data name="categoriasToolStripMenuItem2.Text" xml:space="preserve">
     <value>Categorias</value>
+  </data>
+  <data name="proveedoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 30</value>
+  </data>
+  <data name="proveedoresToolStripMenuItem.Text" xml:space="preserve">
+    <value>Proveedores</value>
   </data>
   <data name="categoriasToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 30</value>
   </data>
   <data name="categoriasToolStripMenuItem1.Text" xml:space="preserve">
     <value>Inventario</value>
+  </data>
+  <data name="comprarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 30</value>
+  </data>
+  <data name="comprarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Comprar</value>
   </data>
   <data name="btnTiendaMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -603,7 +615,7 @@
     <value>5, 2, 0, 2</value>
   </data>
   <data name="Menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 490</value>
+    <value>170, 549</value>
   </data>
   <data name="Menu.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -630,16 +642,13 @@
     <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="lblUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>381, 0</value>
+    <value>451, 0</value>
   </data>
   <data name="lblUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>801, 33</value>
   </data>
   <data name="lblUsuario.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="lblUsuario.Text" xml:space="preserve">
-    <value>Usuario: Rol:</value>
   </data>
   <data name="lblUsuario.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -689,7 +698,7 @@
 </value>
   </data>
   <data name="btnCambiarUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1182, 0</value>
+    <value>1252, 0</value>
   </data>
   <data name="btnCambiarUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -725,7 +734,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1211, 33</value>
+    <value>1281, 33</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -752,7 +761,7 @@
     <value>333, 0</value>
   </data>
   <data name="lblReloj.Size" type="System.Drawing.Size, System.Drawing">
-    <value>708, 26</value>
+    <value>778, 26</value>
   </data>
   <data name="lblReloj.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -793,9 +802,6 @@
   <data name="lblConexion.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="lblConexion.Text" xml:space="preserve">
-    <value>Conectado  a la base de datos</value>
-  </data>
   <data name="lblConexion.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -815,13 +821,13 @@
     <value>Bottom</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 497</value>
+    <value>170, 556</value>
   </data>
   <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1041, 26</value>
+    <value>1111, 26</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -848,7 +854,7 @@
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1211, 523</value>
+    <value>1281, 582</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2128,6 +2134,18 @@
   </data>
   <data name="&gt;&gt;Reloj.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;proveedoresToolStripMenuItem.Name" xml:space="preserve">
+    <value>proveedoresToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;proveedoresToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comprarToolStripMenuItem.Name" xml:space="preserve">
+    <value>comprarToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;comprarToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>HomeView</value>

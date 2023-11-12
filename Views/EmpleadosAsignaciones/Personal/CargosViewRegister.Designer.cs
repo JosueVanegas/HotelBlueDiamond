@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
+﻿namespace Hotel.Views.EmpleadosAsignaciones.Personal
 {
     partial class CargosViewRegister
     {

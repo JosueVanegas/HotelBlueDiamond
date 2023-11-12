@@ -1,5 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Controllers;
+using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,17 +10,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Usuarios
+namespace Hotel.Views.Usuarios
 {
     public partial class UsuariosViewRegister : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         Usuario usuario;
         public string mensaje = "";
         public UsuariosViewRegister(Usuario usuario)
         {
             InitializeComponent();
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             this.usuario = usuario;
             validarUsuario();
             mostrarEmpleados();

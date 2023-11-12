@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Productos
+﻿namespace Hotel.Views.Pedidos.Productos
 {
     partial class ProductoView
     {
@@ -62,10 +62,10 @@
             tbProductos.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tbProductos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 196, 37);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 170, 173);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 201, 57);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 201, 206);
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             tbProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -75,7 +75,7 @@
             dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(255, 201, 57);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 201, 206);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             tbProductos.DefaultCellStyle = dataGridViewCellStyle3;
@@ -90,10 +90,10 @@
             tbProductos.ReadOnly = true;
             tbProductos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 196, 37);
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 170, 173);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 201, 57);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 201, 206);
             dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             tbProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
@@ -102,7 +102,7 @@
             tbProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tbProductos.Size = new Size(800, 322);
             tbProductos.StandardTab = true;
-            tbProductos.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
+            tbProductos.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Teal;
             tbProductos.TabIndex = 4;
             tbProductos.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             tbProductos.CellContentClick += cellContentClick;
@@ -168,7 +168,7 @@
             // 
             btnRegistrar.BackColor = Color.White;
             btnRegistrar.BackgroundImageLayout = ImageLayout.None;
-            btnRegistrar.BorderColor = Color.Gold;
+            btnRegistrar.BorderColor = Color.Blue;
             btnRegistrar.BorderThickness = 2;
             btnRegistrar.DrawBorder = true;
             btnRegistrar.ForeColor = Color.Black;

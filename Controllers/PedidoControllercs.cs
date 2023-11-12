@@ -1,61 +1,46 @@
-﻿using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel_Dorado_DesktopApp.Controllers
+namespace Hotel.Controllers
 {
     public class PedidoControllercs
     {
-        private readonly HotelDoradoContext _context;
-        public PedidoControllercs(HotelDoradoContext context)
+        HotelContext _context;
+        public PedidoControllercs(HotelContext context)
         {
-            _context = context;
+            this._context = context;
         }
-        public void CrearPedidoConDetalles(DataGridView dataGridView,bool estado)
+        public void AddObject(Pedido obj)
         {
-            var detallesPedido = new List<DetallePedido>();
-
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            _context.Pedidos.Add(obj);
+            _context.SaveChanges();
+        }
+        public List<Pedido> GetAllObject()
+        {
+            return _context.Pedidos.ToList();
+        }
+        public void UpdateObject(Pedido obj)
+        {
+            _context.Pedidos.Update(obj);
+            _context.SaveChanges();
+        }
+        public void DeleteObject(int id)
+        {
+            var obj = GetObject(id);
+            if (obj != null)
             {
-                if (row.Cells["ProductoID"].Value != null && row.Cells["Cantidad"].Value != null)
-                {
-                    int productoID = Convert.ToInt32(row.Cells["ProductoID"].Value);
-                    int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
-
-                    var detallePedido = new DetallePedido
-                    {
-                        ProductoId = productoID,
-                        Cantidad = cantidad
-                    };
-
-                    detallesPedido.Add(detallePedido);
-                }
-            }
-
-            if (detallesPedido.Count > 0)
-            {
-                var nuevoPedido = new Pedido
-                {
-                    Fecha = DateTime.Now,
-                    Estado = estado
-                };
-
-                _context.Pedidos.Add(nuevoPedido);
-                _context.SaveChanges(); // Esto generará el ID para el pedido
-
-                int pedidoIDGenerado = nuevoPedido.PedidoId;
-
-                foreach (var detallePedido in detallesPedido)
-                {
-                    detallePedido.PedidoId = pedidoIDGenerado;
-                }
-
-                _context.DetallePedidos.AddRange(detallesPedido);
+                _context.Pedidos.Remove(obj);
                 _context.SaveChanges();
             }
         }
+        public Pedido GetObject(int id)
+        {
+            return _context.Pedidos.Find(id);
+        }
+
     }
 }

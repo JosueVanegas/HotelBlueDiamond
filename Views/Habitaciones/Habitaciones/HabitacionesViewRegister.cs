@@ -1,6 +1,6 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.Views.Habitaciones.Categorias;
+﻿using Hotel.Controllers;
+using Hotel.Models;
+using Hotel.Views.Habitaciones.Categorias;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones
+namespace Hotel.Views.Habitaciones.Habitaciones
 {
     public partial class HabitacionesViewRegister : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         HabitacionesController controller;
         Habitacion habitacion;
         public HabitacionesViewRegister(Habitacion habitacion)
         {
             InitializeComponent();
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             controller = new HabitacionesController(context);
             this.habitacion = habitacion;
             cargarComboBox();

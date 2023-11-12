@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
+﻿namespace Hotel.Views.Gestion.Salidas
 {
     partial class SalidaViewRegister
     {
@@ -537,10 +537,10 @@
             tbClientes.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tbClientes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 196, 37);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 170, 173);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 201, 57);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 201, 206);
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             tbClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -550,7 +550,7 @@
             dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(255, 201, 57);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 201, 206);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             tbClientes.DefaultCellStyle = dataGridViewCellStyle3;
@@ -564,10 +564,10 @@
             tbClientes.ReadOnly = true;
             tbClientes.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 196, 37);
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 170, 173);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 201, 57);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 201, 206);
             dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             tbClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
@@ -576,7 +576,7 @@
             tbClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tbClientes.Size = new Size(786, 130);
             tbClientes.StandardTab = true;
-            tbClientes.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
+            tbClientes.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Teal;
             tbClientes.TabIndex = 56;
             tbClientes.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             // 

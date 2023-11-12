@@ -1,6 +1,6 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.View.ClientesView;
+﻿using Hotel.Controllers;
+using Hotel.Models;
+using Hotel.View.ClientesView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,20 +11,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
+namespace Hotel.Views.EmpleadosAsignaciones.Personal
 {
     public partial class CargosView : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         public CargosView()
         {
             InitializeComponent();
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             mostrarCargos();
         }
         private void mostrarCargos()
         {
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             var controller = new CargosController(context);
             tbCargos.Rows.Clear();
             var lista = controller.GetAllObject();

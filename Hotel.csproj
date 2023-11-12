@@ -3,15 +3,15 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <RootNamespace>Hotel_Dorado_DesktopApp</RootNamespace>
+    <RootNamespace>Hotel</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Views\Informes\" />
+    <Folder Include="Views\Compras\" />
   </ItemGroup>
 
   <ItemGroup>

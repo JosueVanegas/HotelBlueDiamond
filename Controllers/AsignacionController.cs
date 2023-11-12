@@ -1,16 +1,16 @@
-﻿using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel_Dorado_DesktopApp.Controllers
+namespace Hotel.Controllers
 {
     public class AsignacionController
     {
-        HotelDoradoContext _context;
-        public AsignacionController (HotelDoradoContext context)
+        HotelContext _context;
+        public AsignacionController (HotelContext context)
         {
             this._context = context;
         }

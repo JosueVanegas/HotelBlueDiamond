@@ -1,5 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Controllers;
+using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
+namespace Hotel.Views.EmpleadosAsignaciones.Personal
 {
     public partial class EmpleadosViewRegister : Form
     {
@@ -30,7 +30,7 @@ namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
         }
         private void mostrarCargos()
         {
-            var context = new HotelDoradoContext();
+            var context = new HotelContext();
             cbxCargo.DataSource = new CargosController(context).GetAllObject();
             cbxCargo.DisplayMember = "Descripcion";
         }
@@ -60,7 +60,7 @@ namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
         {
             try
             {
-                var context = new HotelDoradoContext();
+                var context = new HotelContext();
                 var controller = new EmpleadosController(context);
                 if (txtCedula.Text != "" && txtNombre.Text != "" && txtApellido.Text != "" && txtCorreo.Text != "" && txtTelefono.Text != "")
                 {

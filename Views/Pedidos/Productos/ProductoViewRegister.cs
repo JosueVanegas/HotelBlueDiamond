@@ -1,6 +1,6 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.Views.Habitaciones.Categorias;
+﻿using Hotel.Controllers;
+using Hotel.Models;
+using Hotel.Views.Habitaciones.Categorias;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,18 +11,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Productos
+namespace Hotel.Views.Pedidos.Productos
 {
     public partial class ProductoViewRegister : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         ProductoController controller;
         Producto producto;
         public ProductoViewRegister(Producto producto)
         {
             InitializeComponent();
             this.producto = producto;
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             controller = new ProductoController(context);
             validarCategoriaExiste();
         }
@@ -51,7 +51,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Productos
         }
         private void mostrarCategorias()
         {
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             cbxCategorias.DataSource = new CategoriaProductoController(context).GetAllObject();
             cbxCategorias.DisplayMember = "Descripcion";
         }

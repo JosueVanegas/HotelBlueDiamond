@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Hotel_Dorado_DesktopApp.Models;
+namespace Hotel.Models;
 
 public partial class Rol
 {

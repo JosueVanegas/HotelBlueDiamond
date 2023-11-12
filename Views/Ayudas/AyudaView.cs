@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Ayudas
+namespace Hotel.Views.Ayudas
 {
     public partial class AyudaView : Form
     {

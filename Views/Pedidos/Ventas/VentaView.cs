@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Ventas
+namespace Hotel.Views.Pedidos.Ventas
 {
     public partial class VentaView : Form
     {

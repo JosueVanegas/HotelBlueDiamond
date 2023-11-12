@@ -1,5 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Controllers;
+using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,25 +10,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Usuarios
+namespace Hotel.Views.Usuarios
 {
     public partial class RolView : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         public RolView()
         {
             InitializeComponent();
         }
         private void mostrarRoles()
         {
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             var controller = new RolController(context);
 
         }
         private void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             var controller = new UsuarioController(context);
             if (tbRoles.Columns[e.ColumnIndex].Name == "Borrar")
             {

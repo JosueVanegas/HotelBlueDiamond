@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Ayudas
+﻿namespace Hotel.Views.Ayudas
 {
     partial class AyudaView
     {

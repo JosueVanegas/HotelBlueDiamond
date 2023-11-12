@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Author" xml:space="preserve">
+    <value>JosueDavidVanegasRocha</value>
+  </data>
   <data name="ConnectionString" xml:space="preserve">
-    <value>Data Source=LAPTOP-L5B7AIOU\SQLEXPRESS;Initial Catalog=HotelDorado;Integrated Security=true;Trust Server Certificate=true;</value>
+    <value>Data Source=LAPTOP-L5B7AIOU\SQLEXPRESS;Initial Catalog=Hotel;Integrated Security=true;Trust Server Certificate=true;</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="editarImg" type="System.Resources.ResXFileRef, System.Windows.Forms">

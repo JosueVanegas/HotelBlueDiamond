@@ -1,16 +1,16 @@
-﻿using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel_Dorado_DesktopApp.Controllers
+namespace Hotel.Controllers
 {
     public class CategoriaProductoController
     {
-        HotelDoradoContext _context;
-        public CategoriaProductoController(HotelDoradoContext context)
+        HotelContext _context;
+        public CategoriaProductoController(HotelContext context)
         {
             this._context = context;
         }
@@ -33,7 +33,7 @@ namespace Hotel_Dorado_DesktopApp.Controllers
             var obj = GetObject(id);
             if (obj != null)
             {
-                _context.Remove(obj);
+                _context.CategoriaProductos.Remove(obj);
                 _context.SaveChanges();
             }
         }

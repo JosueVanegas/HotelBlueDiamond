@@ -1,17 +1,17 @@
-﻿using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel_Dorado_DesktopApp.Controllers
+namespace Hotel.Controllers
 {
     public class CategoriaHabitacionesController
     {
-        private readonly HotelDoradoContext _context;
+        private readonly HotelContext _context;
 
-        public CategoriaHabitacionesController(HotelDoradoContext context)
+        public CategoriaHabitacionesController(HotelContext context)
         {
             _context = context;
         }

@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Home
+﻿namespace Hotel.Views.Home
 {
     partial class HomeView
     {
@@ -61,6 +61,8 @@
             Reloj = new System.Windows.Forms.Timer(components);
             panel2 = new Panel();
             lblConexion = new Label();
+            proveedoresToolStripMenuItem = new ToolStripMenuItem();
+            comprarToolStripMenuItem = new ToolStripMenuItem();
             Menu.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnCambiarUsuario).BeginInit();
@@ -102,7 +104,7 @@
             // 
             // btnTiendaMenu
             // 
-            btnTiendaMenu.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem, categoriasToolStripMenuItem1 });
+            btnTiendaMenu.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem, categoriasToolStripMenuItem1, comprarToolStripMenuItem });
             btnTiendaMenu.ForeColor = Color.Beige;
             resources.ApplyResources(btnTiendaMenu, "btnTiendaMenu");
             btnTiendaMenu.Margin = new Padding(0, 10, 0, 10);
@@ -115,7 +117,7 @@
             // 
             // categoriasToolStripMenuItem1
             // 
-            categoriasToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem1, categoriasToolStripMenuItem2 });
+            categoriasToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem1, categoriasToolStripMenuItem2, proveedoresToolStripMenuItem });
             categoriasToolStripMenuItem1.Name = "categoriasToolStripMenuItem1";
             resources.ApplyResources(categoriasToolStripMenuItem1, "categoriasToolStripMenuItem1");
             // 
@@ -275,6 +277,16 @@
             lblConexion.ForeColor = Color.Beige;
             lblConexion.Name = "lblConexion";
             // 
+            // proveedoresToolStripMenuItem
+            // 
+            proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            resources.ApplyResources(proveedoresToolStripMenuItem, "proveedoresToolStripMenuItem");
+            // 
+            // comprarToolStripMenuItem
+            // 
+            comprarToolStripMenuItem.Name = "comprarToolStripMenuItem";
+            resources.ApplyResources(comprarToolStripMenuItem, "comprarToolStripMenuItem");
+            // 
             // HomeView
             // 
             resources.ApplyResources(this, "$this");
@@ -328,5 +340,7 @@
         private ToolStripMenuItem generadorDeNominaToolStripMenuItem;
         private Panel panel2;
         private Label lblConexion;
+        private ToolStripMenuItem proveedoresToolStripMenuItem;
+        private ToolStripMenuItem comprarToolStripMenuItem;
     }
 }

@@ -1,5 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.Controller;
-using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Controller;
+using Hotel.Models;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
@@ -11,11 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.View.ClientesView
+namespace Hotel.View.ClientesView
 {
     public partial class ClientView : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         ClienteController controller;
         public ClientView()
         {
@@ -26,7 +26,7 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
         private void mostrarClientes()
         {
             Cursor = Cursors.WaitCursor;
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             controller = new ClienteController(context);
             var listaClientes = controller.GetAllObjects();
             tbClientes.Rows.Clear();
@@ -62,7 +62,6 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
                 int ClienteId = Convert.ToInt32(tbClientes.Rows[indice].Cells["Id"].Value);
                 var cliente = controller.GetObjectById(ClienteId);
                 ClienteViewRegister form = new ClienteViewRegister(cliente);
-                form.ShowDialog();
                 mostrarClientes();
             }
         }
@@ -96,7 +95,6 @@ namespace Hotel_Dorado_DesktopApp.View.ClientesView
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             ClienteViewRegister form = new ClienteViewRegister(null);
-            form.ShowDialog();
             mostrarClientes();
         }
     }

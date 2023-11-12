@@ -1,12 +1,12 @@
-using Hotel_Dorado_DesktopApp.View;
-using Hotel_Dorado_DesktopApp.View.ClientesView;
-using Hotel_Dorado_DesktopApp.Views.Home;
-using Hotel_Dorado_DesktopApp.Views.Ayudas;
-using Hotel_Dorado_DesktopApp.Views.GestionView;
-using Hotel_Dorado_DesktopApp.Views.Login;
-using Hotel_Dorado_DesktopApp.Views.Usuarios;
+using Hotel.View;
+using Hotel.View.ClientesView;
+using Hotel.Views.Home;
+using Hotel.Views.Ayudas;
+using Hotel.Views.GestionView;
+using Hotel.Views.Login;
+using Hotel.Views.Usuarios;
 
-namespace Hotel_Dorado_DesktopApp
+namespace Hotel
 {
     internal static class Program
     {

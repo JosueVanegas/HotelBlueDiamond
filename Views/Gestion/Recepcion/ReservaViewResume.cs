@@ -1,6 +1,6 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.Views.Gestion.Salidas;
+﻿using Hotel.Controllers;
+using Hotel.Models;
+using Hotel.Views.Gestion.Salidas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
+namespace Hotel.Views.GestionView.Recepcion
 {
     public partial class ReservaViewResume : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         Usuario usuario;
         public ReservaViewResume(Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             mostrarHabitaciones();
         }
         private void mostrarHabitaciones()
@@ -30,7 +30,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion
             {
                 int itemWidth = 180;
                 int itemHeight = 170;
-                context = new HotelDoradoContext();
+                context = new HotelContext();
                 var habitaciones = new HabitacionesController(context).GetAllObjects();
                 panelContenedor.Controls.Clear();
                 if (habitaciones.Count != 0)

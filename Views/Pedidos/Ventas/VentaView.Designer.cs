@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Ventas
+﻿namespace Hotel.Views.Pedidos.Ventas
 {
     partial class VentaView
     {
@@ -34,7 +34,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1011, 607);
             FormBorderStyle = FormBorderStyle.None;
             Name = "VentaView";
             Text = "VentaView";

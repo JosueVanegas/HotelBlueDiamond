@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.GestionView
+﻿namespace Hotel.Views.GestionView
 {
     partial class ReceptionView
     {

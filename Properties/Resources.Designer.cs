@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Hotel_Dorado_DesktopApp.Properties {
+namespace Hotel.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Hotel_Dorado_DesktopApp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Hotel_Dorado_DesktopApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Hotel.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,16 @@ namespace Hotel_Dorado_DesktopApp.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Data Source=LAPTOP-L5B7AIOU\SQLEXPRESS;Initial Catalog=HotelDorado;Integrated Security=true;Trust Server Certificate=true;.
+        ///   Busca una cadena traducida similar a JosueDavidVanegasRocha.
+        /// </summary>
+        internal static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Data Source=LAPTOP-L5B7AIOU\SQLEXPRESS;Initial Catalog=Hotel;Integrated Security=true;Trust Server Certificate=true;.
         /// </summary>
         internal static string ConnectionString {
             get {

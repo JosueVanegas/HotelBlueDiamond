@@ -1,5 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.Controller;
-using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Controller;
+using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,21 +10,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.View.ClientesView
+namespace Hotel.View.ClientesView
 {
     public partial class ClienteViewRegister : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         ClienteController controller;
         Cliente cliente;
         bool ClienteNuevo = true;
         public ClienteViewRegister(Cliente cliente)
         {
             InitializeComponent();
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             controller = new ClienteController(context);
             this.cliente = cliente;
             validarObjeto();
+            this.ShowDialog();
         }
         private void validarObjeto()
         {

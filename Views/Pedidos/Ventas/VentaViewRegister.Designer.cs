@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Ventas
+﻿namespace Hotel.Views.Pedidos.Ventas
 {
     partial class VentaViewRegister
     {

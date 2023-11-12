@@ -1,8 +1,8 @@
-﻿using Hotel_Dorado_DesktopApp.Controller;
-using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.View.ClientesView;
-using Hotel_Dorado_DesktopApp.Views.GestionView.Recepcion;
+﻿using Hotel.Controller;
+using Hotel.Controllers;
+using Hotel.Models;
+using Hotel.View.ClientesView;
+using Hotel.Views.GestionView.Recepcion;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
@@ -15,11 +15,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.GestionView
+namespace Hotel.Views.GestionView
 {
     public partial class ReceptionView : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         Habitacion habitacion;
         Usuario usuario;
         public ReceptionView(Habitacion habitacion,Usuario usuario)
@@ -27,7 +27,7 @@ namespace Hotel_Dorado_DesktopApp.Views.GestionView
             InitializeComponent();
             this.usuario = usuario;
             this.habitacion = habitacion;
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             mostrarClientes();
             dtSalida.Value = DateTime.Now.AddDays(1);
             dtSalida.MinDate = DateTime.Now.AddDays(1);

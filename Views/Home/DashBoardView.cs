@@ -1,5 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Controllers;
+using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,34 +11,35 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace Hotel_Dorado_DesktopApp.Views.Home
+namespace Hotel.Views.Home
 {
     public partial class DashBoardView : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         DashBoardController controller;
         public DashBoardView()
         {
             InitializeComponent();
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             controller = new DashBoardController(context);
             llenarDashboard();
-            cargarGrafica();
+            //cargarGrafica();
         }
-        private void llenarDashboard()
+        private async void llenarDashboard()
         {
-            lblTotal.Text = controller.HabitacionesTotales().ToString();
-            lblDisponibles.Text = controller.HabitacionesDisponibles(1).ToString();
-            lblOcupadas.Text = controller.HabitacionesDisponibles(2).ToString();
-            lblLimpieza.Text = controller.HabitacionesDisponibles(3).ToString();
-            lblMantenimiento.Text = controller.HabitacionesDisponibles(4).ToString();
-            lblCantidadHuespedes.Text = controller.CantidadHuespedes().ToString();
+            lblTotal.Text = (await controller.HabitacionesTotales()).ToString();
+            lblDisponibles.Text = (await controller.HabitacionesDisponibles(1)).ToString();
+            lblOcupadas.Text = (await controller.HabitacionesDisponibles(2)).ToString();
+            lblLimpieza.Text = (await controller.HabitacionesDisponibles(3)).ToString();
+            lblMantenimiento.Text = (await controller.HabitacionesDisponibles(4)).ToString();
+            lblCantidadHuespedes.Text = (await controller.CantidadHuespedes()).ToString();
         }
-        private void cargarGrafica()
-        {
-            var datos = controller.GraphicData();
 
-           if(datos.Count == 0 )
+        private async void cargarGrafica()
+        {
+            var datos = await controller.GraphicDataAsync();
+
+            if (datos != null)
             {
                 foreach (var item in datos)
                 {
@@ -48,7 +49,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Home
             }
             else
             {
-                grapTopProductos.Visible = false;   
+                grapTopProductos.Visible = false;
             }
         }
     }

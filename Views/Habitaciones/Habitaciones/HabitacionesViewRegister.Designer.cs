@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones
+﻿namespace Hotel.Views.Habitaciones.Habitaciones
 {
     partial class HabitacionesViewRegister
     {

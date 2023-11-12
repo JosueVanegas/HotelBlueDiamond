@@ -1,6 +1,6 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.Views.Home;
+﻿using Hotel.Controllers;
+using Hotel.Models;
+using Hotel.Views.Home;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,15 +11,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Login
+namespace Hotel.Views.Login
 {
     public partial class LoginView : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         public LoginView()
         {
             InitializeComponent();
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             var controller = new UsuarioController(context);
         }
         private bool validarEntradas()
@@ -39,11 +39,11 @@ namespace Hotel_Dorado_DesktopApp.Views.Login
             {
                 try
                 {
-                    
-                    context = new HotelDoradoContext();
+
+                    context = new HotelContext();
                     var controller = new UsuarioController(context);
                     this.Cursor = Cursors.WaitCursor;
-                    bool permitir = controller.GetValue(txtUsuario.Text, txtClave.Text); 
+                    bool permitir = controller.GetValue(txtUsuario.Text, txtClave.Text);
                     if (permitir)
                     {
                         var user = controller.GetObjectByUser(txtUsuario.Text);

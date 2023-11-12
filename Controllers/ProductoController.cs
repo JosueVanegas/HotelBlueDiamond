@@ -1,4 +1,4 @@
-﻿using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel_Dorado_DesktopApp.Controllers
+namespace Hotel.Controllers
 {
     public class ProductoController
     {
-        HotelDoradoContext _context;
-        public ProductoController(HotelDoradoContext context)
+        HotelContext _context;
+        public ProductoController(HotelContext context)
         {
             this._context = context;
         }
@@ -22,7 +22,7 @@ namespace Hotel_Dorado_DesktopApp.Controllers
         }
         public List<Producto> GetAllObject()
         {
-            return _context.Productos.Include(p=>p.CategoriaProducto).ToList();
+            return _context.Productos.Include(p=>p.CategoriaProducto).Include(p=>p.Proveedor).ToList();
         }
         public void UpdateObject(Producto producto)
         {
@@ -34,7 +34,7 @@ namespace Hotel_Dorado_DesktopApp.Controllers
             var obj = GetObject(id);
             if (obj != null)
             {
-                _context.Remove(obj);
+                _context.Productos.Remove(obj);
                 _context.SaveChanges();
             }
         }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Usuarios
+namespace Hotel.Views.Usuarios
 {
     public partial class RolViewRegister : Form
     {

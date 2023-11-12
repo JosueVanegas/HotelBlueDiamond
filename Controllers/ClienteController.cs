@@ -1,4 +1,4 @@
-﻿using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Hotel_Dorado_DesktopApp.Controller
+namespace Hotel.Controller
 {
     public class ClienteController
     {
-        private readonly HotelDoradoContext _context;
+        private readonly HotelContext _context;
 
-        public ClienteController(HotelDoradoContext context)
+        public ClienteController(HotelContext context)
         {
             _context = context;
         }

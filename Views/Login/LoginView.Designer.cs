@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Login
+﻿namespace Hotel.Views.Login
 {
     partial class LoginView
     {
@@ -135,7 +135,7 @@
             // parrotGradientPanel1
             // 
             parrotGradientPanel1.BottomLeft = Color.Beige;
-            parrotGradientPanel1.BottomRight = Color.Yellow;
+            parrotGradientPanel1.BottomRight = Color.Blue;
             parrotGradientPanel1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             parrotGradientPanel1.Controls.Add(panel1);
             parrotGradientPanel1.Dock = DockStyle.Fill;
@@ -149,7 +149,7 @@
             parrotGradientPanel1.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
             parrotGradientPanel1.TabIndex = 4;
             parrotGradientPanel1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            parrotGradientPanel1.TopLeft = Color.Yellow;
+            parrotGradientPanel1.TopLeft = Color.Violet;
             parrotGradientPanel1.TopRight = Color.Beige;
             // 
             // panel1
@@ -172,12 +172,12 @@
             // 
             label2.BackColor = Color.FromArgb(0, 51, 102);
             label2.Font = new Font("Microsoft Sans Serif", 48F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.Beige;
+            label2.ForeColor = Color.White;
             label2.Location = new Point(377, 20);
             label2.Name = "label2";
             label2.Size = new Size(294, 309);
             label2.TabIndex = 7;
-            label2.Text = "Hotel \r\nDorado";
+            label2.Text = "Blue Diamond";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lostSeparator1
@@ -195,6 +195,7 @@
             // 
             btnSalir.AutoSize = false;
             btnSalir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnSalir.BackColor = Color.Beige;
             btnSalir.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnSalir.Depth = 0;
             btnSalir.HighEmphasis = true;
@@ -205,12 +206,12 @@
             btnSalir.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnSalir.Name = "btnSalir";
             btnSalir.NoAccentTextColor = Color.Empty;
-            btnSalir.Size = new Size(250, 37);
+            btnSalir.Size = new Size(250, 36);
             btnSalir.TabIndex = 5;
             btnSalir.Text = "Salir";
-            btnSalir.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnSalir.UseAccentColor = true;
-            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnSalir.UseAccentColor = false;
+            btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += materialButton1_Click;
             // 
             // btnIngresar

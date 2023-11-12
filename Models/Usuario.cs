@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Hotel_Dorado_DesktopApp.Models;
+namespace Hotel.Models;
 
 public partial class Usuario
 {
@@ -16,6 +16,8 @@ public partial class Usuario
     public DateTime? FechaRegistro { get; set; }
 
     public int? EmpleadoId { get; set; }
+
+    public virtual ICollection<Compra> Compras { get; set; } = new List<Compra>();
 
     public virtual Empleado? Empleado { get; set; }
 

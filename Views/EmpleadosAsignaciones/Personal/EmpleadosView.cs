@@ -1,5 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Controllers;
+using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
+namespace Hotel.Views.EmpleadosAsignaciones.Personal
 {
     public partial class EmpleadosView : Form
     {
@@ -21,7 +21,7 @@ namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
         }
         private void mostrarEmpleados()
         {
-            var context = new HotelDoradoContext();
+            var context = new HotelContext();
             var controller = new EmpleadosController(context);
             var lista = controller.GetAllObjects();
             tbEmpleados.Rows.Clear();
@@ -32,7 +32,7 @@ namespace Hotel_Dorado_DesktopApp.Views.EmpleadosAsignaciones.Personal
         }
         private void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var context = new HotelDoradoContext();
+            var context = new HotelContext();
             var controller = new EmpleadosController(context);
             int indice = e.RowIndex;
             if (tbEmpleados.Columns[e.ColumnIndex].Name == "Borrar")

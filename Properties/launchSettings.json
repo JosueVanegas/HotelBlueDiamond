@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Hotel Dorado DesktopApp": {
+      "commandName": "Project",
+      "hotReloadEnabled": false
+    }
+  }
+}

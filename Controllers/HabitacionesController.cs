@@ -1,4 +1,4 @@
-﻿using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel_Dorado_DesktopApp.Controllers
+namespace Hotel.Controllers
 {
     public class HabitacionesController
     {
-        private readonly HotelDoradoContext _context;
+        private readonly HotelContext _context;
 
-        public HabitacionesController(HotelDoradoContext context)
+        public HabitacionesController(HotelContext context)
         {
             _context = context;
         }

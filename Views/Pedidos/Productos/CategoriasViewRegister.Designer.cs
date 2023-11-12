@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Productos
+﻿namespace Hotel.Views.Pedidos.Productos
 {
     partial class CategoriasViewRegister
     {

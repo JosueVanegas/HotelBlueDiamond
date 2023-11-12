@@ -1,5 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Controllers;
+using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,17 +10,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
+namespace Hotel.Views.Gestion.Salidas
 {
     public partial class SalidaViewRegister : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         Reserva reserva;
         int HabitacionID;
         public SalidaViewRegister(int HabitacionID)
         {
             InitializeComponent();
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             mostrarDatos(HabitacionID);
             this.TransparencyKey = Color.Empty;
             this.HabitacionID = HabitacionID;
@@ -29,7 +29,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Gestion.Salidas
         {
             var controller = new RecepcionController(context);
             var lista = controller.GetPedidoByHabitacion(id);
-            foreach ( var item in lista )
+            foreach (var item in lista)
             {
             }
         }

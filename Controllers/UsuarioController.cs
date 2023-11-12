@@ -1,4 +1,4 @@
-﻿using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -10,13 +10,13 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel_Dorado_DesktopApp.Controllers
+namespace Hotel.Controllers
 {
     public class UsuarioController
     {
-        HotelDoradoContext _context;
+        HotelContext _context;
 
-        public UsuarioController(HotelDoradoContext context)
+        public UsuarioController(HotelContext context)
         {
             this._context = context;
         }

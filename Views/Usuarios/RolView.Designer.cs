@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Usuarios
+﻿namespace Hotel.Views.Usuarios
 {
     partial class RolView
     {
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             tbRoles = new ReaLTaiizor.Controls.PoisonDataGridView();
             ID = new DataGridViewTextBoxColumn();
             Descripcion = new DataGridViewTextBoxColumn();
@@ -51,33 +51,33 @@
             tbRoles.AllowUserToDeleteRows = false;
             tbRoles.AllowUserToResizeColumns = false;
             tbRoles.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(244, 204, 137);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            tbRoles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 204, 137);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            tbRoles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             tbRoles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbRoles.BackgroundColor = Color.FromArgb(255, 255, 255);
             tbRoles.BorderStyle = BorderStyle.None;
             tbRoles.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tbRoles.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(255, 196, 37);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(255, 201, 57);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            tbRoles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 170, 173);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            tbRoles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             tbRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tbRoles.Columns.AddRange(new DataGridViewColumn[] { ID, Descripcion, Fecha, Editar, Borrar });
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(255, 201, 57);
-            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            tbRoles.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            tbRoles.DefaultCellStyle = dataGridViewCellStyle3;
             tbRoles.Dock = DockStyle.Fill;
             tbRoles.EnableHeadersVisualStyles = false;
             tbRoles.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -88,20 +88,20 @@
             tbRoles.Name = "tbRoles";
             tbRoles.ReadOnly = true;
             tbRoles.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(255, 196, 37);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(255, 201, 57);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            tbRoles.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 170, 173);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            tbRoles.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             tbRoles.RowHeadersWidth = 51;
             tbRoles.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbRoles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tbRoles.Size = new Size(884, 395);
             tbRoles.StandardTab = true;
-            tbRoles.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
+            tbRoles.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Teal;
             tbRoles.TabIndex = 2;
             tbRoles.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             // 
@@ -158,7 +158,7 @@
             // 
             btnRegistrar.BackColor = Color.White;
             btnRegistrar.BackgroundImageLayout = ImageLayout.None;
-            btnRegistrar.BorderColor = Color.Gold;
+            btnRegistrar.BorderColor = Color.Blue;
             btnRegistrar.BorderThickness = 2;
             btnRegistrar.DrawBorder = true;
             btnRegistrar.ForeColor = Color.Black;

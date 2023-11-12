@@ -1,4 +1,4 @@
-﻿namespace Hotel_Dorado_DesktopApp.Views.Usuarios
+﻿namespace Hotel.Views.Usuarios
 {
     partial class UsuariosViewRegister
     {

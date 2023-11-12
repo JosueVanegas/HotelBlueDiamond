@@ -1,6 +1,6 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.View.ClientesView;
+﻿using Hotel.Controllers;
+using Hotel.Models;
+using Hotel.View.ClientesView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Usuarios
+namespace Hotel.Views.Usuarios
 {
     public partial class UsuariosView : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         public UsuariosView()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Usuarios
         }
         private void mostrarUsuarios()
         {
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             var controller = new UsuarioController(context);
             tbUsuario.Rows.Clear();
             var lista = controller.GetAllObject();
@@ -35,7 +35,7 @@ namespace Hotel_Dorado_DesktopApp.Views.Usuarios
         private void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             var controller = new UsuarioController(context);
             if (tbUsuario.Columns[e.ColumnIndex].Name == "Borrar")
             {

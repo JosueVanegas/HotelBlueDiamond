@@ -1,7 +1,7 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
-using Hotel_Dorado_DesktopApp.View.ClientesView;
-using Hotel_Dorado_DesktopApp.Views.Habitaciones.Habitaciones;
+﻿using Hotel.Controllers;
+using Hotel.Models;
+using Hotel.View.ClientesView;
+using Hotel.Views.Habitaciones.Habitaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,22 +12,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Habitaciones
+namespace Hotel.Views.Habitaciones
 {
     public partial class HabitacionesView : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         HabitacionesController controller;
         public HabitacionesView()
         {
             InitializeComponent();
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             controller = new HabitacionesController(context);
             mostrarHabitaciones();
         }
         private void mostrarHabitaciones()
         {
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             controller = new HabitacionesController(context);
             var lista = controller.GetAllObjects();
             tbHabitaciones.Rows.Clear();

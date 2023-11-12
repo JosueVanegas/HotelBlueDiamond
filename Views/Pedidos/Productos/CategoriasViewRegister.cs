@@ -1,5 +1,5 @@
-﻿using Hotel_Dorado_DesktopApp.Controllers;
-using Hotel_Dorado_DesktopApp.Models;
+﻿using Hotel.Controllers;
+using Hotel.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,18 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel_Dorado_DesktopApp.Views.Pedidos.Productos
+namespace Hotel.Views.Pedidos.Productos
 {
     public partial class CategoriasViewRegister : Form
     {
-        HotelDoradoContext context;
+        HotelContext context;
         CategoriaProductoController controller;
         CategoriaProducto categoria;
         public CategoriasViewRegister(CategoriaProducto categoria)
         {
             InitializeComponent();
             this.categoria = categoria;
-            context = new HotelDoradoContext();
+            context = new HotelContext();
             controller = new CategoriaProductoController(context);
         }
 
