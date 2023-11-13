@@ -35,12 +35,14 @@
             btnGuardar = new ReaLTaiizor.Controls.MaterialButton();
             txtPrecio = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            cbxProveedores = new ReaLTaiizor.Controls.MaterialComboBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Beige;
+            panel1.Controls.Add(cbxProveedores);
             panel1.Controls.Add(cbxCategorias);
             panel1.Controls.Add(lblTitulo);
             panel1.Controls.Add(btnCancelar);
@@ -50,7 +52,7 @@
             panel1.Location = new Point(12, 11);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(468, 354);
+            panel1.Size = new Size(468, 444);
             panel1.TabIndex = 4;
             // 
             // cbxCategorias
@@ -75,6 +77,7 @@
             cbxCategorias.Size = new Size(436, 49);
             cbxCategorias.StartIndex = 0;
             cbxCategorias.TabIndex = 6;
+            cbxCategorias.UseAccent = false;
             // 
             // lblTitulo
             // 
@@ -97,7 +100,7 @@
             btnCancelar.HighEmphasis = true;
             btnCancelar.Icon = null;
             btnCancelar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancelar.Location = new Point(154, 297);
+            btnCancelar.Location = new Point(151, 401);
             btnCancelar.Margin = new Padding(4);
             btnCancelar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancelar.Name = "btnCancelar";
@@ -105,8 +108,8 @@
             btnCancelar.Size = new Size(173, 34);
             btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnCancelar.UseAccentColor = true;
+            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnCancelar.UseAccentColor = false;
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -120,7 +123,7 @@
             btnGuardar.HighEmphasis = true;
             btnGuardar.Icon = null;
             btnGuardar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnGuardar.Location = new Point(154, 255);
+            btnGuardar.Location = new Point(151, 359);
             btnGuardar.Margin = new Padding(4);
             btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
@@ -163,6 +166,7 @@
             txtPrecio.TabStop = false;
             txtPrecio.TextAlign = HorizontalAlignment.Left;
             txtPrecio.TrailingIcon = null;
+            txtPrecio.UseAccent = false;
             txtPrecio.UseSystemPasswordChar = false;
             // 
             // txtNombre
@@ -195,13 +199,38 @@
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Left;
             txtNombre.TrailingIcon = null;
+            txtNombre.UseAccent = false;
             txtNombre.UseSystemPasswordChar = false;
+            // 
+            // cbxProveedores
+            // 
+            cbxProveedores.AutoResize = false;
+            cbxProveedores.BackColor = Color.FromArgb(255, 255, 255);
+            cbxProveedores.Depth = 0;
+            cbxProveedores.DrawMode = DrawMode.OwnerDrawVariable;
+            cbxProveedores.DropDownHeight = 174;
+            cbxProveedores.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxProveedores.DropDownWidth = 121;
+            cbxProveedores.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbxProveedores.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbxProveedores.FormattingEnabled = true;
+            cbxProveedores.Hint = "Seleccione el proveedor";
+            cbxProveedores.IntegralHeight = false;
+            cbxProveedores.ItemHeight = 43;
+            cbxProveedores.Location = new Point(15, 254);
+            cbxProveedores.MaxDropDownItems = 4;
+            cbxProveedores.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbxProveedores.Name = "cbxProveedores";
+            cbxProveedores.Size = new Size(436, 49);
+            cbxProveedores.StartIndex = 0;
+            cbxProveedores.TabIndex = 7;
+            cbxProveedores.UseAccent = false;
             // 
             // ProductoViewRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(493, 379);
+            ClientSize = new Size(493, 466);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ProductoViewRegister";
@@ -220,5 +249,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPrecio;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombre;
         private ReaLTaiizor.Controls.MaterialComboBox cbxCategorias;
+        private ReaLTaiizor.Controls.MaterialComboBox cbxProveedores;
     }
 }

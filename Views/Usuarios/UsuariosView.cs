@@ -21,18 +21,18 @@ namespace Hotel.Views.Usuarios
             InitializeComponent();
             mostrarUsuarios();
         }
-        private void mostrarUsuarios()
+        private async void mostrarUsuarios()
         {
             context = new HotelContext();
             var controller = new UsuarioController(context);
             tbUsuario.Rows.Clear();
-            var lista = controller.GetAllObject();
+            var lista = await controller.GetAllObject();
             foreach (var i in lista)
             {
                 tbUsuario.Rows.Add(i.UsuarioId, i.Usuario1, i.Empleado.Nombre, i.Empleado.Apellido, i.Rol.Descripcion, "", "");
             }
         }
-        private void cellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
             context = new HotelContext();
@@ -58,7 +58,7 @@ namespace Hotel.Views.Usuarios
             if (tbUsuario.Columns[e.ColumnIndex].Name == "Editar")
             {
                 int ClienteId = Convert.ToInt32(tbUsuario.Rows[indice].Cells["Id"].Value);
-                var cliente = controller.GetObjectById(ClienteId);
+                var cliente = await controller.GetObjectById(ClienteId);
                 UsuariosViewRegister form = new UsuariosViewRegister(cliente);
                 form.ShowDialog();
                 mostrarUsuarios();

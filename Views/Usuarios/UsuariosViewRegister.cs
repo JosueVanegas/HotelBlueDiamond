@@ -43,19 +43,25 @@ namespace Hotel.Views.Usuarios
                 }
             }
         }
-        private void mostrarEmpleados()
+        private async void mostrarEmpleados()
         {
-            var controller = new EmpleadosController(context);
-            var datos = controller.GetAllObjects();
-            cbxEmpleados.DataSource = datos;
-            cbxEmpleados.DisplayMember = "Cedula";
+            using (var cont = new HotelContext())
+            {
+                var controller = new EmpleadosController(cont);
+                var datos = await controller.GetAllObjects();
+                cbxEmpleados.DataSource = datos;
+                cbxEmpleados.DisplayMember = "Cedula";
+            }
         }
-        private void mostrarRoles()
+        private async void mostrarRoles()
         {
-            var controller = new RolController(context);
-            var datos = controller.GetAllObject();
-            cbxRoles.DataSource = datos;
-            cbxRoles.DisplayMember = "Descripcion";
+            using (var cont = new HotelContext())
+            {
+                var controller = new RolController(cont);
+                var datos = await controller.GetAllObject();
+                cbxRoles.DataSource = datos;
+                cbxRoles.DisplayMember = "Descripcion";
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

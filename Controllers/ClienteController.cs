@@ -1,5 +1,6 @@
 ﻿using Hotel.Models;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,40 +18,32 @@ namespace Hotel.Controller
         {
             _context = context;
         }
-        public void AddObject(Cliente objects)
+        public async void AddObject(Cliente objects)
         {
-            _context.Clientes.Add(objects);
-            _context.SaveChanges();
+            _context.Clientes.AddAsync(objects);
+            _context.SaveChangesAsync();
         }
-        public List<Cliente> GetAllObjects()
+        public async Task<List<Cliente>> GetAllObjects()
         {
-            return _context.Clientes.ToList();
+            return await _context.Clientes.ToListAsync();
         }
-        public void UpdateObject(Cliente objects)
+        public async void UpdateObject(Cliente objects)
         {
             _context.Clientes.Update(objects);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public void DeleteObject(int id)
+        public async void DeleteObject(int id)
         {
-            var objects = _context.Clientes.Find(id);
+            var objects = await _context.Clientes.FindAsync(id);
             if (objects != null)
             {
                 _context.Clientes.Remove(objects);
-                _context.SaveChanges();
+                _context.SaveChangesAsync();
             }
         }
-        public Cliente GetObjectById(int id)
+        public async Task<Cliente> GetObjectById(int id)
         {
-            return _context.Clientes.Find(id);
+            return await _context.Clientes.FindAsync(id);
         }
-        /*
-         * public void ExecuteStoredProcedure(string storedProcedure, params SqlParameter[] parameters)
-        {
-            using var context = new YourDbContext();
-            context.Database.ExecuteSqlRaw($"EXECUTE {storedProcedure}", parameters);
-        }
-         */
-
     }
 }

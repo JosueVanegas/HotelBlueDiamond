@@ -33,7 +33,6 @@ namespace Hotel.Views.Habitaciones.Habitaciones
             mostrarPisos();
             if (this.habitacion != null)
             {
-                txtId.Text = habitacion.HabitacionId.ToString();
                 txtDetalles.Text = habitacion.Detalles.ToString();
                 txtNumero.Text = habitacion.Codigo.ToString();
                 txtTarifa.Text = habitacion.PrecioPh.ToString();

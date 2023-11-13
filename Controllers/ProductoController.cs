@@ -17,30 +17,30 @@ namespace Hotel.Controllers
         }
         public void AddObject(Producto producto)
         {
-            _context.Productos.Add(producto);
-            _context.SaveChanges(); 
+            _context.Productos.AddAsync(producto);
+            _context.SaveChangesAsync(); 
         }
-        public List<Producto> GetAllObject()
+        public async Task<List<Producto>> GetAllObject()
         {
-            return _context.Productos.Include(p=>p.CategoriaProducto).Include(p=>p.Proveedor).ToList();
+            return await _context.Productos.Include(p=>p.CategoriaProducto).Include(p=>p.Proveedor).ToListAsync();
         }
         public void UpdateObject(Producto producto)
         {
             _context.Productos.Update(producto);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public void DeleteObject(int id)
+        public async void DeleteObject(int id)
         {
-            var obj = GetObject(id);
+            var obj = await GetObject(id);
             if (obj != null)
             {
                 _context.Productos.Remove(obj);
-                _context.SaveChanges();
+                _context.SaveChangesAsync();
             }
         }
-        public Producto GetObject(int id)
+        public async Task<Producto> GetObject(int id)
         {
-            return _context.Productos.Find(id);
+            return await _context.Productos.FindAsync(id);
         }
     }
 }

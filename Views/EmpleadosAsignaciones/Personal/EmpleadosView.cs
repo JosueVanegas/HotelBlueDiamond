@@ -19,18 +19,18 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
             InitializeComponent();
             mostrarEmpleados();
         }
-        private void mostrarEmpleados()
+        private async void mostrarEmpleados()
         {
             var context = new HotelContext();
             var controller = new EmpleadosController(context);
-            var lista = controller.GetAllObjects();
+            var lista = await controller.GetAllObjects();
             tbEmpleados.Rows.Clear();
             foreach (var i in lista)
             {
                 tbEmpleados.Rows.Add(i.EmpleadoId, i.Cedula, i.Nombre, i.Apellido, i.Nacimiento, i.Cargo.Descripcion, "", "");
             }
         }
-        private void cellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var context = new HotelContext();
             var controller = new EmpleadosController(context);
@@ -56,7 +56,7 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
             if (tbEmpleados.Columns[e.ColumnIndex].Name == "Editar")
             {
                 int id = Convert.ToInt32(tbEmpleados.Rows[indice].Cells["Id"].Value);
-                var empleado = controller.GetObjectById(id);
+                var empleado = await controller.GetObjectById(id);
                 EmpleadosViewRegister form = new EmpleadosViewRegister(empleado);
                 form.ShowDialog();
                 mostrarEmpleados();

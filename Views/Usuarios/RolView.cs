@@ -25,7 +25,7 @@ namespace Hotel.Views.Usuarios
             var controller = new RolController(context);
 
         }
-        private void cellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
             context = new HotelContext();
@@ -50,9 +50,9 @@ namespace Hotel.Views.Usuarios
             }
             if (tbRoles.Columns[e.ColumnIndex].Name == "Editar")
             {
-                int ClienteId = Convert.ToInt32(tbRoles.Rows[indice].Cells["Id"].Value);
-                var cliente = controller.GetObjectById(ClienteId);
-                UsuariosViewRegister form = new UsuariosViewRegister(cliente);
+                int id = Convert.ToInt32(tbRoles.Rows[indice].Cells["Id"].Value);
+                var rol = await controller.GetObjectById(id);
+                UsuariosViewRegister form = new UsuariosViewRegister(rol);
                 form.ShowDialog();
                 mostrarRoles();
             }

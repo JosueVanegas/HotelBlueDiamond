@@ -20,41 +20,41 @@ namespace Hotel.Controllers
         {
             this._context = context;
         }
-        public void AddObject(Usuario obj)
+        public async void AddObject(Usuario obj)
         {
             _context.Usuarios.Add(obj);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public List<Usuario> GetAllObject()
+        public async Task<List<Usuario>> GetAllObject()
         {
-            return _context.Usuarios.Include(u=>u.Empleado).Include(u=>u.Rol).ToList();
+            return await _context.Usuarios.Include(u=>u.Empleado).Include(u=>u.Rol).ToListAsync();
         }
-        public void UpdateObject(Usuario obj)
+        public async void UpdateObject(Usuario obj)
         {
             _context.Usuarios.Update(obj);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public void DeleteObject(int id)
+        public async void DeleteObject(int id)
         {
-            var obj = _context.Usuarios.Find(id);
+            var obj = await _context.Usuarios.FindAsync(id);
             if (obj != null)
             {
                 _context.Usuarios.Remove(obj);
-                _context.SaveChanges();
+                _context.SaveChangesAsync();
             }
         }
-        public Usuario GetObjectByUser(string usuario)
+        public async Task<Usuario> GetObjectByUser(string usuario)
         {
-            var user = _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u => u.Usuario1 == usuario).FirstOrDefault();
+            var user = await _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u => u.Usuario1 == usuario).FirstOrDefaultAsync();
             return user;
         }
-        public Usuario GetObjectById(int id)
+        public async Task<Usuario> GetObjectById(int id)
         {
-            var user = _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u=>u.UsuarioId == id).FirstOrDefault();
+            var user = await _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u=>u.UsuarioId == id).FirstOrDefaultAsync();
             return user;
         }
 
-        public bool GetValue(string usuario, string clave)
+        public async Task<bool> GetValue(string usuario, string clave)
         {
             var usuarioParam = new SqlParameter("@Usuario", usuario);
             var claveParam = new SqlParameter("@Clave", clave);
@@ -65,9 +65,9 @@ namespace Hotel.Controllers
                 Direction = ParameterDirection.Output
             };
 
-            _context.Database.ExecuteSqlRaw($"EXEC dbo.PROC_READ_ENCRYP_PASSWORD @Usuario, @Clave, @Permitir OUTPUT",usuarioParam,claveParam,permitirParam);
+            _context.Database.ExecuteSqlRawAsync($"EXEC dbo.PROC_READ_ENCRYP_PASSWORD @Usuario, @Clave, @Permitir OUTPUT",usuarioParam,claveParam,permitirParam);
 
-            return (bool)permitirParam.Value;
+            return  (bool)permitirParam.Value;
         }
     }
 }

@@ -24,18 +24,18 @@ namespace Hotel.Views.Pedidos.Productos
             controller = new ProductoController(context);
             mostrarProductos();
         }
-        private void mostrarProductos()
+        private async void mostrarProductos()
         {
             context = new HotelContext();
             controller = new ProductoController(context);
-            var lista = controller.GetAllObject();
+            var lista = await controller.GetAllObject();
             tbProductos.Rows.Clear();
             foreach (var i in lista)
             {
-                tbProductos.Rows.Add(i.ProductoId, i.Descripcion, i.Precio, i.CategoriaProducto.Descripcion, "", "");
+                tbProductos.Rows.Add(i.ProductoId, i.Descripcion, i.Precio,i.Stock, i.CategoriaProducto.Descripcion,i.Proveedor.NombreEmpresa, "", "");
             }
         }
-        private void cellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
             if (tbProductos.Columns[e.ColumnIndex].Name == "Borrar")
@@ -58,9 +58,9 @@ namespace Hotel.Views.Pedidos.Productos
             }
             if (tbProductos.Columns[e.ColumnIndex].Name == "Editar")
             {
-                int ClienteId = Convert.ToInt32(tbProductos.Rows[indice].Cells["Id"].Value);
-                var cliente = controller.GetObject(ClienteId);
-                ProductoViewRegister form = new ProductoViewRegister(cliente);
+                int id = Convert.ToInt32(tbProductos.Rows[indice].Cells["Id"].Value);
+                var prod = await controller.GetObject(id);
+                ProductoViewRegister form = new ProductoViewRegister(prod);
                 mostrarProductos();
             }
         }
@@ -68,7 +68,7 @@ namespace Hotel.Views.Pedidos.Productos
         {
             if (e.RowIndex < 0)
                 return;
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 6)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var h = Properties.Resources.editarImg.Height;
@@ -79,7 +79,7 @@ namespace Hotel.Views.Pedidos.Productos
                 e.Graphics.DrawImage(Properties.Resources.editarImg, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 7)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var w = Properties.Resources.eliminarImg.Width;

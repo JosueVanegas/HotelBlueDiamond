@@ -71,6 +71,7 @@
             txtUsuario.TabStop = false;
             txtUsuario.TextAlign = HorizontalAlignment.Left;
             txtUsuario.TrailingIcon = null;
+            txtUsuario.UseAccent = false;
             txtUsuario.UseSystemPasswordChar = false;
             // 
             // txtClave
@@ -102,6 +103,7 @@
             txtClave.TabStop = false;
             txtClave.TextAlign = HorizontalAlignment.Left;
             txtClave.TrailingIcon = null;
+            txtClave.UseAccent = false;
             txtClave.UseSystemPasswordChar = false;
             // 
             // label1

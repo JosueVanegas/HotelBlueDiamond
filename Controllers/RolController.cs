@@ -1,4 +1,5 @@
 ﻿using Hotel.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,32 +16,32 @@ namespace Hotel.Controllers
         {
             this._context = context;
         }
-        public void AddObject(Rol obj)
+        public async void AddObject(Rol obj)
         {
             _context.Rols.Add(obj);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public List<Rol> GetAllObject()
+        public async Task<List<Rol>> GetAllObject()
         {
-            return _context.Rols.ToList();
+            return await _context.Rols.ToListAsync();
         }
-        public void UpdateObject(Rol obj)
+        public async void UpdateObject(Rol obj)
         {
             _context.Rols.Update(obj);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public void DeleteObject(int id)
+        public async void DeleteObject(int id)
         {
-            var obj = _context.Rols.Find(id);
+            var obj = await _context.Rols.FindAsync(id);
             if (obj != null)
             {
                 _context.Rols.Remove(obj);
-                _context.SaveChanges();
+                _context.SaveChangesAsync();
             }
         }
-        public Rol GetObjectById(int id)
+        public async Task<Rol> GetObjectById(int id)
         {
-            return _context.Rols.Find(id);
+            return await _context.Rols.FindAsync(id);
         }
     }
 }

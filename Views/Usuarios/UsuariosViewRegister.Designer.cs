@@ -65,6 +65,7 @@
             cbxEmpleados.Size = new Size(436, 49);
             cbxEmpleados.StartIndex = 0;
             cbxEmpleados.TabIndex = 0;
+            cbxEmpleados.UseAccent = false;
             cbxEmpleados.SelectedIndexChanged += cbxEmpleados_SelectedIndexChanged;
             // 
             // panel1
@@ -134,6 +135,7 @@
             txtConfirmarClave.TabStop = false;
             txtConfirmarClave.TextAlign = HorizontalAlignment.Left;
             txtConfirmarClave.TrailingIcon = null;
+            txtConfirmarClave.UseAccent = false;
             txtConfirmarClave.UseSystemPasswordChar = false;
             // 
             // cbxRoles
@@ -158,6 +160,7 @@
             cbxRoles.Size = new Size(436, 49);
             cbxRoles.StartIndex = 0;
             cbxRoles.TabIndex = 7;
+            cbxRoles.UseAccent = false;
             // 
             // lblTitulo
             // 
@@ -200,6 +203,7 @@
             txtUsuario.TabStop = false;
             txtUsuario.TextAlign = HorizontalAlignment.Left;
             txtUsuario.TrailingIcon = null;
+            txtUsuario.UseAccent = false;
             txtUsuario.UseSystemPasswordChar = false;
             // 
             // btnCancelar
@@ -220,8 +224,8 @@
             btnCancelar.Size = new Size(436, 34);
             btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnCancelar.UseAccentColor = true;
+            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnCancelar.UseAccentColor = false;
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -278,6 +282,7 @@
             txtClave.TabStop = false;
             txtClave.TextAlign = HorizontalAlignment.Left;
             txtClave.TrailingIcon = null;
+            txtClave.UseAccent = false;
             txtClave.UseSystemPasswordChar = false;
             // 
             // txtApellido
@@ -310,6 +315,7 @@
             txtApellido.TabStop = false;
             txtApellido.TextAlign = HorizontalAlignment.Left;
             txtApellido.TrailingIcon = null;
+            txtApellido.UseAccent = false;
             txtApellido.UseSystemPasswordChar = false;
             // 
             // txtNombre
@@ -342,6 +348,7 @@
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Left;
             txtNombre.TrailingIcon = null;
+            txtNombre.UseAccent = false;
             txtNombre.UseSystemPasswordChar = false;
             // 
             // UsuariosViewRegister

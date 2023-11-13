@@ -70,14 +70,17 @@
             txtPago = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCambio = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCargoEstancia = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtCancelar = new ReaLTaiizor.Controls.MaterialButton();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)tbClientes).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // dtpSalida
             // 
             dtpSalida.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             dtpSalida.ForeColor = Color.DimGray;
-            dtpSalida.Location = new Point(537, 135);
+            dtpSalida.Location = new Point(536, 126);
             dtpSalida.Name = "dtpSalida";
             dtpSalida.Size = new Size(256, 53);
             dtpSalida.TabIndex = 48;
@@ -87,7 +90,7 @@
             // 
             dtpEntrada.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             dtpEntrada.ForeColor = Color.DimGray;
-            dtpEntrada.Location = new Point(156, 135);
+            dtpEntrada.Location = new Point(155, 126);
             dtpEntrada.Name = "dtpEntrada";
             dtpEntrada.Size = new Size(245, 53);
             dtpEntrada.TabIndex = 47;
@@ -105,7 +108,7 @@
             txtCantidadHuespedes.HideSelection = true;
             txtCantidadHuespedes.Hint = "Cantidad de huespedes:";
             txtCantidadHuespedes.LeadingIcon = null;
-            txtCantidadHuespedes.Location = new Point(537, 85);
+            txtCantidadHuespedes.Location = new Point(536, 76);
             txtCantidadHuespedes.Margin = new Padding(3, 2, 3, 2);
             txtCantidadHuespedes.MaxLength = 32767;
             txtCantidadHuespedes.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -123,6 +126,7 @@
             txtCantidadHuespedes.TabStop = false;
             txtCantidadHuespedes.TextAlign = HorizontalAlignment.Left;
             txtCantidadHuespedes.TrailingIcon = null;
+            txtCantidadHuespedes.UseAccent = false;
             txtCantidadHuespedes.UseSystemPasswordChar = false;
             // 
             // txtAdelanto
@@ -137,7 +141,7 @@
             txtAdelanto.HideSelection = true;
             txtAdelanto.Hint = "Adelanto:";
             txtAdelanto.LeadingIcon = null;
-            txtAdelanto.Location = new Point(7, 668);
+            txtAdelanto.Location = new Point(6, 659);
             txtAdelanto.Margin = new Padding(3, 2, 3, 2);
             txtAdelanto.MaxLength = 32767;
             txtAdelanto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -156,13 +160,14 @@
             txtAdelanto.Text = "0";
             txtAdelanto.TextAlign = HorizontalAlignment.Left;
             txtAdelanto.TrailingIcon = null;
+            txtAdelanto.UseAccent = false;
             txtAdelanto.UseSystemPasswordChar = false;
             // 
             // label5
             // 
             label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
-            label5.Location = new Point(407, 135);
+            label5.Location = new Point(406, 126);
             label5.Name = "label5";
             label5.Size = new Size(124, 53);
             label5.TabIndex = 44;
@@ -173,7 +178,7 @@
             // 
             label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.DimGray;
-            label4.Location = new Point(10, 135);
+            label4.Location = new Point(9, 126);
             label4.Name = "label4";
             label4.Size = new Size(140, 53);
             label4.TabIndex = 43;
@@ -184,7 +189,7 @@
             // 
             label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Gray;
-            label3.Location = new Point(10, 9);
+            label3.Location = new Point(9, 0);
             label3.Name = "label3";
             label3.Size = new Size(783, 37);
             label3.TabIndex = 40;
@@ -195,7 +200,7 @@
             // 
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Gray;
-            label2.Location = new Point(7, 198);
+            label2.Location = new Point(5, 179);
             label2.Name = "label2";
             label2.Size = new Size(786, 32);
             label2.TabIndex = 39;
@@ -205,7 +210,7 @@
             // label1
             // 
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(299, 347);
+            label1.Location = new Point(298, 338);
             label1.Name = "label1";
             label1.Size = new Size(494, 21);
             label1.TabIndex = 38;
@@ -215,7 +220,7 @@
             // lblDetalles
             // 
             lblDetalles.ForeColor = Color.DimGray;
-            lblDetalles.Location = new Point(299, 230);
+            lblDetalles.Location = new Point(298, 221);
             lblDetalles.Name = "lblDetalles";
             lblDetalles.Size = new Size(494, 19);
             lblDetalles.TabIndex = 37;
@@ -231,7 +236,7 @@
             txtExtras.EdgeColor = Color.White;
             txtExtras.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtExtras.ForeColor = Color.DimGray;
-            txtExtras.Location = new Point(299, 370);
+            txtExtras.Location = new Point(298, 361);
             txtExtras.Margin = new Padding(3, 2, 3, 2);
             txtExtras.Name = "txtExtras";
             txtExtras.ReadOnly = true;
@@ -252,11 +257,11 @@
             txtDetalles.EdgeColor = Color.White;
             txtDetalles.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtDetalles.ForeColor = Color.DimGray;
-            txtDetalles.Location = new Point(299, 255);
+            txtDetalles.Location = new Point(298, 246);
             txtDetalles.Margin = new Padding(3, 2, 3, 2);
             txtDetalles.Name = "txtDetalles";
             txtDetalles.ReadOnly = true;
-            txtDetalles.Size = new Size(494, 90);
+            txtDetalles.Size = new Size(494, 77);
             txtDetalles.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             txtDetalles.TabIndex = 35;
             txtDetalles.TextBackColor = Color.White;
@@ -273,7 +278,7 @@
             btnReservar.HighEmphasis = true;
             btnReservar.Icon = null;
             btnReservar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnReservar.Location = new Point(520, 772);
+            btnReservar.Location = new Point(519, 763);
             btnReservar.Margin = new Padding(4);
             btnReservar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnReservar.Name = "btnReservar";
@@ -298,7 +303,7 @@
             txtPrecioPH.HideSelection = true;
             txtPrecioPH.Hint = "Precio por noche:";
             txtPrecioPH.LeadingIcon = null;
-            txtPrecioPH.Location = new Point(7, 398);
+            txtPrecioPH.Location = new Point(6, 389);
             txtPrecioPH.Margin = new Padding(3, 2, 3, 2);
             txtPrecioPH.MaxLength = 32767;
             txtPrecioPH.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -316,6 +321,7 @@
             txtPrecioPH.TabStop = false;
             txtPrecioPH.TextAlign = HorizontalAlignment.Left;
             txtPrecioPH.TrailingIcon = null;
+            txtPrecioPH.UseAccent = false;
             txtPrecioPH.UseSystemPasswordChar = false;
             // 
             // txtPiso
@@ -330,7 +336,7 @@
             txtPiso.HideSelection = true;
             txtPiso.Hint = "Piso:";
             txtPiso.LeadingIcon = null;
-            txtPiso.Location = new Point(7, 336);
+            txtPiso.Location = new Point(6, 327);
             txtPiso.Margin = new Padding(3, 2, 3, 2);
             txtPiso.MaxLength = 32767;
             txtPiso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -348,6 +354,7 @@
             txtPiso.TabStop = false;
             txtPiso.TextAlign = HorizontalAlignment.Left;
             txtPiso.TrailingIcon = null;
+            txtPiso.UseAccent = false;
             txtPiso.UseSystemPasswordChar = false;
             // 
             // txtCategoria
@@ -362,7 +369,7 @@
             txtCategoria.HideSelection = true;
             txtCategoria.Hint = "Categoria:";
             txtCategoria.LeadingIcon = null;
-            txtCategoria.Location = new Point(7, 284);
+            txtCategoria.Location = new Point(6, 275);
             txtCategoria.Margin = new Padding(3, 2, 3, 2);
             txtCategoria.MaxLength = 32767;
             txtCategoria.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -380,6 +387,7 @@
             txtCategoria.TabStop = false;
             txtCategoria.TextAlign = HorizontalAlignment.Left;
             txtCategoria.TrailingIcon = null;
+            txtCategoria.UseAccent = false;
             txtCategoria.UseSystemPasswordChar = false;
             // 
             // txtNumero
@@ -394,7 +402,7 @@
             txtNumero.HideSelection = true;
             txtNumero.Hint = "Numero de habitación:";
             txtNumero.LeadingIcon = null;
-            txtNumero.Location = new Point(7, 232);
+            txtNumero.Location = new Point(6, 223);
             txtNumero.Margin = new Padding(3, 2, 3, 2);
             txtNumero.MaxLength = 32767;
             txtNumero.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -412,6 +420,7 @@
             txtNumero.TabStop = false;
             txtNumero.TextAlign = HorizontalAlignment.Left;
             txtNumero.TrailingIcon = null;
+            txtNumero.UseAccent = false;
             txtNumero.UseSystemPasswordChar = false;
             // 
             // txtCedula
@@ -426,7 +435,7 @@
             txtCedula.HideSelection = true;
             txtCedula.Hint = "Cedula";
             txtCedula.LeadingIcon = null;
-            txtCedula.Location = new Point(7, 85);
+            txtCedula.Location = new Point(6, 76);
             txtCedula.Margin = new Padding(3, 2, 3, 2);
             txtCedula.MaxLength = 32767;
             txtCedula.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -444,6 +453,7 @@
             txtCedula.TabStop = false;
             txtCedula.TextAlign = HorizontalAlignment.Left;
             txtCedula.TrailingIcon = null;
+            txtCedula.UseAccent = false;
             txtCedula.UseSystemPasswordChar = false;
             // 
             // txtApellido
@@ -458,7 +468,7 @@
             txtApellido.HideSelection = true;
             txtApellido.Hint = "Apellidos";
             txtApellido.LeadingIcon = null;
-            txtApellido.Location = new Point(356, 85);
+            txtApellido.Location = new Point(355, 76);
             txtApellido.Margin = new Padding(3, 2, 3, 2);
             txtApellido.MaxLength = 32767;
             txtApellido.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -476,6 +486,7 @@
             txtApellido.TabStop = false;
             txtApellido.TextAlign = HorizontalAlignment.Left;
             txtApellido.TrailingIcon = null;
+            txtApellido.UseAccent = false;
             txtApellido.UseSystemPasswordChar = false;
             // 
             // txtNombre
@@ -490,7 +501,7 @@
             txtNombre.HideSelection = true;
             txtNombre.Hint = "Nombres";
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(175, 85);
+            txtNombre.Location = new Point(174, 76);
             txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -508,13 +519,14 @@
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Left;
             txtNombre.TrailingIcon = null;
+            txtNombre.UseAccent = false;
             txtNombre.UseSystemPasswordChar = false;
             // 
             // label6
             // 
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Gray;
-            label6.Location = new Point(7, 46);
+            label6.Location = new Point(6, 37);
             label6.Name = "label6";
             label6.Size = new Size(786, 37);
             label6.TabIndex = 55;
@@ -557,7 +569,7 @@
             tbClientes.EnableHeadersVisualStyles = false;
             tbClientes.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbClientes.GridColor = Color.FromArgb(255, 255, 255);
-            tbClientes.Location = new Point(7, 482);
+            tbClientes.Location = new Point(6, 473);
             tbClientes.Margin = new Padding(3, 2, 3, 2);
             tbClientes.MultiSelect = false;
             tbClientes.Name = "tbClientes";
@@ -640,7 +652,7 @@
             // 
             label7.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.Gray;
-            label7.Location = new Point(7, 448);
+            label7.Location = new Point(6, 439);
             label7.Name = "label7";
             label7.Size = new Size(786, 32);
             label7.TabIndex = 57;
@@ -659,7 +671,7 @@
             txtTotalServicio.HideSelection = true;
             txtTotalServicio.Hint = "Total en servicio a la habitación:";
             txtTotalServicio.LeadingIcon = null;
-            txtTotalServicio.Location = new Point(7, 616);
+            txtTotalServicio.Location = new Point(6, 607);
             txtTotalServicio.Margin = new Padding(3, 2, 3, 2);
             txtTotalServicio.MaxLength = 32767;
             txtTotalServicio.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -678,6 +690,7 @@
             txtTotalServicio.Text = "0";
             txtTotalServicio.TextAlign = HorizontalAlignment.Left;
             txtTotalServicio.TrailingIcon = null;
+            txtTotalServicio.UseAccent = false;
             txtTotalServicio.UseSystemPasswordChar = false;
             // 
             // txtTotal
@@ -692,7 +705,7 @@
             txtTotal.HideSelection = true;
             txtTotal.Hint = "Total a pagar:";
             txtTotal.LeadingIcon = null;
-            txtTotal.Location = new Point(7, 720);
+            txtTotal.Location = new Point(6, 711);
             txtTotal.Margin = new Padding(3, 2, 3, 2);
             txtTotal.MaxLength = 32767;
             txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -711,6 +724,7 @@
             txtTotal.Text = "0";
             txtTotal.TextAlign = HorizontalAlignment.Left;
             txtTotal.TrailingIcon = null;
+            txtTotal.UseAccent = false;
             txtTotal.UseSystemPasswordChar = false;
             // 
             // txtCargoRoturas
@@ -725,7 +739,7 @@
             txtCargoRoturas.HideSelection = true;
             txtCargoRoturas.Hint = "Cargo por daños a la propiedad:";
             txtCargoRoturas.LeadingIcon = null;
-            txtCargoRoturas.Location = new Point(521, 616);
+            txtCargoRoturas.Location = new Point(520, 607);
             txtCargoRoturas.Margin = new Padding(3, 2, 3, 2);
             txtCargoRoturas.MaxLength = 32767;
             txtCargoRoturas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -744,6 +758,7 @@
             txtCargoRoturas.Text = "0";
             txtCargoRoturas.TextAlign = HorizontalAlignment.Left;
             txtCargoRoturas.TrailingIcon = null;
+            txtCargoRoturas.UseAccent = false;
             txtCargoRoturas.UseSystemPasswordChar = false;
             txtCargoRoturas.KeyPress += ValidarDecimal_KeyPress;
             txtCargoRoturas.TextChanged += txtCargoRoturas_TextChanged;
@@ -760,7 +775,7 @@
             txtPago.HideSelection = true;
             txtPago.Hint = "Pago del cliente:";
             txtPago.LeadingIcon = null;
-            txtPago.Location = new Point(7, 772);
+            txtPago.Location = new Point(6, 763);
             txtPago.Margin = new Padding(3, 2, 3, 2);
             txtPago.MaxLength = 32767;
             txtPago.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -779,6 +794,7 @@
             txtPago.Text = "0";
             txtPago.TextAlign = HorizontalAlignment.Left;
             txtPago.TrailingIcon = null;
+            txtPago.UseAccent = false;
             txtPago.UseSystemPasswordChar = false;
             txtPago.KeyPress += ValidarDecimal_KeyPress;
             txtPago.TextChanged += txtPago_TextChanged;
@@ -795,7 +811,7 @@
             txtCambio.HideSelection = true;
             txtCambio.Hint = "Cambio:";
             txtCambio.LeadingIcon = null;
-            txtCambio.Location = new Point(521, 720);
+            txtCambio.Location = new Point(520, 711);
             txtCambio.Margin = new Padding(3, 2, 3, 2);
             txtCambio.MaxLength = 32767;
             txtCambio.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -814,6 +830,7 @@
             txtCambio.Text = "0";
             txtCambio.TextAlign = HorizontalAlignment.Left;
             txtCambio.TrailingIcon = null;
+            txtCambio.UseAccent = false;
             txtCambio.UseSystemPasswordChar = false;
             // 
             // txtCargoEstancia
@@ -828,7 +845,7 @@
             txtCargoEstancia.HideSelection = true;
             txtCargoEstancia.Hint = "Recargos por tiempo de estancia:";
             txtCargoEstancia.LeadingIcon = null;
-            txtCargoEstancia.Location = new Point(521, 668);
+            txtCargoEstancia.Location = new Point(520, 659);
             txtCargoEstancia.Margin = new Padding(3, 2, 3, 2);
             txtCargoEstancia.MaxLength = 32767;
             txtCargoEstancia.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -847,52 +864,87 @@
             txtCargoEstancia.Text = "0";
             txtCargoEstancia.TextAlign = HorizontalAlignment.Left;
             txtCargoEstancia.TrailingIcon = null;
+            txtCargoEstancia.UseAccent = false;
             txtCargoEstancia.UseSystemPasswordChar = false;
             txtCargoEstancia.KeyPress += ValidarDecimal_KeyPress;
             txtCargoEstancia.TextChanged += txtCargoEstancia_TextChanged;
+            // 
+            // txtCancelar
+            // 
+            txtCancelar.AutoSize = false;
+            txtCancelar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            txtCancelar.BackColor = Color.Cornsilk;
+            txtCancelar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            txtCancelar.Depth = 0;
+            txtCancelar.HighEmphasis = true;
+            txtCancelar.Icon = null;
+            txtCancelar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            txtCancelar.Location = new Point(519, 819);
+            txtCancelar.Margin = new Padding(4);
+            txtCancelar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            txtCancelar.Name = "txtCancelar";
+            txtCancelar.NoAccentTextColor = Color.Empty;
+            txtCancelar.Size = new Size(272, 50);
+            txtCancelar.TabIndex = 64;
+            txtCancelar.Text = "Cancelar";
+            txtCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            txtCancelar.UseAccentColor = true;
+            txtCancelar.UseVisualStyleBackColor = false;
+            txtCancelar.Click += txtCancelar_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Beige;
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(txtCancelar);
+            panel1.Controls.Add(txtNumero);
+            panel1.Controls.Add(txtCargoEstancia);
+            panel1.Controls.Add(txtCategoria);
+            panel1.Controls.Add(txtCambio);
+            panel1.Controls.Add(txtPiso);
+            panel1.Controls.Add(txtPago);
+            panel1.Controls.Add(txtPrecioPH);
+            panel1.Controls.Add(txtCargoRoturas);
+            panel1.Controls.Add(btnReservar);
+            panel1.Controls.Add(txtTotal);
+            panel1.Controls.Add(txtDetalles);
+            panel1.Controls.Add(txtTotalServicio);
+            panel1.Controls.Add(txtExtras);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(lblDetalles);
+            panel1.Controls.Add(tbClientes);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(txtCedula);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(txtApellido);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(txtNombre);
+            panel1.Controls.Add(txtAdelanto);
+            panel1.Controls.Add(dtpSalida);
+            panel1.Controls.Add(txtCantidadHuespedes);
+            panel1.Controls.Add(dtpEntrada);
+            panel1.Location = new Point(12, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(809, 880);
+            panel1.TabIndex = 65;
             // 
             // SalidaViewRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Beige;
-            ClientSize = new Size(805, 871);
-            Controls.Add(txtCargoEstancia);
-            Controls.Add(txtCambio);
-            Controls.Add(txtPago);
-            Controls.Add(txtCargoRoturas);
-            Controls.Add(txtTotal);
-            Controls.Add(txtTotalServicio);
-            Controls.Add(label7);
-            Controls.Add(tbClientes);
-            Controls.Add(label6);
-            Controls.Add(txtCedula);
-            Controls.Add(txtApellido);
-            Controls.Add(txtNombre);
-            Controls.Add(dtpSalida);
-            Controls.Add(dtpEntrada);
-            Controls.Add(txtCantidadHuespedes);
-            Controls.Add(txtAdelanto);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(lblDetalles);
-            Controls.Add(txtExtras);
-            Controls.Add(txtDetalles);
-            Controls.Add(btnReservar);
-            Controls.Add(txtPrecioPH);
-            Controls.Add(txtPiso);
-            Controls.Add(txtCategoria);
-            Controls.Add(txtNumero);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            BackColor = Color.FromArgb(0, 51, 102);
+            ClientSize = new Size(833, 904);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "SalidaViewRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SalidaViewRegister";
             ((System.ComponentModel.ISupportInitialize)tbClientes).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -934,5 +986,7 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPago;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCambio;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCargoEstancia;
+        private ReaLTaiizor.Controls.MaterialButton txtCancelar;
+        private Panel panel1;
     }
 }

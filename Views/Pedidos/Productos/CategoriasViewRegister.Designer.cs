@@ -78,8 +78,8 @@
             btnCancelar.Size = new Size(173, 34);
             btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnCancelar.UseAccentColor = true;
+            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnCancelar.UseAccentColor = false;
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -136,6 +136,7 @@
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Left;
             txtNombre.TrailingIcon = null;
+            txtNombre.UseAccent = false;
             txtNombre.UseSystemPasswordChar = false;
             // 
             // CategoriasViewRegister

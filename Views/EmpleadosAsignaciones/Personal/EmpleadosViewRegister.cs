@@ -81,7 +81,7 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
                             Activo = true
                         };
                         controller.UpdateObject(emp);
-                        MessageBox.Show("Los datos del empleado han sido actualizados","Actualización exitosa",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Los datos del empleado han sido actualizados", "Actualización exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {

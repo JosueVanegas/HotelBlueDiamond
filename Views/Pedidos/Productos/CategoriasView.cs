@@ -21,18 +21,18 @@ namespace Hotel.Views.Pedidos.Productos
             InitializeComponent();
             mostrarCategorias();
         }
-        private void mostrarCategorias()
+        private async void mostrarCategorias()
         {
             context = new HotelContext();
             controller = new CategoriaProductoController(context);
-            var lista = controller.GetAllObject();
+            var lista = await controller.GetAllObject();
             tbCategoria.Rows.Clear();
             foreach (var i in lista)
             {
                 tbCategoria.Rows.Add(i.CategoriaProductoId, i.Descripcion, "", "");
             }
         }
-        private void cellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
             if (tbCategoria.Columns[e.ColumnIndex].Name == "Borrar")
@@ -56,7 +56,7 @@ namespace Hotel.Views.Pedidos.Productos
             if (tbCategoria.Columns[e.ColumnIndex].Name == "Editar")
             {
                 int ClienteId = Convert.ToInt32(tbCategoria.Rows[indice].Cells["Id"].Value);
-                var cliente = controller.GetObject(ClienteId);
+                var cliente = await controller.GetObject(ClienteId);
                 CategoriasViewRegister form = new CategoriasViewRegister(cliente);
                 form.ShowDialog();
                 mostrarCategorias();

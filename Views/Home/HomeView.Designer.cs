@@ -39,6 +39,8 @@
             categoriasToolStripMenuItem1 = new ToolStripMenuItem();
             productosToolStripMenuItem1 = new ToolStripMenuItem();
             categoriasToolStripMenuItem2 = new ToolStripMenuItem();
+            proveedoresToolStripMenuItem = new ToolStripMenuItem();
+            comprarToolStripMenuItem = new ToolStripMenuItem();
             btnHabitacionesMenu = new ToolStripMenuItem();
             btnHabitaciones = new ToolStripMenuItem();
             btnCategorias = new ToolStripMenuItem();
@@ -61,8 +63,6 @@
             Reloj = new System.Windows.Forms.Timer(components);
             panel2 = new Panel();
             lblConexion = new Label();
-            proveedoresToolStripMenuItem = new ToolStripMenuItem();
-            comprarToolStripMenuItem = new ToolStripMenuItem();
             Menu.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnCambiarUsuario).BeginInit();
@@ -132,6 +132,17 @@
             categoriasToolStripMenuItem2.Name = "categoriasToolStripMenuItem2";
             resources.ApplyResources(categoriasToolStripMenuItem2, "categoriasToolStripMenuItem2");
             categoriasToolStripMenuItem2.Click += categoriasToolStripMenuItem2_Click;
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            resources.ApplyResources(proveedoresToolStripMenuItem, "proveedoresToolStripMenuItem");
+            proveedoresToolStripMenuItem.Click += proveedoresToolStripMenuItem_Click;
+            // 
+            // comprarToolStripMenuItem
+            // 
+            comprarToolStripMenuItem.Name = "comprarToolStripMenuItem";
+            resources.ApplyResources(comprarToolStripMenuItem, "comprarToolStripMenuItem");
             // 
             // btnHabitacionesMenu
             // 
@@ -276,16 +287,6 @@
             resources.ApplyResources(lblConexion, "lblConexion");
             lblConexion.ForeColor = Color.Beige;
             lblConexion.Name = "lblConexion";
-            // 
-            // proveedoresToolStripMenuItem
-            // 
-            proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            resources.ApplyResources(proveedoresToolStripMenuItem, "proveedoresToolStripMenuItem");
-            // 
-            // comprarToolStripMenuItem
-            // 
-            comprarToolStripMenuItem.Name = "comprarToolStripMenuItem";
-            resources.ApplyResources(comprarToolStripMenuItem, "comprarToolStripMenuItem");
             // 
             // HomeView
             // 

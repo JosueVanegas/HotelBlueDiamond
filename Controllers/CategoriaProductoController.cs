@@ -1,4 +1,5 @@
 ﻿using Hotel.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,32 +15,32 @@ namespace Hotel.Controllers
         {
             this._context = context;
         }
-        public void AddObject(CategoriaProducto categoria)
+        public async void AddObject(CategoriaProducto categoria)
         {
-            _context.CategoriaProductos.Add(categoria);
-            _context.SaveChanges();
+            _context.CategoriaProductos.AddAsync(categoria);
+            _context.SaveChangesAsync();
         }
-        public List<CategoriaProducto> GetAllObject()
+        public async Task<List<CategoriaProducto>> GetAllObject()
         {
-            return _context.CategoriaProductos.ToList();
+            return await _context.CategoriaProductos.ToListAsync();
         }
-        public void UpdateObject(CategoriaProducto categoria)
+        public async void UpdateObject(CategoriaProducto categoria)
         {
             _context.CategoriaProductos.Update(categoria);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public void DeleteObject(int id)
+        public async void DeleteObject(int id)
         {
-            var obj = GetObject(id);
+            var obj = await GetObject(id);
             if (obj != null)
             {
                 _context.CategoriaProductos.Remove(obj);
-                _context.SaveChanges();
+                _context.SaveChangesAsync();
             }
         }
-        public CategoriaProducto GetObject(int id)
+        public async Task<CategoriaProducto> GetObject(int id)
         {
-            return _context.CategoriaProductos.Find(id);
+            return await _context.CategoriaProductos.FindAsync(id);
         }
     }
 }

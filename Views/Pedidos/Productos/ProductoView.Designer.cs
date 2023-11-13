@@ -33,15 +33,17 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             tbProductos = new ReaLTaiizor.Controls.PoisonDataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            Descipcion = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Categoria = new DataGridViewTextBoxColumn();
-            Editar = new DataGridViewButtonColumn();
-            Borrar = new DataGridViewButtonColumn();
             panel1 = new Panel();
             btnRegistrar = new ReaLTaiizor.Controls.RoyalButton();
             lblTitulo = new Label();
+            ID = new DataGridViewTextBoxColumn();
+            Descipcion = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            Categoria = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Editar = new DataGridViewButtonColumn();
+            Borrar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)tbProductos).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -70,7 +72,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             tbProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             tbProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tbProductos.Columns.AddRange(new DataGridViewColumn[] { ID, Descipcion, Precio, Categoria, Editar, Borrar });
+            tbProductos.Columns.AddRange(new DataGridViewColumn[] { ID, Descipcion, Precio, Column1, Categoria, Column2, Editar, Borrar });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -107,49 +109,6 @@
             tbProductos.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             tbProductos.CellContentClick += cellContentClick;
             tbProductos.CellPainting += cellPainting;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Visible = false;
-            // 
-            // Descipcion
-            // 
-            Descipcion.HeaderText = "Descripcion";
-            Descipcion.MinimumWidth = 6;
-            Descipcion.Name = "Descipcion";
-            Descipcion.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.MinimumWidth = 6;
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Categoria
-            // 
-            Categoria.HeaderText = "Categoria";
-            Categoria.MinimumWidth = 6;
-            Categoria.Name = "Categoria";
-            Categoria.ReadOnly = true;
-            // 
-            // Editar
-            // 
-            Editar.HeaderText = "Editar";
-            Editar.MinimumWidth = 6;
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            // 
-            // Borrar
-            // 
-            Borrar.HeaderText = "Borrar";
-            Borrar.MinimumWidth = 6;
-            Borrar.Name = "Borrar";
-            Borrar.ReadOnly = true;
             // 
             // panel1
             // 
@@ -198,6 +157,61 @@
             lblTitulo.Text = "Productos";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            // 
+            // Descipcion
+            // 
+            Descipcion.HeaderText = "Descripcion";
+            Descipcion.MinimumWidth = 6;
+            Descipcion.Name = "Descipcion";
+            Descipcion.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.MinimumWidth = 6;
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Stock";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Categoria
+            // 
+            Categoria.HeaderText = "Categoria";
+            Categoria.MinimumWidth = 6;
+            Categoria.Name = "Categoria";
+            Categoria.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Proveedor";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            Editar.HeaderText = "Editar";
+            Editar.MinimumWidth = 6;
+            Editar.Name = "Editar";
+            Editar.ReadOnly = true;
+            // 
+            // Borrar
+            // 
+            Borrar.HeaderText = "Borrar";
+            Borrar.MinimumWidth = 6;
+            Borrar.Name = "Borrar";
+            Borrar.ReadOnly = true;
+            // 
             // ProductoView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -216,14 +230,16 @@
         #endregion
 
         private ReaLTaiizor.Controls.PoisonDataGridView tbProductos;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn Descipcion;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Categoria;
-        private DataGridViewButtonColumn Editar;
-        private DataGridViewButtonColumn Borrar;
         private Panel panel1;
         private ReaLTaiizor.Controls.RoyalButton btnRegistrar;
         private Label lblTitulo;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Descipcion;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Categoria;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewButtonColumn Editar;
+        private DataGridViewButtonColumn Borrar;
     }
 }

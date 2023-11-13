@@ -29,7 +29,6 @@ namespace Hotel.Views.Habitaciones.Categorias
         {
             if (this.categoria != null)
             {
-                txtId.Text = categoria.CategoriaHabitacionId.ToString();
                 txtDescripcion.Text = categoria.Descripcion.ToString();
                 txtCapacidad.Text = categoria.Capacidad.ToString();
             }
@@ -46,7 +45,7 @@ namespace Hotel.Views.Habitaciones.Categorias
                 try
                 {
                     if (categoria == null)
-                    { 
+                    {
                         CategoriaHabitacion categoriaHabitacion = new CategoriaHabitacion
                         {
 
@@ -55,7 +54,7 @@ namespace Hotel.Views.Habitaciones.Categorias
                         };
                         controller.AddObject(categoriaHabitacion);
                         MessageBox.Show("Se ha registrado la nueva categoria correctamente", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
+
                     }
                     else
                     {
@@ -69,7 +68,9 @@ namespace Hotel.Views.Habitaciones.Categorias
                         MessageBox.Show("Datos de la categoria actualizados correctamente", "Actualización exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     this.Close();
-                }catch (Exception ex) {
+                }
+                catch (Exception ex)
+                {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

@@ -15,32 +15,32 @@ namespace Hotel.Controllers
         {
             this._context = context;
         }
-        public List<Empleado> GetAllObjects()
+        public async Task<List<Empleado>> GetAllObjects()
         {
-            return _context.Empleados.Include(e=>e.Cargo).Where(e=>e.Activo == true).ToList();
+            return await _context.Empleados.Include(e=>e.Cargo).Where(e=>e.Activo == true).ToListAsync();
         }
-        public void AddObject(Empleado obj)
+        public async void AddObject(Empleado obj)
         {
             _context.Empleados.Add(obj);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public void DeleteObject(int id)
+        public async void DeleteObject(int id)
         {
-            var obj = _context.Empleados.Find(id);
+            var obj = await _context.Empleados.FindAsync(id);
             if (obj != null)
             {
                 obj.Activo = false;
-                _context.SaveChanges();
+                _context.SaveChangesAsync();
             }
         }
-        public void UpdateObject(Empleado obj)
+        public async void UpdateObject(Empleado obj)
         {
             _context.Update(obj);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
         }
-        public Empleado GetObjectById(int id)
+        public async Task<Empleado> GetObjectById(int id)
         {
-            return _context.Empleados.Include(e => e.Cargo).FirstOrDefault(e=>e.EmpleadoId == id);
+            return await _context.Empleados.Include(e => e.Cargo).FirstOrDefaultAsync(e=>e.EmpleadoId == id);
         }
     }
 }

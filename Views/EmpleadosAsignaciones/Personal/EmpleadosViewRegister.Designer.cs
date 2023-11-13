@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label1 = new Label();
+            dtNacimiento = new ReaLTaiizor.Controls.PoisonDateTime();
             cbxCargo = new ReaLTaiizor.Controls.MaterialComboBox();
             lblTitulo = new Label();
             txtCedula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -38,8 +40,6 @@
             txtTelefono = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtApellido = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            dtNacimiento = new ReaLTaiizor.Controls.PoisonDateTime();
-            label1 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,8 +60,27 @@
             panel1.Location = new Point(12, 11);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(602, 535);
+            panel1.Size = new Size(602, 418);
             panel1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ControlDarkDark;
+            label1.Location = new Point(15, 254);
+            label1.Name = "label1";
+            label1.Size = new Size(169, 20);
+            label1.TabIndex = 9;
+            label1.Text = "Fecha de nacimiento:";
+            // 
+            // dtNacimiento
+            // 
+            dtNacimiento.Location = new Point(15, 277);
+            dtNacimiento.MinimumSize = new Size(0, 29);
+            dtNacimiento.Name = "dtNacimiento";
+            dtNacimiento.Size = new Size(544, 29);
+            dtNacimiento.TabIndex = 8;
             // 
             // cbxCargo
             // 
@@ -85,6 +104,7 @@
             cbxCargo.Size = new Size(258, 49);
             cbxCargo.StartIndex = 0;
             cbxCargo.TabIndex = 7;
+            cbxCargo.UseAccent = false;
             // 
             // lblTitulo
             // 
@@ -127,6 +147,7 @@
             txtCedula.TabStop = false;
             txtCedula.TextAlign = HorizontalAlignment.Left;
             txtCedula.TrailingIcon = null;
+            txtCedula.UseAccent = false;
             txtCedula.UseSystemPasswordChar = false;
             // 
             // btnCancelar
@@ -139,16 +160,16 @@
             btnCancelar.HighEmphasis = true;
             btnCancelar.Icon = null;
             btnCancelar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnCancelar.Location = new Point(155, 374);
+            btnCancelar.Location = new Point(185, 356);
             btnCancelar.Margin = new Padding(4);
             btnCancelar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnCancelar.Name = "btnCancelar";
             btnCancelar.NoAccentTextColor = Color.Empty;
-            btnCancelar.Size = new Size(173, 34);
+            btnCancelar.Size = new Size(207, 38);
             btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnCancelar.UseAccentColor = true;
+            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnCancelar.UseAccentColor = false;
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -162,12 +183,12 @@
             btnGuardar.HighEmphasis = true;
             btnGuardar.Icon = null;
             btnGuardar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnGuardar.Location = new Point(155, 331);
+            btnGuardar.Location = new Point(185, 313);
             btnGuardar.Margin = new Padding(4);
             btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
             btnGuardar.NoAccentTextColor = Color.Empty;
-            btnGuardar.Size = new Size(173, 34);
+            btnGuardar.Size = new Size(207, 38);
             btnGuardar.TabIndex = 4;
             btnGuardar.Text = "Guardar";
             btnGuardar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -205,6 +226,7 @@
             txtCorreo.TabStop = false;
             txtCorreo.TextAlign = HorizontalAlignment.Left;
             txtCorreo.TrailingIcon = null;
+            txtCorreo.UseAccent = false;
             txtCorreo.UseSystemPasswordChar = false;
             // 
             // txtTelefono
@@ -237,6 +259,7 @@
             txtTelefono.TabStop = false;
             txtTelefono.TextAlign = HorizontalAlignment.Left;
             txtTelefono.TrailingIcon = null;
+            txtTelefono.UseAccent = false;
             txtTelefono.UseSystemPasswordChar = false;
             // 
             // txtApellido
@@ -269,6 +292,7 @@
             txtApellido.TabStop = false;
             txtApellido.TextAlign = HorizontalAlignment.Left;
             txtApellido.TrailingIcon = null;
+            txtApellido.UseAccent = false;
             txtApellido.UseSystemPasswordChar = false;
             // 
             // txtNombre
@@ -301,32 +325,14 @@
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Left;
             txtNombre.TrailingIcon = null;
+            txtNombre.UseAccent = false;
             txtNombre.UseSystemPasswordChar = false;
-            // 
-            // dtNacimiento
-            // 
-            dtNacimiento.Location = new Point(15, 277);
-            dtNacimiento.MinimumSize = new Size(0, 29);
-            dtNacimiento.Name = "dtNacimiento";
-            dtNacimiento.Size = new Size(544, 29);
-            dtNacimiento.TabIndex = 8;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(15, 254);
-            label1.Name = "label1";
-            label1.Size = new Size(169, 20);
-            label1.TabIndex = 9;
-            label1.Text = "Fecha de nacimiento:";
             // 
             // EmpleadosViewRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(626, 557);
+            ClientSize = new Size(626, 443);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);

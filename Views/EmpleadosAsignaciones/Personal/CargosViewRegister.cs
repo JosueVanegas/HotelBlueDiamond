@@ -40,7 +40,7 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
                 if (txtDescripcion.Text != "" && txtSalario.Text != "")
                 {
                     var controller = new CargosController(context);
-                    if(cargo != null)
+                    if (cargo != null)
                     {
                         var c = new Cargo
                         {
@@ -60,7 +60,7 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
                         };
                         controller.AddObject(c);
                         MessageBox.Show("Nuevo cargo registrado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                       
+
                     }
                     this.Close();
                 }
@@ -71,7 +71,7 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

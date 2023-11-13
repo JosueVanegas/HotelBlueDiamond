@@ -17,10 +17,10 @@ namespace Hotel.Controllers
             this._context = context;
         }
 
-        public async Task AddObjectAsync(Proveedor obj)
+        public async void AddObjectAsync(Proveedor obj)
         {
-            _context.Proveedors.Add(obj);
-            await _context.SaveChangesAsync();
+            _context.Proveedors.AddAsync(obj);
+             _context.SaveChangesAsync();
         }
 
         public async Task<List<Proveedor>> GetAllObjectAsync()
@@ -28,19 +28,19 @@ namespace Hotel.Controllers
             return await _context.Proveedors.ToListAsync();
         }
 
-        public async Task UpdateObjectAsync(Proveedor obj)
+        public async void UpdateObjectAsync(Proveedor obj)
         {
             _context.Proveedors.Update(obj);
-            await _context.SaveChangesAsync();
+             _context.SaveChangesAsync();
         }
 
-        public async Task DeleteObjectAsync(int id)
+        public async void DeleteObjectAsync(int id)
         {
             var obj = await GetObjectAsync(id);
             if (obj != null)
             {
                 _context.Proveedors.Remove(obj);
-                await _context.SaveChangesAsync();
+                 _context.SaveChangesAsync();
             }
         }
 

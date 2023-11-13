@@ -23,12 +23,12 @@ namespace Hotel.View.ClientesView
             InitializeComponent();
             mostrarClientes();
         }
-        private void mostrarClientes()
+        private async void mostrarClientes()
         {
             Cursor = Cursors.WaitCursor;
             context = new HotelContext();
             controller = new ClienteController(context);
-            var listaClientes = controller.GetAllObjects();
+            var listaClientes = await controller.GetAllObjects();
             tbClientes.Rows.Clear();
             foreach (var i in listaClientes)
             {
@@ -36,7 +36,7 @@ namespace Hotel.View.ClientesView
             }
             Cursor = Cursors.Default;
         }
-        private void cellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
             if (tbClientes.Columns[e.ColumnIndex].Name == "Borrar")
@@ -60,7 +60,7 @@ namespace Hotel.View.ClientesView
             if (tbClientes.Columns[e.ColumnIndex].Name == "Editar")
             {
                 int ClienteId = Convert.ToInt32(tbClientes.Rows[indice].Cells["Id"].Value);
-                var cliente = controller.GetObjectById(ClienteId);
+                var cliente = await controller.GetObjectById(ClienteId);
                 ClienteViewRegister form = new ClienteViewRegister(cliente);
                 mostrarClientes();
             }

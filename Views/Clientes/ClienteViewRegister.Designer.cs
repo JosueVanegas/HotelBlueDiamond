@@ -70,6 +70,7 @@
             txtNombre.TabStop = false;
             txtNombre.TextAlign = HorizontalAlignment.Left;
             txtNombre.TrailingIcon = null;
+            txtNombre.UseAccent = false;
             txtNombre.UseSystemPasswordChar = false;
             // 
             // lblTitulo
@@ -130,6 +131,7 @@
             txtCedula.TabStop = false;
             txtCedula.TextAlign = HorizontalAlignment.Left;
             txtCedula.TrailingIcon = null;
+            txtCedula.UseAccent = false;
             txtCedula.UseSystemPasswordChar = false;
             // 
             // btnCancelar
@@ -150,8 +152,8 @@
             btnCancelar.Size = new Size(173, 34);
             btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnCancelar.UseAccentColor = true;
+            btnCancelar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnCancelar.UseAccentColor = false;
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -208,6 +210,7 @@
             txtCorreo.TabStop = false;
             txtCorreo.TextAlign = HorizontalAlignment.Left;
             txtCorreo.TrailingIcon = null;
+            txtCorreo.UseAccent = false;
             txtCorreo.UseSystemPasswordChar = false;
             // 
             // txtTelefono
@@ -240,6 +243,7 @@
             txtTelefono.TabStop = false;
             txtTelefono.TextAlign = HorizontalAlignment.Left;
             txtTelefono.TrailingIcon = null;
+            txtTelefono.UseAccent = false;
             txtTelefono.UseSystemPasswordChar = false;
             // 
             // txtApellido
@@ -272,6 +276,7 @@
             txtApellido.TabStop = false;
             txtApellido.TextAlign = HorizontalAlignment.Left;
             txtApellido.TrailingIcon = null;
+            txtApellido.UseAccent = false;
             txtApellido.UseSystemPasswordChar = false;
             // 
             // ClienteViewRegister

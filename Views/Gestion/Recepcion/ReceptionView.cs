@@ -22,7 +22,7 @@ namespace Hotel.Views.GestionView
         HotelContext context;
         Habitacion habitacion;
         Usuario usuario;
-        public ReceptionView(Habitacion habitacion,Usuario usuario)
+        public ReceptionView(Habitacion habitacion, Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
@@ -34,10 +34,13 @@ namespace Hotel.Views.GestionView
             mostrarDetallesHabitacion();
             this.TransparencyKey = Color.Empty;
         }
-        private void mostrarClientes()
+        private async void mostrarClientes()
         {
-            cbxCliente.DataSource = new ClienteController(context).GetAllObjects();
-            cbxCliente.DisplayMember = "Cedula";
+            using (var cont = new HotelContext())
+            {
+                cbxCliente.DataSource = await new ClienteController(cont).GetAllObjects();
+                cbxCliente.DisplayMember = "Cedula";
+            }
         }
         private void mostrarDetallesHabitacion()
         {
@@ -90,6 +93,11 @@ namespace Hotel.Views.GestionView
             ClienteViewRegister form = new ClienteViewRegister(null);
             form.ShowDialog();
             mostrarClientes();
+        }
+
+        private void txtCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

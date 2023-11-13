@@ -169,5 +169,10 @@ namespace Hotel.Views.Gestion.Salidas
                 e.Handled = true;
             }
         }
+
+        private void txtCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
