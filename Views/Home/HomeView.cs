@@ -9,6 +9,7 @@ using Hotel.Views.Habitaciones;
 using Hotel.Views.Home;
 using Hotel.Views.Pedidos.Productos;
 using Hotel.Views.Pedidos.Proveedores;
+using Hotel.Views.Pedidos.Ventas;
 using Hotel.Views.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -163,6 +164,11 @@ namespace Hotel.Views.Home
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             abrirFormulario(new ProveedorView());
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new VentaView());
         }
     }
 }

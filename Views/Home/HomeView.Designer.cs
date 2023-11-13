@@ -114,6 +114,7 @@
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             resources.ApplyResources(productosToolStripMenuItem, "productosToolStripMenuItem");
+            productosToolStripMenuItem.Click += productosToolStripMenuItem_Click;
             // 
             // categoriasToolStripMenuItem1
             // 
