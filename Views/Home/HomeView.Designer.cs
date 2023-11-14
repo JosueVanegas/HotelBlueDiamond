@@ -209,6 +209,7 @@
             // 
             informeDeInventarioToolStripMenuItem.Name = "informeDeInventarioToolStripMenuItem";
             resources.ApplyResources(informeDeInventarioToolStripMenuItem, "informeDeInventarioToolStripMenuItem");
+            informeDeInventarioToolStripMenuItem.Click += informeDeInventarioToolStripMenuItem_Click;
             // 
             // informeDeToolStripMenuItem
             // 

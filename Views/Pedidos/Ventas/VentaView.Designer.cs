@@ -37,14 +37,6 @@
             panelHabitaciones = new FlowLayoutPanel();
             label2 = new Label();
             tbDetalles = new ReaLTaiizor.Controls.PoisonDataGridView();
-            label3 = new Label();
-            txtNumero = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtCategoria = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtPiso = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            label4 = new Label();
-            txtCedula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtApellido = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             ID = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
@@ -54,6 +46,17 @@
             Agregar = new DataGridViewButtonColumn();
             Quitar = new DataGridViewButtonColumn();
             Borrar = new DataGridViewButtonColumn();
+            label3 = new Label();
+            txtNumero = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtCategoria = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtPiso = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            label4 = new Label();
+            txtCedula = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtApellido = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            btnGuardar = new ReaLTaiizor.Controls.MaterialButton();
+            ckbCancelado = new ReaLTaiizor.Controls.MaterialCheckBox();
+            txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             ((System.ComponentModel.ISupportInitialize)tbDetalles).BeginInit();
             SuspendLayout();
             // 
@@ -62,10 +65,10 @@
             panelCarousel.AutoScroll = true;
             panelCarousel.BackColor = Color.Beige;
             panelCarousel.Dock = DockStyle.Bottom;
-            panelCarousel.Location = new Point(0, 612);
+            panelCarousel.Location = new Point(0, 669);
             panelCarousel.Margin = new Padding(0);
             panelCarousel.Name = "panelCarousel";
-            panelCarousel.Size = new Size(1029, 138);
+            panelCarousel.Size = new Size(1029, 146);
             panelCarousel.TabIndex = 0;
             // 
             // label1
@@ -73,7 +76,7 @@
             label1.Dock = DockStyle.Bottom;
             label1.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Gray;
-            label1.Location = new Point(0, 573);
+            label1.Location = new Point(0, 630);
             label1.Margin = new Padding(5);
             label1.Name = "label1";
             label1.Size = new Size(1029, 39);
@@ -86,7 +89,7 @@
             panelHabitaciones.AutoScroll = true;
             panelHabitaciones.BackColor = Color.Beige;
             panelHabitaciones.Dock = DockStyle.Bottom;
-            panelHabitaciones.Location = new Point(0, 423);
+            panelHabitaciones.Location = new Point(0, 480);
             panelHabitaciones.Margin = new Padding(0);
             panelHabitaciones.Name = "panelHabitaciones";
             panelHabitaciones.Size = new Size(1029, 150);
@@ -97,7 +100,7 @@
             label2.Dock = DockStyle.Bottom;
             label2.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Gray;
-            label2.Location = new Point(0, 384);
+            label2.Location = new Point(0, 441);
             label2.Margin = new Padding(5);
             label2.Name = "label2";
             label2.Size = new Size(1029, 39);
@@ -142,7 +145,7 @@
             tbDetalles.EnableHeadersVisualStyles = false;
             tbDetalles.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbDetalles.GridColor = Color.FromArgb(255, 255, 255);
-            tbDetalles.Location = new Point(0, 254);
+            tbDetalles.Location = new Point(0, 311);
             tbDetalles.Margin = new Padding(3, 2, 3, 2);
             tbDetalles.MultiSelect = false;
             tbDetalles.Name = "tbDetalles";
@@ -167,12 +170,74 @@
             tbDetalles.CellContentClick += cellContentClick;
             tbDetalles.CellPainting += cellPainting;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            // 
+            // Producto
+            // 
+            Producto.HeaderText = "Descripción";
+            Producto.MinimumWidth = 6;
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            Estado.HeaderText = "Categoria";
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio unitario";
+            Precio.MinimumWidth = 6;
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.MinimumWidth = 6;
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            Subtotal.HeaderText = "Subtotal";
+            Subtotal.MinimumWidth = 6;
+            Subtotal.Name = "Subtotal";
+            Subtotal.ReadOnly = true;
+            // 
+            // Agregar
+            // 
+            Agregar.HeaderText = "Agregar";
+            Agregar.MinimumWidth = 6;
+            Agregar.Name = "Agregar";
+            Agregar.ReadOnly = true;
+            // 
+            // Quitar
+            // 
+            Quitar.HeaderText = "Quitar";
+            Quitar.Name = "Quitar";
+            Quitar.ReadOnly = true;
+            // 
+            // Borrar
+            // 
+            Borrar.HeaderText = "Borrar";
+            Borrar.MinimumWidth = 6;
+            Borrar.Name = "Borrar";
+            Borrar.ReadOnly = true;
+            // 
             // label3
             // 
             label3.Dock = DockStyle.Bottom;
             label3.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Gray;
-            label3.Location = new Point(0, 215);
+            label3.Location = new Point(0, 272);
             label3.Margin = new Padding(5);
             label3.Name = "label3";
             label3.Size = new Size(1029, 39);
@@ -390,73 +455,89 @@
             txtNombre.UseAccent = false;
             txtNombre.UseSystemPasswordChar = false;
             // 
-            // ID
+            // btnGuardar
             // 
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Visible = false;
+            btnGuardar.AutoSize = false;
+            btnGuardar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnGuardar.BackColor = Color.Black;
+            btnGuardar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnGuardar.Depth = 0;
+            btnGuardar.HighEmphasis = true;
+            btnGuardar.Icon = null;
+            btnGuardar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnGuardar.Location = new Point(12, 138);
+            btnGuardar.Margin = new Padding(4);
+            btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.NoAccentTextColor = Color.Empty;
+            btnGuardar.Size = new Size(311, 48);
+            btnGuardar.TabIndex = 66;
+            btnGuardar.Text = "Realizar venta";
+            btnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            btnGuardar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnGuardar.UseAccentColor = false;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
-            // Producto
+            // ckbCancelado
             // 
-            Producto.HeaderText = "Descripción";
-            Producto.MinimumWidth = 6;
-            Producto.Name = "Producto";
-            Producto.ReadOnly = true;
+            ckbCancelado.Depth = 0;
+            ckbCancelado.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ckbCancelado.Location = new Point(661, 138);
+            ckbCancelado.Margin = new Padding(0);
+            ckbCancelado.MouseLocation = new Point(-1, -1);
+            ckbCancelado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            ckbCancelado.Name = "ckbCancelado";
+            ckbCancelado.ReadOnly = false;
+            ckbCancelado.Ripple = true;
+            ckbCancelado.Size = new Size(325, 37);
+            ckbCancelado.TabIndex = 67;
+            ckbCancelado.Text = "¿el pedido ha sido cancelado?";
+            ckbCancelado.TextAlign = ContentAlignment.MiddleCenter;
+            ckbCancelado.UseAccentColor = false;
+            ckbCancelado.UseVisualStyleBackColor = true;
             // 
-            // Estado
+            // txtTotal
             // 
-            Estado.HeaderText = "Categoria";
-            Estado.Name = "Estado";
-            Estado.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio unitario";
-            Precio.MinimumWidth = 6;
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.MinimumWidth = 6;
-            Cantidad.Name = "Cantidad";
-            Cantidad.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            Subtotal.HeaderText = "Subtotal";
-            Subtotal.MinimumWidth = 6;
-            Subtotal.Name = "Subtotal";
-            Subtotal.ReadOnly = true;
-            // 
-            // Agregar
-            // 
-            Agregar.HeaderText = "Agregar";
-            Agregar.MinimumWidth = 6;
-            Agregar.Name = "Agregar";
-            Agregar.ReadOnly = true;
-            // 
-            // Quitar
-            // 
-            Quitar.HeaderText = "Quitar";
-            Quitar.Name = "Quitar";
-            Quitar.ReadOnly = true;
-            // 
-            // Borrar
-            // 
-            Borrar.HeaderText = "Borrar";
-            Borrar.MinimumWidth = 6;
-            Borrar.Name = "Borrar";
-            Borrar.ReadOnly = true;
+            txtTotal.AnimateReadOnly = false;
+            txtTotal.AutoCompleteMode = AutoCompleteMode.None;
+            txtTotal.AutoCompleteSource = AutoCompleteSource.None;
+            txtTotal.BackgroundImageLayout = ImageLayout.None;
+            txtTotal.CharacterCasing = CharacterCasing.Normal;
+            txtTotal.Depth = 0;
+            txtTotal.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtTotal.HideSelection = true;
+            txtTotal.Hint = "Total a pagar";
+            txtTotal.LeadingIcon = null;
+            txtTotal.Location = new Point(330, 138);
+            txtTotal.Margin = new Padding(3, 2, 3, 2);
+            txtTotal.MaxLength = 32767;
+            txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtTotal.Name = "txtTotal";
+            txtTotal.PasswordChar = '\0';
+            txtTotal.PrefixSuffixText = null;
+            txtTotal.ReadOnly = true;
+            txtTotal.RightToLeft = RightToLeft.No;
+            txtTotal.SelectedText = "";
+            txtTotal.SelectionLength = 0;
+            txtTotal.SelectionStart = 0;
+            txtTotal.ShortcutsEnabled = true;
+            txtTotal.Size = new Size(325, 48);
+            txtTotal.TabIndex = 68;
+            txtTotal.TabStop = false;
+            txtTotal.TextAlign = HorizontalAlignment.Left;
+            txtTotal.TrailingIcon = null;
+            txtTotal.UseAccent = false;
+            txtTotal.UseSystemPasswordChar = false;
             // 
             // VentaView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1029, 750);
+            ClientSize = new Size(1029, 815);
+            Controls.Add(txtTotal);
+            Controls.Add(ckbCancelado);
+            Controls.Add(btnGuardar);
             Controls.Add(txtCedula);
             Controls.Add(txtApellido);
             Controls.Add(txtNombre);
@@ -501,5 +582,8 @@
         private DataGridViewButtonColumn Agregar;
         private DataGridViewButtonColumn Quitar;
         private DataGridViewButtonColumn Borrar;
+        private ReaLTaiizor.Controls.MaterialButton btnGuardar;
+        private ReaLTaiizor.Controls.MaterialCheckBox ckbCancelado;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
     }
 }

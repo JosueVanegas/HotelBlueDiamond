@@ -173,6 +173,7 @@
             txtSalario.TrailingIcon = null;
             txtSalario.UseAccent = false;
             txtSalario.UseSystemPasswordChar = false;
+            txtSalario.KeyPress += txtSalario_KeyPress;
             // 
             // CargosViewRegister
             // 

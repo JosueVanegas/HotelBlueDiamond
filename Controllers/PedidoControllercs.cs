@@ -1,4 +1,5 @@
 ﻿using Hotel.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,11 @@ namespace Hotel.Controllers
         {
             this._context = context;
         }
-        public void AddObject(Pedido obj)
+        public int AddObject(Pedido obj)
         {
             _context.Pedidos.Add(obj);
             _context.SaveChanges();
+            return obj.PedidoId;
         }
         public List<Pedido> GetAllObject()
         {
@@ -40,6 +42,20 @@ namespace Hotel.Controllers
         public Pedido GetObject(int id)
         {
             return _context.Pedidos.Find(id);
+        }
+        public void AddDetalles(DetallePedido obj)
+        {
+            _context.DetallePedidos.Add(obj);
+            _context.SaveChanges();
+        }
+        public void CancelarPedido(int id)
+        {
+            var obj = _context.Pedidos.Include(p=>p.ReservaId == id).FirstOrDefault();
+            if(obj != null)
+            {
+                obj.Estado = true;
+                _context.SaveChanges();
+            }
         }
 
     }

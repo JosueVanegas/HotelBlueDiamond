@@ -79,5 +79,30 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
         {
             this.Close();
         }
+
+        private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (e.KeyChar == '.' && textBox.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (e.KeyChar == '.' && textBox.Text.Contains("."))
+            {
+                e.Handled = true;
+                return;
+            }
+            if (textBox.Text.Length >= 10 || (textBox.Text.Contains(".") && textBox.Text.Split('.')[1].Length >= 2) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

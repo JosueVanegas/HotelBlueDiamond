@@ -61,6 +61,16 @@ namespace Hotel.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap agregar {
+            get {
+                object obj = ResourceManager.GetObject("agregar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a JosueDavidVanegasRocha.
         /// </summary>
         internal static string Author {
@@ -94,6 +104,16 @@ namespace Hotel.Properties {
         internal static System.Drawing.Bitmap eliminarImg {
             get {
                 object obj = ResourceManager.GetObject("eliminarImg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quitar {
+            get {
+                object obj = ResourceManager.GetObject("quitar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

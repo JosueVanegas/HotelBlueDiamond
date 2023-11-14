@@ -97,7 +97,7 @@ namespace Hotel.Views.Login
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

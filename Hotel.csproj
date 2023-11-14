@@ -15,12 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microcharts.Forms" Version="0.9.5.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.13">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.6" />
+    <PackageReference Include="Verify.QuestPDF" Version="2.2.2" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />
   </ItemGroup>
 

@@ -17,6 +17,7 @@ namespace Hotel.Views.Pedidos.Ventas
 {
     public partial class VentaView : Form
     {
+        int ReservaID;
         ProductoController controller;
         public VentaView()
         {
@@ -72,13 +73,32 @@ namespace Hotel.Views.Pedidos.Ventas
                     };
                     boton.Click += (s, e) =>
                     {
-                        var subTotal = i.Precio * 1;
-                        tbDetalles.Rows.Add(i.ProductoId, i.Descripcion, i.CategoriaProducto.Descripcion, i.Precio,1 ,subTotal,"","","");
+                        int existingRowIndex = -1;
+                        foreach (DataGridViewRow row in tbDetalles.Rows)
+                        {
+                            if (Convert.ToInt32(row.Cells["Id"].Value) == i.ProductoId)
+                            {
+                                existingRowIndex = row.Index;
+                                break;
+                            }
+                        }
+                        if (existingRowIndex != -1)
+                        {
+                            var cantidad = Convert.ToInt32(tbDetalles.Rows[existingRowIndex].Cells["Cantidad"].Value);
+                            tbDetalles.Rows[existingRowIndex].Cells["Cantidad"].Value = cantidad + 1;
+                            var precio = Convert.ToDecimal(tbDetalles.Rows[existingRowIndex].Cells["Precio"].Value);
+                            tbDetalles.Rows[existingRowIndex].Cells["Subtotal"].Value = precio * (cantidad + 1);
+                        }
+                        else
+                        {
+                            var subTotal = i.Precio * 1;
+                            tbDetalles.Rows.Add(i.ProductoId, i.Descripcion, i.CategoriaProducto.Descripcion, i.Precio, 1, subTotal, "", "", "");
+                        }
+                        calcularTotal();
                     };
                     panel.Controls.Add(boton);
                     panel.Controls.Add(HNumber);
                     panel.Controls.Add(labelSup);
-
                     panelCarousel.Controls.Add(panel);
                 }
             }
@@ -91,7 +111,6 @@ namespace Hotel.Views.Pedidos.Ventas
                 {
                     int itemWidth = 150;
                     int itemHeight = 150;
-
                     var habitaciones = new HabitacionesController(context).GetAllObjects();
                     if (habitaciones.Count != 0)
                     {
@@ -138,7 +157,7 @@ namespace Hotel.Views.Pedidos.Ventas
                                 };
                                 boton.Click += (s, e) =>
                                 {
-                                    using(var context = new HotelContext())
+                                    using (var context = new HotelContext())
                                     {
                                         var controller = new RecepcionController(context);
                                         var reserva = controller.GetReservaByHabitacion(i.HabitacionId);
@@ -148,6 +167,7 @@ namespace Hotel.Views.Pedidos.Ventas
                                         txtNumero.Text = i.Codigo;
                                         txtPiso.Text = i.Piso.Descripcion;
                                         txtCategoria.Text = i.CategoriaHabitacion.Descripcion;
+                                        ReservaID = reserva.ReservaId;
                                     }
                                 };
                                 panel.Controls.Add(boton);
@@ -170,39 +190,55 @@ namespace Hotel.Views.Pedidos.Ventas
         private async void cellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int indice = e.RowIndex;
-            if (tbDetalles.Columns[e.ColumnIndex].Name == "Borrar")
-            {
-                tbDetalles.Rows.RemoveAt(indice);
+            var nuevaCantidad = 0;
+            var cantidad = 0;
+            cantidad = Convert.ToInt32(tbDetalles.Rows[indice].Cells["Cantidad"].Value);
 
 
-            }
             if (tbDetalles.Columns[e.ColumnIndex].Name == "Agregar")
             {
-                int cantidad = Convert.ToInt32(tbDetalles.Rows[indice].Cells["Cantidad"].Value);
-                tbDetalles.Rows[indice].Cells["Cantidad"].Value = cantidad + 1;
+                nuevaCantidad = cantidad + 1;
             }
             if (tbDetalles.Columns[e.ColumnIndex].Name == "Quitar")
             {
-                int cantidad = Convert.ToInt32(tbDetalles.Rows[indice].Cells["Cantidad"].Value);
-               if(cantidad != 1)
+                if (cantidad >= 1)
                 {
-                    tbDetalles.Rows[indice].Cells["Cantidad"].Value = cantidad - 1;
+                    nuevaCantidad = cantidad - 1;
                 }
             }
+            tbDetalles.Rows[indice].Cells["Cantidad"].Value = nuevaCantidad;
+            var precio = Convert.ToDecimal(tbDetalles.Rows[indice].Cells["Precio"].Value);
+            tbDetalles.Rows[indice].Cells["Subtotal"].Value = precio * nuevaCantidad;
+            if (tbDetalles.Columns[e.ColumnIndex].Name == "Borrar")
+            {
+                tbDetalles.Rows.RemoveAt(indice);
+            }
+            calcularTotal();
         }
         private void cellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 6)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                var h = Properties.Resources.editarImg.Height;
-                var w = Properties.Resources.editarImg.Width;
+                var h = Properties.Resources.agregar.Height;
+                var w = Properties.Resources.agregar.Width;
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                e.Graphics.DrawImage(Properties.Resources.editarImg, new Rectangle(x, y, w, h));
+                e.Graphics.DrawImage(Properties.Resources.agregar, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 7)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var h = Properties.Resources.quitar.Height;
+                var w = Properties.Resources.quitar.Width;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.quitar, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
             if (e.ColumnIndex == 8)
@@ -216,6 +252,86 @@ namespace Hotel.Views.Pedidos.Ventas
                 e.Graphics.DrawImage(Properties.Resources.eliminarImg, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+        private void calcularTotal()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow i in tbDetalles.Rows)
+            {
+                if (i != null)
+                {
+                    total += Convert.ToDecimal(i.Cells["subTotal"].Value);
+                }
+            }
+            txtTotal.Text = total.ToString();
+        }
+        private void limpiarCampos()
+        {
+            txtApellido.Text = string.Empty;
+            txtTotal.Text = string.Empty;
+            txtPiso.Text = string.Empty;
+            txtCategoria.Text = string.Empty;
+            txtCategoria.Text = string.Empty;
+            txtCedula.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtNumero.Text = string.Empty;
+            tbDetalles.Rows.Clear();
+        }
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                if (txtNumero.Text != "")
+                {
+                    if (txtTotal.Text != "")
+                    {
+                        var cancelado = ckbCancelado.Checked;
+                        var pedido = new Pedido
+                        {
+                            ReservaId = ReservaID,
+                            Estado = cancelado,
+                            Fecha = DateTime.Now,
+                        };
+                        int _idPedido;
+                        using (var context = new HotelContext())
+                        {
+                            var controller = new PedidoControllercs(context);
+                            _idPedido = controller.AddObject(pedido);
+                            if (_idPedido != 0)
+                            {
+                                foreach (DataGridViewRow i in tbDetalles.Rows)
+                                {
+                                    var idProducto = Convert.ToInt32(i.Cells["Id"].Value);
+                                    var cantidad = Convert.ToInt32(i.Cells["Cantidad"].Value);
+                                    var detalle = new DetallePedido
+                                    {
+                                        PedidoId = _idPedido,
+                                        ProductoId = idProducto,
+                                        Cantidad = cantidad,
+                                    };
+                                    controller.AddDetalles(detalle);
+                                }
+                                limpiarCampos();
+                                MessageBox.Show("El pedido ha sido registrado correctamente", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha comprado nada aun", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione la habitación a la que se le enviara el pedido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            this.Cursor = Cursors.Default;
         }
     }
 }

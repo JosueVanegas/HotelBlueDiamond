@@ -29,8 +29,24 @@ namespace Hotel.Views.Gestion.Salidas
         {
             var controller = new RecepcionController(context);
             var lista = controller.GetPedidoByHabitacion(id);
-            foreach (var item in lista)
+            bool? estadoPago = false;
+            foreach (var i in lista)
             {
+                estadoPago = i.Estado;
+                foreach (var j in i.DetallePedidos)
+                {
+                    var subtotal = 0;
+                    var estado = "";
+                    if (estadoPago == true)
+                    {
+                        estado = "pagado";
+                    }
+                    if (estadoPago == false)
+                    {
+                        estado = "pendiente";
+                    }
+                    tbDetallles.Rows.Add(j.Cantidad, j.Producto.Descripcion);
+                }
             }
         }
         private void mostrarDatos(int id)
@@ -41,23 +57,19 @@ namespace Hotel.Views.Gestion.Salidas
                 reserva = controller.GetReservaByHabitacion(id);
                 if (reserva != null)
                 {
-                    //informacion del cliente
                     txtNombre.Text = reserva.Cliente.Nombre;
                     txtApellido.Text = reserva.Cliente.Apellido;
                     txtCedula.Text = reserva.Cliente.Cedula;
                     txtCantidadHuespedes.Text = reserva.CantidadPersonas.ToString();
-                    //infromacion de la reserva
                     dtpEntrada.Text = reserva.FechaEntrada.ToString();
                     dtpSalida.Text = reserva.FechaSalida.ToString();
                     txtAdelanto.Text = reserva.Adelanto.ToString();
-                    //informacion de la habitacion
                     txtNumero.Text = reserva.Habitacion.Codigo;
                     txtCategoria.Text = reserva.Habitacion.CategoriaHabitacion.Descripcion;
                     txtPrecioPH.Text = reserva.Habitacion.PrecioPh.ToString();
                     txtPiso.Text = reserva.Habitacion.Piso.Descripcion;
                     txtDetalles.Text = reserva.Habitacion.Detalles;
                     txtExtras.Text = reserva.Habitacion.Extras;
-                    //informacion del servicio a la habitación
                     mostrarServicio(id);
                     calculosTotales();
                 }

@@ -242,7 +242,7 @@
     <value>Hospedaje</value>
   </data>
   <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 30</value>
+    <value>169, 30</value>
   </data>
   <data name="productosToolStripMenuItem.Text" xml:space="preserve">
     <value>Vender</value>
@@ -266,13 +266,13 @@
     <value>Proveedores</value>
   </data>
   <data name="categoriasToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 30</value>
+    <value>169, 30</value>
   </data>
   <data name="categoriasToolStripMenuItem1.Text" xml:space="preserve">
     <value>Inventario</value>
   </data>
   <data name="comprarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 30</value>
+    <value>169, 30</value>
   </data>
   <data name="comprarToolStripMenuItem.Text" xml:space="preserve">
     <value>Comprar</value>

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalidaViewRegister));
             dtpSalida = new Label();
             dtpEntrada = new Label();
@@ -54,7 +54,7 @@
             txtApellido = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             label6 = new Label();
-            tbClientes = new ReaLTaiizor.Controls.PoisonDataGridView();
+            tbDetallles = new ReaLTaiizor.Controls.PoisonDataGridView();
             ID = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             Precio = new DataGridViewTextBoxColumn();
@@ -72,7 +72,7 @@
             txtCargoEstancia = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCancelar = new ReaLTaiizor.Controls.MaterialButton();
             panel1 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)tbClientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbDetallles).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -533,64 +533,64 @@
             label6.Text = "Información del Cliente";
             label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // tbClientes
+            // tbDetallles
             // 
-            tbClientes.AllowUserToAddRows = false;
-            tbClientes.AllowUserToDeleteRows = false;
-            tbClientes.AllowUserToResizeColumns = false;
-            tbClientes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 204, 137);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            tbClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            tbClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            tbClientes.BackgroundColor = Color.FromArgb(255, 255, 255);
-            tbClientes.BorderStyle = BorderStyle.None;
-            tbClientes.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            tbClientes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 170, 173);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 201, 206);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            tbClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            tbClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tbClientes.Columns.AddRange(new DataGridViewColumn[] { ID, Producto, Precio, Cantidad, Subtotal, Estado, Editar, Borrar });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 201, 206);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            tbClientes.DefaultCellStyle = dataGridViewCellStyle3;
-            tbClientes.EnableHeadersVisualStyles = false;
-            tbClientes.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbClientes.GridColor = Color.FromArgb(255, 255, 255);
-            tbClientes.Location = new Point(6, 473);
-            tbClientes.Margin = new Padding(3, 2, 3, 2);
-            tbClientes.MultiSelect = false;
-            tbClientes.Name = "tbClientes";
-            tbClientes.ReadOnly = true;
-            tbClientes.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 170, 173);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 201, 206);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            tbClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            tbClientes.RowHeadersWidth = 51;
-            tbClientes.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            tbClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tbClientes.Size = new Size(786, 130);
-            tbClientes.StandardTab = true;
-            tbClientes.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Teal;
-            tbClientes.TabIndex = 56;
-            tbClientes.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            tbDetallles.AllowUserToAddRows = false;
+            tbDetallles.AllowUserToDeleteRows = false;
+            tbDetallles.AllowUserToResizeColumns = false;
+            tbDetallles.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(244, 204, 137);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            tbDetallles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            tbDetallles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tbDetallles.BackgroundColor = Color.FromArgb(255, 255, 255);
+            tbDetallles.BorderStyle = BorderStyle.None;
+            tbDetallles.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            tbDetallles.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 170, 173);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            tbDetallles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            tbDetallles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tbDetallles.Columns.AddRange(new DataGridViewColumn[] { ID, Producto, Precio, Cantidad, Subtotal, Estado, Editar, Borrar });
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            tbDetallles.DefaultCellStyle = dataGridViewCellStyle7;
+            tbDetallles.EnableHeadersVisualStyles = false;
+            tbDetallles.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbDetallles.GridColor = Color.FromArgb(255, 255, 255);
+            tbDetallles.Location = new Point(6, 473);
+            tbDetallles.Margin = new Padding(3, 2, 3, 2);
+            tbDetallles.MultiSelect = false;
+            tbDetallles.Name = "tbDetallles";
+            tbDetallles.ReadOnly = true;
+            tbDetallles.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(0, 170, 173);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            tbDetallles.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            tbDetallles.RowHeadersWidth = 51;
+            tbDetallles.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            tbDetallles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            tbDetallles.Size = new Size(786, 130);
+            tbDetallles.StandardTab = true;
+            tbDetallles.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Teal;
+            tbDetallles.TabIndex = 56;
+            tbDetallles.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             // 
             // ID
             // 
@@ -912,7 +912,7 @@
             panel1.Controls.Add(txtExtras);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(lblDetalles);
-            panel1.Controls.Add(tbClientes);
+            panel1.Controls.Add(tbDetallles);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label2);
@@ -943,7 +943,7 @@
             Name = "SalidaViewRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SalidaViewRegister";
-            ((System.ComponentModel.ISupportInitialize)tbClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbDetallles).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -970,7 +970,7 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtApellido;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNombre;
         private Label label6;
-        private ReaLTaiizor.Controls.PoisonDataGridView tbClientes;
+        private ReaLTaiizor.Controls.PoisonDataGridView tbDetallles;
         private Label label7;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Producto;
