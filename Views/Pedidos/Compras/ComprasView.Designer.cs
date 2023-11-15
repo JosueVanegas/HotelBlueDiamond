@@ -242,7 +242,7 @@
             btnGuardar.NoAccentTextColor = Color.Empty;
             btnGuardar.Size = new Size(311, 48);
             btnGuardar.TabIndex = 69;
-            btnGuardar.Text = "Realizar venta";
+            btnGuardar.Text = "Finalizar compra";
             btnGuardar.TextAlign = ContentAlignment.BottomCenter;
             btnGuardar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnGuardar.UseAccentColor = false;
