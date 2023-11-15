@@ -21,15 +21,18 @@ namespace Hotel.Controllers
            return await _context.Compras.ToListAsync();
 
         }
-        public async void AddObject(Compra obj)
+        public async Task<int> AddObject(Compra obj)
         {
             _context.Compras.Add(obj);
-            _context.SaveChangesAsync();
+             await _context.SaveChangesAsync();
+            int idG = obj.CompraId;
+
+            return idG;
         }
         public async void UpdateObject(Compra obj)
         {
             _context.Compras.Update(obj);
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
         public async void DeleteObject(int id)
         {
@@ -37,13 +40,27 @@ namespace Hotel.Controllers
             if (obj != null)
             {
                 _context.Compras.Remove(obj);
-                _context.SaveChangesAsync();
+               await _context.SaveChangesAsync();
             }
         }
         public async Task<Compra> FindObject(int id)
         {
             return await _context.Compras.FindAsync(id);
             
+        }
+        public void AddDetalles(DetalleCompra obj)
+        {
+            _context.DetalleCompras.Add(obj);
+            _context.SaveChanges();
+        }
+        public void ChageStockProductLess(int productID,int newStock)
+        {
+           var product = _context.Productos.Where(p=>p.ProductoId == productID).FirstOrDefault();
+            if(product != null)
+            {
+                product.Stock = newStock; 
+                _context.SaveChanges();
+            }
         }
     }
 }

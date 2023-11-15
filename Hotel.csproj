@@ -21,6 +21,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Report.Viewer" Version="11.0.0" />
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.6" />
     <PackageReference Include="Verify.QuestPDF" Version="2.2.2" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />

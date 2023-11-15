@@ -13,5 +13,7 @@ public partial class MovimientoProducto
 
     public DateTime? FechaRegistro { get; set; }
 
+    public decimal? UltimoPrecio { get; set; }
+
     public virtual Producto? Producto { get; set; }
 }

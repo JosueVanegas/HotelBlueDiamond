@@ -43,9 +43,9 @@ namespace Hotel.Controllers
                 _context.SaveChangesAsync();
             }
         }
-        public async Task<Usuario> GetObjectByUser(string usuario)
+        public Usuario GetObjectByUser(string usuario)
         {
-            var user = await _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u => u.Usuario1 == usuario).FirstOrDefaultAsync();
+            var user =  _context.Usuarios.Include(u => u.Rol).Include(u => u.Empleado).Where(u => u.Usuario1 == usuario).FirstOrDefault();
             return user;
         }
         public async Task<Usuario> GetObjectById(int id)
@@ -54,7 +54,7 @@ namespace Hotel.Controllers
             return user;
         }
 
-        public async Task<bool> GetValue(string usuario, string clave)
+        public bool GetValue(string usuario, string clave)
         {
             var usuarioParam = new SqlParameter("@Usuario", usuario);
             var claveParam = new SqlParameter("@Clave", clave);
@@ -65,7 +65,7 @@ namespace Hotel.Controllers
                 Direction = ParameterDirection.Output
             };
 
-            _context.Database.ExecuteSqlRawAsync($"EXEC dbo.PROC_READ_ENCRYP_PASSWORD @Usuario, @Clave, @Permitir OUTPUT",usuarioParam,claveParam,permitirParam);
+            _context.Database.ExecuteSqlRaw($"EXEC dbo.PROC_READ_ENCRYP_PASSWORD @Usuario, @Clave, @Permitir OUTPUT",usuarioParam,claveParam,permitirParam);
 
             return  (bool)permitirParam.Value;
         }

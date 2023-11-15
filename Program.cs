@@ -5,6 +5,7 @@ using Hotel.Views.Ayudas;
 using Hotel.Views.GestionView;
 using Hotel.Views.Login;
 using Hotel.Views.Usuarios;
+using Hotel.Views.Pedidos.Compras;
 
 
 
@@ -19,7 +20,7 @@ namespace Hotel
         static  void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new HomeView(null));
+            Application.Run(new LoginView());
         }
     }
 }

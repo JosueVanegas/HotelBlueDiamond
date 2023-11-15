@@ -1,8 +1,5 @@
 ﻿using Hotel.Controllers;
 using Hotel.Models;
-using Hotel.View.ClientesView;
-using Hotel.Views.Gestion.Salidas;
-using Hotel.Views.GestionView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,28 +10,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hotel.Views.Pedidos.Ventas
+namespace Hotel.Views.Pedidos.Compras
 {
-    public partial class VentaView : Form
+    public partial class ComprasView : Form
     {
-        int ReservaID;
-        ProductoController controller;
-        public VentaView()
+        int usuarioID;
+        public ComprasView(int usuarioID)
         {
             InitializeComponent();
+            this.usuarioID = usuarioID; 
             mostrarProductos();
-            mostrarHabitaciones();
         }
         private async void mostrarProductos()
         {
-            using (var context = new HotelContext())
+            try
             {
-                controller = new ProductoController(context);
-                var list = await controller.GetAllObject();
-                foreach (var i in list)
+                using (var context = new HotelContext())
                 {
-                    if(i.Stock > 0)
+                    var controller = new ProductoController(context);
+                    var lista = await controller.GetAllObject();
+                    foreach (var i in lista)
                     {
+
                         var panel = new Panel
                         {
                             Height = 150,
@@ -100,89 +97,9 @@ namespace Hotel.Views.Pedidos.Ventas
                     }
                 }
             }
-        }           
-        private async void mostrarHabitaciones()
-        {
-            using (var context = new HotelContext())
+            catch (Exception ex)
             {
-                try
-                {
-                    int itemWidth = 150;
-                    int itemHeight = 150;
-                    var habitaciones = new HabitacionesController(context).GetAllObjects();
-                    if (habitaciones.Count != 0)
-                    {
-                        int index = 0;
-                        foreach (var i in habitaciones)
-                        {
-                            if (i.EstadoId == 2)
-                            {
-                                var panel = new Panel
-                                {
-                                    Width = itemWidth,
-                                    Height = itemHeight,
-                                    BorderStyle = BorderStyle.FixedSingle,
-                                    Left = index * itemWidth,
-                                };
-                                var label2 = new Label
-                                {
-                                    ForeColor = Color.FromArgb(0, 51, 102),
-                                    Text = "Estado: \n" + i.Estado.Descripcion,
-                                    Dock = DockStyle.Top,
-                                    TextAlign = ContentAlignment.MiddleCenter,
-                                    Height = 40,
-                                    BackColor = Color.LightGray
-                                };
-                                panel.Controls.Add(label2);
-
-                                var label1 = new Label
-                                {
-                                    ForeColor = Color.FromArgb(0, 51, 102),
-                                    Text = "Habitación numero: \n" + i.Codigo,
-                                    Dock = DockStyle.Top,
-                                    TextAlign = ContentAlignment.MiddleCenter,
-                                    Height = 40,
-                                    BackColor = Color.White
-                                };
-                                panel.Controls.Add(label1);
-                                var boton = new Button
-                                {
-                                    Text = "Seleccionar",
-                                    Dock = DockStyle.Bottom,
-                                    Size = new Size(itemWidth, 40),
-                                    BackColor = Color.FromArgb(0, 51, 102),
-                                    ForeColor = Color.White
-                                };
-                                boton.Click += (s, e) =>
-                                {
-                                    using (var context = new HotelContext())
-                                    {
-                                        var controller = new RecepcionController(context);
-                                        var reserva = controller.GetReservaByHabitacion(i.HabitacionId);
-                                        txtApellido.Text = reserva.Cliente.Apellido;
-                                        txtNombre.Text = reserva.Cliente.Nombre;
-                                        txtCedula.Text = reserva.Cliente.Cedula;
-                                        txtNumero.Text = i.Codigo;
-                                        txtPiso.Text = i.Piso.Descripcion;
-                                        txtCategoria.Text = i.CategoriaHabitacion.Descripcion;
-                                        ReservaID = reserva.ReservaId;
-                                    }
-                                };
-                                panel.Controls.Add(boton);
-                                this.panelHabitaciones.Controls.Add(panel);
-                                index++;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("No hay habitaciones registradas", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Error:" + ex.Message, "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private async void cellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -212,6 +129,18 @@ namespace Hotel.Views.Pedidos.Ventas
                 tbDetalles.Rows.RemoveAt(indice);
             }
             calcularTotal();
+        }
+        private void calcularTotal()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow i in tbDetalles.Rows)
+            {
+                if (i != null)
+                {
+                    total += Convert.ToDecimal(i.Cells["subTotal"].Value);
+                }
+            }
+            txtTotal.Text = total.ToString();
         }
         private void cellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -251,93 +180,56 @@ namespace Hotel.Views.Pedidos.Ventas
                 e.Handled = true;
             }
         }
-        private void calcularTotal()
-        {
-            decimal total = 0;
-            foreach (DataGridViewRow i in tbDetalles.Rows)
-            {
-                if (i != null)
-                {
-                    total += Convert.ToDecimal(i.Cells["subTotal"].Value);
-                }
-            }
-            txtTotal.Text = total.ToString();
-        }
-        private void limpiarCampos()
-        {
-            txtApellido.Text = string.Empty;
-            txtTotal.Text = string.Empty;
-            txtPiso.Text = string.Empty;
-            txtCategoria.Text = string.Empty;
-            txtCategoria.Text = string.Empty;
-            txtCedula.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtNumero.Text = string.Empty;
-            tbDetalles.Rows.Clear();
-        }
+
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                if (txtNumero.Text != "")
-                {
                     if (txtTotal.Text != "")
                     {
-                        var cancelado = ckbCancelado.Checked;
-                        var pedido = new Pedido
-                        {
-                            ReservaId = ReservaID,
-                            Estado = cancelado,
+                    var compra = new Compra
+                    {
+                        UsuarioId = usuarioID,
                             Fecha = DateTime.Now,
                         };
                         int _idPedido;
                         using (var context = new HotelContext())
                         {
-                            var controller = new PedidoControllercs(context);
-                            _idPedido = await controller.AddObject(pedido);
-                            if (_idPedido != 0)
+                            var controller = new CompraController(context);
+                            int _idCompra = await controller.AddObject(compra);
+                            if (_idCompra != 0)
                             {
                                 foreach (DataGridViewRow i in tbDetalles.Rows)
                                 {
                                     var idProducto = Convert.ToInt32(i.Cells["Id"].Value);
                                     var cantidad = Convert.ToInt32(i.Cells["Cantidad"].Value);
-                                    var detalle = new DetallePedido
+                                    var ultimoPrecio = Convert.ToInt32(i.Cells["Precio"].Value);
+                                    var detalle = new DetalleCompra
                                     {
-                                        PedidoId = _idPedido,
+                                        CompraId = _idCompra,
                                         ProductoId = idProducto,
+                                        PrecioCompra = ultimoPrecio,
                                         Cantidad = cantidad,
                                     };
                                     controller.AddDetalles(detalle);
-                                   using(var cont = new HotelContext())
-                                    {
-                                        var control = new PedidoControllercs(cont);
-                                        control.ChageStockProductLess(idProducto, cantidad);
-                                    }
+                                controller.ChageStockProductLess(idProducto, cantidad);
                                 }
-                                limpiarCampos();
-                                MessageBox.Show("El pedido ha sido registrado correctamente", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtTotal.Text = string.Empty;
+                                MessageBox.Show("La compra ha sido registrada correctamente", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("No se ha comprado nada aun", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("No se ha agregado nada aun", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Seleccione la habitación a la que se le enviara el pedido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.Cursor = Cursors.Default;
-            mostrarHabitaciones();
-            mostrarProductos();
         }
     }
 }
-

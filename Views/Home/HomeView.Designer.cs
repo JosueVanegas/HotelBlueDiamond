@@ -144,6 +144,7 @@
             // 
             comprarToolStripMenuItem.Name = "comprarToolStripMenuItem";
             resources.ApplyResources(comprarToolStripMenuItem, "comprarToolStripMenuItem");
+            comprarToolStripMenuItem.Click += comprarToolStripMenuItem_Click;
             // 
             // btnHabitacionesMenu
             // 

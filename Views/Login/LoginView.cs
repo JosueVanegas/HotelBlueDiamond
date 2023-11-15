@@ -33,7 +33,7 @@ namespace Hotel.Views.Login
                 return false;
             }
         }
-        private async void login()
+        private  void login()
         {
             if (validarEntradas())
             {
@@ -43,10 +43,10 @@ namespace Hotel.Views.Login
                     context = new HotelContext();
                     var controller = new UsuarioController(context);
                     this.Cursor = Cursors.WaitCursor;
-                    bool permitir = await controller.GetValue(txtUsuario.Text, txtClave.Text);
+                    bool permitir = controller.GetValue(txtUsuario.Text, txtClave.Text);
                     if (permitir)
                     {
-                        var user = await controller.GetObjectByUser(txtUsuario.Text);
+                        var user =  controller.GetObjectByUser(txtUsuario.Text);
                         HomeView form = new HomeView(user);
                         form.Show();
                         this.Hide();

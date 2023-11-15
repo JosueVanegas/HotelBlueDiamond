@@ -15,10 +15,10 @@ namespace Hotel.Controllers
         {
             this._context = context;
         }
-        public int AddObject(Pedido obj)
+        public async Task<int> AddObject(Pedido obj)
         {
             _context.Pedidos.Add(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return obj.PedidoId;
         }
         public List<Pedido> GetAllObject()
@@ -30,33 +30,41 @@ namespace Hotel.Controllers
             _context.Pedidos.Update(obj);
             _context.SaveChanges();
         }
-        public void DeleteObject(int id)
+        public async void DeleteObject(int id)
         {
             var obj = GetObject(id);
             if (obj != null)
             {
                 _context.Pedidos.Remove(obj);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
-        public Pedido GetObject(int id)
+        public  Pedido GetObject(int id)
         {
-            return _context.Pedidos.Find(id);
+            return  _context.Pedidos.Find(id);
         }
-        public void AddDetalles(DetallePedido obj)
+        public async void AddDetalles(DetallePedido obj)
         {
             _context.DetallePedidos.Add(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
-        public void CancelarPedido(int id)
+        public async void CancelarPedido(int id)
         {
             var obj = _context.Pedidos.Include(p=>p.ReservaId == id).FirstOrDefault();
             if(obj != null)
             {
                 obj.Estado = true;
+                await _context.SaveChangesAsync();
+            }
+        }
+        public void ChageStockProductLess(int productID, int newStock)
+        {
+            var product = _context.Productos.Where(p => p.ProductoId == productID).FirstOrDefault();
+            if (product != null)
+            {
+                product.Stock = newStock;
                 _context.SaveChanges();
             }
         }
-
     }
 }

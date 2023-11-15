@@ -267,6 +267,7 @@ public partial class HotelContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
+            entity.Property(e => e.UltimoPrecio).HasColumnType("decimal(10, 2)");
 
             entity.HasOne(d => d.Producto).WithMany(p => p.MovimientoProductos)
                 .HasForeignKey(d => d.ProductoId)
@@ -402,7 +403,7 @@ public partial class HotelContext : DbContext
         {
             entity.HasKey(e => e.UsuarioId).HasName("PK__Usuario__2B3DE79869B71642");
 
-            entity.ToTable("Usuario", "RecursosHumanos");
+            entity.ToTable("Usuario", "RecursosHumanos", tb => tb.HasTrigger("trg_encript_password"));
 
             entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
             entity.Property(e => e.Clave).HasMaxLength(300);

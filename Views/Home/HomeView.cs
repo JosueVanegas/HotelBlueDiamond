@@ -7,6 +7,7 @@ using Hotel.Views.GestionView;
 using Hotel.Views.GestionView.Recepcion;
 using Hotel.Views.Habitaciones;
 using Hotel.Views.Home;
+using Hotel.Views.Pedidos.Compras;
 using Hotel.Views.Pedidos.Productos;
 using Hotel.Views.Pedidos.Proveedores;
 using Hotel.Views.Pedidos.Ventas;
@@ -328,8 +329,13 @@ namespace Hotel.Views.Home
             QuestPDF.Settings.License = LicenseType.Community;
             var filePath = "informeInventario.pdf";
             doc.GeneratePdf(filePath);
-            Process.Start("explorer.exe", filePath); 
-            
+            Process.Start("explorer.exe", filePath);
+
+        }
+
+        private void comprarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new ComprasView(this.usuario.UsuarioId));
         }
     }
 }
