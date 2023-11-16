@@ -19,8 +19,7 @@ namespace Hotel.Views.Login
         public LoginView()
         {
             InitializeComponent();
-            context = new HotelContext();
-            var controller = new UsuarioController(context);
+            this.DoubleBuffered = true;
         }
         private bool validarEntradas()
         {
@@ -35,11 +34,10 @@ namespace Hotel.Views.Login
         }
         private  void login()
         {
-            if (validarEntradas())
+            try
             {
-                try
+                if (validarEntradas())
                 {
-
                     context = new HotelContext();
                     var controller = new UsuarioController(context);
                     this.Cursor = Cursors.WaitCursor;
@@ -53,23 +51,23 @@ namespace Hotel.Views.Login
                         form.FormClosing += frm_closing;
                         txtClave.Text = string.Empty;
                         txtUsuario.Text = string.Empty;
-
                     }
                     else
                     {
                         MessageBox.Show("Usuario y/o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    this.Cursor = Cursors.Default;
                 }
-                catch (Exception ex)
+                else
                 {
-
+                    MessageBox.Show("Porfavor llene todos los campos para poder realizar esta acción", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                this.Cursor = Cursors.Default;
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Porfavor llene todos los campos para poder realizar esta acción", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
             }
+            
         }
 
         public void frm_closing(object sender, FormClosingEventArgs e)

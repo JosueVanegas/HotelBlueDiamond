@@ -125,7 +125,7 @@
     <value>JosueDavidVanegasRocha</value>
   </data>
   <data name="ConnectionString" xml:space="preserve">
-    <value>Data Source=LAPTOP-L5B7AIOU\SQLEXPRESS;Initial Catalog=Hotel;Integrated Security=true;Trust Server Certificate=true;</value>
+    <value>Data Source=(local);Initial Catalog=Hotel;Integrated Security=true;Trust Server Certificate=true;</value>
   </data>
   <data name="editarImg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -38,6 +38,19 @@ namespace Hotel.Views.Home
         public HomeView(Usuario usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
+            this.DoubleBuffered = true;
+        }
+        private void llenarDatosUsuario()
+        {
+            if (usuario != null)
+            {
+                string datos = $"Nombre de usuario: {usuario.Usuario1}   |  Persona asignada: {usuario.Empleado.Nombre} {usuario.Empleado.Apellido}   |   Rol de usuario: {usuario.Rol.Descripcion} ";
+                lblUsuario.Text = datos;
+            }
+        }
+        private void HomeView_Load(object sender, EventArgs e)
+        {
             this.Cursor = Cursors.WaitCursor;
             this.usuario = usuario;
             llenarDatosUsuario();
@@ -45,24 +58,12 @@ namespace Hotel.Views.Home
             this.MinimumSize = new System.Drawing.Size(600, 800);
             this.TransparencyKey = Color.Empty;
             abrirFormulario(new DashBoardView());
-            this.Cursor = Cursors.Default;
-        }
-        private void llenarDatosUsuario()
-        {
-            if (usuario != null)
-            {
-                string datos = $"|  Nombre de usuario: {usuario.Usuario1}   |   " +
-                    $"|  Persona asignada: {usuario.Empleado.Nombre + " " + usuario.Empleado.Apellido}   |   Rol de usuario: {usuario.Rol.Descripcion}    |   ";
-                lblUsuario.Text = datos;
-            }
-        }
-        private void HomeView_Load(object sender, EventArgs e)
-        {
             foreach (ToolStripMenuItem item in Menu.Items)
             {
                 item.DropDownOpened += Item_DropDownOpened;
                 item.DropDownClosed += Item_DropDownClosed;
             }
+            this.Cursor = Cursors.Default;
         }
         private void abrirFormulario(Form formHijo)
         {

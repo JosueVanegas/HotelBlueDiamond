@@ -1,6 +1,7 @@
 ﻿using Hotel.Controllers;
 using Hotel.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,8 +17,9 @@ namespace Hotel.Views.Gestion.Salidas
     {
         HotelContext context;
         Reserva reserva;
-        int HabitacionID;
-        public SalidaViewRegister(int HabitacionID)
+        int? HabitacionID;
+        int diasTranscurridos = 0;
+        public SalidaViewRegister(int? HabitacionID)
         {
             InitializeComponent();
             context = new HotelContext();
@@ -25,31 +27,38 @@ namespace Hotel.Views.Gestion.Salidas
             this.TransparencyKey = Color.Empty;
             this.HabitacionID = HabitacionID;
         }
-        private void mostrarServicio(int id)
+        private void mostrarServicio(int? id)
         {
             var controller = new RecepcionController(context);
             var lista = controller.GetPedidoByHabitacion(id);
             bool? estadoPago = false;
+            Decimal subTotalTabla = 0, totalPagados = 0, totalPendientes = 0;
             foreach (var i in lista)
             {
                 estadoPago = i.Estado;
                 foreach (var j in i.DetallePedidos)
                 {
-                    var subtotal = 0;
+
                     var estado = "";
                     if (estadoPago == true)
                     {
                         estado = "pagado";
+                        totalPagados += Convert.ToDecimal(j.Cantidad * j.Producto.Precio);
                     }
                     if (estadoPago == false)
                     {
                         estado = "pendiente";
+                        totalPendientes += Convert.ToDecimal(j.Cantidad * j.Producto.Precio);
                     }
-                    tbDetallles.Rows.Add(j.Cantidad, j.Producto.Descripcion);
+                    subTotalTabla = Convert.ToDecimal(j.Cantidad * j.Producto.Precio);
+                    tbDetallles.Rows.Add(j.ProductoId, j.Producto.Descripcion, j.Producto.Precio, j.Cantidad, subTotalTabla, estado, "", "");
+
                 }
             }
+            txtServicioPagado.Text = totalPagados.ToString("0.00");
+            txtTotalServicio.Text = totalPendientes.ToString("0.00");
         }
-        private void mostrarDatos(int id)
+        private void mostrarDatos(int? id)
         {
             try
             {
@@ -62,7 +71,7 @@ namespace Hotel.Views.Gestion.Salidas
                     txtCedula.Text = reserva.Cliente.Cedula;
                     txtCantidadHuespedes.Text = reserva.CantidadPersonas.ToString();
                     dtpEntrada.Text = reserva.FechaEntrada.ToString();
-                    dtpSalida.Text = reserva.FechaSalida.ToString();
+                    dtpSalida.Text = DateTime.Now.ToString("G");
                     txtAdelanto.Text = reserva.Adelanto.ToString();
                     txtNumero.Text = reserva.Habitacion.Codigo;
                     txtCategoria.Text = reserva.Habitacion.CategoriaHabitacion.Descripcion;
@@ -70,6 +79,11 @@ namespace Hotel.Views.Gestion.Salidas
                     txtPiso.Text = reserva.Habitacion.Piso.Descripcion;
                     txtDetalles.Text = reserva.Habitacion.Detalles;
                     txtExtras.Text = reserva.Habitacion.Extras;
+                    TimeSpan? diferencia = DateTime.Now - reserva.FechaEntrada;
+                    diasTranscurridos = diferencia.Value.Days;
+                    txtNoches.Text = diasTranscurridos.ToString();
+                    var totalHabitacion = diasTranscurridos * reserva.Habitacion.PrecioPh;
+                    txtTotalHabitacion.Text = totalHabitacion.ToString();
                     mostrarServicio(id);
                     calculosTotales();
                 }
@@ -87,13 +101,15 @@ namespace Hotel.Views.Gestion.Salidas
         {
             try
             {
-                decimal precioNoche = Convert.ToDecimal(txtPrecioPH.Text);
-                decimal totalServicio = Convert.ToDecimal(txtTotalServicio.Text);
+                decimal totalNoches = Convert.ToDecimal(txtPrecioPH.Text) * diasTranscurridos;
+                decimal totalServicio = Convert.ToDecimal(txtTotalServicio.Text)+Convert.ToDecimal(txtServicioPagado.Text);
                 decimal cargoRoturas = Convert.ToDecimal(txtCargoRoturas.Text);
-                decimal cargoPorTiempo = Convert.ToDecimal(txtCargoEstancia.Text);
                 decimal adelanto = Convert.ToDecimal(txtAdelanto.Text);
-
-                decimal subTotal = (precioNoche + totalServicio + cargoRoturas + cargoPorTiempo) - adelanto;
+                if(totalNoches == 0)
+                {
+                    totalNoches = Convert.ToDecimal(txtPrecioPH.Text);
+                }s
+                decimal subTotal = (totalNoches + totalServicio + cargoRoturas) - adelanto;
                 txtTotal.Text = subTotal.ToString("0.00");
                 decimal pago = Convert.ToDecimal(txtPago.Text);
                 if (pago != 0)
@@ -114,27 +130,39 @@ namespace Hotel.Views.Gestion.Salidas
         {
             try
             {
-                if (MessageBox.Show("Estas apunto de finalizar la reservación,¿Desea finalizarla?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (txtPago.Text != "" && txtPago.Text != "0")
                 {
-                    calculosTotales();
-                    var controller = new RecepcionController(context);
-                    Reserva r = new Reserva
+                    if (MessageBox.Show("Estas apunto de finalizar la reservación,¿Desea finalizarla?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        ClienteId = reserva.ClienteId,
-                        HabitacionId = reserva.HabitacionId,
-                        EmpleadoId = reserva.EmpleadoId,
-                        FechaEntrada = reserva.FechaEntrada,
-                        FechaSalida = reserva.FechaSalida,
-                        Adelanto = Convert.ToDecimal(txtAdelanto.Text),
-                        CantidadPersonas = reserva.CantidadPersonas,
-                        TotalDaños = Convert.ToDecimal(txtCargoRoturas.Text),
-                        FechaRegistro = DateTime.Now,
-                        Finalizada = true,
-                        Total = Convert.ToDecimal(txtTotal.Text),
-                    };
-                    controller.UpdateObject(r);
-                    controller.UpdateServices(reserva.ReservaId);
-                    controller.SetState(HabitacionID, 1);
+                    
+                        calculosTotales();
+                        var controller = new RecepcionController(context);
+                        Reserva r = new Reserva
+                        {
+                            ClienteId = reserva.ClienteId,
+                            HabitacionId = reserva.HabitacionId,
+                            EmpleadoId = reserva.EmpleadoId,
+                            FechaEntrada = reserva.FechaEntrada,
+                            FechaSalida = DateTime.Now,
+                            Adelanto = Convert.ToDecimal(txtAdelanto.Text),
+                            CantidadPersonas = reserva.CantidadPersonas,
+                            TotalDaños = Convert.ToDecimal(txtCargoRoturas.Text),
+                            FechaRegistro = DateTime.Now,
+                            Finalizada = true,
+                            Total = Convert.ToDecimal(txtTotal.Text),
+                            HorasReservadas = diasTranscurridos,
+                        };
+                        controller.UpdateObject(r);
+                        controller.UpdateServices(reserva.ReservaId);
+                        controller.SetState(HabitacionID, 1);
+                        MessageBox.Show("Reservación terminada exitosamente", "Reservación concluida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese el pago del cliente", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)

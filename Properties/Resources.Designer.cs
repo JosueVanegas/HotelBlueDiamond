@@ -80,7 +80,7 @@ namespace Hotel.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Data Source=LAPTOP-L5B7AIOU\SQLEXPRESS;Initial Catalog=Hotel;Integrated Security=true;Trust Server Certificate=true;.
+        ///   Busca una cadena traducida similar a Data Source=(local);Initial Catalog=Hotel;Integrated Security=true;Trust Server Certificate=true;.
         /// </summary>
         internal static string ConnectionString {
             get {

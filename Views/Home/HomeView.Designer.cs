@@ -299,8 +299,9 @@
             Controls.Add(panel2);
             Controls.Add(Menu);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "HomeView";
+            WindowState = FormWindowState.Maximized;
             Load += HomeView_Load;
             Menu.ResumeLayout(false);
             Menu.PerformLayout();

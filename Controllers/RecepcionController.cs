@@ -43,7 +43,7 @@ namespace Hotel.Controllers
         {
             return _context.Reservas.Find(id);
         }
-        public Reserva GetReservaByHabitacion(int id)
+        public Reserva GetReservaByHabitacion(int? id)
         {
             string query = @"select * from Reservas.Reserva
                      where Finalizada = 0 and HabitacionID = {0}";
@@ -51,12 +51,13 @@ namespace Hotel.Controllers
                 Include(r => r.Cliente).Include(r => r.Habitacion).Include(r=>r.Habitacion.CategoriaHabitacion)
                 .Include(r=>r.Habitacion.Piso).FirstOrDefault();
         }
-        public void SetState(int id,int state)
+        public void SetState(int? id,int state)
         {
             var obj = _context.Habitacions.Find(id);
             if(obj != null )
             {
                 obj.EstadoId = state;
+                _context.SaveChanges();
             }
         }
         public void UpdateServices(int reservaID)
@@ -64,13 +65,11 @@ namespace Hotel.Controllers
             var list = _context.Pedidos.Where(p=>p.ReservaId == reservaID).ToList();
             foreach (var i in list)
             {
-               foreach (var j in i.DetallePedidos)
-                {
-                    
-                }
+                i.Estado = true;
+                _context.SaveChanges();
             }
         }
-        public List<Pedido> GetPedidoByHabitacion(int habitacionID)
+        public List<Pedido> GetPedidoByHabitacion(int? habitacionID)
         {
             var pedidos = _context.Pedidos
             .Where(p => p.Reserva.HabitacionId == habitacionID && p.Reserva.Finalizada == false)

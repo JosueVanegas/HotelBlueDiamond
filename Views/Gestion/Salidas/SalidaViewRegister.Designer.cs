@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalidaViewRegister));
             dtpSalida = new Label();
             dtpEntrada = new Label();
@@ -61,17 +61,17 @@
             Cantidad = new DataGridViewTextBoxColumn();
             Subtotal = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
-            Editar = new DataGridViewButtonColumn();
-            Borrar = new DataGridViewButtonColumn();
             label7 = new Label();
             txtTotalServicio = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCargoRoturas = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtPago = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCambio = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtCargoEstancia = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtCancelar = new ReaLTaiizor.Controls.MaterialButton();
             panel1 = new Panel();
+            txtTotalHabitacion = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtNoches = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtServicioPagado = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             ((System.ComponentModel.ISupportInitialize)tbDetallles).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -141,7 +141,7 @@
             txtAdelanto.HideSelection = true;
             txtAdelanto.Hint = "Adelanto:";
             txtAdelanto.LeadingIcon = null;
-            txtAdelanto.Location = new Point(6, 659);
+            txtAdelanto.Location = new Point(267, 659);
             txtAdelanto.Margin = new Padding(3, 2, 3, 2);
             txtAdelanto.MaxLength = 32767;
             txtAdelanto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -154,7 +154,7 @@
             txtAdelanto.SelectionLength = 0;
             txtAdelanto.SelectionStart = 0;
             txtAdelanto.ShortcutsEnabled = true;
-            txtAdelanto.Size = new Size(343, 48);
+            txtAdelanto.Size = new Size(226, 48);
             txtAdelanto.TabIndex = 45;
             txtAdelanto.TabStop = false;
             txtAdelanto.Text = "0";
@@ -278,7 +278,7 @@
             btnReservar.HighEmphasis = true;
             btnReservar.Icon = null;
             btnReservar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnReservar.Location = new Point(519, 763);
+            btnReservar.Location = new Point(520, 713);
             btnReservar.Margin = new Padding(4);
             btnReservar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnReservar.Name = "btnReservar";
@@ -316,7 +316,7 @@
             txtPrecioPH.SelectionLength = 0;
             txtPrecioPH.SelectionStart = 0;
             txtPrecioPH.ShortcutsEnabled = true;
-            txtPrecioPH.Size = new Size(273, 48);
+            txtPrecioPH.Size = new Size(162, 48);
             txtPrecioPH.TabIndex = 32;
             txtPrecioPH.TabStop = false;
             txtPrecioPH.TextAlign = HorizontalAlignment.Left;
@@ -539,33 +539,33 @@
             tbDetallles.AllowUserToDeleteRows = false;
             tbDetallles.AllowUserToResizeColumns = false;
             tbDetallles.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(244, 204, 137);
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            tbDetallles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 204, 137);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            tbDetallles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             tbDetallles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbDetallles.BackgroundColor = Color.FromArgb(255, 255, 255);
             tbDetallles.BorderStyle = BorderStyle.None;
             tbDetallles.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tbDetallles.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 170, 173);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 201, 206);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            tbDetallles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 170, 173);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            tbDetallles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             tbDetallles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tbDetallles.Columns.AddRange(new DataGridViewColumn[] { ID, Producto, Precio, Cantidad, Subtotal, Estado, Editar, Borrar });
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 201, 206);
-            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            tbDetallles.DefaultCellStyle = dataGridViewCellStyle7;
+            tbDetallles.Columns.AddRange(new DataGridViewColumn[] { ID, Producto, Precio, Cantidad, Subtotal, Estado });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            tbDetallles.DefaultCellStyle = dataGridViewCellStyle3;
             tbDetallles.EnableHeadersVisualStyles = false;
             tbDetallles.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbDetallles.GridColor = Color.FromArgb(255, 255, 255);
@@ -575,14 +575,14 @@
             tbDetallles.Name = "tbDetallles";
             tbDetallles.ReadOnly = true;
             tbDetallles.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(0, 170, 173);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(0, 201, 206);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            tbDetallles.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 170, 173);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            tbDetallles.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             tbDetallles.RowHeadersWidth = 51;
             tbDetallles.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbDetallles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -634,20 +634,6 @@
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
             // 
-            // Editar
-            // 
-            Editar.HeaderText = "Editar";
-            Editar.MinimumWidth = 6;
-            Editar.Name = "Editar";
-            Editar.ReadOnly = true;
-            // 
-            // Borrar
-            // 
-            Borrar.HeaderText = "Borrar";
-            Borrar.MinimumWidth = 6;
-            Borrar.Name = "Borrar";
-            Borrar.ReadOnly = true;
-            // 
             // label7
             // 
             label7.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
@@ -669,9 +655,9 @@
             txtTotalServicio.Depth = 0;
             txtTotalServicio.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtTotalServicio.HideSelection = true;
-            txtTotalServicio.Hint = "Total en servicio a la habitación:";
+            txtTotalServicio.Hint = "Total en servicio pendiente:";
             txtTotalServicio.LeadingIcon = null;
-            txtTotalServicio.Location = new Point(6, 607);
+            txtTotalServicio.Location = new Point(9, 659);
             txtTotalServicio.Margin = new Padding(3, 2, 3, 2);
             txtTotalServicio.MaxLength = 32767;
             txtTotalServicio.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -684,7 +670,7 @@
             txtTotalServicio.SelectionLength = 0;
             txtTotalServicio.SelectionStart = 0;
             txtTotalServicio.ShortcutsEnabled = true;
-            txtTotalServicio.Size = new Size(343, 48);
+            txtTotalServicio.Size = new Size(226, 48);
             txtTotalServicio.TabIndex = 58;
             txtTotalServicio.TabStop = false;
             txtTotalServicio.Text = "0";
@@ -705,7 +691,7 @@
             txtTotal.HideSelection = true;
             txtTotal.Hint = "Total a pagar:";
             txtTotal.LeadingIcon = null;
-            txtTotal.Location = new Point(6, 711);
+            txtTotal.Location = new Point(9, 713);
             txtTotal.Margin = new Padding(3, 2, 3, 2);
             txtTotal.MaxLength = 32767;
             txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -718,7 +704,7 @@
             txtTotal.SelectionLength = 0;
             txtTotal.SelectionStart = 0;
             txtTotal.ShortcutsEnabled = true;
-            txtTotal.Size = new Size(343, 48);
+            txtTotal.Size = new Size(226, 48);
             txtTotal.TabIndex = 59;
             txtTotal.TabStop = false;
             txtTotal.Text = "0";
@@ -775,7 +761,7 @@
             txtPago.HideSelection = true;
             txtPago.Hint = "Pago del cliente:";
             txtPago.LeadingIcon = null;
-            txtPago.Location = new Point(6, 763);
+            txtPago.Location = new Point(267, 713);
             txtPago.Margin = new Padding(3, 2, 3, 2);
             txtPago.MaxLength = 32767;
             txtPago.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -788,7 +774,7 @@
             txtPago.SelectionLength = 0;
             txtPago.SelectionStart = 0;
             txtPago.ShortcutsEnabled = true;
-            txtPago.Size = new Size(343, 48);
+            txtPago.Size = new Size(226, 48);
             txtPago.TabIndex = 61;
             txtPago.TabStop = false;
             txtPago.Text = "0";
@@ -811,7 +797,7 @@
             txtCambio.HideSelection = true;
             txtCambio.Hint = "Cambio:";
             txtCambio.LeadingIcon = null;
-            txtCambio.Location = new Point(520, 711);
+            txtCambio.Location = new Point(519, 659);
             txtCambio.Margin = new Padding(3, 2, 3, 2);
             txtCambio.MaxLength = 32767;
             txtCambio.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -833,42 +819,6 @@
             txtCambio.UseAccent = false;
             txtCambio.UseSystemPasswordChar = false;
             // 
-            // txtCargoEstancia
-            // 
-            txtCargoEstancia.AnimateReadOnly = false;
-            txtCargoEstancia.AutoCompleteMode = AutoCompleteMode.None;
-            txtCargoEstancia.AutoCompleteSource = AutoCompleteSource.None;
-            txtCargoEstancia.BackgroundImageLayout = ImageLayout.None;
-            txtCargoEstancia.CharacterCasing = CharacterCasing.Normal;
-            txtCargoEstancia.Depth = 0;
-            txtCargoEstancia.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtCargoEstancia.HideSelection = true;
-            txtCargoEstancia.Hint = "Recargos por tiempo de estancia:";
-            txtCargoEstancia.LeadingIcon = null;
-            txtCargoEstancia.Location = new Point(520, 659);
-            txtCargoEstancia.Margin = new Padding(3, 2, 3, 2);
-            txtCargoEstancia.MaxLength = 32767;
-            txtCargoEstancia.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtCargoEstancia.Name = "txtCargoEstancia";
-            txtCargoEstancia.PasswordChar = '\0';
-            txtCargoEstancia.PrefixSuffixText = null;
-            txtCargoEstancia.ReadOnly = false;
-            txtCargoEstancia.RightToLeft = RightToLeft.No;
-            txtCargoEstancia.SelectedText = "";
-            txtCargoEstancia.SelectionLength = 0;
-            txtCargoEstancia.SelectionStart = 0;
-            txtCargoEstancia.ShortcutsEnabled = true;
-            txtCargoEstancia.Size = new Size(272, 48);
-            txtCargoEstancia.TabIndex = 63;
-            txtCargoEstancia.TabStop = false;
-            txtCargoEstancia.Text = "0";
-            txtCargoEstancia.TextAlign = HorizontalAlignment.Left;
-            txtCargoEstancia.TrailingIcon = null;
-            txtCargoEstancia.UseAccent = false;
-            txtCargoEstancia.UseSystemPasswordChar = false;
-            txtCargoEstancia.KeyPress += ValidarDecimal_KeyPress;
-            txtCargoEstancia.TextChanged += txtCargoEstancia_TextChanged;
-            // 
             // txtCancelar
             // 
             txtCancelar.AutoSize = false;
@@ -879,7 +829,7 @@
             txtCancelar.HighEmphasis = true;
             txtCancelar.Icon = null;
             txtCancelar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            txtCancelar.Location = new Point(519, 819);
+            txtCancelar.Location = new Point(520, 769);
             txtCancelar.Margin = new Padding(4);
             txtCancelar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             txtCancelar.Name = "txtCancelar";
@@ -895,10 +845,12 @@
             // panel1
             // 
             panel1.BackColor = Color.Beige;
+            panel1.Controls.Add(txtTotalHabitacion);
+            panel1.Controls.Add(txtNoches);
+            panel1.Controls.Add(txtServicioPagado);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(txtCancelar);
             panel1.Controls.Add(txtNumero);
-            panel1.Controls.Add(txtCargoEstancia);
             panel1.Controls.Add(txtCategoria);
             panel1.Controls.Add(txtCambio);
             panel1.Controls.Add(txtPiso);
@@ -927,15 +879,116 @@
             panel1.Controls.Add(dtpEntrada);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(809, 880);
+            panel1.Size = new Size(809, 836);
             panel1.TabIndex = 65;
+            // 
+            // txtTotalHabitacion
+            // 
+            txtTotalHabitacion.AnimateReadOnly = false;
+            txtTotalHabitacion.AutoCompleteMode = AutoCompleteMode.None;
+            txtTotalHabitacion.AutoCompleteSource = AutoCompleteSource.None;
+            txtTotalHabitacion.BackgroundImageLayout = ImageLayout.None;
+            txtTotalHabitacion.CharacterCasing = CharacterCasing.Normal;
+            txtTotalHabitacion.Depth = 0;
+            txtTotalHabitacion.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtTotalHabitacion.HideSelection = true;
+            txtTotalHabitacion.Hint = "Total en noches hospedadas:";
+            txtTotalHabitacion.LeadingIcon = null;
+            txtTotalHabitacion.Location = new Point(267, 607);
+            txtTotalHabitacion.Margin = new Padding(3, 2, 3, 2);
+            txtTotalHabitacion.MaxLength = 32767;
+            txtTotalHabitacion.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtTotalHabitacion.Name = "txtTotalHabitacion";
+            txtTotalHabitacion.PasswordChar = '\0';
+            txtTotalHabitacion.PrefixSuffixText = null;
+            txtTotalHabitacion.ReadOnly = true;
+            txtTotalHabitacion.RightToLeft = RightToLeft.No;
+            txtTotalHabitacion.SelectedText = "";
+            txtTotalHabitacion.SelectionLength = 0;
+            txtTotalHabitacion.SelectionStart = 0;
+            txtTotalHabitacion.ShortcutsEnabled = true;
+            txtTotalHabitacion.Size = new Size(226, 48);
+            txtTotalHabitacion.TabIndex = 67;
+            txtTotalHabitacion.TabStop = false;
+            txtTotalHabitacion.Text = "0";
+            txtTotalHabitacion.TextAlign = HorizontalAlignment.Left;
+            txtTotalHabitacion.TrailingIcon = null;
+            txtTotalHabitacion.UseAccent = false;
+            txtTotalHabitacion.UseSystemPasswordChar = false;
+            // 
+            // txtNoches
+            // 
+            txtNoches.AnimateReadOnly = false;
+            txtNoches.AutoCompleteMode = AutoCompleteMode.None;
+            txtNoches.AutoCompleteSource = AutoCompleteSource.None;
+            txtNoches.BackgroundImageLayout = ImageLayout.None;
+            txtNoches.CharacterCasing = CharacterCasing.Normal;
+            txtNoches.Depth = 0;
+            txtNoches.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtNoches.HideSelection = true;
+            txtNoches.Hint = "Noches:";
+            txtNoches.LeadingIcon = null;
+            txtNoches.Location = new Point(174, 389);
+            txtNoches.Margin = new Padding(3, 2, 3, 2);
+            txtNoches.MaxLength = 32767;
+            txtNoches.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtNoches.Name = "txtNoches";
+            txtNoches.PasswordChar = '\0';
+            txtNoches.PrefixSuffixText = null;
+            txtNoches.ReadOnly = true;
+            txtNoches.RightToLeft = RightToLeft.No;
+            txtNoches.SelectedText = "";
+            txtNoches.SelectionLength = 0;
+            txtNoches.SelectionStart = 0;
+            txtNoches.ShortcutsEnabled = true;
+            txtNoches.Size = new Size(105, 48);
+            txtNoches.TabIndex = 66;
+            txtNoches.TabStop = false;
+            txtNoches.TextAlign = HorizontalAlignment.Left;
+            txtNoches.TrailingIcon = null;
+            txtNoches.UseAccent = false;
+            txtNoches.UseSystemPasswordChar = false;
+            // 
+            // txtServicioPagado
+            // 
+            txtServicioPagado.AnimateReadOnly = false;
+            txtServicioPagado.AutoCompleteMode = AutoCompleteMode.None;
+            txtServicioPagado.AutoCompleteSource = AutoCompleteSource.None;
+            txtServicioPagado.BackgroundImageLayout = ImageLayout.None;
+            txtServicioPagado.CharacterCasing = CharacterCasing.Normal;
+            txtServicioPagado.Depth = 0;
+            txtServicioPagado.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtServicioPagado.HideSelection = true;
+            txtServicioPagado.Hint = "Total en servicio pagado:";
+            txtServicioPagado.LeadingIcon = null;
+            txtServicioPagado.Location = new Point(9, 607);
+            txtServicioPagado.Margin = new Padding(3, 2, 3, 2);
+            txtServicioPagado.MaxLength = 32767;
+            txtServicioPagado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtServicioPagado.Name = "txtServicioPagado";
+            txtServicioPagado.PasswordChar = '\0';
+            txtServicioPagado.PrefixSuffixText = null;
+            txtServicioPagado.ReadOnly = true;
+            txtServicioPagado.RightToLeft = RightToLeft.No;
+            txtServicioPagado.SelectedText = "";
+            txtServicioPagado.SelectionLength = 0;
+            txtServicioPagado.SelectionStart = 0;
+            txtServicioPagado.ShortcutsEnabled = true;
+            txtServicioPagado.Size = new Size(226, 48);
+            txtServicioPagado.TabIndex = 65;
+            txtServicioPagado.TabStop = false;
+            txtServicioPagado.Text = "0";
+            txtServicioPagado.TextAlign = HorizontalAlignment.Left;
+            txtServicioPagado.TrailingIcon = null;
+            txtServicioPagado.UseAccent = false;
+            txtServicioPagado.UseSystemPasswordChar = false;
             // 
             // SalidaViewRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 51, 102);
-            ClientSize = new Size(833, 904);
+            ClientSize = new Size(833, 863);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -972,21 +1025,21 @@
         private Label label6;
         private ReaLTaiizor.Controls.PoisonDataGridView tbDetallles;
         private Label label7;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalServicio;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCargoRoturas;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPago;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCambio;
+        private ReaLTaiizor.Controls.MaterialButton txtCancelar;
+        private Panel panel1;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtServicioPagado;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn Subtotal;
         private DataGridViewTextBoxColumn Estado;
-        private DataGridViewButtonColumn Editar;
-        private DataGridViewButtonColumn Borrar;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalServicio;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCargoRoturas;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPago;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCambio;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCargoEstancia;
-        private ReaLTaiizor.Controls.MaterialButton txtCancelar;
-        private Panel panel1;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNoches;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalHabitacion;
     }
 }

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceptionView));
             panel1 = new Panel();
             txtCancelar = new ReaLTaiizor.Controls.MaterialButton();
-            dtSalida = new ReaLTaiizor.Controls.PoisonDateTime();
             txtCantidad = new NumericUpDown();
             label6 = new Label();
             dtpEntrada = new Label();
@@ -61,7 +60,6 @@
             // 
             panel1.BackColor = Color.Beige;
             panel1.Controls.Add(txtCancelar);
-            panel1.Controls.Add(dtSalida);
             panel1.Controls.Add(txtCantidad);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(dtpEntrada);
@@ -110,18 +108,6 @@
             txtCancelar.UseAccentColor = true;
             txtCancelar.UseVisualStyleBackColor = true;
             txtCancelar.Click += txtCancelar_Click;
-            // 
-            // dtSalida
-            // 
-            dtSalida.Location = new Point(422, 126);
-            dtSalida.MinDate = new DateTime(2023, 10, 31, 0, 0, 0, 0);
-            dtSalida.MinimumSize = new Size(0, 29);
-            dtSalida.Name = "dtSalida";
-            dtSalida.Size = new Size(418, 29);
-            dtSalida.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Yellow;
-            dtSalida.TabIndex = 30;
-            dtSalida.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
-            dtSalida.Value = new DateTime(2023, 10, 31, 18, 15, 46, 0);
             // 
             // txtCantidad
             // 
@@ -196,12 +182,12 @@
             // 
             label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
-            label5.Location = new Point(259, 126);
+            label5.Location = new Point(358, 126);
             label5.Name = "label5";
-            label5.Size = new Size(157, 28);
+            label5.Size = new Size(482, 28);
             label5.TabIndex = 20;
-            label5.Text = "Fecha de salida:";
-            label5.TextAlign = ContentAlignment.MiddleCenter;
+            label5.Text = "Fecha de salida: indefinida por el momento";
+            label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -607,7 +593,6 @@
         private Label label4;
         private Label dtpEntrada;
         private Label label6;
-        private ReaLTaiizor.Controls.PoisonDateTime dtSalida;
         private NumericUpDown txtCantidad;
         private ReaLTaiizor.Controls.MaterialButton txtCancelar;
     }

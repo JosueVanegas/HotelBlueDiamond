@@ -29,8 +29,6 @@ namespace Hotel.Views.GestionView
             this.habitacion = habitacion;
             context = new HotelContext();
             mostrarClientes();
-            dtSalida.Value = DateTime.Now.AddDays(1);
-            dtSalida.MinDate = DateTime.Now.AddDays(1);
             mostrarDetallesHabitacion();
             this.TransparencyKey = Color.Empty;
         }
@@ -69,7 +67,6 @@ namespace Hotel.Views.GestionView
                         ClienteId = cliente.ClienteId,
                         HabitacionId = habitacion.HabitacionId,
                         EmpleadoId = usuario.EmpleadoId,
-                        FechaSalida = dtSalida.Value,
                         FechaEntrada = DateTime.Now,
                         Adelanto = Convert.ToDecimal(txtAdelanto.Text),
                         FechaRegistro = DateTime.Now,
@@ -80,6 +77,7 @@ namespace Hotel.Views.GestionView
                     recepcionController.SetState(habitacion.HabitacionId, 2);
 
                     MessageBox.Show("Proceso de recervación de habitación finalizado exitosamente", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
