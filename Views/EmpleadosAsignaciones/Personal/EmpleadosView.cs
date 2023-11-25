@@ -66,7 +66,7 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
         {
             if (e.RowIndex < 0)
                 return;
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 6)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var h = Properties.Resources.editarImg.Height;
@@ -77,7 +77,7 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
                 e.Graphics.DrawImage(Properties.Resources.editarImg, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 8)
+            if (e.ColumnIndex == 7)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var w = Properties.Resources.eliminarImg.Width;
@@ -89,6 +89,7 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
                 e.Handled = true;
             }
         }
+
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {

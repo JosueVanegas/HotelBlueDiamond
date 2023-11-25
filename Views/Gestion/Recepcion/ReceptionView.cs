@@ -60,7 +60,6 @@ namespace Hotel.Views.GestionView
                 try
                 {
                     var recepcionController = new RecepcionController(context);
-                    var habitacionController = new HabitacionesController(context);
                     var cliente = (Cliente)cbxCliente.SelectedItem;
                     Reserva recepcion = new Reserva
                     {
@@ -74,7 +73,11 @@ namespace Hotel.Views.GestionView
                         Finalizada = false,
                     };
                     recepcionController.AddObject(recepcion);
-                    recepcionController.SetState(habitacion.HabitacionId, 2);
+                    using(var cont = new HotelContext())
+                    {
+                        var controller = new HabitacionesController(cont);
+                        controller.SetState(habitacion.HabitacionId, 2);
+                    }
 
                     MessageBox.Show("Proceso de recervación de habitación finalizado exitosamente", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();

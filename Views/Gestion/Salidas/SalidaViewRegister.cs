@@ -108,8 +108,16 @@ namespace Hotel.Views.Gestion.Salidas
                 if(totalNoches == 0)
                 {
                     totalNoches = Convert.ToDecimal(txtPrecioPH.Text);
-                }s
-                decimal subTotal = (totalNoches + totalServicio + cargoRoturas) - adelanto;
+                }
+                decimal subTotal = (totalNoches + totalServicio + cargoRoturas);
+                if (adelanto >= subTotal )
+                {
+                    subTotal = 0;
+                }
+                else
+                {
+                 subTotal =   (totalNoches + totalServicio + cargoRoturas) - adelanto;
+                }
                 txtTotal.Text = subTotal.ToString("0.00");
                 decimal pago = Convert.ToDecimal(txtPago.Text);
                 if (pago != 0)
@@ -135,26 +143,37 @@ namespace Hotel.Views.Gestion.Salidas
                     if (MessageBox.Show("Estas apunto de finalizar la reservación,¿Desea finalizarla?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                     
-                        calculosTotales();
-                        var controller = new RecepcionController(context);
-                        Reserva r = new Reserva
+                            calculosTotales();
+                            context = new HotelContext();
+                            var controller = new RecepcionController(context);
+                            Reserva r = new Reserva
+                            {
+                                ReservaId = reserva.ReservaId,
+                                ClienteId = reserva.ClienteId,
+                                HabitacionId = reserva.HabitacionId,
+                                EmpleadoId = reserva.EmpleadoId,
+                                FechaEntrada = reserva.FechaEntrada,
+                                FechaSalida = DateTime.Now,
+                                Adelanto = Convert.ToDecimal(txtAdelanto.Text),
+                                CantidadPersonas = reserva.CantidadPersonas,
+                                TotalDaños = Convert.ToDecimal(txtCargoRoturas.Text),
+                                FechaRegistro = DateTime.Now,
+                                Finalizada = true,
+                                Total = Convert.ToDecimal(txtTotal.Text),
+                                HorasReservadas = diasTranscurridos,
+                            };
+                            controller.UpdateReservaObject(r);
+                        
+                        using(var cont = new HotelContext())
                         {
-                            ClienteId = reserva.ClienteId,
-                            HabitacionId = reserva.HabitacionId,
-                            EmpleadoId = reserva.EmpleadoId,
-                            FechaEntrada = reserva.FechaEntrada,
-                            FechaSalida = DateTime.Now,
-                            Adelanto = Convert.ToDecimal(txtAdelanto.Text),
-                            CantidadPersonas = reserva.CantidadPersonas,
-                            TotalDaños = Convert.ToDecimal(txtCargoRoturas.Text),
-                            FechaRegistro = DateTime.Now,
-                            Finalizada = true,
-                            Total = Convert.ToDecimal(txtTotal.Text),
-                            HorasReservadas = diasTranscurridos,
-                        };
-                        controller.UpdateObject(r);
-                        controller.UpdateServices(reserva.ReservaId);
-                        controller.SetState(HabitacionID, 1);
+                            var control = new RecepcionController(cont);
+                            control.UpdateServices(reserva.ReservaId);
+                        }
+                        using(var cont = new HotelContext())
+                        {
+                            var control = new HabitacionesController(cont);
+                            control.SetState(HabitacionID, 1);
+                        }
                         MessageBox.Show("Reservación terminada exitosamente", "Reservación concluida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }

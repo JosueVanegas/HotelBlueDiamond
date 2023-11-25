@@ -43,10 +43,10 @@ namespace Hotel.Controllers
         {
             return  _context.Pedidos.Find(id);
         }
-        public async void AddDetalles(DetallePedido obj)
+        public  void AddDetalles(DetallePedido obj)
         {
             _context.DetallePedidos.Add(obj);
-            await _context.SaveChangesAsync();
+             _context.SaveChanges();
         }
         public async void CancelarPedido(int id)
         {

@@ -42,10 +42,10 @@
             Editar = new DataGridViewButtonColumn();
             Borrar = new DataGridViewButtonColumn();
             panel1 = new Panel();
-            btnRegistrar = new ReaLTaiizor.Controls.RoyalButton();
             lblTitulo = new Label();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             panelContenedor = new Panel();
+            btnAgregar = new ReaLTaiizor.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)tbClientes).BeginInit();
             panel1.SuspendLayout();
             panelContenedor.SuspendLayout();
@@ -173,7 +173,7 @@
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Beige;
-            panel1.Controls.Add(btnRegistrar);
+            panel1.Controls.Add(btnAgregar);
             panel1.Controls.Add(lblTitulo);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -181,27 +181,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(892, 128);
             panel1.TabIndex = 1;
-            // 
-            // btnRegistrar
-            // 
-            btnRegistrar.BackColor = Color.White;
-            btnRegistrar.BackgroundImageLayout = ImageLayout.None;
-            btnRegistrar.BorderColor = Color.Blue;
-            btnRegistrar.BorderThickness = 2;
-            btnRegistrar.DrawBorder = true;
-            btnRegistrar.ForeColor = Color.Black;
-            btnRegistrar.HotTrackColor = Color.FromArgb(221, 221, 221);
-            btnRegistrar.Image = null;
-            btnRegistrar.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
-            btnRegistrar.Location = new Point(10, 86);
-            btnRegistrar.Margin = new Padding(3, 2, 3, 2);
-            btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.PressedColor = Color.FromArgb(244, 204, 137);
-            btnRegistrar.PressedForeColor = Color.White;
-            btnRegistrar.Size = new Size(200, 38);
-            btnRegistrar.TabIndex = 2;
-            btnRegistrar.Text = "Añadir nuevo cliente";
-            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // lblTitulo
             // 
@@ -230,6 +209,28 @@
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(892, 371);
             panelContenedor.TabIndex = 2;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.AutoSize = false;
+            btnAgregar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnAgregar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnAgregar.Depth = 0;
+            btnAgregar.HighEmphasis = true;
+            btnAgregar.Icon = null;
+            btnAgregar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnAgregar.Location = new Point(4, 73);
+            btnAgregar.Margin = new Padding(4, 6, 4, 6);
+            btnAgregar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.NoAccentTextColor = Color.Empty;
+            btnAgregar.Size = new Size(372, 49);
+            btnAgregar.TabIndex = 6;
+            btnAgregar.Text = "Registrar nuevo cliente";
+            btnAgregar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnAgregar.UseAccentColor = false;
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnRegistrar_Click;
             // 
             // ClientView
             // 
@@ -264,7 +265,7 @@
         private DataGridViewTextBoxColumn Telefono;
         private DataGridViewButtonColumn Editar;
         private DataGridViewButtonColumn Borrar;
-        private ReaLTaiizor.Controls.RoyalButton btnRegistrar;
         private Panel panelContenedor;
+        private ReaLTaiizor.Controls.MaterialButton btnAgregar;
     }
 }

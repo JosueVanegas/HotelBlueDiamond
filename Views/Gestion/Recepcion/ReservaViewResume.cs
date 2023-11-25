@@ -94,24 +94,23 @@ namespace Hotel.Views.GestionView.Recepcion
                                 boton.Text = "Concluir reservación";
                                 boton.Click += (s, e) =>
                                 {
-                                    SalidaViewRegister form = new SalidaViewRegister(i.HabitacionId);
-                                    form.ShowDialog();
-                                    mostrarHabitaciones();
+                                   if(i.HabitacionId != null)
+                                    {
+                                        SalidaViewRegister form = new SalidaViewRegister(i.HabitacionId);
+                                        form.ShowDialog();
+                                        mostrarHabitaciones();
+                                    }
                                 };
                                 break;
                             case 3:
                                 label2.BackColor = Color.Yellow;
                                 label2.ForeColor = Color.Black;
-                                boton.Click += (s, e) =>
-                                {
-                                };
+                                boton.Visible = false;
                                 break;
                             case 4:
                                 label2.BackColor = Color.Orange;
                                 label2.ForeColor = Color.Black;
-                                boton.Click += (s, e) =>
-                                {
-                                };
+                                boton.Visible = false;
                                 break;
                             default:
                                 break;

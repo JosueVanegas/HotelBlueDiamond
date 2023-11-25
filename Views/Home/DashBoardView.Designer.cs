@@ -422,7 +422,6 @@
             // grapTopProductos
             // 
             grapTopProductos.BackColor = Color.Transparent;
-            chartArea1.Area3DStyle.Enable3D = true;
             chartArea1.Area3DStyle.Inclination = 50;
             chartArea1.Area3DStyle.IsRightAngleAxes = false;
             chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;

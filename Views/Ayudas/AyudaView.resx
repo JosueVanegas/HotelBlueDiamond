@@ -118,14 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label3.Text" xml:space="preserve">
-    <value>hadfkajfaksjfaksjfaksjfasfassfkajshfkahskfjas.
+    <value>El proyecto se realizo gracias a las siguientes herramientas:
 
-sdkfjsdfljsdkfjbsdkfjskdjfbskdjbfskdjdfsbdjf
-lsdflsjdfsdflsdfsdlkhsldkfskdlfsdkfhsdlkf
-oieorwebfdooierdlfknsdlflkdkfskdjfjkdjf
 
--skdfkdjs
-  ksjdfkj
-</value>
+1) Para manejo de datos ocupamos el ORM de Entity frame work core con orientado a el diseño DATABASE-FIRTS 
+    que quiere decir primero realizamos la base de datos y luego la transladamos a codigo para podes hacer un mejor manejor 
+    en todo el contexto de los datos.
+
+2) Para el diseño utilizamos la libreria RealTaiizor la cual es una libreria para windows form gratuita de codigo abierto 
+     que se puede obtener mediante la utilización de su nuget oficial o en el perfil de github con el mismo nombre
+     su creador es incognito pero si nombre de usuario es Taiizor
+
+3)  Utilizamos el patrón de diseño MVC(model-view-controller) para poder organizar de manera correcta el codigo la parte de 
+      modelos la realizamos gracias al comando Scaffold de Entity Frame Work Core el cual hace un mapeo de la estructura de 
+      las tablas que se encuentran en la base de datos y las inserta como objetos en el proyecto facilitando aun más el manero de
+      todo el sistema y asegurando un entorno más seguro.
+
+4)   Para el area de reportes utilizamos la libreria o nuget llamada QuestPDF la cual es una libreria experimental que hoy en dia
+      ya es muy utilizada en entornos de .NET ya que permite realizar los reportes al antojo atravez de codigo y gracias a su herramienta
+      ReportView la cual permite ver los cambios en tiempo real y tambien a la amplia documentación existente del mismo proyecto.
+
+Todas estas herramientas se usaron con el fin de usar lo ultimo en el mercado de .NET para windows form y praticar conseptos como 
+los metodos asyncronos los cuales facilitan la visualización de los datos y una mejor fluides en la aplicación.</value>
   </data>
 </root>

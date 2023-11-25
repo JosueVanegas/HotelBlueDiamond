@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             tbProveedor = new ReaLTaiizor.Controls.PoisonDataGridView();
-            panel1 = new Panel();
-            btnRegistrar = new ReaLTaiizor.Controls.RoyalButton();
-            lblTitulo = new Label();
             ID = new DataGridViewTextBoxColumn();
             Cedula = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
@@ -45,6 +42,9 @@
             Column1 = new DataGridViewTextBoxColumn();
             Editar = new DataGridViewButtonColumn();
             Borrar = new DataGridViewButtonColumn();
+            panel1 = new Panel();
+            lblTitulo = new Label();
+            btnAgregar = new ReaLTaiizor.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)tbProveedor).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -55,33 +55,33 @@
             tbProveedor.AllowUserToDeleteRows = false;
             tbProveedor.AllowUserToResizeColumns = false;
             tbProveedor.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 204, 137);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            tbProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(244, 204, 137);
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            tbProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             tbProveedor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tbProveedor.BackgroundColor = Color.FromArgb(255, 255, 255);
             tbProveedor.BorderStyle = BorderStyle.None;
             tbProveedor.CellBorderStyle = DataGridViewCellBorderStyle.None;
             tbProveedor.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 170, 173);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 201, 206);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            tbProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 170, 173);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            tbProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             tbProveedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tbProveedor.Columns.AddRange(new DataGridViewColumn[] { ID, Cedula, Nombre, Apellido, Nacimiento, Cargo, Column1, Editar, Borrar });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 201, 206);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            tbProveedor.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            tbProveedor.DefaultCellStyle = dataGridViewCellStyle7;
             tbProveedor.Dock = DockStyle.Fill;
             tbProveedor.EnableHeadersVisualStyles = false;
             tbProveedor.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -92,14 +92,14 @@
             tbProveedor.Name = "tbProveedor";
             tbProveedor.ReadOnly = true;
             tbProveedor.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 170, 173);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 201, 206);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            tbProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(0, 170, 173);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(0, 201, 206);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            tbProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             tbProveedor.RowHeadersWidth = 51;
             tbProveedor.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             tbProveedor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -110,53 +110,6 @@
             tbProveedor.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             tbProveedor.CellContentClick += cellContentClick;
             tbProveedor.CellPainting += cellPainting;
-            // 
-            // panel1
-            // 
-            panel1.AutoScroll = true;
-            panel1.BackColor = Color.Beige;
-            panel1.Controls.Add(btnRegistrar);
-            panel1.Controls.Add(lblTitulo);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(985, 128);
-            panel1.TabIndex = 7;
-            // 
-            // btnRegistrar
-            // 
-            btnRegistrar.BackColor = Color.White;
-            btnRegistrar.BackgroundImageLayout = ImageLayout.None;
-            btnRegistrar.BorderColor = Color.Blue;
-            btnRegistrar.BorderThickness = 2;
-            btnRegistrar.DrawBorder = true;
-            btnRegistrar.ForeColor = Color.Black;
-            btnRegistrar.HotTrackColor = Color.FromArgb(221, 221, 221);
-            btnRegistrar.Image = null;
-            btnRegistrar.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
-            btnRegistrar.Location = new Point(12, 86);
-            btnRegistrar.Margin = new Padding(3, 2, 3, 2);
-            btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.PressedColor = Color.FromArgb(244, 204, 137);
-            btnRegistrar.PressedForeColor = Color.White;
-            btnRegistrar.Size = new Size(200, 38);
-            btnRegistrar.TabIndex = 2;
-            btnRegistrar.Text = "Añadir nuevo proveedor";
-            btnRegistrar.Click += btnRegistrar_Click;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.BackColor = Color.Transparent;
-            lblTitulo.Dock = DockStyle.Top;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTitulo.ForeColor = Color.Black;
-            lblTitulo.Location = new Point(0, 0);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(985, 57);
-            lblTitulo.TabIndex = 1;
-            lblTitulo.Text = "Proveedores";
-            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ID
             // 
@@ -218,6 +171,54 @@
             Borrar.Name = "Borrar";
             Borrar.ReadOnly = true;
             // 
+            // panel1
+            // 
+            panel1.AutoScroll = true;
+            panel1.BackColor = Color.Beige;
+            panel1.Controls.Add(btnAgregar);
+            panel1.Controls.Add(lblTitulo);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(985, 128);
+            panel1.TabIndex = 7;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Dock = DockStyle.Top;
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.ForeColor = Color.Black;
+            lblTitulo.Location = new Point(0, 0);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(985, 57);
+            lblTitulo.TabIndex = 1;
+            lblTitulo.Text = "Proveedores";
+            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.AutoSize = false;
+            btnAgregar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnAgregar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnAgregar.Depth = 0;
+            btnAgregar.HighEmphasis = true;
+            btnAgregar.Icon = null;
+            btnAgregar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnAgregar.Location = new Point(4, 73);
+            btnAgregar.Margin = new Padding(4, 6, 4, 6);
+            btnAgregar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.NoAccentTextColor = Color.Empty;
+            btnAgregar.Size = new Size(372, 49);
+            btnAgregar.TabIndex = 6;
+            btnAgregar.Text = "Registrar nuevo proveedor";
+            btnAgregar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnAgregar.UseAccentColor = false;
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnRegistrar_Click;
+            // 
             // ProveedorView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -238,7 +239,6 @@
 
         private ReaLTaiizor.Controls.PoisonDataGridView tbProveedor;
         private Panel panel1;
-        private ReaLTaiizor.Controls.RoyalButton btnRegistrar;
         private Label lblTitulo;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Cedula;
@@ -249,5 +249,6 @@
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewButtonColumn Editar;
         private DataGridViewButtonColumn Borrar;
+        private ReaLTaiizor.Controls.MaterialButton btnAgregar;
     }
 }

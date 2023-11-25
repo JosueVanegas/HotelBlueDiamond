@@ -21,6 +21,8 @@ public partial class Asignacion
 
     public int? HabitacionId { get; set; }
 
+    public string? TipoAsignacion { get; set; }
+
     public virtual Empleado? Empleado { get; set; }
 
     public virtual Habitacion? Habitacion { get; set; }

@@ -25,19 +25,10 @@ namespace Hotel.Controllers
         {
             return _context.Reservas.Include(r=>r.Empleado).Include(r=>r.Cliente).Include(r=>r.Habitacion).ToList();
         }
-        public void UpdateObject(Reserva objects)
+        public  void UpdateReservaObject(Reserva objects)
         {
-            _context.Reservas.Update(objects);
-            _context.SaveChanges();
-        }
-        public void DeleteObject(int id)
-        {
-            var objects = _context.Reservas.Find(id);
-            if (objects != null)
-            {
-                _context.Reservas.Remove(objects);
-                _context.SaveChanges();
-            }
+            _context.Reservas.Update(objects); 
+            _context.SaveChangesAsync();
         }
         public Reserva GetObjectById(int id)
         {
@@ -51,22 +42,27 @@ namespace Hotel.Controllers
                 Include(r => r.Cliente).Include(r => r.Habitacion).Include(r=>r.Habitacion.CategoriaHabitacion)
                 .Include(r=>r.Habitacion.Piso).FirstOrDefault();
         }
-        public void SetState(int? id,int state)
-        {
-            var obj = _context.Habitacions.Find(id);
-            if(obj != null )
-            {
-                obj.EstadoId = state;
-                _context.SaveChanges();
-            }
-        }
+        
         public void UpdateServices(int reservaID)
         {
-            var list = _context.Pedidos.Where(p=>p.ReservaId == reservaID).ToList();
-            foreach (var i in list)
+            var list = _context.Pedidos.Where(p => p.ReservaId == reservaID).ToList();
+            using (var transaction = _context.Database.BeginTransaction())
             {
-                i.Estado = true;
-                _context.SaveChanges();
+                try
+                {
+                    foreach (var pedido in list)
+                    {
+                        pedido.Estado = true;
+                    }
+
+                    _context.SaveChanges();
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
             }
         }
         public List<Pedido> GetPedidoByHabitacion(int? habitacionID)

@@ -56,5 +56,14 @@ namespace Hotel.Controllers
         {
             return _context.Habitacions.Find(id);
         }
+        public  void SetState(int? id, int state)
+        {
+            var obj =  _context.Habitacions.Find(id);
+            if (obj != null)
+            {
+                obj.EstadoId = state;
+                 _context.SaveChanges();
+            }
+        }
     }
 }

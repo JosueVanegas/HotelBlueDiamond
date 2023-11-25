@@ -1,4 +1,5 @@
 ﻿using Hotel.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,9 +38,25 @@ namespace Hotel.Controllers
                 _context.SaveChanges();
             }
         }
-        public Asignacion GetObjectById(int id)
+        public Asignacion GetObjectByHabId(int id)
         {
-            return _context.Asignacions.Find(id);
+            return _context.Asignacions.Include(a=>a.Empleado).Include(a=>a.Habitacion)
+                .Include(a => a.Habitacion.CategoriaHabitacion)
+                .Include(a => a.Habitacion.Piso)
+                .Include(a=>a.Habitacion.Estado).Where(a => a.HabitacionId == id && a.Estado == false).FirstOrDefault();
+        }
+        public List<EstadoHabitacion> GetStatesH()
+        {
+            return _context.EstadoHabitacions.ToList();
+        }
+        public void ChangeHabEstate(int? idH,int estado)
+        {
+            var obj = _context.Habitacions.Find(idH);
+            if (obj != null)
+            {
+                obj.EstadoId = estado;
+                _context.SaveChanges();
+            }
         }
     }
 }

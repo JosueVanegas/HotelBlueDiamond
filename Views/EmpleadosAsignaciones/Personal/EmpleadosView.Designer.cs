@@ -34,7 +34,6 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblTitulo = new Label();
             panel1 = new Panel();
-            btnRegistrar = new ReaLTaiizor.Controls.RoyalButton();
             tbEmpleados = new ReaLTaiizor.Controls.PoisonDataGridView();
             ID = new DataGridViewTextBoxColumn();
             Cedula = new DataGridViewTextBoxColumn();
@@ -44,6 +43,7 @@
             Cargo = new DataGridViewTextBoxColumn();
             Editar = new DataGridViewButtonColumn();
             Borrar = new DataGridViewButtonColumn();
+            btnAgregar = new ReaLTaiizor.Controls.MaterialButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbEmpleados).BeginInit();
             SuspendLayout();
@@ -65,7 +65,7 @@
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Beige;
-            panel1.Controls.Add(btnRegistrar);
+            panel1.Controls.Add(btnAgregar);
             panel1.Controls.Add(lblTitulo);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -73,27 +73,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(842, 128);
             panel1.TabIndex = 5;
-            // 
-            // btnRegistrar
-            // 
-            btnRegistrar.BackColor = Color.White;
-            btnRegistrar.BackgroundImageLayout = ImageLayout.None;
-            btnRegistrar.BorderColor = Color.Blue;
-            btnRegistrar.BorderThickness = 2;
-            btnRegistrar.DrawBorder = true;
-            btnRegistrar.ForeColor = Color.Black;
-            btnRegistrar.HotTrackColor = Color.FromArgb(221, 221, 221);
-            btnRegistrar.Image = null;
-            btnRegistrar.LayoutFlags = ReaLTaiizor.Util.RoyalLayoutFlags.ImageBeforeText;
-            btnRegistrar.Location = new Point(12, 86);
-            btnRegistrar.Margin = new Padding(3, 2, 3, 2);
-            btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.PressedColor = Color.FromArgb(244, 204, 137);
-            btnRegistrar.PressedForeColor = Color.White;
-            btnRegistrar.Size = new Size(200, 38);
-            btnRegistrar.TabIndex = 2;
-            btnRegistrar.Text = "Añadir nuevo empleado";
-            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // tbEmpleados
             // 
@@ -211,6 +190,28 @@
             Borrar.Name = "Borrar";
             Borrar.ReadOnly = true;
             // 
+            // btnAgregar
+            // 
+            btnAgregar.AutoSize = false;
+            btnAgregar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnAgregar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnAgregar.Depth = 0;
+            btnAgregar.HighEmphasis = true;
+            btnAgregar.Icon = null;
+            btnAgregar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnAgregar.Location = new Point(4, 71);
+            btnAgregar.Margin = new Padding(4, 6, 4, 6);
+            btnAgregar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.NoAccentTextColor = Color.Empty;
+            btnAgregar.Size = new Size(372, 49);
+            btnAgregar.TabIndex = 6;
+            btnAgregar.Text = "Registrar nuevo empleado";
+            btnAgregar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnAgregar.UseAccentColor = false;
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnRegistrar_Click;
+            // 
             // EmpleadosView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -231,7 +232,6 @@
 
         private Label lblTitulo;
         private Panel panel1;
-        private ReaLTaiizor.Controls.RoyalButton btnRegistrar;
         private ReaLTaiizor.Controls.PoisonDataGridView tbEmpleados;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Cedula;
@@ -241,5 +241,6 @@
         private DataGridViewTextBoxColumn Cargo;
         private DataGridViewButtonColumn Editar;
         private DataGridViewButtonColumn Borrar;
+        private ReaLTaiizor.Controls.MaterialButton btnAgregar;
     }
 }

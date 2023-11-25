@@ -31,6 +31,7 @@ namespace Hotel.Views.Pedidos.Ventas
             {
                 controller = new ProductoController(context);
                 var list = await controller.GetAllObject();
+                panelCarousel.Controls.Clear();
                 foreach (var i in list)
                 {
                     if(i.Stock > 0)
@@ -110,6 +111,7 @@ namespace Hotel.Views.Pedidos.Ventas
                     int itemWidth = 150;
                     int itemHeight = 150;
                     var habitaciones = new HabitacionesController(context).GetAllObjects();
+                    panelHabitaciones.Controls.Clear();
                     if (habitaciones.Count != 0)
                     {
                         int index = 0;

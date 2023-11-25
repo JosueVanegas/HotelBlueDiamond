@@ -54,7 +54,8 @@ public partial class HotelContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(Hotel.Properties.Resources.ConnectionString);
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=Hotel;Integrated Security=true;Trust Server Certificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -71,6 +72,7 @@ public partial class HotelContext : DbContext
             entity.Property(e => e.FechaAsignacion).HasColumnType("datetime");
             entity.Property(e => e.FechaConclusion).HasColumnType("datetime");
             entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
+            entity.Property(e => e.TipoAsignacion).HasMaxLength(50);
 
             entity.HasOne(d => d.Empleado).WithMany(p => p.Asignacions)
                 .HasForeignKey(d => d.EmpleadoId)
@@ -151,7 +153,7 @@ public partial class HotelContext : DbContext
         {
             entity.HasKey(e => new { e.CompraId, e.ProductoId }).HasName("PK__DetalleC__2C3EADCD2FC0796B");
 
-            entity.ToTable("DetalleCompra", "Servicios");
+            entity.ToTable("DetalleCompra", "Servicios", tb => tb.HasTrigger("trg_agregar_movimiento_venta"));
 
             entity.Property(e => e.CompraId).HasColumnName("CompraID");
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
@@ -172,7 +174,7 @@ public partial class HotelContext : DbContext
         {
             entity.HasKey(e => new { e.PedidoId, e.ProductoId }).HasName("PK__DetalleP__23F91EF89CA4EAAB");
 
-            entity.ToTable("DetallePedido", "Servicios");
+            entity.ToTable("DetallePedido", "Servicios", tb => tb.HasTrigger("trg_agregar_movimiento_compra"));
 
             entity.Property(e => e.PedidoId).HasColumnName("PedidoID");
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
