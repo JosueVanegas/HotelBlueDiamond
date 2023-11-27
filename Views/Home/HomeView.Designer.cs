@@ -262,6 +262,7 @@
             // 
             // btnCambiarUsuario
             // 
+            btnCambiarUsuario.Cursor = Cursors.Hand;
             resources.ApplyResources(btnCambiarUsuario, "btnCambiarUsuario");
             btnCambiarUsuario.Name = "btnCambiarUsuario";
             btnCambiarUsuario.TabStop = false;

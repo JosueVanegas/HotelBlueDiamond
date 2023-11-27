@@ -45,7 +45,7 @@ namespace Hotel.Views.Habitaciones
                 {
                     int id = (int)tbHabitaciones.Rows[indice].Cells["Id"].Value;
 
-                    if (MessageBox.Show("¿Esta seguro de eliminar al cliente seleccionado?", "Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Esta seguro de eliminar la habitación seleccionado?", "Advertencia!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         controller.DeleteObject(id);
                         mostrarHabitaciones();

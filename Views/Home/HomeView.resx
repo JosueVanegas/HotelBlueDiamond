@@ -429,19 +429,19 @@
     <value>MiddleLeft</value>
   </data>
   <data name="informeDeInventarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 30</value>
+    <value>322, 30</value>
   </data>
   <data name="informeDeInventarioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Informe de inventario</value>
+    <value>Informe de inventario actual</value>
   </data>
   <data name="informeDeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 30</value>
+    <value>322, 30</value>
   </data>
   <data name="informeDeToolStripMenuItem.Text" xml:space="preserve">
     <value>Informe de hospedajes</value>
   </data>
   <data name="generadorDeNominaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 30</value>
+    <value>322, 30</value>
   </data>
   <data name="generadorDeNominaToolStripMenuItem.Text" xml:space="preserve">
     <value>Generador de nomina</value>

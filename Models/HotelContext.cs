@@ -27,6 +27,8 @@ public partial class HotelContext : DbContext
 
     public virtual DbSet<Compra> Compras { get; set; }
 
+    public virtual DbSet<DatosParaNomina> DatosParaNominas { get; set; }
+
     public virtual DbSet<DetalleCompra> DetalleCompras { get; set; }
 
     public virtual DbSet<DetallePedido> DetallePedidos { get; set; }
@@ -149,6 +151,32 @@ public partial class HotelContext : DbContext
                 .HasConstraintName("FK_Compra_Usuario");
         });
 
+        modelBuilder.Entity<DatosParaNomina>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("DATOS_PARA_NOMINA");
+
+            entity.Property(e => e.Cargo)
+                .HasMaxLength(100)
+                .HasColumnName("cargo");
+            entity.Property(e => e.Cedula)
+                .HasMaxLength(30)
+                .HasColumnName("cedula");
+            entity.Property(e => e.Comiciones)
+                .HasColumnType("decimal(38, 2)")
+                .HasColumnName("comiciones");
+            entity.Property(e => e.NombreCompleto)
+                .HasMaxLength(511)
+                .HasColumnName("nombreCompleto");
+            entity.Property(e => e.SalarioDevengado)
+                .HasColumnType("decimal(38, 2)")
+                .HasColumnName("salario devengado");
+            entity.Property(e => e.SalarioFijo)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("salarioFijo");
+        });
+
         modelBuilder.Entity<DetalleCompra>(entity =>
         {
             entity.HasKey(e => new { e.CompraId, e.ProductoId }).HasName("PK__DetalleC__2C3EADCD2FC0796B");
@@ -234,6 +262,7 @@ public partial class HotelContext : DbContext
             entity.ToTable("Habitacion", "Habitaciones");
 
             entity.Property(e => e.HabitacionId).HasColumnName("HabitacionID");
+            entity.Property(e => e.Activo).HasDefaultValueSql("((1))");
             entity.Property(e => e.CategoriaHabitacionId).HasColumnName("CategoriaHabitacionID");
             entity.Property(e => e.Codigo).HasMaxLength(10);
             entity.Property(e => e.Detalles).HasMaxLength(300);
@@ -268,6 +297,7 @@ public partial class HotelContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
+            entity.Property(e => e.TipoMovimiento).HasMaxLength(20);
             entity.Property(e => e.UltimoPrecio).HasColumnType("decimal(10, 2)");
 
             entity.HasOne(d => d.Producto).WithMany(p => p.MovimientoProductos)
@@ -307,6 +337,7 @@ public partial class HotelContext : DbContext
             entity.ToTable("Producto", "Servicios");
 
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
+            entity.Property(e => e.Activo).HasDefaultValueSql("((1))");
             entity.Property(e => e.CategoriaProductoId).HasColumnName("CategoriaProductoID");
             entity.Property(e => e.Descripcion).HasMaxLength(255);
             entity.Property(e => e.Precio).HasColumnType("decimal(10, 2)");

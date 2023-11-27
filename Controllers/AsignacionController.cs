@@ -43,7 +43,9 @@ namespace Hotel.Controllers
             return _context.Asignacions.Include(a=>a.Empleado).Include(a=>a.Habitacion)
                 .Include(a => a.Habitacion.CategoriaHabitacion)
                 .Include(a => a.Habitacion.Piso)
-                .Include(a=>a.Habitacion.Estado).Where(a => a.HabitacionId == id && a.Estado == false).FirstOrDefault();
+                .Include(a=>a.Habitacion.Estado)
+                .Where(a => a.HabitacionId == id && a.Estado == false)
+                .FirstOrDefault();
         }
         public List<EstadoHabitacion> GetStatesH()
         {

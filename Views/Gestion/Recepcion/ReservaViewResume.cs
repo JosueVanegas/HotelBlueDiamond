@@ -70,6 +70,7 @@ namespace Hotel.Views.GestionView.Recepcion
                         System.Windows.Forms.Button boton;
                         boton = new System.Windows.Forms.Button
                         {
+                            Cursor = Cursors.Hand,
                             Dock = DockStyle.Bottom,
                             Size = new Size(itemWidth, 40),
                             BackColor = Color.FromArgb(0, 51, 102),

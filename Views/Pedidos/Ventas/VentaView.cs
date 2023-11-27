@@ -60,7 +60,7 @@ namespace Hotel.Views.Pedidos.Ventas
                             TextAlign = ContentAlignment.MiddleCenter
                         };
                         var boton = new Button
-                        {
+                        { 
                             Text = "Agregar al carrito",
                             Height = 40,
                             Width = 80,
@@ -153,7 +153,8 @@ namespace Hotel.Views.Pedidos.Ventas
                                     Dock = DockStyle.Bottom,
                                     Size = new Size(itemWidth, 40),
                                     BackColor = Color.FromArgb(0, 51, 102),
-                                    ForeColor = Color.White
+                                    ForeColor = Color.White,
+                                    Cursor = Cursors.Hand
                                 };
                                 boton.Click += (s, e) =>
                                 {

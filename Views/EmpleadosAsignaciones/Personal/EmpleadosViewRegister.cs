@@ -56,12 +56,10 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
                 dtNacimiento.Value = (DateTime)empleado.Nacimiento;
             }
         }
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private  void btnGuardar_Click(object sender, EventArgs e)
         {
             try
-            {
-                var context = new HotelContext();
-                var controller = new EmpleadosController(context);
+            {   
                 if (txtCedula.Text != "" && txtNombre.Text != "" && txtApellido.Text != "" && txtCorreo.Text != "" && txtTelefono.Text != "")
                 {
                     var cargo = (Cargo)cbxCargo.SelectedItem;
@@ -75,12 +73,16 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
                             Cedula = txtCedula.Text,
                             Telefono = txtTelefono.Text,
                             Correo = txtCorreo.Text,
-                            Cargo = cargo,
+                            CargoId = cargo.CargoId,
                             Nacimiento = dtNacimiento.Value,
                             FechaRegistro = DateTime.Now,
                             Activo = true
                         };
-                        controller.UpdateObject(emp);
+                        using(var context = new HotelContext())
+                        {
+                            var controller = new EmpleadosController(context);
+                             controller.UpdateObject(emp);
+                        }
                         MessageBox.Show("Los datos del empleado han sido actualizados", "Actualización exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -92,15 +94,19 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
                             Cedula = txtCedula.Text,
                             Telefono = txtTelefono.Text,
                             Correo = txtCorreo.Text,
-                            Cargo = cargo,
+                            CargoId = cargo.CargoId,
                             Nacimiento = dtNacimiento.Value,
                             FechaRegistro = DateTime.Now,
-                            Activo = true
+                            Activo = true,
                         };
-                        controller.UpdateObject(emp);
+                        using (var context = new HotelContext())
+                        {
+                            var controller = new EmpleadosController(context);
+                            controller.AddObject(emp);
+                        }
                         MessageBox.Show("Nuevo empleado registrado correctamente", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    this.Close();
+                   this.Close();
                 }
                 else
                 {

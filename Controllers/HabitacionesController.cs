@@ -24,7 +24,7 @@ namespace Hotel.Controllers
         }
         public List<Habitacion> GetAllObjects()
         {
-            return _context.Habitacions.Include(h=>h.CategoriaHabitacion).Include(h=>h.Piso).Include(h=>h.Estado).ToList();
+            return _context.Habitacions.Include(h=>h.CategoriaHabitacion).Include(h=>h.Piso).Include(h=>h.Estado).Where(h=>h.Activo==true).ToList();
         }
         public void UpdateObject(Habitacion objects)
         {
@@ -36,7 +36,7 @@ namespace Hotel.Controllers
             var objects = _context.Habitacions.Find(id);
             if (objects != null)
             {
-                _context.Habitacions.Remove(objects);
+                objects.Activo = false;
                 _context.SaveChanges();
             }
         }

@@ -22,7 +22,7 @@ namespace Hotel.Controllers
         }
         public async Task<List<Producto>> GetAllObject()
         {
-            return await _context.Productos.Include(p=>p.CategoriaProducto).Include(p=>p.Proveedor).ToListAsync();
+            return await _context.Productos.Include(p=>p.CategoriaProducto).Include(p=>p.Proveedor).Where(p=>p.Activo==true).ToListAsync();
         }
         public void UpdateObject(Producto producto)
         {
@@ -34,7 +34,7 @@ namespace Hotel.Controllers
             var obj = await GetObject(id);
             if (obj != null)
             {
-                _context.Productos.Remove(obj);
+                obj.Activo = false;
                 _context.SaveChangesAsync();
             }
         }

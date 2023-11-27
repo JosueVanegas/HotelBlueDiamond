@@ -21,6 +21,8 @@ public partial class Habitacion
 
     public string? Extras { get; set; }
 
+    public bool? Activo { get; set; }
+
     public virtual ICollection<Asignacion> Asignacions { get; set; } = new List<Asignacion>();
 
     public virtual CategoriaHabitacion? CategoriaHabitacion { get; set; }

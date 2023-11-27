@@ -233,7 +233,8 @@ namespace Hotel.Views.Home
 
                             column.Item().LineHorizontal(0.5f);
 
-                            var entries = new List<ChartEntry>();
+                            /*
+                             * var entries = new List<ChartEntry>();
                             CultureInfo cultureInfo = new CultureInfo("es-ES");
                             foreach (var i in listaMasVendidos)
                             {
@@ -277,6 +278,7 @@ namespace Hotel.Views.Home
                                   chart.DrawContent(canvas, (int)size.Width, (int)size.Height);
                               });
                             });
+                             */
                             column.Spacing(10);
 
 

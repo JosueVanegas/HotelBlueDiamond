@@ -17,6 +17,8 @@ public partial class Producto
 
     public int? ProveedorId { get; set; }
 
+    public bool? Activo { get; set; }
+
     public virtual CategoriaProducto? CategoriaProducto { get; set; }
 
     public virtual ICollection<DetalleCompra> DetalleCompras { get; set; } = new List<DetalleCompra>();

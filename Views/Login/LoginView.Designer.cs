@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginView));
             txtUsuario = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtClave = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             label1 = new Label();
@@ -175,6 +176,7 @@
             label2.BackColor = Color.FromArgb(0, 51, 102);
             label2.Font = new Font("Microsoft Sans Serif", 48F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
+            label2.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Polite;
             label2.Location = new Point(377, 20);
             label2.Name = "label2";
             label2.Size = new Size(294, 309);
@@ -198,6 +200,7 @@
             btnSalir.AutoSize = false;
             btnSalir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnSalir.BackColor = Color.Beige;
+            btnSalir.Cursor = Cursors.Hand;
             btnSalir.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnSalir.Depth = 0;
             btnSalir.HighEmphasis = true;
@@ -220,6 +223,7 @@
             // 
             btnIngresar.AutoSize = false;
             btnIngresar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnIngresar.Cursor = Cursors.Hand;
             btnIngresar.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnIngresar.Depth = 0;
             btnIngresar.HighEmphasis = true;
@@ -247,6 +251,7 @@
             ClientSize = new Size(785, 421);
             Controls.Add(parrotGradientPanel1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "LoginView";
             StartPosition = FormStartPosition.CenterScreen;

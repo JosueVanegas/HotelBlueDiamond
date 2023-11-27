@@ -19,10 +19,10 @@ namespace Hotel.Controllers
         {
             return await _context.Empleados.Include(e=>e.Cargo).Where(e=>e.Activo == true).ToListAsync();
         }
-        public async void AddObject(Empleado obj)
+        public  void AddObject(Empleado obj)
         {
             _context.Empleados.Add(obj);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
         public async void DeleteObject(int id)
         {
@@ -30,13 +30,13 @@ namespace Hotel.Controllers
             if (obj != null)
             {
                 obj.Activo = false;
-                _context.SaveChangesAsync();
+               await _context.SaveChangesAsync();
             }
         }
-        public async void UpdateObject(Empleado obj)
+        public  void UpdateObject(Empleado obj)
         {
             _context.Update(obj);
-            _context.SaveChangesAsync();
+             _context.SaveChanges();
         }
         public async Task<Empleado> GetObjectById(int id)
         {

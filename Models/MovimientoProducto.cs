@@ -15,5 +15,7 @@ public partial class MovimientoProducto
 
     public decimal? UltimoPrecio { get; set; }
 
+    public string? TipoMovimiento { get; set; }
+
     public virtual Producto? Producto { get; set; }
 }

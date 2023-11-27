@@ -431,16 +431,15 @@
             grapTopProductos.Dock = DockStyle.Fill;
             legend1.Name = "Legend1";
             grapTopProductos.Legends.Add(legend1);
-            grapTopProductos.Location = new Point(508, 0);
+            grapTopProductos.Location = new Point(665, 0);
             grapTopProductos.Name = "grapTopProductos";
-            grapTopProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            grapTopProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.IsValueShownAsLabel = true;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             grapTopProductos.Series.Add(series1);
-            grapTopProductos.Size = new Size(496, 306);
+            grapTopProductos.Size = new Size(339, 306);
             grapTopProductos.TabIndex = 1;
             grapTopProductos.Text = "chart1";
             // 
@@ -452,9 +451,9 @@
             label6.ForeColor = Color.FromArgb(0, 51, 102);
             label6.Location = new Point(0, 0);
             label6.Name = "label6";
-            label6.Size = new Size(508, 306);
+            label6.Size = new Size(665, 306);
             label6.TabIndex = 0;
-            label6.Text = "Hotel \r\nDorado";
+            label6.Text = "Blue\r\nDiamond\r\n";
             // 
             // DashBoardView
             // 

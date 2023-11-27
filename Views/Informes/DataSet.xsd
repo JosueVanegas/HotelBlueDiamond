@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet" targetNamespace="http://tempuri.org/DataSet.xsd" xmlns:mstns="http://tempuri.org/DataSet.xsd" xmlns="http://tempuri.org/DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=(local);Initial Catalog=Hotel;Integrated Security=True;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="HotelConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="INFORMACION_REPORTE_RESERVACIONESTableAdapter" GeneratorDataComponentClassName="INFORMACION_REPORTE_RESERVACIONESTableAdapter" Name="INFORMACION_REPORTE_RESERVACIONES" UserDataComponentName="INFORMACION_REPORTE_RESERVACIONESTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HotelConnectionString" DbObjectName="Hotel.dbo.INFORMACION_REPORTE_RESERVACIONES" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [Habitación reservada], [Cedula del cliente], [Atendido por], [Precio por noche], [cantidad de noches reservadas], [subTotal en habitación], [Total en servicio a la habitacion], [Total en daños], adelanto, [Total pagado], [Fecha de entrada], [Fecha de salida] FROM dbo.INFORMACION_REPORTE_RESERVACIONES</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Habitación reservada" DataSetColumn="Habitación reservada" />
+              <Mapping SourceColumn="Cedula del cliente" DataSetColumn="Cedula del cliente" />
+              <Mapping SourceColumn="Atendido por" DataSetColumn="Atendido por" />
+              <Mapping SourceColumn="Precio por noche" DataSetColumn="Precio por noche" />
+              <Mapping SourceColumn="cantidad de noches reservadas" DataSetColumn="cantidad de noches reservadas" />
+              <Mapping SourceColumn="subTotal en habitación" DataSetColumn="subTotal en habitación" />
+              <Mapping SourceColumn="Total en servicio a la habitacion" DataSetColumn="Total en servicio a la habitacion" />
+              <Mapping SourceColumn="Total en daños" DataSetColumn="Total en daños" />
+              <Mapping SourceColumn="adelanto" DataSetColumn="adelanto" />
+              <Mapping SourceColumn="Total pagado" DataSetColumn="Total pagado" />
+              <Mapping SourceColumn="Fecha de entrada" DataSetColumn="Fecha de entrada" />
+              <Mapping SourceColumn="Fecha de salida" DataSetColumn="Fecha de salida" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet" msprop:Generator_DataSetName="DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="INFORMACION_REPORTE_RESERVACIONES" msprop:Generator_RowEvHandlerName="INFORMACION_REPORTE_RESERVACIONESRowChangeEventHandler" msprop:Generator_RowDeletedName="INFORMACION_REPORTE_RESERVACIONESRowDeleted" msprop:Generator_RowDeletingName="INFORMACION_REPORTE_RESERVACIONESRowDeleting" msprop:Generator_RowEvArgName="INFORMACION_REPORTE_RESERVACIONESRowChangeEvent" msprop:Generator_TablePropName="INFORMACION_REPORTE_RESERVACIONES" msprop:Generator_RowChangedName="INFORMACION_REPORTE_RESERVACIONESRowChanged" msprop:Generator_RowChangingName="INFORMACION_REPORTE_RESERVACIONESRowChanging" msprop:Generator_TableClassName="INFORMACION_REPORTE_RESERVACIONESDataTable" msprop:Generator_RowClassName="INFORMACION_REPORTE_RESERVACIONESRow" msprop:Generator_TableVarName="tableINFORMACION_REPORTE_RESERVACIONES" msprop:Generator_UserTableName="INFORMACION_REPORTE_RESERVACIONES">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Habitación_x0020_reservada" msprop:Generator_ColumnPropNameInRow="Habitación_reservada" msprop:Generator_ColumnPropNameInTable="Habitación_reservadaColumn" msprop:Generator_ColumnVarNameInTable="columnHabitación_reservada" msprop:Generator_UserColumnName="Habitación reservada" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cedula_x0020_del_x0020_cliente" msprop:Generator_ColumnPropNameInRow="Cedula_del_cliente" msprop:Generator_ColumnPropNameInTable="Cedula_del_clienteColumn" msprop:Generator_ColumnVarNameInTable="columnCedula_del_cliente" msprop:Generator_UserColumnName="Cedula del cliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Atendido_x0020_por" msprop:Generator_ColumnPropNameInRow="Atendido_por" msprop:Generator_ColumnPropNameInTable="Atendido_porColumn" msprop:Generator_ColumnVarNameInTable="columnAtendido_por" msprop:Generator_UserColumnName="Atendido por" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Precio_x0020_por_x0020_noche" msprop:Generator_ColumnPropNameInRow="Precio_por_noche" msprop:Generator_ColumnPropNameInTable="Precio_por_nocheColumn" msprop:Generator_ColumnVarNameInTable="columnPrecio_por_noche" msprop:Generator_UserColumnName="Precio por noche" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cantidad_x0020_de_x0020_noches_x0020_reservadas" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="cantidad_de_noches_reservadas" msprop:Generator_ColumnPropNameInTable="cantidad_de_noches_reservadasColumn" msprop:Generator_ColumnVarNameInTable="columncantidad_de_noches_reservadas" msprop:Generator_UserColumnName="cantidad de noches reservadas" type="xs:int" minOccurs="0" />
+              <xs:element name="subTotal_x0020_en_x0020_habitación" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="subTotal_en_habitación" msprop:Generator_ColumnPropNameInTable="subTotal_en_habitaciónColumn" msprop:Generator_ColumnVarNameInTable="columnsubTotal_en_habitación" msprop:Generator_UserColumnName="subTotal en habitación" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total_x0020_en_x0020_servicio_x0020_a_x0020_la_x0020_habitacion" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Total_en_servicio_a_la_habitacion" msprop:Generator_ColumnPropNameInTable="Total_en_servicio_a_la_habitacionColumn" msprop:Generator_ColumnVarNameInTable="columnTotal_en_servicio_a_la_habitacion" msprop:Generator_UserColumnName="Total en servicio a la habitacion" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total_x0020_en_x0020_daños" msprop:Generator_ColumnPropNameInRow="Total_en_daños" msprop:Generator_ColumnPropNameInTable="Total_en_dañosColumn" msprop:Generator_ColumnVarNameInTable="columnTotal_en_daños" msprop:Generator_UserColumnName="Total en daños" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adelanto" msprop:Generator_ColumnPropNameInRow="adelanto" msprop:Generator_ColumnPropNameInTable="adelantoColumn" msprop:Generator_ColumnVarNameInTable="columnadelanto" msprop:Generator_UserColumnName="adelanto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total_x0020_pagado" msprop:Generator_ColumnPropNameInRow="Total_pagado" msprop:Generator_ColumnPropNameInTable="Total_pagadoColumn" msprop:Generator_ColumnVarNameInTable="columnTotal_pagado" msprop:Generator_UserColumnName="Total pagado" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Fecha_x0020_de_x0020_entrada" msprop:Generator_ColumnPropNameInRow="Fecha_de_entrada" msprop:Generator_ColumnPropNameInTable="Fecha_de_entradaColumn" msprop:Generator_ColumnVarNameInTable="columnFecha_de_entrada" msprop:Generator_UserColumnName="Fecha de entrada" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Fecha_x0020_de_x0020_salida" msprop:Generator_ColumnPropNameInRow="Fecha_de_salida" msprop:Generator_ColumnPropNameInTable="Fecha_de_salidaColumn" msprop:Generator_ColumnVarNameInTable="columnFecha_de_salida" msprop:Generator_UserColumnName="Fecha de salida" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
