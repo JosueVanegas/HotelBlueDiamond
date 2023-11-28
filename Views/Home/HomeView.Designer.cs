@@ -33,28 +33,28 @@
             panelContenedor = new Panel();
             Menu = new MenuStrip();
             btnInicioMenu = new ToolStripMenuItem();
-            btnHospedajeMenu = new ToolStripMenuItem();
+            btnRecepcionMenu = new ToolStripMenuItem();
             btnTiendaMenu = new ToolStripMenuItem();
-            productosToolStripMenuItem = new ToolStripMenuItem();
-            categoriasToolStripMenuItem1 = new ToolStripMenuItem();
+            btnServicioHabitacion = new ToolStripMenuItem();
+            btnCompraSubMenu = new ToolStripMenuItem();
+            btnInventarioSubMenu = new ToolStripMenuItem();
             productosToolStripMenuItem1 = new ToolStripMenuItem();
             categoriasToolStripMenuItem2 = new ToolStripMenuItem();
             proveedoresToolStripMenuItem = new ToolStripMenuItem();
-            comprarToolStripMenuItem = new ToolStripMenuItem();
             btnHabitacionesMenu = new ToolStripMenuItem();
             btnHabitaciones = new ToolStripMenuItem();
             btnCategorias = new ToolStripMenuItem();
-            btnTareasPersonalMenu = new ToolStripMenuItem();
+            btnEmpleadosMenu = new ToolStripMenuItem();
+            btnAsignacion = new ToolStripMenuItem();
             personalToolStripMenuItem = new ToolStripMenuItem();
             btnEmpleado = new ToolStripMenuItem();
             btnCargo = new ToolStripMenuItem();
-            btnAsignacion = new ToolStripMenuItem();
-            btnReportesMenu = new ToolStripMenuItem();
-            informeDeInventarioToolStripMenuItem = new ToolStripMenuItem();
-            informeDeToolStripMenuItem = new ToolStripMenuItem();
-            generadorDeNominaToolStripMenuItem = new ToolStripMenuItem();
-            btnUsuariosMenu = new ToolStripMenuItem();
             btnClientesMenu = new ToolStripMenuItem();
+            btnUsuariosMenu = new ToolStripMenuItem();
+            btnReportesMenu = new ToolStripMenuItem();
+            btnInformeInventario = new ToolStripMenuItem();
+            btnInformeHospedajes = new ToolStripMenuItem();
+            btnInformeNomina = new ToolStripMenuItem();
             btnAyudaMenu = new ToolStripMenuItem();
             panel1 = new Panel();
             lblUsuario = new Label();
@@ -81,7 +81,7 @@
             resources.ApplyResources(Menu, "Menu");
             Menu.GripMargin = new Padding(2, 2, 0, 10);
             Menu.ImageScalingSize = new Size(20, 20);
-            Menu.Items.AddRange(new ToolStripItem[] { btnInicioMenu, btnHospedajeMenu, btnTiendaMenu, btnHabitacionesMenu, btnTareasPersonalMenu, btnReportesMenu, btnUsuariosMenu, btnClientesMenu, btnAyudaMenu });
+            Menu.Items.AddRange(new ToolStripItem[] { btnInicioMenu, btnRecepcionMenu, btnTiendaMenu, btnHabitacionesMenu, btnEmpleadosMenu, btnClientesMenu, btnUsuariosMenu, btnReportesMenu, btnAyudaMenu });
             Menu.Name = "Menu";
             Menu.RenderMode = ToolStripRenderMode.Professional;
             Menu.ShowItemToolTips = true;
@@ -94,33 +94,39 @@
             btnInicioMenu.Name = "btnInicioMenu";
             btnInicioMenu.Click += btnInicioMenu_Click;
             // 
-            // btnHospedajeMenu
+            // btnRecepcionMenu
             // 
-            btnHospedajeMenu.ForeColor = Color.Beige;
-            resources.ApplyResources(btnHospedajeMenu, "btnHospedajeMenu");
-            btnHospedajeMenu.Margin = new Padding(0, 10, 0, 10);
-            btnHospedajeMenu.Name = "btnHospedajeMenu";
-            btnHospedajeMenu.Click += btnHospedajeMenu_Click;
+            btnRecepcionMenu.ForeColor = Color.Beige;
+            resources.ApplyResources(btnRecepcionMenu, "btnRecepcionMenu");
+            btnRecepcionMenu.Margin = new Padding(0, 10, 0, 10);
+            btnRecepcionMenu.Name = "btnRecepcionMenu";
+            btnRecepcionMenu.Click += btnHospedajeMenu_Click;
             // 
             // btnTiendaMenu
             // 
-            btnTiendaMenu.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem, categoriasToolStripMenuItem1, comprarToolStripMenuItem });
+            btnTiendaMenu.DropDownItems.AddRange(new ToolStripItem[] { btnServicioHabitacion, btnCompraSubMenu, btnInventarioSubMenu });
             btnTiendaMenu.ForeColor = Color.Beige;
             resources.ApplyResources(btnTiendaMenu, "btnTiendaMenu");
             btnTiendaMenu.Margin = new Padding(0, 10, 0, 10);
             btnTiendaMenu.Name = "btnTiendaMenu";
             // 
-            // productosToolStripMenuItem
+            // btnServicioHabitacion
             // 
-            productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            resources.ApplyResources(productosToolStripMenuItem, "productosToolStripMenuItem");
-            productosToolStripMenuItem.Click += productosToolStripMenuItem_Click;
+            btnServicioHabitacion.Name = "btnServicioHabitacion";
+            resources.ApplyResources(btnServicioHabitacion, "btnServicioHabitacion");
+            btnServicioHabitacion.Click += productosToolStripMenuItem_Click;
             // 
-            // categoriasToolStripMenuItem1
+            // btnCompraSubMenu
             // 
-            categoriasToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem1, categoriasToolStripMenuItem2, proveedoresToolStripMenuItem });
-            categoriasToolStripMenuItem1.Name = "categoriasToolStripMenuItem1";
-            resources.ApplyResources(categoriasToolStripMenuItem1, "categoriasToolStripMenuItem1");
+            btnCompraSubMenu.Name = "btnCompraSubMenu";
+            resources.ApplyResources(btnCompraSubMenu, "btnCompraSubMenu");
+            btnCompraSubMenu.Click += comprarToolStripMenuItem_Click;
+            // 
+            // btnInventarioSubMenu
+            // 
+            btnInventarioSubMenu.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem1, categoriasToolStripMenuItem2, proveedoresToolStripMenuItem });
+            btnInventarioSubMenu.Name = "btnInventarioSubMenu";
+            resources.ApplyResources(btnInventarioSubMenu, "btnInventarioSubMenu");
             // 
             // productosToolStripMenuItem1
             // 
@@ -139,12 +145,6 @@
             proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
             resources.ApplyResources(proveedoresToolStripMenuItem, "proveedoresToolStripMenuItem");
             proveedoresToolStripMenuItem.Click += proveedoresToolStripMenuItem_Click;
-            // 
-            // comprarToolStripMenuItem
-            // 
-            comprarToolStripMenuItem.Name = "comprarToolStripMenuItem";
-            resources.ApplyResources(comprarToolStripMenuItem, "comprarToolStripMenuItem");
-            comprarToolStripMenuItem.Click += comprarToolStripMenuItem_Click;
             // 
             // btnHabitacionesMenu
             // 
@@ -166,13 +166,19 @@
             resources.ApplyResources(btnCategorias, "btnCategorias");
             btnCategorias.Click += btnCategorias_Click;
             // 
-            // btnTareasPersonalMenu
+            // btnEmpleadosMenu
             // 
-            btnTareasPersonalMenu.DropDownItems.AddRange(new ToolStripItem[] { personalToolStripMenuItem, btnAsignacion });
-            btnTareasPersonalMenu.ForeColor = Color.Beige;
-            resources.ApplyResources(btnTareasPersonalMenu, "btnTareasPersonalMenu");
-            btnTareasPersonalMenu.Margin = new Padding(0, 10, 0, 10);
-            btnTareasPersonalMenu.Name = "btnTareasPersonalMenu";
+            btnEmpleadosMenu.DropDownItems.AddRange(new ToolStripItem[] { btnAsignacion, personalToolStripMenuItem });
+            btnEmpleadosMenu.ForeColor = Color.Beige;
+            resources.ApplyResources(btnEmpleadosMenu, "btnEmpleadosMenu");
+            btnEmpleadosMenu.Margin = new Padding(0, 10, 0, 10);
+            btnEmpleadosMenu.Name = "btnEmpleadosMenu";
+            // 
+            // btnAsignacion
+            // 
+            btnAsignacion.Name = "btnAsignacion";
+            resources.ApplyResources(btnAsignacion, "btnAsignacion");
+            btnAsignacion.Click += btnAsignacion_Click;
             // 
             // personalToolStripMenuItem
             // 
@@ -192,35 +198,13 @@
             resources.ApplyResources(btnCargo, "btnCargo");
             btnCargo.Click += btnCargo_Click;
             // 
-            // btnAsignacion
+            // btnClientesMenu
             // 
-            btnAsignacion.Name = "btnAsignacion";
-            resources.ApplyResources(btnAsignacion, "btnAsignacion");
-            btnAsignacion.Click += btnAsignacion_Click;
-            // 
-            // btnReportesMenu
-            // 
-            btnReportesMenu.DropDownItems.AddRange(new ToolStripItem[] { informeDeInventarioToolStripMenuItem, informeDeToolStripMenuItem, generadorDeNominaToolStripMenuItem });
-            btnReportesMenu.ForeColor = Color.Beige;
-            resources.ApplyResources(btnReportesMenu, "btnReportesMenu");
-            btnReportesMenu.Margin = new Padding(0, 10, 0, 10);
-            btnReportesMenu.Name = "btnReportesMenu";
-            // 
-            // informeDeInventarioToolStripMenuItem
-            // 
-            informeDeInventarioToolStripMenuItem.Name = "informeDeInventarioToolStripMenuItem";
-            resources.ApplyResources(informeDeInventarioToolStripMenuItem, "informeDeInventarioToolStripMenuItem");
-            informeDeInventarioToolStripMenuItem.Click += informeDeInventarioToolStripMenuItem_Click;
-            // 
-            // informeDeToolStripMenuItem
-            // 
-            informeDeToolStripMenuItem.Name = "informeDeToolStripMenuItem";
-            resources.ApplyResources(informeDeToolStripMenuItem, "informeDeToolStripMenuItem");
-            // 
-            // generadorDeNominaToolStripMenuItem
-            // 
-            generadorDeNominaToolStripMenuItem.Name = "generadorDeNominaToolStripMenuItem";
-            resources.ApplyResources(generadorDeNominaToolStripMenuItem, "generadorDeNominaToolStripMenuItem");
+            btnClientesMenu.ForeColor = Color.Beige;
+            resources.ApplyResources(btnClientesMenu, "btnClientesMenu");
+            btnClientesMenu.Margin = new Padding(0, 10, 0, 10);
+            btnClientesMenu.Name = "btnClientesMenu";
+            btnClientesMenu.Click += btnClientes_Click;
             // 
             // btnUsuariosMenu
             // 
@@ -230,13 +214,29 @@
             btnUsuariosMenu.Name = "btnUsuariosMenu";
             btnUsuariosMenu.Click += btnUsuariosMenu_Click;
             // 
-            // btnClientesMenu
+            // btnReportesMenu
             // 
-            btnClientesMenu.ForeColor = Color.Beige;
-            resources.ApplyResources(btnClientesMenu, "btnClientesMenu");
-            btnClientesMenu.Margin = new Padding(0, 10, 0, 10);
-            btnClientesMenu.Name = "btnClientesMenu";
-            btnClientesMenu.Click += btnClientes_Click;
+            btnReportesMenu.DropDownItems.AddRange(new ToolStripItem[] { btnInformeInventario, btnInformeHospedajes, btnInformeNomina });
+            btnReportesMenu.ForeColor = Color.Beige;
+            resources.ApplyResources(btnReportesMenu, "btnReportesMenu");
+            btnReportesMenu.Margin = new Padding(0, 10, 0, 10);
+            btnReportesMenu.Name = "btnReportesMenu";
+            // 
+            // btnInformeInventario
+            // 
+            btnInformeInventario.Name = "btnInformeInventario";
+            resources.ApplyResources(btnInformeInventario, "btnInformeInventario");
+            btnInformeInventario.Click += informeDeInventarioToolStripMenuItem_Click;
+            // 
+            // btnInformeHospedajes
+            // 
+            btnInformeHospedajes.Name = "btnInformeHospedajes";
+            resources.ApplyResources(btnInformeHospedajes, "btnInformeHospedajes");
+            // 
+            // btnInformeNomina
+            // 
+            btnInformeNomina.Name = "btnInformeNomina";
+            resources.ApplyResources(btnInformeNomina, "btnInformeNomina");
             // 
             // btnAyudaMenu
             // 
@@ -307,6 +307,7 @@
             Menu.ResumeLayout(false);
             Menu.PerformLayout();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnCambiarUsuario).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
@@ -318,10 +319,10 @@
         private Panel panelContenedor;
         private MenuStrip Menu;
         private ToolStripMenuItem btnInicioMenu;
-        private ToolStripMenuItem btnHospedajeMenu;
+        private ToolStripMenuItem btnRecepcionMenu;
         private ToolStripMenuItem btnTiendaMenu;
-        private ToolStripMenuItem productosToolStripMenuItem;
-        private ToolStripMenuItem categoriasToolStripMenuItem1;
+        private ToolStripMenuItem btnServicioHabitacion;
+        private ToolStripMenuItem btnInventarioSubMenu;
         private ToolStripMenuItem btnHabitacionesMenu;
         private ToolStripMenuItem btnHabitaciones;
         private ToolStripMenuItem btnCategorias;
@@ -332,21 +333,21 @@
         private ToolStripMenuItem productosToolStripMenuItem1;
         private ToolStripMenuItem categoriasToolStripMenuItem2;
         private Panel panel1;
-        private ToolStripMenuItem informeDeInventarioToolStripMenuItem;
+        private ToolStripMenuItem btnInformeInventario;
         private System.Windows.Forms.Timer Reloj;
         private Label lblReloj;
         private Label lblUsuario;
         private PictureBox btnCambiarUsuario;
-        private ToolStripMenuItem btnTareasPersonalMenu;
+        private ToolStripMenuItem btnEmpleadosMenu;
         private ToolStripMenuItem personalToolStripMenuItem;
         private ToolStripMenuItem btnEmpleado;
         private ToolStripMenuItem btnCargo;
         private ToolStripMenuItem btnAsignacion;
-        private ToolStripMenuItem informeDeToolStripMenuItem;
-        private ToolStripMenuItem generadorDeNominaToolStripMenuItem;
+        private ToolStripMenuItem btnInformeHospedajes;
+        private ToolStripMenuItem btnInformeNomina;
         private Panel panel2;
         private Label lblConexion;
         private ToolStripMenuItem proveedoresToolStripMenuItem;
-        private ToolStripMenuItem comprarToolStripMenuItem;
+        private ToolStripMenuItem btnCompraSubMenu;
     }
 }

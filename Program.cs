@@ -17,7 +17,7 @@ namespace Hotel
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new HomeView(null));
+            Application.Run(new LoginView());
         }
     }
 }
