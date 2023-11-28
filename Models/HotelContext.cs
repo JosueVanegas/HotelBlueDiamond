@@ -56,8 +56,7 @@ public partial class HotelContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=Hotel;Integrated Security=true;Trust Server Certificate=true;");
+     => optionsBuilder.UseSqlServer(Properties.Resources.ConnectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -176,7 +175,6 @@ public partial class HotelContext : DbContext
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("salarioFijo");
         });
-
         modelBuilder.Entity<DetalleCompra>(entity =>
         {
             entity.HasKey(e => new { e.CompraId, e.ProductoId }).HasName("PK__DetalleC__2C3EADCD2FC0796B");
