@@ -27,13 +27,20 @@ namespace Hotel.Views.Habitaciones
         }
         private void mostrarHabitaciones()
         {
-            context = new HotelContext();
-            controller = new HabitacionesController(context);
-            var lista = controller.GetAllObjects();
-            tbHabitaciones.Rows.Clear();
-            foreach (var i in lista)
+            try
             {
-                tbHabitaciones.Rows.Add(i.HabitacionId, i.Codigo, i.CategoriaHabitacion.Descripcion, i.Piso.Descripcion, i.PrecioPh);
+                context = new HotelContext();
+                controller = new HabitacionesController(context);
+                var lista = controller.GetAllObjects();
+                tbHabitaciones.Rows.Clear();
+                foreach (var i in lista)
+                {
+                    tbHabitaciones.Rows.Add(i.HabitacionId, i.Codigo, i.CategoriaHabitacion.Descripcion, i.Piso.Descripcion, i.PrecioPh);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         private void cellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -57,7 +57,9 @@
             btnGuardar = new ReaLTaiizor.Controls.MaterialButton();
             ckbCancelado = new ReaLTaiizor.Controls.MaterialCheckBox();
             txtTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)tbDetalles).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panelCarousel
@@ -65,10 +67,10 @@
             panelCarousel.AutoScroll = true;
             panelCarousel.BackColor = Color.Beige;
             panelCarousel.Dock = DockStyle.Bottom;
-            panelCarousel.Location = new Point(0, 669);
+            panelCarousel.Location = new Point(0, 648);
             panelCarousel.Margin = new Padding(0);
             panelCarousel.Name = "panelCarousel";
-            panelCarousel.Size = new Size(1029, 146);
+            panelCarousel.Size = new Size(1029, 167);
             panelCarousel.TabIndex = 0;
             // 
             // label1
@@ -76,7 +78,7 @@
             label1.Dock = DockStyle.Bottom;
             label1.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Gray;
-            label1.Location = new Point(0, 630);
+            label1.Location = new Point(0, 609);
             label1.Margin = new Padding(5);
             label1.Name = "label1";
             label1.Size = new Size(1029, 39);
@@ -89,7 +91,7 @@
             panelHabitaciones.AutoScroll = true;
             panelHabitaciones.BackColor = Color.Beige;
             panelHabitaciones.Dock = DockStyle.Bottom;
-            panelHabitaciones.Location = new Point(0, 480);
+            panelHabitaciones.Location = new Point(0, 459);
             panelHabitaciones.Margin = new Padding(0);
             panelHabitaciones.Name = "panelHabitaciones";
             panelHabitaciones.Size = new Size(1029, 150);
@@ -100,7 +102,7 @@
             label2.Dock = DockStyle.Bottom;
             label2.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Gray;
-            label2.Location = new Point(0, 441);
+            label2.Location = new Point(0, 420);
             label2.Margin = new Padding(5);
             label2.Name = "label2";
             label2.Size = new Size(1029, 39);
@@ -145,7 +147,7 @@
             tbDetalles.EnableHeadersVisualStyles = false;
             tbDetalles.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbDetalles.GridColor = Color.FromArgb(255, 255, 255);
-            tbDetalles.Location = new Point(0, 311);
+            tbDetalles.Location = new Point(0, 290);
             tbDetalles.Margin = new Padding(3, 2, 3, 2);
             tbDetalles.MultiSelect = false;
             tbDetalles.Name = "tbDetalles";
@@ -237,10 +239,10 @@
             label3.Dock = DockStyle.Bottom;
             label3.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Gray;
-            label3.Location = new Point(0, 272);
+            label3.Location = new Point(0, 250);
             label3.Margin = new Padding(5);
             label3.Name = "label3";
-            label3.Size = new Size(1029, 39);
+            label3.Size = new Size(1029, 40);
             label3.TabIndex = 58;
             label3.Text = "Detalles del pedido";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -257,7 +259,7 @@
             txtNumero.HideSelection = true;
             txtNumero.Hint = "Numero de habitación:";
             txtNumero.LeadingIcon = null;
-            txtNumero.Location = new Point(12, 34);
+            txtNumero.Location = new Point(14, 18);
             txtNumero.Margin = new Padding(3, 2, 3, 2);
             txtNumero.MaxLength = 32767;
             txtNumero.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -290,7 +292,7 @@
             txtCategoria.HideSelection = true;
             txtCategoria.Hint = "Categoria:";
             txtCategoria.LeadingIcon = null;
-            txtCategoria.Location = new Point(330, 34);
+            txtCategoria.Location = new Point(332, 18);
             txtCategoria.Margin = new Padding(3, 2, 3, 2);
             txtCategoria.MaxLength = 32767;
             txtCategoria.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -323,7 +325,7 @@
             txtPiso.HideSelection = true;
             txtPiso.Hint = "Piso:";
             txtPiso.LeadingIcon = null;
-            txtPiso.Location = new Point(661, 34);
+            txtPiso.Location = new Point(663, 18);
             txtPiso.Margin = new Padding(3, 2, 3, 2);
             txtPiso.MaxLength = 32767;
             txtPiso.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -368,7 +370,7 @@
             txtCedula.HideSelection = true;
             txtCedula.Hint = "Cedula";
             txtCedula.LeadingIcon = null;
-            txtCedula.Location = new Point(12, 86);
+            txtCedula.Location = new Point(14, 70);
             txtCedula.Margin = new Padding(3, 2, 3, 2);
             txtCedula.MaxLength = 32767;
             txtCedula.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -401,7 +403,7 @@
             txtApellido.HideSelection = true;
             txtApellido.Hint = "Apellidos";
             txtApellido.LeadingIcon = null;
-            txtApellido.Location = new Point(661, 86);
+            txtApellido.Location = new Point(663, 70);
             txtApellido.Margin = new Padding(3, 2, 3, 2);
             txtApellido.MaxLength = 32767;
             txtApellido.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -434,7 +436,7 @@
             txtNombre.HideSelection = true;
             txtNombre.Hint = "Nombres";
             txtNombre.LeadingIcon = null;
-            txtNombre.Location = new Point(330, 86);
+            txtNombre.Location = new Point(332, 70);
             txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.MaxLength = 32767;
             txtNombre.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -465,7 +467,7 @@
             btnGuardar.HighEmphasis = true;
             btnGuardar.Icon = null;
             btnGuardar.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnGuardar.Location = new Point(12, 138);
+            btnGuardar.Location = new Point(14, 122);
             btnGuardar.Margin = new Padding(4);
             btnGuardar.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnGuardar.Name = "btnGuardar";
@@ -483,7 +485,7 @@
             // 
             ckbCancelado.Depth = 0;
             ckbCancelado.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            ckbCancelado.Location = new Point(661, 138);
+            ckbCancelado.Location = new Point(663, 122);
             ckbCancelado.Margin = new Padding(0);
             ckbCancelado.MouseLocation = new Point(-1, -1);
             ckbCancelado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -509,7 +511,7 @@
             txtTotal.HideSelection = true;
             txtTotal.Hint = "Total a pagar";
             txtTotal.LeadingIcon = null;
-            txtTotal.Location = new Point(330, 138);
+            txtTotal.Location = new Point(332, 122);
             txtTotal.Margin = new Padding(3, 2, 3, 2);
             txtTotal.MaxLength = 32767;
             txtTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -530,31 +532,42 @@
             txtTotal.UseAccent = false;
             txtTotal.UseSystemPasswordChar = false;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(txtCategoria);
+            panel1.Controls.Add(txtTotal);
+            panel1.Controls.Add(txtPiso);
+            panel1.Controls.Add(ckbCancelado);
+            panel1.Controls.Add(txtNumero);
+            panel1.Controls.Add(btnGuardar);
+            panel1.Controls.Add(txtNombre);
+            panel1.Controls.Add(txtCedula);
+            panel1.Controls.Add(txtApellido);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 32);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1029, 203);
+            panel1.TabIndex = 69;
+            // 
             // VentaView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             ClientSize = new Size(1029, 815);
-            Controls.Add(txtTotal);
-            Controls.Add(ckbCancelado);
-            Controls.Add(btnGuardar);
-            Controls.Add(txtCedula);
-            Controls.Add(txtApellido);
-            Controls.Add(txtNombre);
-            Controls.Add(txtNumero);
-            Controls.Add(txtCategoria);
-            Controls.Add(txtPiso);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(tbDetalles);
             Controls.Add(label2);
             Controls.Add(panelHabitaciones);
             Controls.Add(label1);
             Controls.Add(panelCarousel);
+            Controls.Add(panel1);
+            Controls.Add(label4);
             FormBorderStyle = FormBorderStyle.None;
             Name = "VentaView";
             Text = "VentaView";
             ((System.ComponentModel.ISupportInitialize)tbDetalles).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -585,5 +598,6 @@
         private ReaLTaiizor.Controls.MaterialButton btnGuardar;
         private ReaLTaiizor.Controls.MaterialCheckBox ckbCancelado;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotal;
+        private Panel panel1;
     }
 }

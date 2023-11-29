@@ -214,6 +214,7 @@ namespace Hotel.Views.Pedidos.Compras
                                     };
                                     controller.AddDetalles(detalle);
                                 controller.ChageStockProductLess(idProducto, cantidad);
+                                tbDetalles.Rows.Clear();
                                 }
                             txtTotal.Text = string.Empty;
                                 MessageBox.Show("La compra ha sido registrada correctamente", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -77,7 +77,7 @@ namespace Hotel.Views.Habitaciones.Habitaciones
                     CategoriaHabitacionViewRegister form = new CategoriaHabitacionViewRegister(null);
                     form.ShowDialog();
                 }
-                this.Dispose();
+                this.Close();
             }
         }
         private void mostrarPisos()
@@ -122,7 +122,8 @@ namespace Hotel.Views.Habitaciones.Habitaciones
                             PrecioPh = Convert.ToDecimal(txtTarifa.Text),
                             Codigo = txtNumero.Text,
                             PisoId = piso.PisoId,
-                            CategoriaHabitacionId = categoria.CategoriaHabitacionId
+                            CategoriaHabitacionId = categoria.CategoriaHabitacionId,
+                            Activo = true
                         };
                         controller.AddObject(h);
                         MessageBox.Show("Nueva habitación registrada correctamente", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -140,7 +141,8 @@ namespace Hotel.Views.Habitaciones.Habitaciones
                             PrecioPh = Convert.ToDecimal(txtTarifa.Text),
                             Codigo = txtNumero.Text,
                             PisoId = piso.PisoId,
-                            CategoriaHabitacionId = categoria.CategoriaHabitacionId
+                            CategoriaHabitacionId = categoria.CategoriaHabitacionId,
+                            Activo = true
                         };
                         controller.UpdateObject(h);
                         MessageBox.Show("Los datos de la  habitación han sido actualizados correctamente", "Actualización exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);

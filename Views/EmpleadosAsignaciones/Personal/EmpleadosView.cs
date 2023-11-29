@@ -21,13 +21,20 @@ namespace Hotel.Views.EmpleadosAsignaciones.Personal
         }
         private async void mostrarEmpleados()
         {
-            var context = new HotelContext();
-            var controller = new EmpleadosController(context);
-            var lista = await controller.GetAllObjects();
-            tbEmpleados.Rows.Clear();
-            foreach (var i in lista)
+            try
             {
-                tbEmpleados.Rows.Add(i.EmpleadoId, i.Cedula, i.Nombre, i.Apellido, i.Nacimiento, i.Cargo.Descripcion, "", "");
+                var context = new HotelContext();
+                var controller = new EmpleadosController(context);
+                var lista = await controller.GetAllObjects();
+                tbEmpleados.Rows.Clear();
+                foreach (var i in lista)
+                {
+                    tbEmpleados.Rows.Add(i.EmpleadoId, i.Cedula, i.Nombre, i.Apellido, i.Nacimiento, i.Cargo.Descripcion, "", "");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         private async void cellContentClick(object sender, DataGridViewCellEventArgs e)
