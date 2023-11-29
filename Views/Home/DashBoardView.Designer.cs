@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoardView));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel6 = new Panel();
             hopePictureBox6 = new ReaLTaiizor.Controls.HopePictureBox();
@@ -58,7 +55,6 @@
             lblTotal = new Label();
             label1 = new Label();
             parrotGradientPanel1 = new Panel();
-            grapTopProductos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             label6 = new Label();
             tableLayoutPanel1.SuspendLayout();
             panel6.SuspendLayout();
@@ -74,7 +70,6 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).BeginInit();
             parrotGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)grapTopProductos).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -410,7 +405,6 @@
             // parrotGradientPanel1
             // 
             parrotGradientPanel1.BackColor = Color.Beige;
-            parrotGradientPanel1.Controls.Add(grapTopProductos);
             parrotGradientPanel1.Controls.Add(label6);
             parrotGradientPanel1.Dock = DockStyle.Top;
             parrotGradientPanel1.Location = new Point(0, 0);
@@ -418,30 +412,6 @@
             parrotGradientPanel1.Name = "parrotGradientPanel1";
             parrotGradientPanel1.Size = new Size(1004, 306);
             parrotGradientPanel1.TabIndex = 6;
-            // 
-            // grapTopProductos
-            // 
-            grapTopProductos.BackColor = Color.Transparent;
-            chartArea1.Area3DStyle.Inclination = 50;
-            chartArea1.Area3DStyle.IsRightAngleAxes = false;
-            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.None;
-            chartArea1.Area3DStyle.Perspective = 1;
-            chartArea1.Name = "ChartArea1";
-            grapTopProductos.ChartAreas.Add(chartArea1);
-            grapTopProductos.Dock = DockStyle.Fill;
-            legend1.Name = "Legend1";
-            grapTopProductos.Legends.Add(legend1);
-            grapTopProductos.Location = new Point(665, 0);
-            grapTopProductos.Name = "grapTopProductos";
-            grapTopProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            grapTopProductos.Series.Add(series1);
-            grapTopProductos.Size = new Size(339, 306);
-            grapTopProductos.TabIndex = 1;
-            grapTopProductos.Text = "chart1";
             // 
             // label6
             // 
@@ -451,7 +421,7 @@
             label6.ForeColor = Color.FromArgb(0, 51, 102);
             label6.Location = new Point(0, 0);
             label6.Name = "label6";
-            label6.Size = new Size(665, 306);
+            label6.Size = new Size(1001, 306);
             label6.TabIndex = 0;
             label6.Text = "Blue\r\nDiamond\r\n";
             // 
@@ -481,7 +451,6 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)hopePictureBox1).EndInit();
             parrotGradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)grapTopProductos).EndInit();
             ResumeLayout(false);
         }
 
@@ -514,6 +483,5 @@
         private ReaLTaiizor.Controls.HopePictureBox hopePictureBox2;
         private Label lblDisponibles;
         private Label label3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart grapTopProductos;
     }
 }

@@ -232,11 +232,13 @@
             // 
             btnInformeHospedajes.Name = "btnInformeHospedajes";
             resources.ApplyResources(btnInformeHospedajes, "btnInformeHospedajes");
+            btnInformeHospedajes.Click += btnInformeHospedajes_Click;
             // 
             // btnInformeNomina
             // 
             btnInformeNomina.Name = "btnInformeNomina";
             resources.ApplyResources(btnInformeNomina, "btnInformeNomina");
+            btnInformeNomina.Click += btnInformeNomina_Click;
             // 
             // btnAyudaMenu
             // 

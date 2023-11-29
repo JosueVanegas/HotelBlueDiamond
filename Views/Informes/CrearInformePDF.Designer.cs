@@ -76,6 +76,7 @@
             btnSalir.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Outlined;
             btnSalir.UseAccentColor = true;
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // btnGenerar
             // 

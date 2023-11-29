@@ -160,36 +160,6 @@
   <data name="Menu.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 14pt</value>
   </data>
-  <data name="Menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 33</value>
-  </data>
-  <data name="Menu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 30</value>
-  </data>
-  <data name="Menu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 2, 0, 2</value>
-  </data>
-  <data name="Menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 602</value>
-  </data>
-  <data name="Menu.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="Menu.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;Menu.Name" xml:space="preserve">
-    <value>Menu</value>
-  </data>
-  <data name="&gt;&gt;Menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Menu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Menu.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="btnInicioMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
@@ -271,6 +241,42 @@
   <data name="btnRecepcionMenu.ToolTipText" xml:space="preserve">
     <value>Hospedaje</value>
   </data>
+  <data name="btnServicioHabitacion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 30</value>
+  </data>
+  <data name="btnServicioHabitacion.Text" xml:space="preserve">
+    <value>Servicio a la habitación</value>
+  </data>
+  <data name="btnCompraSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 30</value>
+  </data>
+  <data name="btnCompraSubMenu.Text" xml:space="preserve">
+    <value>Compra de productos</value>
+  </data>
+  <data name="productosToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 30</value>
+  </data>
+  <data name="productosToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Productos</value>
+  </data>
+  <data name="categoriasToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 30</value>
+  </data>
+  <data name="categoriasToolStripMenuItem2.Text" xml:space="preserve">
+    <value>Categorias</value>
+  </data>
+  <data name="proveedoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 30</value>
+  </data>
+  <data name="proveedoresToolStripMenuItem.Text" xml:space="preserve">
+    <value>Proveedores</value>
+  </data>
+  <data name="btnInventarioSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 30</value>
+  </data>
+  <data name="btnInventarioSubMenu.Text" xml:space="preserve">
+    <value>Inventario</value>
+  </data>
   <data name="btnTiendaMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
@@ -308,41 +314,17 @@
   <data name="btnTiendaMenu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="btnServicioHabitacion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 30</value>
+  <data name="btnHabitaciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 30</value>
   </data>
-  <data name="btnServicioHabitacion.Text" xml:space="preserve">
-    <value>Servicio a la habitación</value>
+  <data name="btnHabitaciones.Text" xml:space="preserve">
+    <value>Habitaciones</value>
   </data>
-  <data name="btnCompraSubMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 30</value>
+  <data name="btnCategorias.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 30</value>
   </data>
-  <data name="btnCompraSubMenu.Text" xml:space="preserve">
-    <value>Compra de productos</value>
-  </data>
-  <data name="btnInventarioSubMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 30</value>
-  </data>
-  <data name="btnInventarioSubMenu.Text" xml:space="preserve">
-    <value>Inventario</value>
-  </data>
-  <data name="productosToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 30</value>
-  </data>
-  <data name="productosToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Productos</value>
-  </data>
-  <data name="categoriasToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 30</value>
-  </data>
-  <data name="categoriasToolStripMenuItem2.Text" xml:space="preserve">
+  <data name="btnCategorias.Text" xml:space="preserve">
     <value>Categorias</value>
-  </data>
-  <data name="proveedoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 30</value>
-  </data>
-  <data name="proveedoresToolStripMenuItem.Text" xml:space="preserve">
-    <value>Proveedores</value>
   </data>
   <data name="btnHabitacionesMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -381,17 +363,29 @@
   <data name="btnHabitacionesMenu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="btnHabitaciones.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 30</value>
+  <data name="btnAsignacion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 30</value>
   </data>
-  <data name="btnHabitaciones.Text" xml:space="preserve">
-    <value>Habitaciones</value>
+  <data name="btnAsignacion.Text" xml:space="preserve">
+    <value>Asignacion</value>
   </data>
-  <data name="btnCategorias.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 30</value>
+  <data name="btnEmpleado.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 30</value>
   </data>
-  <data name="btnCategorias.Text" xml:space="preserve">
-    <value>Categorias</value>
+  <data name="btnEmpleado.Text" xml:space="preserve">
+    <value>Empleados</value>
+  </data>
+  <data name="btnCargo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 30</value>
+  </data>
+  <data name="btnCargo.Text" xml:space="preserve">
+    <value>Cargos</value>
+  </data>
+  <data name="personalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 30</value>
+  </data>
+  <data name="personalToolStripMenuItem.Text" xml:space="preserve">
+    <value>Personal</value>
   </data>
   <data name="btnEmpleadosMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -433,30 +427,6 @@
   </data>
   <data name="btnEmpleadosMenu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
-  </data>
-  <data name="btnAsignacion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 30</value>
-  </data>
-  <data name="btnAsignacion.Text" xml:space="preserve">
-    <value>Asignacion</value>
-  </data>
-  <data name="personalToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 30</value>
-  </data>
-  <data name="personalToolStripMenuItem.Text" xml:space="preserve">
-    <value>Personal</value>
-  </data>
-  <data name="btnEmpleado.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 30</value>
-  </data>
-  <data name="btnEmpleado.Text" xml:space="preserve">
-    <value>Empleados</value>
-  </data>
-  <data name="btnCargo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 30</value>
-  </data>
-  <data name="btnCargo.Text" xml:space="preserve">
-    <value>Cargos</value>
   </data>
   <data name="btnClientesMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -543,6 +513,24 @@
   <data name="btnUsuariosMenu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="btnInformeInventario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 30</value>
+  </data>
+  <data name="btnInformeInventario.Text" xml:space="preserve">
+    <value>Informe de stock de productos</value>
+  </data>
+  <data name="btnInformeHospedajes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 30</value>
+  </data>
+  <data name="btnInformeHospedajes.Text" xml:space="preserve">
+    <value>Informe de hospedajes</value>
+  </data>
+  <data name="btnInformeNomina.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 30</value>
+  </data>
+  <data name="btnInformeNomina.Text" xml:space="preserve">
+    <value>Generador de nomina</value>
+  </data>
   <data name="btnReportesMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
@@ -578,24 +566,6 @@
   </data>
   <data name="btnReportesMenu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
-  </data>
-  <data name="btnInformeInventario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 30</value>
-  </data>
-  <data name="btnInformeInventario.Text" xml:space="preserve">
-    <value>Informe de inventario actual</value>
-  </data>
-  <data name="btnInformeHospedajes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 30</value>
-  </data>
-  <data name="btnInformeHospedajes.Text" xml:space="preserve">
-    <value>Informe de hospedajes</value>
-  </data>
-  <data name="btnInformeNomina.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 30</value>
-  </data>
-  <data name="btnInformeNomina.Text" xml:space="preserve">
-    <value>Generador de nomina</value>
   </data>
   <data name="btnAyudaMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -635,56 +605,35 @@
   <data name="btnAyudaMenu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;lblUsuario.Name" xml:space="preserve">
-    <value>lblUsuario</value>
+  <data name="Menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 33</value>
   </data>
-  <data name="&gt;&gt;lblUsuario.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Menu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 30</value>
   </data>
-  <data name="&gt;&gt;lblUsuario.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="Menu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 2, 0, 2</value>
   </data>
-  <data name="&gt;&gt;lblUsuario.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="Menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 602</value>
   </data>
-  <data name="&gt;&gt;btnCambiarUsuario.Name" xml:space="preserve">
-    <value>btnCambiarUsuario</value>
+  <data name="Menu.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;btnCambiarUsuario.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Menu.Text" xml:space="preserve">
+    <value>menuStrip1</value>
   </data>
-  <data name="&gt;&gt;btnCambiarUsuario.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;Menu.Name" xml:space="preserve">
+    <value>Menu</value>
   </data>
-  <data name="&gt;&gt;btnCambiarUsuario.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;Menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1281, 33</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Menu.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;Menu.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lblUsuario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -778,6 +727,33 @@
   <data name="&gt;&gt;btnCambiarUsuario.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1281, 33</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="lblReloj.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -814,6 +790,24 @@
   <metadata name="Reloj.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>153, 17</value>
   </metadata>
+  <data name="lblConexion.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lblConexion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 13.8pt</value>
+  </data>
+  <data name="lblConexion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblConexion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>506, 26</value>
+  </data>
+  <data name="lblConexion.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblConexion.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
   <data name="&gt;&gt;lblConexion.Name" xml:space="preserve">
     <value>lblConexion</value>
   </data>
@@ -851,36 +845,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblConexion.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="lblConexion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt</value>
-  </data>
-  <data name="lblConexion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="lblConexion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>506, 26</value>
-  </data>
-  <data name="lblConexion.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="lblConexion.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lblConexion.Name" xml:space="preserve">
-    <value>lblConexion</value>
-  </data>
-  <data name="&gt;&gt;lblConexion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblConexion.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;lblConexion.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

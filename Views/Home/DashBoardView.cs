@@ -23,7 +23,6 @@ namespace Hotel.Views.Home
             context = new HotelContext();
             controller = new DashBoardController(context);
             llenarDashboard();
-            cargarGrafica();
         }
         private async void llenarDashboard()
         {
@@ -33,28 +32,6 @@ namespace Hotel.Views.Home
             lblLimpieza.Text = (await controller.HabitacionesDisponibles(3)).ToString();
             lblMantenimiento.Text = (await controller.HabitacionesDisponibles(4)).ToString();
             lblCantidadHuespedes.Text = (await controller.CantidadHuespedes()).ToString();
-        }
-
-        private async void cargarGrafica()
-        {
-            using(var contex = new HotelContext())
-            {
-                var control = new DashBoardController(contex);
-                var datos = await control.GraphicDataAsync();
-
-                if (datos != null)
-                {
-                    foreach (var item in datos)
-                    {
-                        grapTopProductos.Series["Series1"].Points.AddXY(item.Key, item.Value);
-                    }
-                    grapTopProductos.Visible = true;
-                }
-                else
-                {
-                    grapTopProductos.Visible = false;
-                }
-            }
         }
     }
 }
