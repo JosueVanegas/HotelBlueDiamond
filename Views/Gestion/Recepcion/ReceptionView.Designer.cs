@@ -405,7 +405,7 @@
             txtPrecioPH.Name = "txtPrecioPH";
             txtPrecioPH.PasswordChar = '\0';
             txtPrecioPH.PrefixSuffixText = null;
-            txtPrecioPH.ReadOnly = false;
+            txtPrecioPH.ReadOnly = true;
             txtPrecioPH.RightToLeft = RightToLeft.No;
             txtPrecioPH.SelectedText = "";
             txtPrecioPH.SelectionLength = 0;
@@ -559,7 +559,7 @@
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(889, 518);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "ReceptionView";

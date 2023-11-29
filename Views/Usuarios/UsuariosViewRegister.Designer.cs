@@ -170,7 +170,7 @@
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(436, 74);
             lblTitulo.TabIndex = 2;
-            lblTitulo.Text = "Registrar cliente";
+            lblTitulo.Text = "Registrar usuario";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtUsuario
